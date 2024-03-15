@@ -10,22 +10,26 @@
     --font-description-color: #6B6C6C;
     --font-btn1-color: #FFFFFF;
     --font-btn2-color: #FFFFFF;
-    --font-btn3-color: #101010;
-    --font-btn4-color: #648991;
-    --font-navbar-color: #3C5257;
-    --font-footer-color: #FFFFFF;
+    --font-btn3-color: #91C3E4;
+    --font-btn4-color: #FE486A;
+    --font-navbar-color: #1C1C1C;
+    --font-navbar-color2: #91C3E4;
+    --font-footer-color1: #1C1C1C;
+    --font-footer-color2: #91C3E4;
+    --font-footer-color2: #FE486A;
     /* Colores de Fondo */
-    --background-btn1: #648991;
-    --background-btn2: #6B6C6C;
+    --background-btn1: #FE486A;
+    --background-btn2: #91C3E4;
     --background-btn3: #FFFCF4;
     --background-btn4: #FCFDFF;
     --background-body-color: #FCFDFF;
     --background-navba-color: #FCFDFF;
-    --background-footer-color1: #8FB1A0;
-    --background-footer-color2: #648991;
+    --background-footer-color1: #FCFDFF;
+    --background-footer-color2: #91C3E4;
     /*  Colores de Borde*/
-    --border-btn4-color: #648991;
-    --linea-border-color: #FFAB91;
+    --border-btn4-color: #FE486A;
+    --linea-border-color1: #FE486A;
+    --linea-border-color2: #91C3E4;
 }
 
 body {
