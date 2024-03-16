@@ -13,6 +13,6 @@ app.use(express.json());
 app.use(cors());
 app.use(logger());
 
-app.use("/", userRoutes);
+app.use("/api/v1", userRoutes);
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`));

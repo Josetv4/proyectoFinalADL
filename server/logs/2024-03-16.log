@@ -142,3 +142,27 @@ Completed: 200 message:  Time response: 46 ms Request ID: [c4832bb5-5988-4413-ad
 Started DELETE /usuarios/4 for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:24:02 GMT-0300 (hora de verano de Chile)
   Parameters in body: {}
 Completed: 200 message:  Time response: 33 ms Request ID: [4493f333-f240-4a49-b83f-2a9a1431fe3c]
+
+Started DELETE /usuarios/5 for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:36:07 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 5 ms Request ID: [8843645f-5732-47ed-a5f6-5637efebeb38]
+
+Started DELETE /api/v1/usuarios/5 for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:36:28 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 57 ms Request ID: [c2a3a695-da4d-4560-92d0-f135383b3632]
+
+Started DELETE /api/v1/users/5 for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:36:42 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 3 ms Request ID: [81d64362-94bf-41b2-8e19-c5d55bb37467]
+
+Started DELETE /api/v1/users/5 for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:36:45 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 1 ms Request ID: [7150c2e4-e211-4ba3-a831-1fc803c21b6d]
+
+Started DELETE /api/v1/users/5 for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:39:50 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 48 ms Request ID: [2bcd0a83-7dd9-4c5e-9b7a-e8cafeeed8f4]
+
+Started GET /api/v1/users/ for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 00:43:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 34 ms Request ID: [545e26ba-513c-4930-941e-b5bbb4abdefd]

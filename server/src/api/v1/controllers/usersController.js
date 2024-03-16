@@ -3,7 +3,7 @@ import { getUser, getUserId, createUser, updateUser, deleteUser } from "../model
 const getUsers = async (req, res) => {
   try {
     const users = await getUser();
-    res.status(200).json({ users });
+    res.status(200).json({ users : users });
   } catch (error) {
     res.status(400).json(error.message);
   }

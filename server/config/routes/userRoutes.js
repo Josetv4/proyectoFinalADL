@@ -7,18 +7,18 @@ import express from "express";
 import { validateParametersUser } from "../../middlewares/validateParametersUser.js";
 import { validateParametersLogin } from "../../middlewares/validateParametersLogin.js";
 import { authToken } from "../../middlewares/authToken.js"
-
-import { getActivity } from "../../middlewares/reports.js"; */
+*/
+import { getActivity } from "../../middlewares/reports.js"; 
 
 
 const router = express.Router();
 
 
-router.get("/usuarios", getUsers )
-router.get("/usuarios/:id", getUsersId )
-router.post("/usuarios/", createNewUser )
-router.put("/usuarios/:id", updateUsers )
-router.delete("/usuarios/:id", deleteUsers )
+router.get("/users", getActivity, getUsers )
+router.get("/users/:id", getActivity, getUsersId )
+router.post("/users/", getActivity, createNewUser )
+router.put("/users/:id", getActivity, updateUsers )
+router.delete("/users/:id", getActivity, deleteUsers )
 
 
 export default router;
