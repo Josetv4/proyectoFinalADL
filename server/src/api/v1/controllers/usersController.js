@@ -3,7 +3,7 @@ import { getUser, getUserId, createUser, updateUser, deleteUser } from "../model
 const getUsers = async (req, res) => {
   try {
     const users = await getUser();
-    res.status(200).json({ users : users });
+    res.status(200).json({ user : users });
   } catch (error) {
     res.status(400).json(error.message);
   }
@@ -15,7 +15,7 @@ const getUsersId = async (req, res) => {
   
   try {
     const users = await getUserId(id);
-    res.status(200).json({ users });
+    res.status(200).json({ user : users  });
   } catch (error) {
     res.status(400).json(error.message);
   }
@@ -37,8 +37,8 @@ const updateUsers = async (req, res) => {
   const user = req.body;
   try {
     
-    const newUser = await updateUser(id, user);
-    res.status(201).json({ user: newUser });
+    const userUpdate = await updateUser(id, user);
+    res.status(201).json({ user: userUpdate });
   } catch (error) {
     res.status(400).json(error.message);
   }
