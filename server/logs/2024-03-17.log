@@ -72,3 +72,91 @@ Completed: 200 message:  Time response: 5493 ms Request ID: [a0ecc32e-157c-47d2-
 Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Sat Mar 16 2024 23:32:00 GMT-0300 (hora de verano de Chile)
   Parameters in body: {}
 Completed: 200 message:  Time response: 1462 ms Request ID: [97269f50-3bcc-4045-b9a2-f4c22043067f]
+
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:11:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1215 ms Request ID: [2ba20fe0-533c-4205-94ba-d97af7c7e2f0]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:11:18 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"1234567890","password":"contraseña_segura","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 2 ms Request ID: [ae8263f5-2be9-4940-bc1c-1dd5344102e9]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:11:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"123456789","password":"contraseña_segura","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 3 ms Request ID: [949501fa-b6ce-48a1-af3e-7ad83ba20bdc]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:11:44 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"123456789","password":"contraseña_segura","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 2 ms Request ID: [c09f26ce-9429-4b12-a177-c00b72be5f8f]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:11:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"0123456789","password":"contraseña_segura","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 1 ms Request ID: [086d86e5-abc0-4769-9cbe-6ea91301c2e5]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:12:04 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"01234567891","password":"contraseña_segura","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 2 ms Request ID: [e0ef3f37-edd9-46c9-87b7-9f9bc58bb5fa]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:13:59 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"1234567890","password":"contraseña_segura","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 15 ms Request ID: [5a4a98d9-c855-416d-bd7f-4c939c9403f1]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:14:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"cliente","status":"activo"}
+Completed: 400 message:  Time response: 10 ms Request ID: [3230f4ab-7b97-43b9-b474-20745b481b99]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:15:03 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"user","status":"activo"}
+Completed: 400 message:  Time response: 4 ms Request ID: [16f88282-d6e6-422e-8d50-a21f81ab8e1f]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:15:13 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"123 Calle Principal","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 201 message:  Time response: 3642 ms Request ID: [099cc658-ae7a-4c47-ae66-dd5be556a0d4]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:16:10 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 400 message:  Time response: 11 ms Request ID: [0ad3cdec-803e-461d-81c2-3a1dcba9b69d]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:17:04 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 400 message:  Time response: 4 ms Request ID: [23701f0a-2bb9-4b32-8a97-db426f5113e5]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:17:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 400 message:  Time response: 4314 ms Request ID: [57b923eb-88db-4c79-8fec-8d4b7df7faed]
+
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:17:47 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario@example.com","phone":"1234567890","password":"12345678","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 200 message:  Time response: 1426 ms Request ID: [25ce4234-7912-451e-9fc8-759ba66a4298]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:18:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 400 message:  Time response: 1526 ms Request ID: [c3666673-1e5b-46b5-a25e-6bec82ea205d]
+
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:19:58 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 200 message:  Time response: 1025 ms Request ID: [253fa4cd-81f6-435a-b1a1-616de11cfd72]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:20:18 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 400 message:  Time response: 1115 ms Request ID: [1043d139-0a97-4efa-9578-8b61b95e65fb]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:25:00 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario3@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 201 message:  Time response: 3498 ms Request ID: [6bc6642f-a36b-4da8-854d-ba7b42f07916]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:25:15 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuario3","email":"usuario6@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 201 message:  Time response: 1578 ms Request ID: [cb9335c3-efe7-482d-b96c-4f7f25804c8f]
+
+Started PUT /api/v1/users/8 for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:28:39 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuarioxx","email":"usuarioxxxxx@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 201 message:  Time response: 3221 ms Request ID: [be8355c0-daa8-4795-b42a-2c5e3f2a674c]
+
+Started GET /api/v1/users/8 for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:28:56 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuarioxx","email":"usuarioxxxxx@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 200 message:  Time response: 1258 ms Request ID: [460b4f0a-449b-403b-b2f4-9229615dc60c]
+
+Started DELETE /api/v1/users/8 for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:31:46 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuarioxx","email":"usuarioxxxxx@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 200 message:  Time response: 3803 ms Request ID: [c3e92ccc-5e8d-4f2b-bd16-ebccd52b0413]
