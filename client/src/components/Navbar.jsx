@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Search from '../utils/Search';
+import UserLogged from '../utils/UserLogged';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,7 +38,7 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static"  sx={{ backgroundColor: '#FCFDFF' }}>
+        <AppBar position="static"  sx={{ backgroundColor: 'blue' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -159,35 +160,7 @@ function ResponsiveAppBar() {
                         ))}
                         <Search />
                         {/* este seria para el de inicio de sesión en version web */}
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Inicia sesión o registrate">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
+                        <UserLogged />
                     </Box>
                             {/* este seria para el Carrito para la version web */}
                     <Box sx={{ flexGrow: 0 }}>
