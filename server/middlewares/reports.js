@@ -7,8 +7,7 @@ const getActivity = async (req, res, next) => {
     console.log(
       `Hoy ${new Date()} 
       se ha recibido una consulta de la ruta ${url}
-      con los parámetros: ${parametros_body} 
-      y con datos de query, ${query} ` 
+      con los parámetros:`, parametros_body , ` y con datos de query`, query  
     )
     next()
   }
