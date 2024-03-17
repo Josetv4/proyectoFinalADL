@@ -1,1 +1,7 @@
 /* borre el css de default */
+:root{
+    --fondo: #FCFDFF;
+    --rojo: #FE486A;
+    --celeste: #91C3E4;
+
+}

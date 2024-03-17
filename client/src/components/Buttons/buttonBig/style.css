@@ -1,0 +1,8 @@
+.button_big{
+    border: none;
+    border-radius: 100px;
+    background-color: var(--rojo);
+    color: var(--fondo);
+    width: 368px;
+    height: 48px;
+}

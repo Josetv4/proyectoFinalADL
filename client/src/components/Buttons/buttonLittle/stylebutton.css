@@ -1,0 +1,8 @@
+.button_little{
+    border: none;
+    border-radius: 100px;
+    background-color:var(--rojo);
+    width: 166px;
+    height: 45px;
+    color: var(--fondo);
+}

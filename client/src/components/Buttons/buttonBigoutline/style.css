@@ -1,0 +1,7 @@
+.button_outline{
+    border: 1px solid var(--rojo);
+    color: var(--rojo);
+    width: 368px;
+    height: 48px;
+    border-radius: 100px;
+}
