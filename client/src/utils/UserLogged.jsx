@@ -1,15 +1,18 @@
-import * as React from 'react';
-import { RxAvatar } from "react-icons/rx";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
+import React from 'react';
+import { RxAvatar } from 'react-icons/rx';
+import {
+    Box,
+    Typography,
+    Button,
+    Tooltip,
+} from '@mui/material';
+
 import { NavLink } from 'react-router-dom';
 
-export default function UserLogged() {
+const UserLogged = () => {
     return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1px' } }>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
                 <Button
                     component={NavLink}
                     to="/login"
@@ -47,5 +50,6 @@ export default function UserLogged() {
             </Box>
         </Box>
     );
-}
+};
 
+export default UserLogged;
