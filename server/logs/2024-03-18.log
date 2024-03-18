@@ -127,3 +127,30 @@ Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 22:
   Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
 Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 22:42:56 GMT-0300 (hora de verano de Chile)
   Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:06:31 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:06:45 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:08:07 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:09:06 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:11:24 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:12:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:13:07 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:13:41 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:16:50 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Completed: 200 message:  Time response: 1384 ms Request ID: [687d22bb-3d25-4485-b270-904b7a32a7e0]
+
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:17:00 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Completed: 200 message:  Time response: 323 ms Request ID: [a7efaf35-cb9d-44b4-9f60-e0cc4dd96095]
+
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Mon Mar 18 2024 00:17:03 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":"1","image_url":"https://ejemplo.com/imagen1.jpg","post_status":"Publicado","user_id":1}
+Completed: 200 message:  Time response: 226 ms Request ID: [e01d0be2-b23c-42ce-b8e7-1045259ac937]

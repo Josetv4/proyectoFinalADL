@@ -100,11 +100,7 @@ const deleteProduct = async (id) => {
     values: [id],
   };
   const response = await pool.query(SQLquery);
-  
-  if (response.rows.length === 0) {
-    throw new Error("No se encontró ningún usuario con el ID proporcionado");
-  }
-  return response.rows[0];
+  return response.rowCount;
 };
 
 export {

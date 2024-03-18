@@ -66,6 +66,7 @@ const deleteProducts = async (req, res) => {
     const response = await deleteProduct(id);
     res.status(200).json({ message: 'Producto eliminado correctamente', product: response });
   } catch (error) {
+    console.log(error)
     const errorFound = handleError(error.code);
     return res
       .status(errorFound[0]?.status)

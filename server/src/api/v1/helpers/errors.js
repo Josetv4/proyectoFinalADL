@@ -9,6 +9,7 @@ const ERRORS = [
   { code: "auth02", status: 400, message: "Contraseña inválida" },
   { code: "auth03", status: 401, message: "El token debe estar presente" },
   { code: "auth04", status: 401, message: "El token no es válido" },
+  
   ];
   
   export default ERRORS;
