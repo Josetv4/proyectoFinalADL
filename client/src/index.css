@@ -1,6 +1,8 @@
 :root {
-    font-family: "Arvo", serif;
     /* Fuente para parrafos */
+    font-family: "Arvo", serif;
+    --font-body: "Arvo", serif;
+    --font-title: "Oswald", sans-serif;
     /* Paleta de colores */
     /* Colores de Fuente */
     --font-placeholder-color: #6B6C6C;
