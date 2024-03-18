@@ -11,6 +11,7 @@ import DesktopButtons from "../utils/DesktopButtons";
 import UserLogged from "../utils/UserLogged";
 import CartButton from "../utils/CartButton";
 
+
 const pages = ["Products", "Pricing", "Blog"];
 
 function ResponsiveAppBar() {

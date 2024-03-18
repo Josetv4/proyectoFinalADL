@@ -14,16 +14,14 @@ const arrayProducts = [
 ];
 
 const Category = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     //const [products,setProducts] = useState(null);
     return (
         <>
-            {arrayProducts.map((product,i)=>
-                <ProductCard key={i} product={product}/>
+            {arrayProducts.map((product, i) =>
+                <ProductCard key={i} product={product} />
             )}
         </>
-        
-        
     );
 };
 export default Category;

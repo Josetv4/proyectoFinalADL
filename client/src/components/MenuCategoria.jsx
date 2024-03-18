@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { KeyboardArrowDown as KeyboardArrowDownIcon } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const categories = [
   {nombre: "Belleza" , id : 1 },
@@ -30,9 +30,7 @@ const MenuCategoria = () => {
 
   const handleClose = (event) => {
     setAnchorEl(null);
-    setAnchorEl(null);
     const { myId } = event.target.dataset;
-    console.log("myId :" , myId)
     setId(myId);
     navigate(`/category/${myId}`);
   };
@@ -44,32 +42,31 @@ const MenuCategoria = () => {
   return (
     <div>
       <Button
-        id="demo-positioned-button"
-        aria-controls={open ? 'demo-positioned-menu' : undefined}
+        id="button-category"
+        aria-controls={open ? 'button-category' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-        activeclassname="active"
         sx={{
-            my: 2,
-            color: '#3C5257',
-            display: 'block',
-            textDecoration: 'none',
-            '&.active': {
-                color: 'red',
-            },
+          my: 2,
+          color: 'var(--font-navbar-color)',
+          fontFamily: 'var(--font-title)',
+          fontSize: '1.5rem',
+          textDecoration: 'none',
+          textTransform: 'none',
         }}
       >
         Categorías
+        <KeyboardArrowDownIcon />
       </Button>
       <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
+        id="menu-categoria"
+        aria-labelledby="menu-categoria"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'top',
+          vertical: 'bottom',
           horizontal: 'left',
         }}
         transformOrigin={{
@@ -78,10 +75,16 @@ const MenuCategoria = () => {
         }}
       >
         {categories.map( (category) => (
-          <MenuItem key={category.id} onClick={handleClose} data-my-id={category.id} >{category.nombre}</MenuItem>        
+          <MenuItem
+          key={category.id}
+          onClick={handleClose}
+          data-my-id={category.id}>
+            {category.nombre}
+          </MenuItem>
         ))}
       </Menu>
     </div>
   );
 }
+
 export default MenuCategoria;

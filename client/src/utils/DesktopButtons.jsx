@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 
+import MenuCategoria from '../components/MenuCategoria';
+
 const buttonStyles = {
     my: 2,
     color: 'var(--font-navbar-color)',
@@ -25,12 +27,7 @@ const DesktopButtons = () => {
             >
                 Home
             </Button>
-            <Button
-                activeClassName="active"
-                sx={buttonStyles}
-            >
-                Categoría
-            </Button>
+            <MenuCategoria />
             <Button
                 component={NavLink}
                 to="/sobre-nosotros"
