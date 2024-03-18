@@ -15,6 +15,8 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
+import MenuCategoria from './MenuCategoria';
+
 const pages = [
     { name: 'Home', path: '/' },
     { name: 'Sobre Nosotros', path: '/sobre-nosotros' },
@@ -97,6 +99,9 @@ function Navbar() {
                                             <ListItemText primary={page.name} />
                                         </ListItemButton>
                                     ))}
+                                    <ListItemButton key="Categoria" onClick={handleDrawerClose} component={NavLink}  activeClassName="active">
+                                            <ListItemText primary="Categoria" />
+                                    </ListItemButton>
                                 </Box>
                             </Box>
                         </Drawer>
@@ -106,7 +111,7 @@ function Navbar() {
                                     key={page.name}
                                     component={NavLink}
                                     to={page.path}
-                                    activeClassName="active"
+                                    activeclassname="active"
                                     sx={{
                                         my: 2,
                                         color: '#3C5257',
@@ -120,6 +125,7 @@ function Navbar() {
                                     {page.name}
                                 </Button>
                             ))}
+                            <MenuCategoria/>
                         </Box>
                     </Toolbar>
                 </Container>
