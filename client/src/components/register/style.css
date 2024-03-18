@@ -1,4 +1,39 @@
-.register_input{
-    display: flex;
-    flex-direction: column;
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+.register {
+  display: flex;
+  justify-content: center;
+  height: 65rem;
+}
+
+.register_form {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.register_input {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  justify-content: space-evenly;
+}
+input,
+select {
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--input-color);
+  padding: 0% 0% 0% 3%;
+}
+
+.register_term {
+  display: flex;
+  gap: 2%;
+}
+.register_term input {
+  border: var(--celeste);
 }
