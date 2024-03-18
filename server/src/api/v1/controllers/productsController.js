@@ -20,7 +20,7 @@ const getProductsId = async (req, res) => {
   
   try {
     const products = await getProductId(id);
-    res.status(200).json({ user : products  });
+    res.status(200).json({ product : products  });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
@@ -64,12 +64,12 @@ const deleteProducts = async (req, res) => {
   try {
     
     const response = await deleteProduct(id);
-    res.status(200).json({ message: 'Usuario eliminado correctamente', user: response });
+    res.status(200).json({ message: 'Producto eliminado correctamente', product: response });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 

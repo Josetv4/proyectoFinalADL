@@ -1,4 +1,5 @@
 import pool from "../../../../config/db/conectionDb.js";
+import bcrypt from "bcryptjs";
 
 const getUser = async () => {
   const SQLquery = {
