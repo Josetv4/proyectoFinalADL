@@ -16,6 +16,7 @@ const UserLogged = () => {
                 <Button
                     component={NavLink}
                     to="/login"
+                    activeClassName="active"
                     sx={{
                         color: 'var(--font-navbar-color)',
                         fontFamily: 'var(--font-title)',
@@ -24,6 +25,9 @@ const UserLogged = () => {
                         textDecoration: 'none',
                         mb: -1,
                         mt: -1,
+                        '&.active': {
+                            color: 'var(--font-navbar-color2)',
+                        },
                     }}
                 >
                     Iniciar sesión
@@ -32,11 +36,15 @@ const UserLogged = () => {
                     <Typography
                         component={NavLink}
                         to="/register"
+                        activeClassName="active"
                         sx={{
                             color: 'var(--font-btn3-color)',
                             fontFamily: 'var(--body)',
                             fontSize: '14px',
                             textDecoration: 'none',
+                            '&.active': {
+                                color: 'var(--font-link-color)',
+                            },
                         }}
                     >
                         ¿No tienes cuenta?
