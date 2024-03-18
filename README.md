@@ -10,7 +10,7 @@
 - [Neyeska Medina](https://github.com/NeyeskaMedina)
 - [Ingrid Morales](https://github.com/ingrid-mo)
 - [Yamil Castillo](https://github.com/YACSCH/)
-- [María José Cárdenas]
+- [María José Cárdenas](https://github.com/crcote)
 - ([José Luque](https://github.com/Josetv4))
 
 

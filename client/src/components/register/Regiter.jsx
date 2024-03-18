@@ -157,8 +157,9 @@ const Regiter = () => {
             <p>Terminos y condiciones de contrato</p>
           </div>
         </div>
+<div className="register_button">      
+    <ButtonLittle onClick={handleClick}>Enviar</ButtonLittle></div>
 
-        <ButtonLittle onClick={handleClick}>Enviar</ButtonLittle>
       </form>
     </div>
   );

@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   height: 65rem;
+  font-family: "Arvo", serif
 }
 
 .register_form {
@@ -33,7 +34,13 @@ select {
 .register_term {
   display: flex;
   gap: 2%;
+  align-items: center;
 }
 .register_term input {
-  border: var(--celeste);
+  color:  var(--linea-border-color2);
+  border: 2px solid var(--linea-border-color2);
+}
+.register_button{
+    display: flex;
+    justify-content: flex-end;
 }
