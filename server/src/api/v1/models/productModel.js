@@ -65,15 +65,15 @@ const updateProduct = async (
 ) => {
 
   const SQLquery = {
-    text: `UPDATE product 
-             SET name = $1
+    text: `UPDATE products 
+             SET name = $1,
              description = $2,
              price = $3,
              quantity = $4,
              category = $5,
              image_url = $6,
              post_status = $7,
-             user_id = $8,
+             user_id = $8
              WHERE product_id = $9 
              RETURNING *`,
     values: [

@@ -160,3 +160,19 @@ Completed: 200 message:  Time response: 1258 ms Request ID: [460b4f0a-449b-403b-
 Started DELETE /api/v1/users/8 for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 19:31:46 GMT-0300 (hora de verano de Chile)
   Parameters in body: {"username":"ejemplo_usuarioxx","email":"usuarioxxxxx@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
 Completed: 200 message:  Time response: 3803 ms Request ID: [c3e92ccc-5e8d-4f2b-bd16-ebccd52b0413]
+
+Started GET /api/v1/product for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 20:24:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"ejemplo_usuarioxx","email":"usuarioxxxxx@example.com","phone":"1234567890","password":"123456789","shipping_address":"aaaa","payment_method":"tarjeta_de_credito","role":"user","status":"A"}
+Completed: 404 message:  Time response: 6 ms Request ID: [60ebef20-38d7-419d-940c-a1ca64a428f0]
+
+Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 20:25:38 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 3 ms Request ID: [2579738b-8fd1-48ad-a851-23774b1c222a]
+
+Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 20:25:39 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 2 ms Request ID: [fdc991d2-17ac-4d1b-bc9f-586eacf3753b]
+
+Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sun Mar 17 2024 20:25:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 2 ms Request ID: [46353b05-d019-4204-8e23-2f7c17a94465]

@@ -1,8 +1,8 @@
-import { getProduct, getProductId, createProduct, updateProduct, deleteProduct } from "../models/userModel.js";
+import { getProduct, getProductId, createProduct, updateProduct, deleteProduct } from "../models/productModel.js";
 
 import { handleError } from "../utils/utils.js";
 
-const getProduct = async (req, res) => {
+const getProducts = async (req, res) => {
   try {
     const products = await getProduct();
     res.status(200).json({ product : products });
@@ -14,7 +14,7 @@ const getProduct = async (req, res) => {
   }
 };
 
-const getProductId = async (req, res) => {
+const getProductsId = async (req, res) => {
   
   const id = req.params 
   
@@ -42,7 +42,7 @@ const createNewProduct = async (req, res) => {
   }
 };
 
-const updateProduct = async (req, res) => {
+const updateProducts = async (req, res) => {
   
   const id = req.params;
   const product = req.body;
@@ -57,7 +57,7 @@ const updateProduct = async (req, res) => {
       .json({ error: errorFound[0].message });
   }
 };
-const deleteProduct = async (req, res) => {
+const deleteProducts = async (req, res) => {
   
   const { id } = req.params;
   

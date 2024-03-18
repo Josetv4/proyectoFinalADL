@@ -6,7 +6,7 @@ import { createNewProduct,
          updateProducts, 
          deleteProducts } from "../../src/api/v1/controllers/productsController.js";
 
-import { validateParametersProducts } from "../../middlewares/validateParametersUser.js";
+import { validateParametersProducts } from "../../middlewares/validateParametersProducts.js";
 
 import { getActivity } from "../../middlewares/reports.js"; 
 

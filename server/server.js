@@ -4,6 +4,7 @@ import { logger } from "logger-express";
 
 
 import userRoutes from "./config/routes/userRoutes.js";
+import productRoutes from "./config/routes/productRoutes.js";
 
 
 const app = express();
@@ -14,5 +15,6 @@ app.use(cors());
 app.use(logger());
 
 app.use("/api/v1", userRoutes);
+app.use("/api/v1", productRoutes);
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`));

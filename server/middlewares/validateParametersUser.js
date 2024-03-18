@@ -5,9 +5,7 @@ const userSchema = Joi.object({
   email: Joi.string().email().max(255).required(),
   phone: Joi.string().max(25).required(),
   password: Joi.string().max(10).required(),
-  shipping_address: Joi.string()
-                       .max(255)
-                       .required(),
+  shipping_address: Joi.string().max(255).required(),
   payment_method: Joi.string().max(100),
   role: Joi.string().valid("admin", "user").required(),
   status: Joi.string().valid("A", "I").required(),
