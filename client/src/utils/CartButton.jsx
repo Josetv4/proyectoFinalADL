@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Button,
+    IconButton,
     Tooltip,
     Badge,
 } from '@mui/material';
