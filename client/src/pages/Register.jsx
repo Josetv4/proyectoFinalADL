@@ -1,7 +1,11 @@
+import Regiter from "../components/register/regiter";
+
 const registerPage = () => {
+    
     return (
         <div >
-            <h1>Prueba pagina: Registro </h1>
+       
+       <Regiter/>
         </div>
     );
     };
