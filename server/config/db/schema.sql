@@ -2,6 +2,8 @@
 CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
+    rut VARCHAR(20) NOT NULL,
+    birth_date TIMESTAMP NOT NULL, 
     email VARCHAR(255) UNIQUE NOT NULL,
     phone VARCHAR(25) NOT NULL, 
     password VARCHAR(255) NOT NULL,
@@ -24,7 +26,7 @@ CREATE TABLE Products (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
-    category VARCHAR(100),
+    category_id INT REFERENCES categories(category_id),
     image_url VARCHAR(255),
     post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     post_status VARCHAR(50) NOT NULL,
