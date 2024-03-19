@@ -9,11 +9,11 @@ import InputLabel from '@mui/material/InputLabel';
 
 export default function Search() {
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', width: '25%' }}>
             <FormControl
                 sx={{
                     m: 1,
-                    width: 'auto',
+                    width: '100%',
                     borderRadius: '50px',
                     backgroundColor: '#FCFDFF',
                     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
