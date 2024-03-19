@@ -2,19 +2,19 @@
 CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
+    rut VARCHAR(20) NOT NULL,
+    birth_date TIMESTAMP NOT NULL, 
     email VARCHAR(255) UNIQUE NOT NULL,
     phone VARCHAR(25) NOT NULL, 
     password VARCHAR(255) NOT NULL,
-    shipping_address VARCHAR(255),
-    payment_method VARCHAR(100),
     role VARCHAR(15) NOT NULL,
     status varchar(1) NOT NULL
 );
 
-INSERT INTO Users (username, email, phone, password, shipping_address, payment_method, role, status)
+INSERT INTO Users (username, rut, birth_date, email,  phone, password, role, status)
 VALUES 
-    ('usuario1', 'usuario1@example.com', '123456789', 'contraseña1', 'Dirección 1', 'Tarjeta de crédito', 'cliente','A'),
-    ('usuario2', 'usuario2@example.com', '987654321', 'contraseña2', 'Dirección 2', 'PayPal', 'administrador','A');
+    ('usuario1','1-9', '2001-10-11', 'usuario1@example.com', '123456789', 'contraseña1', 'user','A'),
+    ('usuario2', '1-9', '2001-10-11','usuario2@example.com', '987654321', 'contraseña2', 'admin','A');
 
 -- Crear la tabla de Productos y Publicaciones, 
 -- como es un Marketplace 
@@ -24,7 +24,7 @@ CREATE TABLE Products (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
-    category VARCHAR(100),
+    category_id INT REFERENCES categories(category_id),
     image_url VARCHAR(255),
     post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     post_status VARCHAR(50) NOT NULL,
