@@ -41,14 +41,23 @@ CREATE TABLE Categories (
     name VARCHAR(100)  NOT NULL
  
 );
-INSERT INTO Categories(name) VALUES('Analgésicos'), 
-                                   ('Antiácidos'),
-                                   ('Antialérgicos'),
-                                   ('Antidiarreicos'),
-                                   ('Antiinfecciosos'),
-                                   ('Antiinflamatorios'),
-                                   ('Antipiréticos'),
-                                   ('Antitusivos');
+INSERT INTO categories(name) VALUES('Belleza'),
+('Anticonceptivos'),
+('Antidepresivos'),
+('Antipsicóticos'),
+('Analgésicos'),
+('Antipiréticos'),
+('Antidiarreicos'),
+('Antihipertensivos'),
+('Antiinflamatorios'),
+('Antialérgicos'),
+('Antivirales'),
+('Diabetes'),
+('Suplementos alimenticios'),
+('Oftalmológicos'),
+('Vitaminas y minerales'),
+('Laxantes'),
+('Tiroides');
 
 
 -- Crear la tabla de Comentarios y valoraciones
