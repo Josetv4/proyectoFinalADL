@@ -1,4 +1,7 @@
-import Regiter from "../components/register/Regiter";
+
+import Regiter from "../components/register/regiter";
+
+
 
 const registerPage = () => {
     
