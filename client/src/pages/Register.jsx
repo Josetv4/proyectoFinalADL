@@ -1,4 +1,7 @@
+
 import Regiter from "../components/register/Regiter";
+
+
 
 const registerPage = () => {
     
