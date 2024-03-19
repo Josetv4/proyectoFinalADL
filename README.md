@@ -11,7 +11,7 @@
 - [Ingrid Morales](https://github.com/ingrid-mo)
 - [Yamil Castillo](https://github.com/YACSCH/)
 - [María José Cárdenas](https://github.com/crcote)
-- ([José Luque](https://github.com/Josetv4))
+- [José Luque](https://github.com/Josetv4)
 
 
 ## Requisitos antes de la instalación
