@@ -5,7 +5,7 @@ const categorySchema = Joi.object({
 });
 
 
-const validateParametersUser = (req, res, next) => {
+const validateParametersCategory = (req, res, next) => {
   const { error } = categorySchema.validate(req.body);
 
   if (error) {
@@ -15,4 +15,4 @@ const validateParametersUser = (req, res, next) => {
   next();
 };
 
-export { validateParametersUser };
+export { validateParametersCategory };
