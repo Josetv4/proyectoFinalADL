@@ -22,29 +22,11 @@ const getProductId = async ({ id }) => {
   return response.rows[0];
 };
 
-const createProduct = async ({
-  name,
-  description,
-  price,
-  quantity,
-  category,
-  image_url,
-  post_status,
-  user_id,
-}) => {
+const createProduct = async ({ name,  description,  price,  quantity,  category,  post_status,  user_id },  image) => {
   const SQLquery = {
-    text: `INSERT INTO Products (name, description, price, quantity, category, image_url, post_status, user_id) 
+    text: `INSERT INTO Products (name, description, price, quantity, category, post_status, user_id, image_url) 
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-    values: [
-      name,
-      description,
-      price,
-      quantity,
-      category,
-      image_url,
-      post_status,
-      user_id,
-    ],
+    values: [ name, description, price, quantity, category, post_status, user_id, image ],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];

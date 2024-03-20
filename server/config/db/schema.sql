@@ -1,5 +1,5 @@
 -- Crear la tabla de Usuarios
-CREATE TABLE Users (
+CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
     rut VARCHAR(20) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Users (
 INSERT INTO Users (username, rut, birth_date, email,  phone, password, role, status)
 VALUES 
     ('usuario1','1-9', '2001-10-11', 'usuario1@example.com', '123456789', 'contraseña1', 'user','A'),
-    ('usuario2', '1-9', '2001-10-11','usuario2@example.com', '987654321', 'contraseña2', 'admin','A');
+    ('usuario2', '1-9', '2004-10-11','usuario2@example.com', '987654321', 'contraseña2', 'admin','A');
 
 -- Crear la tabla de Productos y Publicaciones, 
 -- como es un Marketplace 
@@ -25,10 +25,10 @@ CREATE TABLE Products (
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
     category_id INT REFERENCES categories(category_id),
-    image_url VARCHAR(255),
     post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     post_status VARCHAR(50) NOT NULL,
-    user_id INT REFERENCES Users(user_id)
+    user_id INT REFERENCES Users(user_id),
+    image_url VARCHAR(255)
 );
 INSERT INTO Products (name, description, price, quantity, category, image_url, post_status, user_id)
 VALUES 

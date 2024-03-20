@@ -32,13 +32,15 @@ const getProductsId = async (req, res) => {
 const createNewProduct = async (req, res) => {
   try {
     const product = req.body;
-    const newProduct = await createProduct(product);
+    const image = req.file.filename;
+    const newProduct = await createProduct(product,image );
     res.status(201).json({ product: newProduct });
   } catch (error) {
-    const errorFound = handleError(error.code);
+    console.log(error);
+    /* const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message }); */
   }
 };
 
