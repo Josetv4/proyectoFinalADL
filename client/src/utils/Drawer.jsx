@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Tooltip } from '@mui/material';
+import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from "@mui/icons-material/Menu";
 
 import DrawerListCategory from "../components/DrawerListCategory";
