@@ -31,16 +31,16 @@ const getProductsId = async (req, res) => {
 
 const createNewProduct = async (req, res) => {
   try {
-    const product = req.body;
-    //const image = req.file.filename;
-    const newProduct = await createProduct(product);
+    //const { name,  description,  price,  quantity,  category,  post_status,  user_id } = req.body;
+    console.log(req.body.name)
+    const product = req.body
+    const image = req.file.filename;
+    const newProduct = await createProduct( product, image );
     res.status(201).json({ product: newProduct });
   } catch (error) {
-    console.log(error);
-    /* const errorFound = handleError(error.code);
-    return res
-      .status(errorFound[0]?.status)
-      .json({ error: errorFound[0]?.message }); */
+    console.log(error)
+     const errorFound = handleError(error.code) || [{ status: 500, message: 'Error interno del servidor' }];
+    return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
   }
 };
 
