@@ -12,7 +12,7 @@ function ResponsiveAppBar() {
             position="static"
             sx={{
                 backgroundColor: "var(--background-navba-color)",
-                height: "12%",
+                height: "12.3vh",
                 borderBottom: '3px solid #FDA2B440',
             }}
         >

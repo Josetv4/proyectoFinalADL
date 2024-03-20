@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 
 import { NavLink } from 'react-router-dom';
+import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
 
 const UserLogged = () => {
     return (
@@ -18,16 +19,12 @@ const UserLogged = () => {
                     to="/login"
                     activeClassName="active"
                     sx={{
+                        ...buttonStyles,
                         color: 'var(--font-navbar-color)',
                         fontFamily: 'var(--font-title)',
                         fontSize: '115%',
-                        textTransform: 'none',
-                        textDecoration: 'none',
                         mb: -1,
                         mt: -1,
-                        '&.active': {
-                            color: 'var(--font-navbar-color2)',
-                        },
                     }}
                 >
                     Iniciar sesión
