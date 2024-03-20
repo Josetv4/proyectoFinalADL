@@ -67,3 +67,12 @@ Started POST /api/v1/products/ for :: ::ffff:127.0.0.1 at Tue Mar 19 2024 23:25:
   Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":1,"post_status":"Publicado","user_id":1}
 Started POST /api/v1/products/ for :: ::ffff:127.0.0.1 at Tue Mar 19 2024 23:26:11 GMT-0300 (hora de verano de Chile)
   Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":1,"post_status":"Publicado","user_id":1}
+Started POST /api/v1/products/ for :: ::ffff:127.0.0.1 at Tue Mar 19 2024 23:31:50 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":1,"post_status":"Publicado","user_id":1}
+Started POST /api/v1/products/ for :: ::ffff:127.0.0.1 at Tue Mar 19 2024 23:32:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":1,"post_status":"Publicado","user_id":1}
+Started POST /api/v1/products/ for :: ::ffff:127.0.0.1 at Tue Mar 19 2024 23:35:24 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":1,"post_status":"Publicado","user_id":1}
+Started POST /api/v1/products/ for :: ::ffff:127.0.0.1 at Tue Mar 19 2024 23:35:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"name":"Producto 111","description":"Descripción del Producto111","price":"29","quantity":100,"category":1,"post_status":"Publicado","user_id":1}
+Completed: 201 message:  Time response: 1032 ms Request ID: [767531b9-53cc-449c-948e-db59562c67fb]

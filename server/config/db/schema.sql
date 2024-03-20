@@ -36,7 +36,7 @@ VALUES
     ('Producto 2', 'Descripción del Producto2', 29.99, 50, 'Categoría 2', 'https://ejemplo.com/imagen2.jpg', 'Publicado', 2);
 
 -- Crear la tabla de Categorías
-CREATE TABLE Categories (
+CREATE TABLE categories (
     category_id SERIAL PRIMARY KEY,
     name VARCHAR(100)  NOT NULL
  
