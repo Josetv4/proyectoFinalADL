@@ -35,6 +35,8 @@
     --linea-border-color2: #91C3E4;
     --linea-border-navba: #FDA2B440;
     --input-color:#786f9d2a;
+    /*  Colores fondo hover*/
+    --background-hover-color: #91c3e419;
 }
 
 body {

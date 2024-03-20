@@ -5,14 +5,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import DrawerListCategory from "../components/DrawerListCategory";
 import UserLogged from "../utils/UserLogged";
+import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
 
-const buttonStyles = {
+const buttonStyles1 = {
     color: 'var(--font-navbar-color3)',
     fontFamily: 'var(--font-title)',
     fontSize: '1.5rem',
-    '&.active': {
-        color: 'var(--font-navbar-color2)',
-    },
 };
 
 export default function TemporaryDrawer() {
@@ -55,7 +53,7 @@ export default function TemporaryDrawer() {
                     component={NavLink}
                     to="/"
                     activeClassName="active"
-                    sx={buttonStyles}
+                    sx={{...buttonStyles1, ...buttonStyles}}
                 >
                     Home
                 </ListItemButton>
@@ -64,7 +62,7 @@ export default function TemporaryDrawer() {
                     component={NavLink}
                     to="/sobre-nosotros"
                     activeClassName="active"
-                    sx={buttonStyles}
+                    sx={{...buttonStyles1, ...buttonStyles}}
                 >
                     Sobre Nosotros
                 </ListItemButton>
@@ -72,7 +70,7 @@ export default function TemporaryDrawer() {
                     component={NavLink}
                     to="/pharmacy-on-duty"
                     activeClassName="active"
-                    sx={buttonStyles}
+                    sx={{...buttonStyles1, ...buttonStyles}}
                 >
                     Farmacia de Turno
                 </ListItemButton>
