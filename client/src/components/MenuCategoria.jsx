@@ -1,59 +1,56 @@
 import React, { useState } from "react";
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { KeyboardArrowDown as KeyboardArrowDownIcon } from '@mui/icons-material';
-import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
+import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
 
 const categories = [
-  {nombre: "Belleza" , id : 1 },
-  {nombre: "Anticonceptivos" , id : 2 },
-  {nombre: "Antidepresivos" , id : 3 },
-  {nombre: "Antipsicóticos" , id : 40},
-  {nombre: "Analgésicos" , id : 32},
-  {nombre: "Antipiréticos" , id : 12},
-  {nombre: "Antidiarreicos" , id : 414},
-  {nombre: "Antihipertensivos" , id : 123 },
-  {nombre: "Oftamológico" , id : 432},
-  {nombre: "Diabetes" , id : 7 },
-]
+  { nombre: "Belleza", id: 1 },
+  { nombre: "Anticonceptivos", id: 2 },
+  { nombre: "Antidepresivos", id: 3 },
+  { nombre: "Antipsicóticos", id: 40 },
+  { nombre: "Analgésicos", id: 32 },
+  { nombre: "Antipiréticos", id: 12 },
+  { nombre: "Antidiarreicos", id: 414 },
+  { nombre: "Antihipertensivos", id: 123 },
+  { nombre: "Oftamológico", id: 432 },
+  { nombre: "Diabetes", id: 7 },
+];
+
+const buttonStyles1 = {
+  margin: "2px",
+  color: "var(--font-navbar-color)",
+  fontFamily: "var(--font-title)",
+  fontSize: "1.1rem",
+};
 
 const MenuCategoria = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [id , setId] = useState();
-  const navigate = useNavigate();
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (event) => {
+  const handleClose = () => {
     setAnchorEl(null);
-    const { myId } = event.target.dataset;
-    setId(myId);
-    navigate(`/category/${myId}`);
   };
-
-  const goCategory = () => {
-    navigate(`/category/${id}`);
-  }
 
   return (
     <div>
       <Button
         id="button-category"
-        aria-controls={open ? 'button-category' : undefined}
+        aria-controls={open ? "button-category" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         sx={{
+          ...buttonStyles,
+          ...buttonStyles1,
           my: 2,
-          color: 'var(--font-navbar-color)',
-          fontFamily: 'var(--font-title)',
-          fontSize: '115%',
-          textDecoration: 'none',
-          textTransform: 'none',
+          fontSize: "115%",
         }}
       >
         Categorías
@@ -66,25 +63,28 @@ const MenuCategoria = () => {
         open={open}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
+          vertical: "bottom",
+          horizontal: "left",
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
+          vertical: "top",
+          horizontal: "left",
         }}
       >
-        {categories.map( (category) => (
+        {categories.map((category) => (
           <MenuItem
-          key={category.id}
-          onClick={handleClose}
-          data-my-id={category.id}>
+            key={category.id}
+            onClick={handleClose}
+            component={NavLink}
+            to={`/category/${category.id}`}
+            sx={buttonStyles}
+          >
             {category.nombre}
           </MenuItem>
         ))}
       </Menu>
     </div>
   );
-}
+};
 
 export default MenuCategoria;

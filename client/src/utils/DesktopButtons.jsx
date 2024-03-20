@@ -1,19 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
 import MenuCategoria from '../components/MenuCategoria';
 
-const buttonStyles = {
+const buttonStyles1 = {
     my: 2,
     color: 'var(--font-navbar-color)',
     fontFamily: 'var(--font-title)',
     fontSize: '115%',
-    textDecoration: 'none',
-    textTransform: 'none',
-    '&.active': {
-        color: 'var(--font-navbar-color2)',
-    },
 };
 
 const DesktopButtons = () => {
@@ -23,7 +19,7 @@ const DesktopButtons = () => {
                 component={NavLink}
                 to="/"
                 activeClassName="active"
-                sx={buttonStyles}
+                sx={{ ...buttonStyles1, ...buttonStyles }}
             >
                 Home
             </Button>
@@ -32,7 +28,7 @@ const DesktopButtons = () => {
                 component={NavLink}
                 to="/sobre-nosotros"
                 activeClassName="active"
-                sx={buttonStyles}
+                sx={{ ...buttonStyles1, ...buttonStyles }}
             >
                 Sobre Nosotros
             </Button>
