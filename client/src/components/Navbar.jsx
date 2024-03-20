@@ -54,7 +54,7 @@ function ResponsiveAppBar() {
                     </Box>
                     <Box
                         sx={{
-                            flexGrow: 2,
+                            flexGrow: 4,
                             m: -2,
                             display: { xs: "none", md: "flex", lg: "none" },
                             justifyContent: "space-between",
