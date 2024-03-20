@@ -18,7 +18,7 @@ const buttonStyles = {
 
 const DesktopButtons = () => {
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',  width: '30%' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '37%' }}>
             <Button
                 component={NavLink}
                 to="/"
