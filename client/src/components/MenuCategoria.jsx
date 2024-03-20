@@ -51,7 +51,7 @@ const MenuCategoria = () => {
           my: 2,
           color: 'var(--font-navbar-color)',
           fontFamily: 'var(--font-title)',
-          fontSize: '1.5rem',
+          fontSize: '115%',
           textDecoration: 'none',
           textTransform: 'none',
         }}

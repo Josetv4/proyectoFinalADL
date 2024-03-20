@@ -20,7 +20,7 @@ const UserLogged = () => {
                     sx={{
                         color: 'var(--font-navbar-color)',
                         fontFamily: 'var(--font-title)',
-                        fontSize: '22px',
+                        fontSize: '115%',
                         textTransform: 'none',
                         textDecoration: 'none',
                         mb: -1,
@@ -51,9 +51,9 @@ const UserLogged = () => {
                     </Typography>
                 </Tooltip>
             </Box>
-            <Box ml={1}>
+            <Box >
                 <Typography sx={{ color: 'var(--font-btn3-color)' }}>
-                    <RxAvatar size={50} />
+                    <RxAvatar size={45} />
                 </Typography>
             </Box>
         </Box>
