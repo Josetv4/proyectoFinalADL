@@ -39,7 +39,7 @@ VALUES
 CREATE TABLE categories (
     category_id SERIAL PRIMARY KEY,
     name VARCHAR(100)  NOT NULL,
-     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO categories(name) VALUES('Belleza'),
                             ('Anticonceptivos'),
