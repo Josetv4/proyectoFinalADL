@@ -6,7 +6,7 @@ import { logger } from "logger-express";
 import userRoutes from "./config/routes/userRoutes.js";
 import productRoutes from "./config/routes/productRoutes.js";
 import categoryRoutes from "./config/routes/categoryRoutes.js";
-
+import { loginRoutes } from "./config/routes/loginRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -18,5 +18,7 @@ app.use(logger());
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", categoryRoutes);
+
+app.use("/api/v1", loginRoutes);
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`));
