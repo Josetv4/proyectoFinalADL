@@ -1,6 +1,7 @@
 import {
   getFavorite,
   getFavoriteId,
+  getFavoriteUser,
   createFavorite,
   updateFavorite,
   deleteFavorite,
@@ -38,7 +39,7 @@ const getFavoritesId = async (req, res) => {
   }
 };
 const getFavoritesUser= async (req, res) => {
-  const id = req.params;
+  const { id }  = req.params;
 
   try {
     const favorites = await getFavoriteUser(id);
@@ -72,7 +73,7 @@ const updateFavorites = async (req, res) => {
   const id = req.params;
   const favorite = req.body;
   try {
-    const favoriteUpdate = await updateUser(id, favorite);
+    const favoriteUpdate = await updateFavorite(id, favorite);
     res.status(201).json({ favorite: favoriteUpdate });
   } catch (error) {
     const errorFound = handleError(error.code) || [

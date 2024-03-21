@@ -13,28 +13,29 @@ const getFavorite = async () => {
 const getFavoriteId = async ({ id }) => {
   const SQLquery = {
     text: `SELECT favorites_id, product_id, user_id
-           FROM favorites,
+           FROM favorites
            WHERE favorites_id = $1`,
     values: [id],
   };
 
   const response = await pool.query(SQLquery);
+  
   return response.rows[0];
 };
-const getFavoriteUser = async ({ id }) => {
+const getFavoriteUser = async ( id ) => {
   const SQLquery = {
     text: `SELECT favorites_id, product_id, user_id
-           FROM favorites,
+           FROM favorites
            WHERE user_id = $1`,
     values: [id],
   };
 
   const response = await pool.query(SQLquery);
-  return response.rows[0];
+  return response.rows;
 };
 
 const createFavorite = async ({ product, user }) => {
-  const hashedPassword = bcrypt.hashSync(password);
+ 
   const SQLquery = {
     text: `INSERT INTO favorites (product_id, user_id) 
            VALUES ($1, $2) RETURNING *`,
