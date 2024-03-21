@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
-import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
+import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
 
 const categories = [
     { nombre: "Belleza", id: 1 },
