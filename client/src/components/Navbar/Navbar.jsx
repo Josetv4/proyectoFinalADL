@@ -1,10 +1,10 @@
 import * as React from "react";
 import { AppBar, Box, Toolbar, Container } from "@mui/material";
-import Search from "../utils/Search";
-import DesktopButtons from "../utils/DesktopButtons";
-import UserLogged from "../utils/UserLogged";
-import CartButton from "../utils/CartButton";
-import Drawer from "../utils/Drawer";
+import Search from "../../utils/UtilsNavbar/Search";
+import DesktopButtons from "../../utils/UtilsNavbar/DesktopButtons";
+import UserLogged from "../../utils/UtilsNavbar/UserLogged";
+import CartButton from "../../utils/UtilsNavbar/CartButton";
+import Drawer from "../../utils/UtilsNavbar/Drawer";
 
 function ResponsiveAppBar() {
     return (

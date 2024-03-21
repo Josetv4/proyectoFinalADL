@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from "@mui/icons-material/Menu";
 
-import DrawerListCategory from "../components/DrawerListCategory";
-import UserLogged from "../utils/UserLogged";
-import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
+import DrawerListCategory from "../../components/Navbar/DrawerListCategory";
+import UserLogged from "./UserLogged";
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
 const buttonStyles1 = {
     color: 'var(--font-navbar-color3)',

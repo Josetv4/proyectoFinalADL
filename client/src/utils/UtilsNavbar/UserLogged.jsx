@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 
 import { NavLink } from 'react-router-dom';
-import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
 const UserLogged = () => {
     return (

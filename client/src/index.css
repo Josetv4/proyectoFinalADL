@@ -19,7 +19,8 @@
     --font-navbar-color3: #3c5257;
     --font-footer-color1: #1c1c1c;
     --font-footer-color2: #91c3e4;
-    --font-footer-color2: #fe486a;
+    --font-footer-color3: #fe486a;
+    --font-footer-color4: #ffffff;
     /* Colores de Fondo */
     --background-btn1: #fe486a;
     --background-btn2: #91c3e4;
@@ -49,4 +50,19 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+}
+
+/* css para el Footer */
+.footerCopyRigth {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.mediaSocialFooter {
+    font-family: var(--font-body);
+    text-align: center;
+    font-weight: 400;
 }

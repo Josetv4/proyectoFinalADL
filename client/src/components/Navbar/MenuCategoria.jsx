@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
-import { buttonStyles } from '../utils/ButtonStyleHoverFocus';
+import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
 
 const categories = [
   { nombre: "Belleza", id: 1 },
