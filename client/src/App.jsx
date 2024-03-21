@@ -10,7 +10,7 @@ import BeautyCatalog from './pages/BeautyCatalog';
 import MedicantionCatalog from './pages/MedicantionCatalog';
 import Category from './pages/Category';
 import PharmacyOnDuty from './pages/PharmacyOnDuty';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
