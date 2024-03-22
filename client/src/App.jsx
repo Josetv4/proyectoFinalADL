@@ -16,18 +16,27 @@ function App() {
   return (
     <div className='gridApp'>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre-nosotros" element={<AboutUs />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/catalog1" element={<BeautyCatalog />} />
-          <Route path="/catalog2" element={<MedicantionCatalog />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/category/:id/:name" element={<Category/>} />
-          <Route path="/pharmacy-on-duty" element={<PharmacyOnDuty/>} />
-        </Routes>
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <Container>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sobre-nosotros" element={<AboutUs />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/catalog1" element={<BeautyCatalog />} />
+              <Route path="/catalog2" element={<MedicantionCatalog />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/category/:id/:name" element={<Category/>} />
+              <Route path="/pharmacy-on-duty" element={<PharmacyOnDuty/>} />
+            </Routes>
+          </Container>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
       </Router>
     </div>
   );
