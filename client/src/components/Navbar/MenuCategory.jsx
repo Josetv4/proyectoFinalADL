@@ -76,7 +76,7 @@ const MenuCategoria = () => {
             key={category.id}
             onClick={handleClose}
             component={NavLink}
-            to={`/category/${category.id}`}
+            to={`/category/${category.id}/${category.nombre}`}
             sx={buttonStyles}
           >
             {category.nombre}

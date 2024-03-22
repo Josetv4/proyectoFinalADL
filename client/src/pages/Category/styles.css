@@ -1,0 +1,17 @@
+.order-select{
+    width: 95%;
+}
+
+.box-selects{
+    border-radius: 10px;
+    min-width: 120;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    margin-top: 50px;
+    width: 100%;
+    height:300px;
+    justify-content: center;
+    gap:15px;
+    border-color: #9e9e9e ;
+}
