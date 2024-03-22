@@ -5,6 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
+import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
 
 const categories = [
     { nombre: "Belleza", id: 1 },
@@ -19,14 +20,14 @@ const categories = [
     { nombre: "Diabetes", id: 7 },
 ];
 
-const buttonStyles = {
+const buttonStyles1 = {
     color: 'var(--font-navbar-color3)',
     fontFamily: 'var(--font-title)',
     fontSize: '0.75rem',
     paddingLeft: '18%',
 };
 
-const buttonStyles1 = {
+const buttonStyles2 = {
     my: 2,
     color: 'var(--font-navbar-color3)',
     fontFamily: 'var(--font-title)',
@@ -43,9 +44,9 @@ const ListCategory = ({ NavLinkComponent }) => {
         setOpen(!open);
     };
 
-    const handleCategoryClick = (categoryId) => {
+    const handleCategoryClick = (categoryId, categoryName) => {
         setSelectedCategory(categoryId);
-        navigate(`/category/${categoryId}`);
+        navigate(`/category/${categoryId}/${categoryName}`);
     };
 
     return (
@@ -54,7 +55,7 @@ const ListCategory = ({ NavLinkComponent }) => {
                 component="nav"
                 aria-labelledby="nested-list-subheader"
             >
-                <ListItemButton onClick={handleToggle} sx={buttonStyles1}>
+                <ListItemButton onClick={handleToggle} sx={{...buttonStyles, ...buttonStyles2}}>
                     Categoría
                     {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
@@ -63,11 +64,11 @@ const ListCategory = ({ NavLinkComponent }) => {
                         {categories.map((category) => (
                             <ListItemButton
                                 key={category.id}
-                                sx={buttonStyles}
+                                sx={{...buttonStyles, ...buttonStyles1}}
                                 selected={selectedCategory === category.id}
-                                onClick={() => handleCategoryClick(category.id)}
+                                onClick={() => handleCategoryClick(category.id, category.nombre)}
                                 component={NavLinkComponent}
-                                to={`/category/${category.id}`}
+                                to={`/category/${category.id}/${category.nombre}`}
                             >
                                 <ListItemText primary={category.nombre} />
                             </ListItemButton>
@@ -80,5 +81,4 @@ const ListCategory = ({ NavLinkComponent }) => {
 };
 
 export default ListCategory;
-
 

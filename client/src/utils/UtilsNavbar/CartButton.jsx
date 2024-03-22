@@ -11,7 +11,7 @@ const UserLogged = () => {
         <IconButton >
             <Tooltip title="Agrega productos al Carrito">
                 <Badge color="secondary" badgeContent={0} showZero>
-                    <MdOutlineShoppingCart style={{ fontSize: 45, color: 'var(--font-btn3-color)' }} />
+                    <MdOutlineShoppingCart style={{ fontSize: 40, color: 'var(--font-btn3-color)' }} />
                 </Badge>
             </Tooltip>
         </IconButton>
