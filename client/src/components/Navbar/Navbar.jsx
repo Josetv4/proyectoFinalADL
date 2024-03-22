@@ -5,8 +5,26 @@ import DesktopButtons from "../../utils/UtilsNavbar/DesktopButtons";
 import UserLogged from "../../utils/UtilsNavbar/UserLogged";
 import CartButton from "../../utils/UtilsNavbar/CartButton";
 import Drawer from "../../utils/UtilsNavbar/Drawer";
+import AdminLogged from "../../utils/UtilsNavbar/AdminLogged";
+import RegularUserLogged from "../../utils/UtilsNavbar/RegularUserLogged";
+import SellerUserLogged from "../../utils/UtilsNavbar/SellerUserLogged";
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ userType }) {
+    let UserLoggedComponent = UserLogged;
+
+    switch (userType) {
+        case 'admin':
+            UserLoggedComponent = AdminLogged;
+            break;
+        case 'seller':
+            UserLoggedComponent = SellerUserLogged;
+            break;
+        case 'regular':
+            UserLoggedComponent = RegularUserLogged;
+            break;
+        default:
+    }
+
     return (
         <AppBar
             position="static"
@@ -50,7 +68,7 @@ function ResponsiveAppBar() {
                         </Box>
                         <DesktopButtons />
                         <Search />
-                        <UserLogged />
+                        <UserLoggedComponent />
                         <CartButton />
                     </Box>
                     <Box
@@ -68,7 +86,7 @@ function ResponsiveAppBar() {
                             />
                         </Box>
                         <DesktopButtons />
-                        <UserLogged />
+                        <UserLoggedComponent />
                         <CartButton />
                     </Box>
                 </Toolbar>
