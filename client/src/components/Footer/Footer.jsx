@@ -1,9 +1,10 @@
 import React from "react";
 
-import { AppBar, Toolbar, Container, Box, Typography, Link } from "@mui/material";
+import { AppBar, Toolbar, Container, Box, Typography } from "@mui/material";
 
 import FooterWeb from "./FooterWeb"
 import FooterMovil from "./FooterMovil"
+import FooterTablet from "./FooterTablet"
 
 function Footer() {
 
@@ -49,6 +50,7 @@ function Footer() {
           >
             <FooterWeb />
           </Box>
+          {/* VIsta tablet */}
           <Box
             sx={{
               flexGrow: 4,
@@ -57,12 +59,7 @@ function Footer() {
               justifyContent: "space-between",
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/farmacias-syg.appspot.com/o/iconos%2Flogo-web.png?alt=media&token=f0d96f19-3e07-402a-b7c1-11676ff8bf5a"
-                alt="logo farmacia s y g"
-              />
-            </Box>
+              <FooterTablet />
           </Box>
         </Toolbar>
       </Container>

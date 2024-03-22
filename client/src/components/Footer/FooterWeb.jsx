@@ -8,6 +8,7 @@ import direcciones from './addressesSyG.json';
 import { mostrarUbicacion } from './linkMaps';
 
 const SocialMediaLinks = () => {
+    let direccionIndex = 0;
     return (
         <Box
             className="mediaSocialFooter"
@@ -70,20 +71,23 @@ const SocialMediaLinks = () => {
                     <Typography sx={{ color: 'var(--font-footer-color2)', fontSize: '1.4rem', mr: '5px' }}> <FaMapMarkedAlt /> </Typography>
                     <Typography sx={{ color: 'var(--font-footer-color1)', fontSize: '1rem' }}> Dirección </Typography>
                 </Box>
-                {direcciones.map((direccion, index) => (
-                    <Link
-                        key={index}
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            mostrarUbicacion(direccion);
-                        }}
-                        underline="none"
-                        sx={{ ...linkStyles, fontSize: '0.8rem', color: 'var(--font-footer-color1)' }}
-                    >
-                        {`Dirección # ${index + 1}`}
-                    </Link>
-                ))}
+                {direcciones.map((direccion) => {
+                    direccionIndex++;
+                    return (
+                        <Link
+                            key={direccion.id}
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                mostrarUbicacion(direccion);
+                            }}
+                            underline="none"
+                            sx={{ ...linkStyles, fontSize: '0.8rem', color: 'var(--font-footer-color1)' }}
+                        >
+                            {`Dirección # ${direccionIndex}`}
+                        </Link>
+                    );
+                })}
             </Box>
         </Box>
     );
