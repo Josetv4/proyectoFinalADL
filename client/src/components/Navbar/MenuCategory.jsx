@@ -18,7 +18,7 @@ const categories = [
   {nombre: "Diabetes" , id : 7 },
 ]
 
-const MenuCategoria = () => {
+const MenuCategory = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [id , setId] = useState();
   const navigate = useNavigate();
@@ -88,4 +88,4 @@ const MenuCategoria = () => {
   );
 }
 
-export default MenuCategoria;
+export default MenuCategory;

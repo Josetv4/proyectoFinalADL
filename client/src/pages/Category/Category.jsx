@@ -34,6 +34,27 @@ const arrayProducts = [
     format: 'formato de presentaciholaón',
     price: 10.990,
   },
+  {
+    name: 'Medicamento A',
+    image: 'url_de_la_imagen_aqui',
+    description: 'Descripción del medicamento A.',
+    format: 'formato de presentaciholaón',
+    price: 10.990,
+  },
+  {
+    name: 'Medicamento A',
+    image: 'url_de_la_imagen_aqui',
+    description: 'Descripción del medicamento A.',
+    format: 'formato de presentaciholaón',
+    price: 10.990,
+  },
+  {
+    name: 'Medicamento A',
+    image: 'url_de_la_imagen_aqui',
+    description: 'Descripción del medicamento A.',
+    format: 'formato de presentaciholaón',
+    price: 10.990,
+  },
 ];
 
 const Category = () => {
@@ -41,17 +62,17 @@ const Category = () => {
   //const [products,setProducts] = useState(null);
   return (
     <>
-      <Typography variant="h3" color="textSecondary" >
-        {name}
-      </Typography>
       <Grid container spacing={2}>
         <Grid item xs={2} >
-          <Box sx={{ minWidth: 120, display: "flex", flexDirection: "column",border: "solid 1px", marginTop:"40px"}}>
+          <Typography variant="h5" color="textSecondary" >
+            Ordenar Por
+          </Typography>
+          <Box className="box-selects">
             <FormControl className="order-select">
-              <InputLabel id="first-select-label">First Select</InputLabel>
+              <InputLabel id="first-select-label">Precio</InputLabel>
               <Select
-                labelId="first-select-label"
-                id="first-select"
+                labelId="price-order-label"
+                id="price-order"
               >
                 <MenuItem value={'option1'}>Option 1</MenuItem>
                 <MenuItem value={'option2'}>Option 2</MenuItem>
@@ -59,10 +80,10 @@ const Category = () => {
               </Select>
             </FormControl>
             <FormControl className="order-select">
-              <InputLabel id="second-select-label">Second Select</InputLabel>
+              <InputLabel id="second-select-label">Alfabéticamente</InputLabel>
               <Select
-                labelId="second-select-label"
-                id="second-select"
+                labelId="alfabeticamente-order-label"
+                id="alfabeticamente-order"
 
               >
                 <MenuItem value={'option1'}>Option 1</MenuItem>
@@ -71,10 +92,10 @@ const Category = () => {
               </Select>
             </FormControl>
             <FormControl className="order-select">
-              <InputLabel id="third-select-label">Third Select</InputLabel>
+              <InputLabel id="third-select-label">Ubicación</InputLabel>
               <Select
-                labelId="third-select-label"
-                id="third-select"
+                labelId="ubication-order-label"
+                id="ubication-order"
               >
                 <MenuItem value={'option1'}>Option 1</MenuItem>
                 <MenuItem value={'option2'}>Option 2</MenuItem>
@@ -83,8 +104,11 @@ const Category = () => {
             </FormControl>
           </Box>
         </Grid>
-        <Grid item xs={8}>
-          <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "40px" }}>
+        <Grid item xs={10}>
+          <Typography variant="h4" color="textSecondary" >
+            {name}
+          </Typography>
+          <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "10px" }}>
             {arrayProducts.map((product, i) =>
               <ProductCard key={i} product={product} />
             )}
