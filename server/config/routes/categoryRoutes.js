@@ -16,7 +16,7 @@ const router = express.Router();
 
 router.get("/category", getActivity, getCategories )
 router.get("/category/:id", getActivity, getCategoriesId )
-router.post("/category/", validateParametersUser,  getActivity, createNewCategory )
+router.post("/category/", validateParametersCategory,  getActivity, createNewCategory )
 router.put("/category/:id", getActivity, updateCategories )
 router.delete("/category/:id", getActivity, deleteCategories )
 
