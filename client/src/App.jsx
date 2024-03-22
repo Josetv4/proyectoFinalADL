@@ -1,7 +1,6 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Navbar from './components/Navbar';
+import { Container } from '@mui/material';
+import Navbar from './components/Navbar/Navbar';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
@@ -11,11 +10,11 @@ import BeautyCatalog from './pages/BeautyCatalog';
 import MedicantionCatalog from './pages/MedicantionCatalog';
 import Category from './pages/Category/Category';
 import PharmacyOnDuty from './pages/PharmacyOnDuty';
-
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <div>
+    <div className='gridApp'>
       <Router>
         <Navbar />
         <Routes>
