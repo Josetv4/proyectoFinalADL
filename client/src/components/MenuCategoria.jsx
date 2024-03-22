@@ -30,9 +30,9 @@ const MenuCategoria = () => {
 
   const handleClose = (event) => {
     setAnchorEl(null);
-    const { myId } = event.target.dataset;
+    const { myId,myName } = event.target.dataset;
     setId(myId);
-    navigate(`/category/${myId}`);
+    navigate(`/category/${myId}/${myName}`);
   };
 
   const goCategory = () => {
@@ -78,7 +78,8 @@ const MenuCategoria = () => {
           <MenuItem
           key={category.id}
           onClick={handleClose}
-          data-my-id={category.id}>
+          data-my-id={category.id}
+          data-my-name={category.nombre}>
             {category.nombre}
           </MenuItem>
         ))}

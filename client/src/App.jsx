@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import BeautyCatalog from './pages/BeautyCatalog';
 import MedicantionCatalog from './pages/MedicantionCatalog';
-import Category from './pages/Category';
+import Category from './pages/Category/Category';
 import PharmacyOnDuty from './pages/PharmacyOnDuty';
 
 
@@ -26,7 +26,7 @@ function App() {
           <Route path="/catalog1" element={<BeautyCatalog />} />
           <Route path="/catalog2" element={<MedicantionCatalog />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/category/:id" element={<Category/>} />
+          <Route path="/category/:id/:name" element={<Category/>} />
           <Route path="/pharmacy-on-duty" element={<PharmacyOnDuty/>} />
         </Routes>
       </Router>
