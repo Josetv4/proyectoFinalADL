@@ -31,7 +31,7 @@ function App() {
           <Navbar userType={user ? user.userType : null} />
         </header>
         <main>
-          <Container>
+          <Container maxWidth="xl">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/sobre-nosotros" element={<AboutUs />} />

@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Navigate } from 'react-router-dom';
 import ButtonBig from "../Buttons/buttonBig/buttonBig";
 import ButtonLittle from "../Buttons/buttonLittle/buttonLittle";
+import swal from 'sweetalert';
 import "./style.css";
 
 const Login = () => {
@@ -14,6 +15,9 @@ const Login = () => {
     setUser({
       username: "exampleUser",
       userType: userType,
+    });
+    swal("¡Has iniciado sesión correctamente!", {
+      icon: "success",
     });
   };
 
@@ -79,4 +83,3 @@ const Login = () => {
 };
 
 export default Login;
-
