@@ -68,4 +68,4 @@ const updateReview = async ( { id }, product, user, rating, comment) => {
     const response = await pool.query(SQLquery);
     return response.rows;
   };
-export { getReview, getReviewId, createReview, updateReview };
+export { getReview, getReviewId, createReview, updateReview, deleteReview };
