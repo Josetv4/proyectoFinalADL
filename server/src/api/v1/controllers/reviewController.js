@@ -8,7 +8,7 @@ import {
 
 import { handleError } from "../utils/utils.js";
 
-const getReviews = async () => {
+const getReviews = async (req, res) => {
   try {
     const reviews = await getReview();
     res.status(200).json({ review: reviews });
@@ -23,9 +23,9 @@ const getReviews = async () => {
 };
 
 const getReviewsId = async (req, res) => {
-  const id = req.params;
+  const { id } = req.params;
   try {
-    const favorites = await getFavoriteId(id);
+    const reviews = await getReviewId(id);
     res.status(200).json({ review: reviews });
   } catch (error) {
     const errorFound = handleError(error.code) || [

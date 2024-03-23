@@ -6,3 +6,27 @@ Completed: 404 message:  Time response: 6 ms Request ID: [c5507321-c47f-4e9c-b4a
 Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 22:53:28 GMT-0300 (hora de verano de Chile)
   Parameters in body: {}
 Completed: 404 message:  Time response: 2 ms Request ID: [fe861efb-ae1a-4163-b1ae-7e4c9e45e05c]
+
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 22:55:54 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 22:56:13 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 22:56:54 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1046 ms Request ID: [8d0a5dba-6130-4ea9-a02b-b9e1f6d86a1f]
+
+Started GET /api/v1/review/1 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 22:58:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/review/1 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 22:59:17 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/review/1 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:00:06 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1139 ms Request ID: [33cf4039-3a2a-4034-88c4-1eb17676612b]
+
+Started GET /api/v1/review/1 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:01:11 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1005 ms Request ID: [b46b00a9-9bce-46e8-ae29-3bfc1ca3ba47]
+
+Started GET /api/v1/review/1 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:01:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1033 ms Request ID: [9ff22e73-1f86-4325-83d8-4a0a97fc21e9]

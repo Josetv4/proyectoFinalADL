@@ -16,6 +16,8 @@ const getReview = async () => {
 };
 
 const getReviewId = async (id) => {
+
+  console.log(id)
   const SQLquery = {
     text: `SELECT review_id ,
                   product_id,
@@ -25,7 +27,7 @@ const getReviewId = async (id) => {
                   create_at
                 FROM reviews
                 WHERE review_id = $1`,
-    values: [id],
+    values: [ id ],
   };
 
   const response = await pool.query(SQLquery);
