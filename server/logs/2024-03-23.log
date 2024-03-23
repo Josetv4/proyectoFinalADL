@@ -30,3 +30,105 @@ Completed: 400 message:  Time response: 1005 ms Request ID: [b46b00a9-9bce-46e8-
 Started GET /api/v1/review/1 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:01:40 GMT-0300 (hora de verano de Chile)
   Parameters in body: {}
 Completed: 200 message:  Time response: 1033 ms Request ID: [9ff22e73-1f86-4325-83d8-4a0a97fc21e9]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:05:43 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":1,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:06:49 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":1,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 997 ms Request ID: [69dcae37-4b62-40e5-b59a-e203f3e65818]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:07:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":1,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 1049 ms Request ID: [21cd4edf-8d12-4927-8831-77d0106ac9bc]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:11:18 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":1,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 1001 ms Request ID: [7cf6bcc9-bf9c-40e9-8269-2b52ee78ac72]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:13:38 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":3,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 3282 ms Request ID: [6aa9cd4a-bbb8-4c27-aae9-096946cf30ce]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:14:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":3,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 985 ms Request ID: [35c85d61-28eb-408e-be5c-08cafafb4962]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:16:41 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product_id":3,"user_id":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 1003 ms Request ID: [5dba500c-d123-4be2-9f7a-19ddf37389d8]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:17:10 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 986 ms Request ID: [418121e6-74f5-4683-bc40-30b4ee67bfc1]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:18:15 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 1986 ms Request ID: [3f20f8be-0ad2-43fe-8c9f-f21a732bd3c8]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:18:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 400 message:  Time response: 1062 ms Request ID: [41b0c611-0cfa-41b3-b2a7-4b403ddf9505]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:23:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 201 message:  Time response: 3212 ms Request ID: [4452eb41-d3be-489f-9a1d-ea3b76fe524c]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:33:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 201 message:  Time response: 3363 ms Request ID: [314f9acd-6925-4693-a4a0-2ce44a4e0e63]
+
+Started POST /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:33:48 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":4,"comment":"No me gusto la fecha de entrega!!!"}
+Completed: 201 message:  Time response: 254 ms Request ID: [b40c4bc9-be32-4404-b0d0-e522b0767db1]
+
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:42:30 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado "}
+Completed: 400 message:  Time response: 3334 ms Request ID: [1a322480-0101-4183-9331-e5e0bfabfd9e]
+
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:42:48 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1040 ms Request ID: [3e6cb2d9-f4ea-4e02-b089-0f717d92be94]
+
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:43:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado "}
+Completed: 201 message:  Time response: 3134 ms Request ID: [3b2a6ad3-be84-40aa-8904-27314ab8ba15]
+
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:44:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 972 ms Request ID: [44577614-d16b-4ad3-9cb8-2d46fc2b95f5]
+
+Started DELETE /api/v1/review/4 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:47:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 3350 ms Request ID: [1c45a803-19ef-466f-8455-90790e5e5e86]
+
+Started DELETE /api/v1/review/4 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:47:54 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1020 ms Request ID: [44568844-0574-4114-af50-e3fc080af72e]
+
+Started DELETE /api/v1/review/3 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:48:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1080 ms Request ID: [a832e4ba-e7cd-421c-8811-6abf9bd36c68]
+
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:48:32 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 210 ms Request ID: [5ed1b811-7cb7-4fd1-9a5c-1e0b7d882d4d]
+
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:55:37 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Started GET /api/v1/review for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:56:06 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1004 ms Request ID: [905e6e5b-4c8a-4d3a-a728-725f216043e3]
+
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:56:12 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:57:24 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Fri Mar 22 2024 23:59:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:04:36 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:05:02 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Started PUT /api/v1/review/5 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:06:26 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"product":3,"user":1,"rating":3,"comment":"No me gusto la fecha de entrega!!! modificado 1234"}
+Completed: 201 message:  Time response: 2177 ms Request ID: [2059eaa1-7200-4fb8-804f-e04cb2117d2a]
