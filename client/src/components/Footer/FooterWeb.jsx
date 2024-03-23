@@ -53,7 +53,7 @@ const SocialMediaLinks = () => {
                     <Typography sx={{ color: 'var(--font-footer-color2)', fontSize: '1.4rem', mr: '5px' }}>
                         <FaWhatsapp />
                     </Typography>
-                    <Link href="+56552866270" underline="none" target="_blank" sx={{ ...linkStyles, color: 'var(--font-link-color)', fontSize: '1rem' }}>
+                    <Link href="tel:+56552866270" underline="none" target="_blank" sx={{ ...linkStyles, color: 'var(--font-link-color)', fontSize: '1rem' }}>
                         {'+56 55 2866270'}
                     </Link>
                 </Box>

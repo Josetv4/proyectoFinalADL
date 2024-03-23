@@ -7,14 +7,11 @@ import {
     Menu,
     MenuItem,
 } from '@mui/material';
-
-
 import { NavLink } from 'react-router-dom';
 import { linkStyles2 } from '../../components/Footer/linkStyles2';
 import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
 
-
-const MenuRegularUser = () => {
+const MenuSellerUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -25,8 +22,13 @@ const MenuRegularUser = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleItemClick = (event) => {
+        event.stopPropagation();
+    };
+
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
                 <Tooltip title="Perfil de Vendedor">
                     <IconButton
@@ -62,19 +64,19 @@ const MenuRegularUser = () => {
                     }}
                 >
                     <MenuItem
-                        onClick={handleClose}
+                        onClick={handleItemClick}
                         sx={buttonStyles}
                     >
                         Tus Publicaciones
                     </MenuItem>
                     <MenuItem
-                        onClick={handleClose}
+                        onClick={handleItemClick}
                         sx={buttonStyles}
                     >
                         Tus Ventas
                     </MenuItem>
                     <MenuItem
-                        onClick={handleClose}
+                        onClick={handleItemClick}
                         sx={buttonStyles}
                     >
                         Cerrar sesión
@@ -85,4 +87,4 @@ const MenuRegularUser = () => {
     );
 };
 
-export default MenuRegularUser;
+export default MenuSellerUser;

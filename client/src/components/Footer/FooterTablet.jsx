@@ -40,7 +40,7 @@ const SocialMediaLinks1 = () => {
                     <Link href="https://www.instagram.com/farmaciasyg" underline="none" target="_blank" sx={{ ...linkStyles2, color: 'var(--font-footer-color3)', fontSize: '2rem' }}>
                         <CiInstagram />
                     </Link>
-                    <Link href="+56552866270" underline="none" target="_blank" sx={{ ...linkStyles2, color: 'var(--font-footer-color2)', fontSize: '2rem' }}>
+                    <Link href="tel:+56552866270" underline="none" target="_blank" sx={{ ...linkStyles2, color: 'var(--font-footer-color2)', fontSize: '2rem' }}>
                         <FaWhatsapp />
                     </Link>
                     <Link href="https://twitter.com/FarmaciaSYG" underline="none" target="_blank" sx={{ ...linkStyles2, color: 'var(--font-footer-color3)', fontSize: '2rem' }}>
