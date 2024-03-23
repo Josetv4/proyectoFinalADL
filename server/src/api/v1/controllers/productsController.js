@@ -47,17 +47,16 @@ const createNewProduct = async (req, res) => {
 
 const updateProducts = async (req, res) => {
   
-  const id = req.params;
+  const { id } = req.params;
   const product = req.body;
+  const image = req.file.filename;
   try {
     
-    const productUpdate = await updateProduct(id, product);
+    const productUpdate = await updateProduct(id, product, image);
     res.status(201).json({ product: productUpdate });
   } catch (error) {
-    const errorFound = handleError(error.code);
-    return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+    const errorFound = handleError(error.code) || [{ status: 500, message: 'Error interno del servidor' }];
+    return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
   }
 };
 const deleteProducts = async (req, res) => {
@@ -69,12 +68,8 @@ const deleteProducts = async (req, res) => {
     const response = await deleteProduct(id);
     res.status(200).json({ message: 'Producto eliminado correctamente', product: response });
   } catch (error) {
-    const errorFound = handleError(error.code) || [
-      { status: 500, message: "Error interno del servidor" },
-    ];
-    return res
-      .status(errorFound[0]?.status)
-      .json({ error: errorFound[0]?.message });
+    const errorFound = handleError(error.code) || [{ status: 500, message: 'Error interno del servidor' }];
+    return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
   }
 };
 

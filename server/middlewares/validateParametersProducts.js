@@ -1,6 +1,7 @@
 import Joi from "joi";
 
 const productSchema = Joi.object({
+  product: Joi.array().items(Joi.object({
     name: Joi.string().max(255).required(),
     description: Joi.string().allow('').max(65535), 
     price: Joi.number().required(), 
@@ -8,7 +9,8 @@ const productSchema = Joi.object({
     category: Joi.number().integer().positive().required(),
     post_status: Joi.string().max(50).required(),
     user_id: Joi.number().integer().positive().required() 
-  });
+  }))
+});
 
 
 const validateParametersProducts = (req, res, next) => {

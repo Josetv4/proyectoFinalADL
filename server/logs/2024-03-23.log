@@ -147,3 +147,134 @@ Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:20:23
   Parameters in body: {}
 Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:21:38 GMT-0300 (hora de verano de Chile)
   Parameters in body: {}
+Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:24:46 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 3132 ms Request ID: [8ba8dce3-2bf6-4847-9fdb-dd73ca91b9bd]
+
+Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:25:35 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1034 ms Request ID: [fa4cd706-1a2e-4b0c-b280-cf1724c08ba0]
+
+Started GET /api/v1/products/3 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:25:44 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/products/3 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:26:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1032 ms Request ID: [90762e0b-cf0a-4bdf-a1ac-57952660b1ea]
+
+Started GET /api/v1/products/3 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:31:11 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 3175 ms Request ID: [b8a72237-b5c6-4106-a27d-6b2986b4652d]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:39:02 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 11 ms Request ID: [eecb301d-ae58-4bea-a143-48fd307d9d32]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:40:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 3 ms Request ID: [9f1a89f5-9e01-4cf2-b0be-84d1c6394f71]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:40:02 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1 ms Request ID: [89a8363f-c7b1-4722-ba7a-4a4cee73a863]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:40:04 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 2 ms Request ID: [69b3a4d0-8238-47db-ba87-342afde0472e]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:40:26 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 2 ms Request ID: [0fc4697d-6efc-436c-a0bb-d6cc365f9b9e]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:41:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1106 ms Request ID: [f167886e-7c89-4eae-96cd-597e8853204d]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:41:38 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1077 ms Request ID: [2fa96e8e-98cb-456c-9364-ede0a911ab92]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:42:05 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 10 ms Request ID: [541199f7-67f4-48ff-a4e0-d6f58e8f0b94]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:42:14 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1033 ms Request ID: [b02dcd22-5a57-4ab5-ae46-afbbaf9b2dd2]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:42:39 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 4432 ms Request ID: [14699bab-b814-4483-a166-104f49836e0d]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:44:37 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1078 ms Request ID: [4367191d-22fe-4ec4-adb6-adaaa5108778]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:44:59 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1096 ms Request ID: [f25b9c66-18ab-4362-af89-553194d4617d]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:45:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1079 ms Request ID: [52ff2997-434e-4dc3-819a-1731db4f4246]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:46:41 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 201 message:  Time response: 1053 ms Request ID: [a19f281f-5065-4b37-8311-80bdd811e7ad]
+
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:55:29 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:56:35 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:56:47 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:57:27 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:58:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:58:07 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:58:45 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:58:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:59:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1652 ms Request ID: [3b5c3fc2-d20e-4980-aad4-302fd267696e]
+
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 00:59:39 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 201 message:  Time response: 1108 ms Request ID: [a9219a71-b24a-4112-9f80-f43c3980781e]
+
+Started PUT /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:01:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 201 message:  Time response: 1103 ms Request ID: [2cdc5eff-4fb1-467b-9a3c-f60c0c2020e3]
+
+Started GET /api/v1/products/3 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:01:29 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 216 ms Request ID: [6d1deb38-1b6a-4a78-919a-06a2972cb111]
+
+Started GET /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:01:33 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 214 ms Request ID: [2508e1c6-a649-415e-86b9-1729c05a7113]
+
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:02:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1027 ms Request ID: [1208de17-ece2-4a0b-9258-997d8662b4ed]
+
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:04:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:05:03 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:06:13 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started DELETE /api/v1/products/4 for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:07:44 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1048 ms Request ID: [15fc6eae-beb2-4c30-8984-ebfd5f18dabd]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:10:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 11 ms Request ID: [80624927-bac6-4ab2-b1a1-94f80b61f300]
+
+Started POST /api/v1/products for :: ::ffff:127.0.0.1 at Sat Mar 23 2024 01:14:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 201 message:  Time response: 1045 ms Request ID: [591d70d8-83c5-440c-a854-c7513693b5bb]
