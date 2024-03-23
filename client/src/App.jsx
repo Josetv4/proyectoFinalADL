@@ -31,7 +31,6 @@ function App() {
           <Navbar userType={user ? user.userType : null} />
         </header>
         <main>
-          <Container maxWidth="xl">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/sobre-nosotros" element={<AboutUs />} />
@@ -46,7 +45,6 @@ function App() {
               <Route path="/seller" element={<SellerUserProfile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </Container>
         </main>
         <footer>
           <Footer />

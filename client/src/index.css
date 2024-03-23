@@ -40,7 +40,7 @@
     --background-hover-color: #91c3e419;
 }
 
-body {
+body, main {
     padding: 0;
     margin: 0;
 }
