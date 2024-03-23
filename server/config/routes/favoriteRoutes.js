@@ -1,4 +1,5 @@
 import express from "express";
+const router = express.Router();
 
 import {
   getFavorites,
@@ -11,7 +12,7 @@ import {
 
 import { getActivity } from "../../middlewares/reports.js";
 
-const router = express.Router();
+
 
 router.get("/favorite", getActivity, getFavorites);
 router.get("/favorite/:id", getActivity, getFavoritesId);
