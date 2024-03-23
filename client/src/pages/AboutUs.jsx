@@ -1,9 +1,13 @@
+import {
+    Box,
+    Container
+} from '@mui/material';
 
 const aboutUsPage = () => {
-return (
-    <div >
-        <h1>Prueba pagina: Sobre Nosotros </h1>
-    </div>
-);
+    return (
+            <Container maxWidth="xl" sx={{ bgcolor: '#cfe8fc', height: '71vh', mt: '5px' }}>
+                <Box  />
+            </Container>
+    );
 };
 export default aboutUsPage;
