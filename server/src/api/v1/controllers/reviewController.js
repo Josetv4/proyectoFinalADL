@@ -80,8 +80,8 @@ const deleteReviews = async (req, res) => {
         { status: 500, message: "Error interno del servidor" },
       ];
       return res
-        .status(errorFound[0].status)
-        .json({ error: errorFound[0].message });
+        .status(errorFound[0]?.status)
+        .json({ error: errorFound[0]?.message });
     }
   };
 

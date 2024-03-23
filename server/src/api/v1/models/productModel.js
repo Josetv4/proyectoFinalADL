@@ -2,7 +2,7 @@ import pool from "../../../../config/db/conectionDb.js";
 
 const getProduct = async () => {
   const SQLquery = {
-    text: `SELECT product_id, name, description, price, quantity, category, image_url, post_date, post_status, user_id
+    text: `SELECT product_id, name, description, price, stock, category_id, image_url, create_at, status, user_id, image_url
           FROM products`,
   };
 
