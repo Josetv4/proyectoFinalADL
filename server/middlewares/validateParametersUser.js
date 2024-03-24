@@ -1,14 +1,22 @@
 import Joi from "joi";
+import { name,
+          phone,
+          email,
+          password,
+          shippingAddress,
+          paymentMethod,
+          role,
+          status } from "../src/api/v1/helpers/validations.js";
 
 const userSchema = Joi.object({
-  username: Joi.string().max(100).required(),
-  email: Joi.string().email().max(255).required(),
-  phone: Joi.string().max(25).required(),
-  password: Joi.string().max(10).required(),
-  shipping_address: Joi.string().max(255).required(),
-  payment_method: Joi.string().max(100),
-  role: Joi.string().valid("admin", "user").required(),
-  status: Joi.string().valid("A", "I").required(),
+    name,
+    phone,
+    email,
+    password,
+    shippingAddress,
+    paymentMethod,
+    role,
+    status
 });
 
 

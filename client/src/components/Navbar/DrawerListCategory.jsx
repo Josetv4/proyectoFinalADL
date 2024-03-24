@@ -44,9 +44,9 @@ const ListCategory = ({ NavLinkComponent }) => {
         setOpen(!open);
     };
 
-    const handleCategoryClick = (categoryId) => {
+    const handleCategoryClick = (categoryId, categoryName) => {
         setSelectedCategory(categoryId);
-        navigate(`/category/${categoryId}`);
+        navigate(`/category/${categoryId}/${categoryName}`);
     };
 
     return (
@@ -66,9 +66,9 @@ const ListCategory = ({ NavLinkComponent }) => {
                                 key={category.id}
                                 sx={{...buttonStyles, ...buttonStyles1}}
                                 selected={selectedCategory === category.id}
-                                onClick={() => handleCategoryClick(category.id)}
+                                onClick={() => handleCategoryClick(category.id, category.nombre)}
                                 component={NavLinkComponent}
-                                to={`/category/${category.id}`}
+                                to={`/category/${category.id}/${category.nombre}`}
                             >
                                 <ListItemText primary={category.nombre} />
                             </ListItemButton>
@@ -81,5 +81,4 @@ const ListCategory = ({ NavLinkComponent }) => {
 };
 
 export default ListCategory;
-
 

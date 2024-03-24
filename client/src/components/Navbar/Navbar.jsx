@@ -2,11 +2,13 @@ import * as React from "react";
 import { AppBar, Box, Toolbar, Container } from "@mui/material";
 import Search from "../../utils/UtilsNavbar/Search";
 import DesktopButtons from "../../utils/UtilsNavbar/DesktopButtons";
-import UserLogged from "../../utils/UtilsNavbar/UserLogged";
 import CartButton from "../../utils/UtilsNavbar/CartButton";
-import Drawer from "../../utils/UtilsNavbar/Drawer";
+import TemporaryDrawer from "../../utils/UtilsNavbar/TemporaryDrawer";
+import { getUserComponent } from './GetUserComponent';
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ userType }) {
+    const UserLoggedComponent = getUserComponent(userType);
+
     return (
         <AppBar
             position="static"
@@ -27,7 +29,7 @@ function ResponsiveAppBar() {
                     }}
                 >
                     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, justifyContent: "space-between", alignItems: "center" }}>
-                        <Drawer />
+                    <TemporaryDrawer userType={userType} />
                         <img
                             src="https://firebasestorage.googleapis.com/v0/b/farmacias-syg.appspot.com/o/iconos%2Flogo-web.png?alt=media&token=f0d96f19-3e07-402a-b7c1-11676ff8bf5a"
                             alt="Logo farmacia s y g"
@@ -50,7 +52,7 @@ function ResponsiveAppBar() {
                         </Box>
                         <DesktopButtons />
                         <Search />
-                        <UserLogged />
+                        <UserLoggedComponent />
                         <CartButton />
                     </Box>
                     <Box
@@ -68,7 +70,7 @@ function ResponsiveAppBar() {
                             />
                         </Box>
                         <DesktopButtons />
-                        <UserLogged />
+                        <UserLoggedComponent />
                         <CartButton />
                     </Box>
                 </Toolbar>
