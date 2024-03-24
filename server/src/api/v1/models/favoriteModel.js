@@ -41,6 +41,7 @@ const createFavorite = async ({ product, user }) => {
            VALUES ($1, $2) RETURNING *`,
     values: [product, user],
   };
+  
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };
