@@ -1,9 +1,7 @@
 import Joi from "joi";
+import { name } from "../src/api/v1/helpers/validations.js";
 
-const categorySchema = Joi.object({
-  name: Joi.string().max(100).required(),
-});
-
+const categorySchema = Joi.object({name});
 
 const validateParametersCategory = (req, res, next) => {
   const { error } = categorySchema.validate(req.body);
