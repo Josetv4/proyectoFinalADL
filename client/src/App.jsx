@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container } from '@mui/material';
 import Navbar from './components/Navbar/Navbar';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
