@@ -2,7 +2,7 @@ import pool from "../../../../config/db/conectionDb.js";
 
 const getProduct = async () => {
   const SQLquery = {
-    text: `SELECT product_id, name, description, price, quantity, category, image_url, post_date, post_status, user_id
+    text: `SELECT product_id, name, description, price, stock, category_id, create_at, status, user_id, image_url
           FROM products`,
   };
 
@@ -12,7 +12,7 @@ const getProduct = async () => {
 
 const getProductId = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT product_id, name, description, price, quantity, category, image_url, post_date, post_status, user_id
+    text: `SELECT product_id, name, description, price, stock, category_id, create_at, status, user_id, image_url
            FROM products
            WHERE product_id = $1`,
     values: [id],
@@ -22,28 +22,27 @@ const getProductId = async ({ id }) => {
   return response.rows[0];
 };
 
-const createProduct = async ( { name,  description,  price,  quantity,  category,  post_status,  user_id } , image) => {
+const createProduct = async ( { name,  description,  price,  stock,  category_id,  status,  user_id } , image) => {
   const SQLquery = {
-    text: `INSERT INTO Products (name, description, price, quantity, category_id, post_status, user_id, image_url) 
+    text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id, image_url) 
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-    values: [ name, description, price, quantity, category, post_status, user_id, image ],
+    values: [ name, description, price, stock, category_id, status, user_id, image ],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };
 
 const updateProduct = async (
-  { id },
+   id ,
   {
     name,
     description,
     price,
-    quantity,
-    category,
-    image_url,
-    post_status,
+    stock,
+    category_id,
+    status,
     user_id,
-  }
+  }, image
 ) => {
 
   const SQLquery = {
@@ -51,22 +50,22 @@ const updateProduct = async (
              SET name = $1,
              description = $2,
              price = $3,
-             quantity = $4,
-             category = $5,
-             post_status = $6,
+             stock = $4,
+             category_id = $5,
+             status = $6,
              user_id = $7,
-             image_url = $8,
+             image_url = $8
              WHERE product_id = $9 
              RETURNING *`,
     values: [
       name,
       description,
       price,
-      quantity,
-      category,
-      post_status,
+      stock,
+      category_id,
+      status,
       user_id,
-      image_url,
+      image,
       id
     ],
   };
@@ -74,12 +73,13 @@ const updateProduct = async (
   return response.rows[0];
 };
 
-const deleteProduct = async (id) => {
+const deleteProduct = async ( id )  => {
   const SQLquery = {
-    text: `DELETE FROM products 
+    text: `UPDATE products
+             SET status = 'Borrado'  
              WHERE  product_id = $1 
              RETURNING *`,
-    values: [id],
+    values: [ id ],
   };
   const response = await pool.query(SQLquery);
   return response.rowCount;
