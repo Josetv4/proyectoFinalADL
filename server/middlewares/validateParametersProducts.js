@@ -1,21 +1,21 @@
 import Joi from "joi";
-import { nameProduct, 
+import { nameProducts, 
           description,
           price,
           quantity,
           category,
-          imgProduct,
+          imageProduct,
           postStatusProduct,
           userID 
                       } from "../src/api/v1/helpers/validations.js" 
 
 const productSchema = Joi.object({
-    nameProduct,
+    nameProducts,
     description,
     price,
     quantity,
     category,
-    imgProduct,
+    imageProduct,
     postStatusProduct,
     userID
 

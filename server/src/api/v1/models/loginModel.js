@@ -5,16 +5,27 @@ const verifyUser = async (
     email, 
     password
 ) => {
-    const hashedPassword = bcrypt.hashSync(password);
+    
     const sqlQuery = {
-        text: `SELECT * FROM usuarios 
-                        WHERE email= $1 
-                        AND password = $2`,
-        values: [email, hashedPassword],
+        text: `SELECT * FROM Users 
+                        WHERE email= $1`,
+        values: [email],
     }
     const { rows } = await pool.query(sqlQuery);
-    console.log(rows);
-    return rows[0];
+
+    if( rows.length === 0){
+        return null;
+    }
+    const user =  rows[0];
+    console.log(user.password);
+    console.log(password);
+    
+    // const verifyPassword = bcrypt.compareSync(password, user.password)
+  
+    if (password !== user.password) {
+        return null;
+    }
+    return user;
 }
 
 export { verifyUser }
