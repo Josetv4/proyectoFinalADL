@@ -9,7 +9,7 @@ const bgImage = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundColor: "var(--background-body-color)",
-    marginTop: "7%",
+    marginTop: "8.35%",
 };
 
 const aboutUsPage = () => {
