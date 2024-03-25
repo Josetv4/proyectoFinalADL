@@ -11,6 +11,13 @@
     border: none;
     border-radius: 20px;
     gap: 5%;
+    cursor: pointer;
+}
+
+.button_blue:hover {
+    background-color:  var(--font-btn4-color);
+    color: var(--background-btn4);
+    font-family: var(--font-body);
 }
 .text_safe{
     

@@ -1,10 +1,15 @@
+import * as React from "react";
+import { Container } from "@mui/material";
 
-const notFound = () => {
-    return (
-      <div>
-          <h1>Prueba pagina: Perfil de Administrador</h1>
-      </div>
-    );
-  };
-  export default notFound;
-  
+import { getUserComponent } from '../../components/Navbar/GetUserComponent';
+
+
+const regularProfile = ({ userType }) => {
+  const UserLoggedComponent = getUserComponent(userType);
+  return (
+    <Container maxWidth="xl">
+      <UserLoggedComponent />
+    </Container>
+  );
+};
+export default regularProfile;
