@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 const getUser = async () => {
   const SQLquery = {
-    text: `SELECT user_id, username, email, phone, password, shipping_address, payment_method, role, status 
+    text: `SELECT user_id, username, birth_date, email, phone, password, role, status 
           FROM users`,
   };
 
@@ -13,7 +13,7 @@ const getUser = async () => {
 
 const getUserId = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT user_id, username, email, phone, password, shipping_address, payment_method, role, status 
+    text: `SELECT user_id, username, birth_date, email, phone, password, role, status  
            FROM users 
            WHERE user_id = $1`,
     values: [id],
@@ -24,72 +24,33 @@ const getUserId = async ({ id }) => {
 };
 
 const createUser = async ({
-  username,
-  email,
-  phone,
-  password,
-  shipping_address,
-  payment_method,
-  role,
-  status,
+  username, birth_date, email, phone, password, role, status 
 }) => {
   const hashedPassword = bcrypt.hashSync(password);
   const SQLquery = {
     text: `INSERT INTO users (username, email, phone, password, shipping_address, payment_method, role, status) 
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-    values: [
-      username,
-      email,
-      phone,
-      hashedPassword,
-      shipping_address,
-      payment_method,
-      role,
-      status,
-    ],
+    values: [  username, birth_date, email, phone, hashedPassword, role, status],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };
 
-const updateUser = async (
-  { id },
-  {
-    username,
-    email,
-    phone,
-    password,
-    shipping_address,
-    payment_method,
-    role,
-    status,
-  }
-) => {
+const updateUser = async ({ id }, { username, birth_date, email, phone, password, role, status }) => {
   const hashedPassword = bcrypt.hashSync(password);
 
   const SQLquery = {
     text: `UPDATE users 
-             SET username = $1, 
-                 email = $2, 
-                 phone = $3, 
-                 password = $4, 
-                 shipping_address = $5, 
-                 payment_method = $6, 
-                 role = $7, 
-                 status = $8 
-             WHERE user_id = $9 
+             SET username = $1,
+                 birth_date = $2, 
+                 email = $3, 
+                 phone = $4, 
+                 password = $5, 
+                 role = $6, 
+                 status = $7
+             WHERE user_id = $8 
              RETURNING *`,
-    values: [
-      username,
-      email,
-      phone,
-      hashedPassword,
-      shipping_address,
-      payment_method,
-      role,
-      status,
-      id,
-    ],
+    values: [username, birth_date, email, phone, hashedPassword, role, status, id],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];
