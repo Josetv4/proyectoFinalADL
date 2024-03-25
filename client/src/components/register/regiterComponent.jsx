@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./style.css";
 import ButtonLittle from "../Buttons/buttonLittle/buttonLittle";
 
-const Regiter = () => {
+const RegiterComponet = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [phone, setphone] = useState("");
@@ -165,4 +165,4 @@ const Regiter = () => {
   );
 };
 
-export default Regiter;
+export default RegiterComponet;

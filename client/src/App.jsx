@@ -14,7 +14,7 @@ import Footer from './components/Footer/Footer';
 import { useAuth } from './context/AuthContext';
 
 // Imports related to users/admins/sellers
-import Login from './pages/Login';
+import Login from './pages/login/Login';
 import Register from './pages/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
