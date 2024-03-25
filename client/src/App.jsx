@@ -1,9 +1,9 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
-import Home from './pages/Home';
+import Home from './pages/home/Home'
 import BeautyCatalog from './pages/BeautyCatalog';
 import MedicantionCatalog from './pages/MedicantionCatalog';
 import Category from './pages/Category/Category';
@@ -14,8 +14,8 @@ import Footer from './components/Footer/Footer';
 import { useAuth } from './context/AuthContext';
 
 // Imports related to users/admins/sellers
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
