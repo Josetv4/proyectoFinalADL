@@ -6,6 +6,7 @@ import {
     Avatar,
     Menu,
     MenuItem,
+    Typography,
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { linkStyles2 } from '../../components/Footer/linkStyles2';
@@ -29,7 +30,7 @@ const MenuSellerUser = () => {
 
     return (
         <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+            <Box>
                 <Tooltip title="Perfil de Vendedor">
                     <IconButton
                         id="button-category"
@@ -83,6 +84,17 @@ const MenuSellerUser = () => {
                     </MenuItem>
                 </Menu>
             </Box>
+            <Tooltip title="Bienvenido de Vuelta">
+                <Typography
+                    sx={{
+                        color: 'var(--font-body-color)',
+                        fontFamily: 'var(--font-title)',
+                        fontSize: '18px',
+                    }}
+                >
+                    ¡Hola Alondra!
+                </Typography>
+            </Tooltip>
         </Box>
     );
 };

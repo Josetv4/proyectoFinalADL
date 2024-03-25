@@ -36,8 +36,8 @@ const UserLogged = () => {
                         activeClassName="active"
                         sx={{
                             color: 'var(--font-btn3-color)',
-                            fontFamily: 'var(--body)',
-                            fontSize: '14px',
+                            fontFamily: 'var(--font-title)',
+                            fontSize: '17px',
                             textDecoration: 'none',
                             '&.active': {
                                 color: 'var(--font-link-color)',

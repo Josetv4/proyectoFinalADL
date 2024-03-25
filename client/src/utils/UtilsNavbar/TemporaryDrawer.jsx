@@ -46,7 +46,7 @@ export default function TemporaryDrawer({ userType }) {
                 <Box
                     sx={{
                         width: 235,
-                        borderTop: '30px solid var(--linea-border-color2)',
+                        borderTop: '30px solid var(--background-footer-color2)',
                         backgroundColor: 'var(--background-navba-color)',
                     }}
                     onClick={toggleDrawer(false)}
@@ -96,7 +96,7 @@ export default function TemporaryDrawer({ userType }) {
                         >
                             Farmacia de Turno
                         </ListItemButton>
-                        <ListItem sx={{ borderBottom: '30px solid var(--linea-border-color2)' }}>
+                        <ListItem sx={{ borderBottom: '30px solid var(--background-footer-color2)' }}>
                         <UserLoggedComponent />
                         </ListItem>
                     </List>
