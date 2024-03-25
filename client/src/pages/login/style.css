@@ -7,14 +7,7 @@
     height: 450px;
     width:550px;
 }
-.login_img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5%;
-    
 
-}
 .css-mhc70k-MuiGrid-root>.MuiGrid-item{
     display: flex;
     justify-content: center;
@@ -29,4 +22,19 @@
 h1{
     font-family: var(--font-title);
     padding-left: 13%;
+}
+.login_img{
+    display: none;
+}
+.grid_img{
+    display: none;
+}
+@media (min-width: 992px) {
+    .login_img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5%;
+    }
+
 }
