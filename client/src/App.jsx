@@ -15,7 +15,7 @@ import { useAuth } from './context/AuthContext';
 
 // Imports related to users/admins/sellers
 import Login from './pages/login/Login';
-import Register from './pages/Register';
+import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
@@ -33,7 +33,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/sobre-nosotros" element={<AboutUs />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<Login
+               />} />
               <Route path="/register" element={<Register />} />
               <Route path="/catalog1" element={<BeautyCatalog />} />
               <Route path="/catalog2" element={<MedicantionCatalog />} />

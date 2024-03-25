@@ -1,0 +1,7 @@
+.register_page{
+    display: flex;
+}
+.register_wave{
+     position: absolute;
+    z-index: -1;
+}
