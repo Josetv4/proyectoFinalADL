@@ -1,5 +1,5 @@
 
-import Regiter from "../components/register/regiterComponent";
+import Regiter from "../../components/register/regiterComponent";
 
 
 

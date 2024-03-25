@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+
 import { useAuth } from "../../context/AuthContext";
 import { Navigate } from 'react-router-dom';
 import ButtonBig from "../Buttons/buttonBig/buttonBig";
 import ButtonLittle from "../Buttons/buttonLittle/buttonLittle";
 import swal from 'sweetalert';
 import "./style.css";
+import { useState } from "react";
 
-const Login = () => {
+const LoginComponent = () => {
   const { user, setUser } = useAuth();
   const [loginmail, setLoginmail] = useState('');
   const [loginpassword, setLoginpassword] = useState('');
@@ -82,4 +83,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginComponent ;
