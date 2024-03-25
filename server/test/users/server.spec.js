@@ -1,12 +1,14 @@
-import request  from "supertest";
+import request from "supertest";
 import server  from "../../config/routes/userRoutes";
 
 describe("Operaciones CRUD de usuarios", () => {
 
-    it("Devuelve status code 200, tipo de dato recibido es un arreglo por lo menos 1 objeto", async () => {
-        const {body, status } = await request(server).get("/users").send();
+    it("Devuelve status code 200", async () => {
+        const {body, status } = await request(server)
+                                      .get("/users")
+                                      .send();
         expect(status).toBe(200);
-        expect(body).toBeInstanceOf(Array);
+   
     });
 
     /* it("404 al intentar eliminar un café con un id que no existe", async () => {

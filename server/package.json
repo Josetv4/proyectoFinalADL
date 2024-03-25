@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch server.js",
-    "test": "jest --forceExit",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest",
+    "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-exit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit"
   },
   "keywords": [],
   "author": "",

@@ -68,22 +68,22 @@ const updateReviews = async (req, res) => {
 };
 
 const deleteReviews = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    try {
-      const response = await deleteReview(id);
-      res
-        .status(200)
-        .json({ message: "Review eliminado correctamente", review: response });
-    } catch (error) {
-      const errorFound = handleError(error.code) || [
-        { status: 500, message: "Error interno del servidor" },
-      ];
-      return res
-        .status(errorFound[0]?.status)
-        .json({ error: errorFound[0]?.message });
-    }
-  };
+  try {
+    const response = await deleteReview(id);
+    res
+      .status(200)
+      .json({ message: "Review eliminado correctamente", review: response });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
 
 export {
   getReviews,
