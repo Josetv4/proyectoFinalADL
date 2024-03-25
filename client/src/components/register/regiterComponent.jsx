@@ -51,7 +51,7 @@ const RegiterComponet = () => {
 
         <div className="register_input">
           <div className="register_label">
-            <label htmlFor="phone">Telefono</label>
+            <label htmlFor="phone">Teléfono</label>
           </div>
           <div className="register_input_input">
             <input

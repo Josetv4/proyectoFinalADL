@@ -30,6 +30,8 @@
     --background-navba-color: #fcfdff;
     --background-footer-color1: #fcfdff;
     --background-footer-color2: #91c3e4;
+    /* color de fon input  */
+    --background-input-color1:#786F9D1F;
     /*  Colores de Borde*/
     --border-btn4-color: #fe486a;
     --linea-border-color1: #fe486a;
@@ -70,4 +72,3 @@ body {
     text-align: center;
     font-weight: 400;
 }
-

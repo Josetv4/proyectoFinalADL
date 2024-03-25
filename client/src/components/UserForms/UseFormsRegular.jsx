@@ -2,7 +2,7 @@ import { useState } from "react";
 import ButtonBig from "../Buttons/buttonBig/buttonBig";
 import { Box, Typography } from "@mui/material";
 
-const UseFormSeller = () => {
+const UseFormRegular = () => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [mail, setMail] = useState("");
@@ -88,4 +88,5 @@ const UseFormSeller = () => {
     );
 };
 
-export default UseFormSeller;
+export default UseFormRegular;
+
