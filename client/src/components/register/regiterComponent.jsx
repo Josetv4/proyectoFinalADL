@@ -25,7 +25,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="name">Nombre Completo</label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="text"
               placeholder="juan perez"
@@ -40,7 +40,7 @@ const RegiterComponet = () => {
             <label htmlFor="date" >Fecha de nacimiento</label>
           </div>
 
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="text"
               placeholder="DD/MM/YY"
@@ -54,7 +54,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="phone">Telefono</label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="text"
               placeholder="+56987694423"
@@ -68,7 +68,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="rol">¿Eres vendedor?</label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <select
               name=""
               id=""
@@ -86,7 +86,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="rut">Rol o Rut </label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="text"
               placeholder="11.111.111-1"
@@ -100,7 +100,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="Mail">Mail </label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="text"
               placeholder="tumail@tumail.com"
@@ -115,7 +115,7 @@ const RegiterComponet = () => {
             
             <label htmlFor="Mail_repeat">Repite tu Mail </label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="text"
               placeholder="tumail@tumail.com"
@@ -128,7 +128,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="password"> Contraseña </label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
             <input
               type="password"
               placeholder="*******"
@@ -141,7 +141,7 @@ const RegiterComponet = () => {
           <div className="register_label">
             <label htmlFor="password__repeat"> Contraseña </label>
           </div>
-          <div className="register_input">
+          <div className="register_input_input">
       
             <input
               type="password"
