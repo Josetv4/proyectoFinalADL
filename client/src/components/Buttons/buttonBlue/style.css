@@ -1,0 +1,33 @@
+.button_blue{
+    background-color: var(--background-btn2);
+    height: 93px;
+    width: 185px;
+    color: var( --font-footer-color4);
+    display: flex;
+    padding: 1%;
+    margin: 5%;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    border-radius: 20px;
+    gap: 5%;
+}
+.text_safe{
+    
+    text-align: justify;
+
+}
+.text_title p{
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 20px;
+}
+.text_text p{
+    font-family: var( --font-body);
+
+}
+.text__num p{
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 25px;
+}

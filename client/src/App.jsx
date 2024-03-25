@@ -1,9 +1,9 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
-import Home from './pages/Home';
+import Home from './pages/home/Home'
 import BeautyCatalog from './pages/BeautyCatalog';
 import MedicantionCatalog from './pages/MedicantionCatalog';
 import Category from './pages/Category/Category';
