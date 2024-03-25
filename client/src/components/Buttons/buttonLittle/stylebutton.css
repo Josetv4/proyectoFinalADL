@@ -6,6 +6,7 @@
     height: 45px;
     color: var(--background-btn4);
     cursor: pointer;
+    margin: 2%;
 }
 
 .button_little:hover {
