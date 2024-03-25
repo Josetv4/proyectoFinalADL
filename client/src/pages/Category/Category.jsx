@@ -78,7 +78,6 @@ const Category = () => {
   const { id, name } = useParams();
   //const [products,setProducts] = useState(null);
   return (
-    <>
       <Grid container spacing={2}>
         <Grid item xs={2} sx={{marginTop:"7%"}}>
           <Typography className="order-by-box">
@@ -133,14 +132,13 @@ const Category = () => {
           <Typography variant="h4" color="textSecondary" >
             {name}
           </Typography>
-          <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "10px", gap: "15px" }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: "wrap" }}>
             {arrayProducts.map((product, i) =>
               <ProductCard key={i} product={product} />
             )}
           </Box>
         </Grid>
       </Grid>
-    </>
   );
 };
 export default Category;
