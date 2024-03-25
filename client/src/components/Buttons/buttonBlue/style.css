@@ -1,5 +1,6 @@
 .button_blue{
     background-color: var(--background-btn2);
+    font-family: var(--font-body);
     height: 93px;
     width: 185px;
     color: var( --font-footer-color4);

@@ -5,11 +5,11 @@ import ButtonLittle from "../Buttons/buttonLittle/buttonLittle";
 const RegiterComponet = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-  const [phone, setphone] = useState("");
+  const [phone, setPhone] = useState("");
   const [rol, setRol] = useState("");
   const [rut, setRut] = useState("");
   const [mail, setMail] = useState("");
-  const [mailrepeat, SetMailrepeat] = useState("");
+  const [mailRepeat, setMailRepeat] = useState("");
   const [password, setPassword] = useState("");
   const [passwordrepeat, setPasswordrepeat] = useState("");
 
@@ -17,7 +17,6 @@ const RegiterComponet = () => {
     console.log("Botón clickeado");
   };
 
-  
   return (
     <div className="register">
       <form className="register_form" action="">
@@ -37,7 +36,7 @@ const RegiterComponet = () => {
 
         <div className="register_input">
           <div className="register_label">
-            <label htmlFor="date" >Fecha de nacimiento</label>
+            <label htmlFor="date">Fecha de nacimiento</label>
           </div>
 
           <div className="register_input_input">
@@ -59,7 +58,7 @@ const RegiterComponet = () => {
               type="text"
               placeholder="+56987694423"
               value={phone}
-              onChange={(e) => setphone(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
         </div>
@@ -112,18 +111,17 @@ const RegiterComponet = () => {
 
         <div className="register_input">
           <div className="register_label">
-            
             <label htmlFor="Mail_repeat">Repite tu Mail </label>
           </div>
           <div className="register_input_input">
             <input
               type="text"
               placeholder="tumail@tumail.com"
-              value={mailrepeat}
-              onChange={(e) => SetMailrepeat(e.target.value)}
+              value={mailRepeat}
+              onChange={(e) => setMailRepeat(e.target.value)}
             />
           </div>
-        </div >
+        </div>
         <div className="register_input">
           <div className="register_label">
             <label htmlFor="password"> Contraseña </label>
@@ -142,7 +140,6 @@ const RegiterComponet = () => {
             <label htmlFor="password__repeat"> Contraseña </label>
           </div>
           <div className="register_input_input">
-      
             <input
               type="password"
               placeholder="******"
@@ -157,9 +154,9 @@ const RegiterComponet = () => {
             <p>Terminos y condiciones de contrato</p>
           </div>
         </div>
-<div className="register_button">      
-    <ButtonLittle onClick={handleClick}>Enviar</ButtonLittle></div>
-
+        <div className="register_button">
+          <ButtonLittle onClick={handleClick}>Enviar</ButtonLittle>
+        </div>
       </form>
     </div>
   );
