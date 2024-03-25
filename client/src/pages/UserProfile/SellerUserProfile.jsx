@@ -7,15 +7,15 @@ import ButtonOutline from "../../components/Buttons/buttonBigoutline/buttonOutli
 
 const containerFlex = {
   display: "flex",
-  gap: "15px",
+  gap: "220px",
   flexWrap: "wrap",
 };
 
 const SellerUser = () => {
   return (
-    <Box sx={{ ...containerFlex, justifyContent: 'center', mt: '25px', mb: '25px'}}>
+    <Box sx={{ ...containerFlex, justifyContent: 'center', mt: '5px', mb: '5px', alignItems: 'center'}}>
       <Box>
-        <Box sx={{ ...containerFlex }}>
+        <Box sx={{ ...containerFlex, gap: '15px'}}>
           <Box>
             <Avatar
               sx={{ width: 100, height: 100 }}
@@ -43,14 +43,12 @@ const SellerUser = () => {
             <ListItem>+569 999000999</ListItem>
           </List>
         </Box>
-        <Box sx={{ ...containerFlex, flexDirection: "column" }}>
+        <Box sx={{ display:'flex', flexDirection: "column", gap: '15px' }}>
           <ButtonBig>Haz una publicación</ButtonBig>
           <ButtonOutline>Tus publicaciones</ButtonOutline>
         </Box>
       </Box>
-      <Box>
       <UseFormSeller />
-      </Box>
     </Box>
   );
 };
