@@ -5,4 +5,11 @@
     color: var( --background-btn4);
     width: 368px;
     height: 48px;
+    cursor: pointer;
+}
+
+.button_big:hover {
+    background-color: var(--font-footer-color2);
+    color: var(--background-btn4);
+    font-family: var(--font-body);
 }

@@ -6,7 +6,7 @@
     color: var(--font-btn4-color);
     width: 166px;
     height: 45px;
-   ;
+    cursor: pointer;
 }
 .button_little_outline:hover{
     border: 1px solid var(--linea-border-color2);
