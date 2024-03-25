@@ -1,0 +1,40 @@
+.order-select{
+    width: 100%;
+    height: 80%;
+}
+
+.box-selects{
+    border-radius: 10px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    margin-top: 50px;
+    width: 100%;
+    height:300px;
+    justify-content: center;
+    align-content: center;
+    gap:15px;
+    border-color: var(--linea-border-color2);
+    background-color: var(--background-btn3);
+    flex-wrap: wrap;
+    margin-left: 3%;
+}
+
+.arrow-select{
+    background-color: var(--background-btn2);
+    color: var(--font-btn1-color);
+    height: 100%;
+    width: 25%;
+}
+
+.order-by-box{
+    border:1px solid;
+    border-radius: 5px;
+    color: var(--font-btn3-color) !important;
+    background-color: var(--background-btn3);
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+    

@@ -1,0 +1,15 @@
+.button_little_outline{
+
+    border-radius: 100px;
+    border: 1px solid var(--font-btn4-color);
+    background-color: var(--font-btn1-color);
+    color: var(--font-btn4-color);
+    width: 166px;
+    height: 45px;
+   ;
+}
+.button_little_outline:hover{
+    border: 1px solid var(--linea-border-color2);
+    box-shadow: 2px 4px 5px 0px var(--linea-border-navba);
+}
+

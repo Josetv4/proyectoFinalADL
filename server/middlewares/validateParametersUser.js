@@ -1,4 +1,12 @@
 import Joi from "joi";
+import { name,
+          phone,
+          email,
+          password,
+          shippingAddress,
+          paymentMethod,
+          role,
+          status } from "../src/api/v1/helpers/validations.js";
 
 const userSchema = Joi.object({
   username: Joi.string().max(100).required(),
