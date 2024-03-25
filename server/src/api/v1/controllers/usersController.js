@@ -20,7 +20,7 @@ const getUsersId = async (req, res) => {
     const users = await getUserId(id);
     res.status(200).json({ user : users  });
   } catch (error) {
-    const errorFound = handleError(error.code);
+    const errorFound = handleError(error.code) || [{ status: 500, message: "Error interno del servidor" },];
     return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });
   }
 };
@@ -33,8 +33,8 @@ const createNewUser = async (req, res) => {
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 
