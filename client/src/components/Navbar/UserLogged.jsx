@@ -1,4 +1,3 @@
-import React from 'react';
 import { RxAvatar } from 'react-icons/rx';
 import {
     Box,
