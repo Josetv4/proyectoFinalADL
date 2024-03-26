@@ -1,6 +1,6 @@
 import UserLogged from "./UserLogged";
 import AdminLogged from "./AdminLogged";
-import RegularUserLogged from "./Navbar";
+import RegularUserLogged from "./RegularUserLogged";
 import SellerUserLogged from "./SellerUserLogged";
 
 function getUserComponent(userType) {

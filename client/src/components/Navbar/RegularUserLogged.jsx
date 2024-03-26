@@ -9,7 +9,7 @@ import {
     Typography
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../Footer/linkStyles';
+import { linkStyles2 } from '../Footer/linkStyles2';
 import { buttonStyles } from './ButtonStyleHoverFocus';
 
 const MenuRegularUser = () => {
