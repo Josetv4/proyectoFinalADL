@@ -1,5 +1,3 @@
-import React from "react";
-
 import { AppBar, Toolbar, Container, Box, Typography } from "@mui/material";
 
 import FooterWeb from "./FooterWeb"
