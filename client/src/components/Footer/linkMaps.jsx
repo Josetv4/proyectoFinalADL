@@ -1,4 +1,3 @@
-// utils.js
 import Swal from 'sweetalert';
 
 export const generarEnlaceMapa = (latitud, longitud) => {
