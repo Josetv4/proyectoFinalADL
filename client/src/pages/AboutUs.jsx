@@ -1,5 +1,5 @@
 import React from "react";
-import AboutPharmacy from "../components/AbaoutUs/AboutPharmacy"
+import AboutPharmacy from "../components/AboutUs/AboutPharmacy"
 
 import { Container } from "@mui/material";
 

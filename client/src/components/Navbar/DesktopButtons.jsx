@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 import { buttonStyles } from './ButtonStyleHoverFocus';
 
-import MenuCategory from '../../components/Navbar/MenuCategory';
+import MenuCategory from './MenuCategory';
 
 const buttonStyles1 = {
     my: 2,
