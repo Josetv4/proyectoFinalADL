@@ -1,7 +1,6 @@
-import React from "react";
 import { Box, Avatar, Typography, List, ListItem } from "@mui/material";
 
-import UseFormRegular from "../../components/UserForms/UseFormsRegular";
+import UseForm from "../../components/UserForms/UseForms";
 
 const containerFlex = {
   display: "flex",
@@ -42,7 +41,7 @@ const SellerUser = () => {
           </List>
         </Box>
       </Box>
-      <UseFormRegular />
+      <UseForm />
     </Box>
   );
 };
