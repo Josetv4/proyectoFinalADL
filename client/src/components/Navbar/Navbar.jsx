@@ -1,4 +1,3 @@
-import * as React from "react";
 import { AppBar, Box, Toolbar, Container } from "@mui/material";
 import Search from "./Search";
 import DesktopButtons from "./DesktopButtons";
