@@ -1,7 +1,6 @@
-import React from "react";
 import { Box, Avatar, Typography, List, ListItem } from "@mui/material";
 
-import UseFormSeller from "../../components/UserForms/UseFormsSeller";
+import UseForm from "../../components/UserForms/UseForms";
 import ButtonBig from "../../components/Buttons/buttonBig/buttonBig";
 import ButtonOutline from "../../components/Buttons/buttonBigoutline/buttonOutline";
 
@@ -48,7 +47,7 @@ const SellerUser = () => {
           <ButtonOutline>Tus publicaciones</ButtonOutline>
         </Box>
       </Box>
-      <UseFormSeller />
+      <UseForm />
     </Box>
   );
 };
