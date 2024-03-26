@@ -6,13 +6,13 @@ import {
     Avatar,
     Menu,
     MenuItem,
-    Typography,
+    Typography
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../../components/Footer/linkStyles2';
-import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
+import { linkStyles2 } from '../Footer/linkStyles';
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
-const MenuSellerUser = () => {
+const MenuRegularUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -31,7 +31,7 @@ const MenuSellerUser = () => {
     return (
         <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
             <Box>
-                <Tooltip title="Perfil de Vendedor">
+                <Tooltip title="Perfil de Usuario">
                     <IconButton
                         id="button-category"
                         aria-controls={open ? "button-category" : undefined}
@@ -39,14 +39,14 @@ const MenuSellerUser = () => {
                         aria-expanded={open ? "true" : undefined}
                         onClick={handleClick}
                         component={NavLink}
-                        to="/seller"
+                        to="/user-profile"
                         activeClassName="active"
                         sx={{
                             ...linkStyles2,
                             mb: -1,
                         }}
                     >
-                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://www.evopayments.mx/blog/wp-content/uploads/2023/03/Como-ser-una-mujer-exitosa-en-los-negocio-770x513.jpeg" />
+                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://tn.com.ar/resizer/jT7boEBw5JfiLkgweUbQ5a0evZI=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/4RGWEM5MSRCWTBSIBAZGQ2QEHU.jpg" />
                     </IconButton>
                 </Tooltip>
                 <Menu
@@ -68,13 +68,13 @@ const MenuSellerUser = () => {
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Tus Publicaciones
+                        Tus Favoritos
                     </MenuItem>
                     <MenuItem
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Tus Ventas
+                        Tus Compras
                     </MenuItem>
                     <MenuItem
                         onClick={handleItemClick}
@@ -92,11 +92,11 @@ const MenuSellerUser = () => {
                         fontSize: '18px',
                     }}
                 >
-                    ¡Hola Alondra!
+                    ¡Hola Ben!
                 </Typography>
             </Tooltip>
         </Box>
     );
 };
 
-export default MenuSellerUser;
+export default MenuRegularUser;

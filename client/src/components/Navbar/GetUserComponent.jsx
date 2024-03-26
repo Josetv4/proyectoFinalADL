@@ -1,7 +1,7 @@
-import UserLogged from "../../utils/UtilsNavbar/UserLogged";
-import AdminLogged from "../../utils/UtilsNavbar/AdminLogged";
-import RegularUserLogged from "../../utils/UtilsNavbar/RegularUserLogged";
-import SellerUserLogged from "../../utils/UtilsNavbar/SellerUserLogged";
+import UserLogged from "./UserLogged";
+import AdminLogged from "./AdminLogged";
+import RegularUserLogged from "./Navbar";
+import SellerUserLogged from "./SellerUserLogged";
 
 function getUserComponent(userType) {
     switch (userType) {
