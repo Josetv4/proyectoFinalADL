@@ -74,7 +74,6 @@ export default function TemporaryDrawer({ userType }) {
                         <ListItemButton
                             component={NavLink}
                             to="/"
-                            activeClassName="active"
                             sx={{...buttonStyles1, ...buttonStyles}}
                         >
                             Home
@@ -83,7 +82,6 @@ export default function TemporaryDrawer({ userType }) {
                         <ListItemButton
                             component={NavLink}
                             to="/sobre-nosotros"
-                            activeClassName="active"
                             sx={{...buttonStyles1, ...buttonStyles}}
                         >
                             Sobre Nosotros
@@ -91,7 +89,6 @@ export default function TemporaryDrawer({ userType }) {
                         <ListItemButton
                             component={NavLink}
                             to="/pharmacy-on-duty"
-                            activeClassName="active"
                             sx={{...buttonStyles1, ...buttonStyles}}
                         >
                             Farmacia de Turno

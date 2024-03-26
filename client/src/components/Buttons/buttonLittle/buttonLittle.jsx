@@ -1,11 +1,13 @@
 import "./stylebutton.css";
+import { NavLink } from 'react-router-dom';
 
-
-const ButtonLittle= ({ onClick, children }) => {
+const ButtonLittle = ({ onClick, children, to }) => {
   return (
-    <button onClick={onClick} className="button_little">
-      {children}
-    </button>
+    <NavLink to={to}>
+      <button onClick={onClick} className="button_little">
+        {children}
+      </button>
+    </NavLink>
   );
 };
 
