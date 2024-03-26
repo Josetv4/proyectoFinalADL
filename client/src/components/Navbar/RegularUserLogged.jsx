@@ -40,7 +40,6 @@ const MenuRegularUser = () => {
                         onClick={handleClick}
                         component={NavLink}
                         to="/user-profile"
-                        activeClassName="active"
                         sx={{
                             ...linkStyles2,
                             mb: -1,

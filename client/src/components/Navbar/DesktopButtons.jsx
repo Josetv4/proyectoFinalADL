@@ -17,7 +17,6 @@ const DesktopButtons = () => {
             <Button
                 component={NavLink}
                 to="/"
-                activeClassName="active"
                 sx={{ ...buttonStyles1, ...buttonStyles }}
             >
                 Home
@@ -26,7 +25,6 @@ const DesktopButtons = () => {
             <Button
                 component={NavLink}
                 to="/sobre-nosotros"
-                activeClassName="active"
                 sx={{ ...buttonStyles1, ...buttonStyles }}
             >
                 Sobre Nosotros

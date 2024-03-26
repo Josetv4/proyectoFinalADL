@@ -6,6 +6,8 @@ import NotFound from './pages/NotFound';
 import Home from './pages/home/Home'
 import Category from './pages/Category/Category';
 import Footer from './components/Footer/Footer';
+import PurchaseThanks from './pages/PurchaseThanks';
+import Wallet from './pages/Wallet';
 
 //Context
 import { useAuth } from './context/AuthContext';
@@ -36,6 +38,8 @@ function App() {
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
+              <Route path="/purchase-thanks" element={<PurchaseThanks />} />
+              <Route path="/wallet" element={<Wallet />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
