@@ -30,17 +30,23 @@
     --background-navba-color: #fcfdff;
     --background-footer-color1: #fcfdff;
     --background-footer-color2: #91c3e4;
+    /* color de fon input  */
+    --background-input-color1:#786F9D1F;
     /*  Colores de Borde*/
     --border-btn4-color: #fe486a;
     --linea-border-color1: #fe486a;
-    --linea-border-color2: #91c3e4;
+    --linea-border-color2: #91c3e444;
     --linea-border-navba: #fda2b440;
-    --input-color: #786f9d2a;
+    --input-color: #d8d8d8;
     /*  Colores fondo hover*/
     --background-hover-color: #91c3e419;
-}
 
-body, main {
+/* box-shadow */
+--sombra:10px 10px 5px var(--background-hover-color)
+
+
+}
+body {
     padding: 0;
     margin: 0;
 }

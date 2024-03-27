@@ -1,9 +1,8 @@
-import * as React from "react";
 import { AppBar, Box, Toolbar, Container } from "@mui/material";
-import Search from "../../utils/UtilsNavbar/Search";
-import DesktopButtons from "../../utils/UtilsNavbar/DesktopButtons";
-import CartButton from "../../utils/UtilsNavbar/CartButton";
-import TemporaryDrawer from "../../utils/UtilsNavbar/TemporaryDrawer";
+import Search from "./Search";
+import DesktopButtons from "./DesktopButtons";
+import CartButton from "./CartButton";
+import TemporaryDrawer from "./TemporaryDrawer";
 import { getUserComponent } from './GetUserComponent';
 
 function ResponsiveAppBar({ userType }) {

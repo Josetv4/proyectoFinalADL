@@ -64,8 +64,8 @@ const createFavorites = async (req, res) => {
       { status: 500, message: "Error interno del servidor" },
     ];
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 
@@ -80,8 +80,8 @@ const updateFavorites = async (req, res) => {
       { status: 500, message: "Error interno del servidor" },
     ];
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 const deleteFavorites = async (req, res) => {
@@ -97,8 +97,8 @@ const deleteFavorites = async (req, res) => {
       { status: 500, message: "Error interno del servidor" },
     ];
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 

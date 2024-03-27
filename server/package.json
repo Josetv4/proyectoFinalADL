@@ -5,9 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "jest",
+    "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-exit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit"
   },
   "keywords": [],
   "author": "",

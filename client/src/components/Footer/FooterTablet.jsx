@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
 import { linkStyles2 } from './linkStyles2';
 import { FaFacebookF, FaXTwitter } from 'react-icons/fa6';

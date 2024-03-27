@@ -1,22 +1,21 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container } from '@mui/material';
 import Navbar from './components/Navbar/Navbar';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
-import Home from './pages/Home';
-import BeautyCatalog from './pages/BeautyCatalog';
-import MedicantionCatalog from './pages/MedicantionCatalog';
+import Home from './pages/home/Home'
 import Category from './pages/Category/Category';
-import PharmacyOnDuty from './pages/PharmacyOnDuty';
 import Footer from './components/Footer/Footer';
+import PurchaseThanks from './pages/PurchaseThanks';
+import Wallet from './pages/Wallet';
+import MyShopping from './pages/MyShopping';
 
 //Context
 import { useAuth } from './context/AuthContext';
 
 // Imports related to users/admins/sellers
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
@@ -34,15 +33,15 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/sobre-nosotros" element={<AboutUs />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register />} />
-              <Route path="/catalog1" element={<BeautyCatalog />} />
-              <Route path="/catalog2" element={<MedicantionCatalog />} />
               <Route path="/category/:id/:name" element={<Category />} />
-              <Route path="/pharmacy-on-duty" element={<PharmacyOnDuty />} />
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
+              <Route path="/my-shopping" element={<MyShopping />} />
+              <Route path="/purchase-thanks" element={<PurchaseThanks />} />
+              <Route path="/wallet" element={<Wallet />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
