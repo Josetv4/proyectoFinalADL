@@ -68,13 +68,19 @@ const MenuAdminLogged = () => {
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
+                        Productos
+                    </MenuItem>
+                    <MenuItem
+                        onClick={handleItemClick}
+                        sx={buttonStyles}
+                    >
                         Publicaciones
                     </MenuItem>
                     <MenuItem
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Ventas
+                        Usuarios
                     </MenuItem>
                     <MenuItem
                         onClick={handleItemClick}
