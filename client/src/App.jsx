@@ -19,6 +19,7 @@ import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
+import DetailsProducts from './pages/DetailsProducts';
 
 function App() {
   const { user } = useAuth();
@@ -42,6 +43,7 @@ function App() {
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
+              <Route path="/details-product/:id" element={<DetailsProducts/>}/>
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
