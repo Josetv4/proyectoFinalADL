@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -14,13 +12,6 @@ import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
 
 export default function ProductCard({ product }) {
-
-  const navigate = useNavigate();
-
-  const goDetailProduct = (id) =>{
-    console.log(id);
-    navigate(`/details-product/${id}`);  
-  }
 
   return (
     <Card className='product-card'>
@@ -71,7 +62,7 @@ export default function ProductCard({ product }) {
           <ButtonLittle >
             Añadir al carro
           </ButtonLittle>
-          <ButtonLittleoutline onClick={()=> goDetailProduct(product.id)}>
+          <ButtonLittleoutline to={`/details-product/${product.id}`}>
             Ver detalles
           </ButtonLittleoutline>
         </CardActions>

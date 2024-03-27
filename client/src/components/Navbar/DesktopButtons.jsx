@@ -1,9 +1,8 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 import { buttonStyles } from './ButtonStyleHoverFocus';
 
-import MenuCategory from '../../components/Navbar/MenuCategory';
+import MenuCategory from './MenuCategory';
 
 const buttonStyles1 = {
     my: 2,
@@ -18,7 +17,6 @@ const DesktopButtons = () => {
             <Button
                 component={NavLink}
                 to="/"
-                activeClassName="active"
                 sx={{ ...buttonStyles1, ...buttonStyles }}
             >
                 Home
@@ -27,7 +25,6 @@ const DesktopButtons = () => {
             <Button
                 component={NavLink}
                 to="/sobre-nosotros"
-                activeClassName="active"
                 sx={{ ...buttonStyles1, ...buttonStyles }}
             >
                 Sobre Nosotros

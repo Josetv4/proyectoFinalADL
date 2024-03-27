@@ -1,4 +1,3 @@
-import React from 'react';
 import { RxAvatar } from 'react-icons/rx';
 import {
     Box,
@@ -17,7 +16,6 @@ const UserLogged = () => {
                 <Button
                     component={NavLink}
                     to="/login"
-                    activeClassName="active"
                     sx={{
                         ...buttonStyles,
                         color: 'var(--font-navbar-color)',
@@ -33,7 +31,6 @@ const UserLogged = () => {
                     <Typography
                         component={NavLink}
                         to="/register"
-                        activeClassName="active"
                         sx={{
                             color: 'var(--font-btn3-color)',
                             fontFamily: 'var(--font-title)',

@@ -1,7 +1,8 @@
-import React from "react";
 import { Box, Avatar, Typography, List, ListItem } from "@mui/material";
 
-import UseFormRegular from "../../components/UserForms/UseFormsRegular";
+import UseForm from "../../components/UserForms/UseForms";
+import ButtonBig from "../../components/Buttons/buttonBig/buttonBig";
+import ButtonOutline from "../../components/Buttons/buttonBigoutline/buttonOutline";
 
 const containerFlex = {
   display: "flex",
@@ -16,7 +17,7 @@ const SellerUser = () => {
         <Box sx={{ ...containerFlex, gap: '15px'}}>
           <Box>
             <Avatar
-              sx={{ width: 150, height: 150 }}
+              sx={{ width: 100, height: 100 }}
               alt="Remy Sharp"
               src="https://tn.com.ar/resizer/jT7boEBw5JfiLkgweUbQ5a0evZI=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/4RGWEM5MSRCWTBSIBAZGQ2QEHU.jpg"
             />
@@ -41,8 +42,12 @@ const SellerUser = () => {
             <ListItem>+569 999000999</ListItem>
           </List>
         </Box>
+        <Box sx={{ display:'flex', flexDirection: "column", gap: '15px' }}>
+          <ButtonBig>Ver tus Favoritos</ButtonBig>
+          <ButtonOutline to="/last-shopping">Tus últimas compras</ButtonOutline>
+        </Box>
       </Box>
-      <UseFormRegular />
+      <UseForm />
     </Box>
   );
 };

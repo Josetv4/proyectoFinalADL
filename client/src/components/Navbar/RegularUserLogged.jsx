@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from 'react';
 import {
     Box,
     IconButton,
@@ -9,8 +9,8 @@ import {
     Typography
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../../components/Footer/linkStyles2';
-import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
+import { linkStyles2 } from '../Footer/linkStyles2';
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
 const MenuRegularUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -40,7 +40,6 @@ const MenuRegularUser = () => {
                         onClick={handleClick}
                         component={NavLink}
                         to="/user-profile"
-                        activeClassName="active"
                         sx={{
                             ...linkStyles2,
                             mb: -1,
@@ -71,6 +70,8 @@ const MenuRegularUser = () => {
                         Tus Favoritos
                     </MenuItem>
                     <MenuItem
+                        component={NavLink}
+                        to="/last-shopping"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >

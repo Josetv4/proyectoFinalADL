@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Box, Typography } from "@mui/material";
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import addressesSyG from '../Footer/addressesSyG.json';
@@ -41,13 +41,14 @@ const AboutUsMaps = () => {
                     </Typography>
                     {mapUrl && (
                         <iframe
+                            title="ubicacion farmacia S y G"
                             src={mapUrl}
                             width="380"
                             height="250"
                             style={{ border: 0 }}
                             allowfullscreen=""
                             loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
+                            referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     )}
                     <Typography sx={{ ...textInformation, fontFamily: 'var(--font-body)' }}>

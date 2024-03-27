@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
     Box,
     IconButton,
@@ -6,13 +6,13 @@ import {
     Avatar,
     Menu,
     MenuItem,
-    Typography,
+    Typography
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../../components/Footer/linkStyles2';
-import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
+import { linkStyles2 } from '../Footer/linkStyles2';
+import { buttonStyles } from '../Navbar/ButtonStyleHoverFocus';
 
-const MenuSellerUser = () => {
+const MenuAdminLogged = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -31,7 +31,7 @@ const MenuSellerUser = () => {
     return (
         <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
             <Box>
-                <Tooltip title="Perfil de Vendedor">
+                <Tooltip title="Perfil de Administrador">
                     <IconButton
                         id="button-category"
                         aria-controls={open ? "button-category" : undefined}
@@ -39,14 +39,14 @@ const MenuSellerUser = () => {
                         aria-expanded={open ? "true" : undefined}
                         onClick={handleClick}
                         component={NavLink}
-                        to="/seller"
+                        to="/admin"
                         activeClassName="active"
                         sx={{
                             ...linkStyles2,
                             mb: -1,
                         }}
                     >
-                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://www.evopayments.mx/blog/wp-content/uploads/2023/03/Como-ser-una-mujer-exitosa-en-los-negocio-770x513.jpeg" />
+                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg" />
                     </IconButton>
                 </Tooltip>
                 <Menu
@@ -68,13 +68,19 @@ const MenuSellerUser = () => {
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Tus Publicaciones
+                        Productos
                     </MenuItem>
                     <MenuItem
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Tus Ventas
+                        Publicaciones
+                    </MenuItem>
+                    <MenuItem
+                        onClick={handleItemClick}
+                        sx={buttonStyles}
+                    >
+                        Usuarios
                     </MenuItem>
                     <MenuItem
                         onClick={handleItemClick}
@@ -92,11 +98,11 @@ const MenuSellerUser = () => {
                         fontSize: '18px',
                     }}
                 >
-                    ¡Hola Alondra!
+                    ¡Hola Oriana!
                 </Typography>
             </Tooltip>
         </Box>
     );
 };
 
-export default MenuSellerUser;
+export default MenuAdminLogged;

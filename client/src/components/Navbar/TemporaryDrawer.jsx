@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from "@mui/icons-material/Menu";
 
-import DrawerListCategory from "../../components/Navbar/DrawerListCategory";
+import DrawerListCategory from "./DrawerListCategory";
 import { getUserComponent } from '../../components/Navbar/GetUserComponent';
 import { buttonStyles } from './ButtonStyleHoverFocus';
 
@@ -74,7 +74,6 @@ export default function TemporaryDrawer({ userType }) {
                         <ListItemButton
                             component={NavLink}
                             to="/"
-                            activeClassName="active"
                             sx={{...buttonStyles1, ...buttonStyles}}
                         >
                             Home
@@ -83,7 +82,6 @@ export default function TemporaryDrawer({ userType }) {
                         <ListItemButton
                             component={NavLink}
                             to="/sobre-nosotros"
-                            activeClassName="active"
                             sx={{...buttonStyles1, ...buttonStyles}}
                         >
                             Sobre Nosotros
@@ -91,7 +89,6 @@ export default function TemporaryDrawer({ userType }) {
                         <ListItemButton
                             component={NavLink}
                             to="/pharmacy-on-duty"
-                            activeClassName="active"
                             sx={{...buttonStyles1, ...buttonStyles}}
                         >
                             Farmacia de Turno
