@@ -16,7 +16,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,    
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -25,7 +26,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -34,7 +36,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -43,7 +46,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -52,7 +56,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -61,7 +66,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -70,7 +76,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
 ];
 
@@ -79,8 +86,10 @@ const Category = () => {
   //const [products,setProducts] = useState(null);
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid item xs={2} sx={{marginTop:"7%"}}>
+      <Grid container spacing={2} sx={{justifyContent:"center"}}>
+        <Grid 
+        item xs={2}
+        sx={{display:"flex", flexDirection:"column",alignItems:"center"}}>
           <Typography className="order-by-box">
             Ordenar Por
           </Typography>
@@ -129,7 +138,7 @@ const Category = () => {
             </ButtonLittle>
           </Box>
         </Grid>
-        <Grid item xs={10} sx={{marginTop:"3%"}}>
+        <Grid sx={{marginTop:"3%"}}>
           <Typography variant="h4" color="textSecondary" >
             {name}
           </Typography>
