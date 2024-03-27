@@ -31,16 +31,11 @@ const LastShopping = () => {
 
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-      <main>
+     <main>
         <h2>Ultimas compras </h2>
         <ShoppingCard shopping={lastShopping}/>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+    
     </>
   );
 };
