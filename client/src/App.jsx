@@ -20,6 +20,7 @@ import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
+import SellerPublications from './pages/UserProfile/sellerPublications';
 
 function App() {
   const { user } = useAuth();
@@ -42,6 +43,7 @@ function App() {
               <Route path="/seller" element={<SellerUserProfile />} />
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
+              <Route path="/publication" element={<SellerPublications  />} />
               <Route path="/wallet" element={<Wallet />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
