@@ -70,6 +70,8 @@ const MenuRegularUser = () => {
                         Tus Favoritos
                     </MenuItem>
                     <MenuItem
+                        component={NavLink}
+                        to="/last-shopping"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
