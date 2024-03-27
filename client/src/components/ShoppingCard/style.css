@@ -1,0 +1,14 @@
+.shopping-card {
+    display: flex;
+    margin: 10px; 
+  }
+  
+  .card-content-horizontal {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-image {
+    width: 200px; 
+    margin-right: 20px; 
+  }

@@ -19,6 +19,7 @@ import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
+import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 
 function App() {
   const { user } = useAuth();
@@ -42,6 +43,7 @@ function App() {
               <Route path="/my-shopping" element={<MyShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
               <Route path="/wallet" element={<Wallet />} />
+              <Route path="/shoppingCard" element={<ShoppingCard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
