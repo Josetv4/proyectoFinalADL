@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "descuento": 25,
+      "texto": "En belleza y salud"
+    },
+    {
+      "id": 2,
+      "descuento": 15,
+      "texto": "Anticonceptivo"
+    },
+    {
+      "id": 3,
+      "descuento": 50,
+      "texto": "Gotitas oftalmológicas"
+    },
+    {
+      "id": 4,
+      "descuento": 30,
+      
+      "texto": "Diabetes"
+    }
+  ]
+  

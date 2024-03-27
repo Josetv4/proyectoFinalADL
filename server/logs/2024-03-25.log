@@ -1,0 +1,162 @@
+
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:25:13 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1009 ms Request ID: [5356e1a7-60c3-4969-9eb6-3f2bcded5904]
+
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:32:42 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 3242 ms Request ID: [70349663-464e-4ff2-bc63-1afc8f0375e2]
+
+Started GET /api/v1/users/1 for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:32:51 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 243 ms Request ID: [0572c2d9-c53c-47cf-ae98-a40dde1ef832]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:35:02 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"user":{"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}}
+Completed: 400 message:  Time response: 3 ms Request ID: [630c773e-6573-4a29-a0bc-dd092bbfc684]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:35:27 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 4 ms Request ID: [3894d193-307e-4c9e-a122-6930c3763b08]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:38:15 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:38:26 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:39:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:40:48 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:42:55 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:44:34 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1135 ms Request ID: [668e370e-69da-417a-ae87-777848ea69c7]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:45:16 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1188 ms Request ID: [d534d9a2-38a4-4009-8b5a-7200d92d61eb]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:45:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"2001-09-11","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1168 ms Request ID: [c31ddf08-97f5-416b-b897-91ed2aabcf6c]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:46:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 3 ms Request ID: [4aaa4745-75ee-448e-a4ab-94d00ea948e9]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:46:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth_date":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 3414 ms Request ID: [26fa0c53-4d89-42ff-8223-662c8a742573]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:16 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [1ca37717-c699-4f7e-967f-21592549e8c1]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [22316a4a-357b-48e0-bdba-048f0f79563d]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [7db81167-9158-446b-815b-a5291293385d]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [4223c825-b2ff-438a-8dde-b45bda226280]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [745769a1-13c8-4c7e-8c50-c2bd8b759b6b]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [bb79638e-8380-4ddf-847c-d65dee716227]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [5a4e9adf-751f-4ab1-a1a8-8697d659a98b]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [9b80912b-639b-4e25-82e2-74f03704f700]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 3 ms Request ID: [8ef1f051-175a-415a-9d50-6dc79428ddeb]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [1258e49b-547b-4a6a-aa8a-f5cb3939a0d8]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1 ms Request ID: [24c7b08e-6811-41e7-9236-e233e315de66]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 3 ms Request ID: [5df47045-07b7-4aaa-abba-549d599434ce]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [bf78226c-7127-4c17-8b8d-401fd2d34f98]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [ef4a36f4-7fed-4f59-9528-555921ed9bc6]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [0f861ae9-b432-4824-bed1-da01fa72a528]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [f0dfa47f-980a-469e-82ca-381cb5f778b7]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [94131216-cee2-4b58-b4ba-dffc84604326]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1 ms Request ID: [49f19d11-b4d3-44b3-ac95-06a4e16c26a1]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1 ms Request ID: [b86654e0-8308-41fb-b738-58164aad4421]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 2 ms Request ID: [31eeee88-39eb-4879-9fd9-a9945191d82b]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1 ms Request ID: [4f768a61-532a-4d12-b526-12fb17c92728]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:47:43 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1182 ms Request ID: [dbc43ac3-6fd2-4fc1-a26a-3bdb8c7b459b]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:48:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1185 ms Request ID: [b8d5e236-df16-42de-a270-7182ec05ea59]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:50:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 400 message:  Time response: 1168 ms Request ID: [490b7b4f-84cf-4263-96bd-360215ba7bb6]
+
+Started POST /api/v1/users for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:56:11 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuario","rut":"1-9","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"12345678","role":"admin","status":"A"}
+Completed: 201 message:  Time response: 1184 ms Request ID: [119f695c-2618-42d6-b800-e372496108bd]
+
+Started PUT /api/v1/users/10 for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:58:12 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuarioww","rut":"29","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"1234222222","role":"user","status":"I"}
+Completed: 400 message:  Time response: 3207 ms Request ID: [303d847c-7fd0-429f-b788-9b0f5d130bf0]
+
+Started PUT /api/v1/users/10 for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:59:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuarioww","rut":"29","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"1234222222","role":"user","status":"I"}
+Completed: 201 message:  Time response: 1177 ms Request ID: [6d19cc3e-533d-4e77-a3d7-9e6cd9c90e6d]
+
+Started PUT /api/v1/users/10 for :: ::ffff:127.0.0.1 at Sun Mar 24 2024 23:59:35 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {"username":"otroUsuarioww","rut":"2-9","birth":"09-11-2001","email":"usuario@example.com","phone":"+56982288959","password":"1234222222","role":"user","status":"I"}
+Completed: 201 message:  Time response: 3181 ms Request ID: [0a829fcd-4a88-426d-81b8-f836ca0ec272]

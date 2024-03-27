@@ -1,0 +1,128 @@
+
+Started GET /api/v1/favorite for :: ::ffff:127.0.0.1 at Wed Mar 20 2024 23:57:45 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1287 ms Request ID: [7fe98d6b-a3d1-49e8-872a-e1765516a20f]
+
+Started GET /api/v1/favorite/1 for :: ::ffff:127.0.0.1 at Wed Mar 20 2024 23:58:38 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1164 ms Request ID: [f806d11e-2e39-49b7-a3e3-dbac0e17b34c]
+
+Started GET /api/v1/favorite/1 for :: ::ffff:127.0.0.1 at Wed Mar 20 2024 23:59:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1197 ms Request ID: [dd3a3412-2f7d-46d8-9951-1d309f993ae8]
+
+Started GET /api/v1/favorite for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:00:02 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1578 ms Request ID: [a2f66891-eb11-45ef-b59f-987d3ef312aa]
+
+Started GET /api/v1/favorite/3 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:00:20 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1229 ms Request ID: [ae4bc001-501b-4f6b-8a98-e7cf414460f6]
+
+Started GET /api/v1/favorite/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:00:34 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1280 ms Request ID: [d59aee55-3f82-4aa9-8c41-37f4ad957247]
+
+Started GET /api/v1/favorite/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:06:32 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1175 ms Request ID: [a6b4535a-853b-4d3e-bd18-5354957001b5]
+
+Started GET /api/v1/favorite/3 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:06:42 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 314 ms Request ID: [71b8c863-2c9c-4e9b-9e1d-865f18665c8d]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:07:34 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1514 ms Request ID: [7be481b5-ea74-4001-9ebc-5603b3a65274]
+
+Started GET /api/v1/favorite/user/2 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:07:42 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1275 ms Request ID: [372e5cf1-2793-4cb1-9847-b4956ceddddd]
+
+Started GET /api/v1/favorite/user/2 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:08:34 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1194 ms Request ID: [061adb06-f756-42f2-a907-fdbf8b0defd7]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:08:40 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 264 ms Request ID: [a5797982-a6d0-4e6d-bb52-9a3ec4c141da]
+
+Started GET /api/v1/favorite/user/3 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:08:44 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 334 ms Request ID: [6e5130b2-6dad-410f-b134-81626cbf7653]
+
+Started GET /api/v1/favorite/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:08:54 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 258 ms Request ID: [86c54f8d-5809-48ed-bc89-d80288ec6981]
+
+Started GET /api/v1/favorite/2 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:08:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 278 ms Request ID: [6249d944-aff2-496b-bc06-edf1c62b6b5c]
+
+Started GET /api/v1/favorite/3 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:09:01 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 265 ms Request ID: [a96c77d2-d038-47ac-bd66-2164ef7f7fe4]
+
+Started GET /api/v1/favorite/user/3 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:09:13 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1513 ms Request ID: [cf54c538-c4d5-4d59-9c51-77b42d26dc82]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:09:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 264 ms Request ID: [897a9dcf-a612-4f22-a94a-22e006db47d3]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:10:56 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 3419 ms Request ID: [c602bc3f-a929-47a1-a40f-b6e2011929ea]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:12:44 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1151 ms Request ID: [328777f0-96f4-49fe-8525-c74989db2c09]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:13:03 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1237 ms Request ID: [67e208aa-acd1-407c-aa5f-d6f737b83482]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:13:45 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1266 ms Request ID: [fff9a0d5-fc31-456f-aca2-8fed71f00434]
+
+Started GET /api/v1/usuarios for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:14:06 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 4 ms Request ID: [eb101257-1543-4f99-b6a4-7f95bb918f47]
+
+Started GET /api/v1/usuarios for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:14:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 1 ms Request ID: [fd1eb82b-370b-458a-b7bd-eed050c6383e]
+
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:14:22 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/users for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:14:32 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Started GET /api/v1/favorite for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:15:10 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1298 ms Request ID: [917b54a5-57da-46ad-bfa4-313267fe421b]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:16:25 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1214 ms Request ID: [1450ea8c-2430-4128-a66b-e646de3a06c3]
+
+Started GET /api/v1/favorite for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:16:37 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1464 ms Request ID: [e31d6dd5-85ed-491e-ab89-1d8fa5aa7f30]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:16:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1312 ms Request ID: [c76515e0-1bde-470b-9e7b-5f48f2d09075]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:17:21 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1520 ms Request ID: [1451d33b-8a16-424c-9422-98ec7c0c92e5]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:18:19 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1333 ms Request ID: [611a9e37-b7fd-4078-97b6-e199db40f8a1]
+
+Started GET /api/v1/favorite/user/1 for :: ::ffff:127.0.0.1 at Thu Mar 21 2024 00:18:56 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1215 ms Request ID: [0d4bec69-4556-4f64-960f-09f33146036e]
