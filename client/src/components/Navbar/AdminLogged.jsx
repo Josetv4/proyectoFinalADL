@@ -1,4 +1,6 @@
-import  { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
     Box,
     IconButton,
@@ -6,15 +8,19 @@ import {
     Avatar,
     Menu,
     MenuItem,
-    Typography
-} from '@mui/material';
-import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../Footer/linkStyles2';
-import { buttonStyles } from '../Navbar/ButtonStyleHoverFocus';
+    Typography,
+} from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { linkStyles2 } from "../Footer/linkStyles2";
+import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
+import swal from "sweetalert";
+import { useAuth } from "../../context/AuthContext";
 
 const MenuAdminLogged = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const { logout } = useAuth();
+    const navigate = useNavigate();
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -28,8 +34,29 @@ const MenuAdminLogged = () => {
         event.stopPropagation();
     };
 
+    const handleLogout = async () => {
+        try {
+            const confirmLogout = await swal({
+                title: "¿Estás seguro?",
+                text: "¿Quieres cerrar sesión?",
+                icon: "warning",
+                buttons: ["Cancelar", "Sí"],
+                dangerMode: true,
+            });
+            if (confirmLogout) {
+                await logout();
+                navigate("/");
+            }
+        } catch (error) {
+            console.error("Error al cerrar sesión:", error);
+        }
+    };
+
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
+        <Box
+            sx={{ display: "flex", alignItems: "center" }}
+            onClick={(e) => e.stopPropagation()}
+        >
             <Box>
                 <Tooltip title="Perfil de Administrador">
                     <IconButton
@@ -46,7 +73,11 @@ const MenuAdminLogged = () => {
                             mb: -1,
                         }}
                     >
-                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg" />
+                        <Avatar
+                            sx={{ width: 56, height: 56 }}
+                            alt="Remy Sharp"
+                            src="https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg"
+                        />
                     </IconButton>
                 </Tooltip>
                 <Menu
@@ -64,28 +95,16 @@ const MenuAdminLogged = () => {
                         horizontal: "left",
                     }}
                 >
-                    <MenuItem
-                        onClick={handleItemClick}
-                        sx={buttonStyles}
-                    >
+                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
                         Productos
                     </MenuItem>
-                    <MenuItem
-                        onClick={handleItemClick}
-                        sx={buttonStyles}
-                    >
+                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
                         Publicaciones
                     </MenuItem>
-                    <MenuItem
-                        onClick={handleItemClick}
-                        sx={buttonStyles}
-                    >
+                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
                         Usuarios
                     </MenuItem>
-                    <MenuItem
-                        onClick={handleItemClick}
-                        sx={buttonStyles}
-                    >
+                    <MenuItem onClick={handleLogout} sx={buttonStyles}>
                         Cerrar sesión
                     </MenuItem>
                 </Menu>
@@ -93,9 +112,9 @@ const MenuAdminLogged = () => {
             <Tooltip title="Bienvenido de Vuelta">
                 <Typography
                     sx={{
-                        color: 'var(--font-body-color)',
-                        fontFamily: 'var(--font-title)',
-                        fontSize: '18px',
+                        color: "var(--font-body-color)",
+                        fontFamily: "var(--font-title)",
+                        fontSize: "18px",
                     }}
                 >
                     ¡Hola Oriana!

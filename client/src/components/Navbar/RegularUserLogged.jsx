@@ -1,4 +1,6 @@
-import  { useState } from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
     Box,
     IconButton,
@@ -6,17 +8,19 @@ import {
     Avatar,
     Menu,
     MenuItem,
-    Typography
-} from '@mui/material';
-import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../Footer/linkStyles2';
-import { buttonStyles } from './ButtonStyleHoverFocus';
-
-import shoppingCard from "../../pages/LastShopping/LastShopping.jsx"
+    Typography,
+} from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { linkStyles2 } from "../Footer/linkStyles2";
+import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
+import swal from "sweetalert";
+import { useAuth } from "../../context/AuthContext";
 
 const MenuRegularUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const { logout } = useAuth();
+    const navigate = useNavigate();
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -30,8 +34,29 @@ const MenuRegularUser = () => {
         event.stopPropagation();
     };
 
+    const handleLogout = async () => {
+        try {
+            const confirmLogout = await swal({
+                title: "¿Estás seguro?",
+                text: "¿Quieres cerrar sesión?",
+                icon: "warning",
+                buttons: ["Cancelar", "Sí"],
+                dangerMode: true,
+            });
+            if (confirmLogout) {
+                await logout();
+                navigate("/");
+            }
+        } catch (error) {
+            console.error("Error al cerrar sesión:", error);
+        }
+    };
+
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
+        <Box
+            sx={{ display: "flex", alignItems: "center" }}
+            onClick={(e) => e.stopPropagation()}
+        >
             <Box>
                 <Tooltip title="Perfil de Usuario">
                     <IconButton
@@ -47,7 +72,11 @@ const MenuRegularUser = () => {
                             mb: -1,
                         }}
                     >
-                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://tn.com.ar/resizer/jT7boEBw5JfiLkgweUbQ5a0evZI=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/4RGWEM5MSRCWTBSIBAZGQ2QEHU.jpg" />
+                        <Avatar
+                            sx={{ width: 56, height: 56 }}
+                            alt="Remy Sharp"
+                            src="https://tn.com.ar/resizer/jT7boEBw5JfiLkgweUbQ5a0evZI=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/4RGWEM5MSRCWTBSIBAZGQ2QEHU.jpg"
+                        />
                     </IconButton>
                 </Tooltip>
                 <Menu
@@ -65,24 +94,18 @@ const MenuRegularUser = () => {
                         horizontal: "left",
                     }}
                 >
-                    <MenuItem
-                        onClick={handleItemClick}
-                        sx={buttonStyles}
-                    >
+                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
                         Tus Favoritos
                     </MenuItem>
                     <MenuItem
-                        component={NavLink} 
+                        component={NavLink}
                         to="/shoppingCard"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
                         Tus Compras
                     </MenuItem>
-                    <MenuItem
-                        onClick={handleItemClick}
-                        sx={buttonStyles}
-                    >
+                    <MenuItem onClick={handleLogout} sx={buttonStyles}>
                         Cerrar sesión
                     </MenuItem>
                 </Menu>
@@ -90,9 +113,9 @@ const MenuRegularUser = () => {
             <Tooltip title="Bienvenido de Vuelta">
                 <Typography
                     sx={{
-                        color: 'var(--font-body-color)',
-                        fontFamily: 'var(--font-title)',
-                        fontSize: '18px',
+                        color: "var(--font-body-color)",
+                        fontFamily: "var(--font-title)",
+                        fontSize: "18px",
                     }}
                 >
                     ¡Hola Ben!
