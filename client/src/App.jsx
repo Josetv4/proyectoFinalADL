@@ -20,6 +20,7 @@ import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
+import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 
 import DetailsProducts from './pages/DetailsProducts';
 
@@ -46,6 +47,7 @@ function App() {
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
               <Route path="/wallet" element={<Wallet />} />
+              <Route path="/shoppingCard" element={<ShoppingCard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>

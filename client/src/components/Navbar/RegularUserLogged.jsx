@@ -12,6 +12,8 @@ import { NavLink } from 'react-router-dom';
 import { linkStyles2 } from '../Footer/linkStyles2';
 import { buttonStyles } from './ButtonStyleHoverFocus';
 
+import shoppingCard from "../../pages/LastShopping/LastShopping.jsx"
+
 const MenuRegularUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -70,8 +72,8 @@ const MenuRegularUser = () => {
                         Tus Favoritos
                     </MenuItem>
                     <MenuItem
-                        component={NavLink}
-                        to="/last-shopping"
+                        component={NavLink} 
+                        to="/shoppingCard"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
