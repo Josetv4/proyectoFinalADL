@@ -10,7 +10,7 @@
     flex-direction: column;
     border: solid 1px;
     margin-top: 50px;
-    width: 100%;
+    width: 80%;
     height:300px;
     justify-content: center;
     align-content: center;
@@ -18,7 +18,6 @@
     border-color: var(--linea-border-color2);
     background-color: var(--background-btn3);
     flex-wrap: wrap;
-    margin-left: 3%;
 }
 
 .arrow-select{
@@ -34,7 +33,7 @@
     color: var(--font-btn3-color) !important;
     background-color: var(--background-btn3);
     display: flex;
-    justify-content: center;
-    width: 80%;
+    flex-direction: column;
+    width: 50%;
 }
     

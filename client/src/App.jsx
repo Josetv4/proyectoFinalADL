@@ -8,7 +8,8 @@ import Category from './pages/Category/Category';
 import Footer from './components/Footer/Footer';
 import PurchaseThanks from './pages/PurchaseThanks';
 import Wallet from './pages/Wallet';
-import MyShopping from './pages/MyShopping';
+import LastShopping from './pages/LastShopping/LastShopping'
+
 
 //Context
 import { useAuth } from './context/AuthContext';
@@ -20,6 +21,8 @@ import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import ShoppingCard from './components/ShoppingCard/ShoppingCard';
+
+import DetailsProducts from './pages/DetailsProducts';
 
 function App() {
   const { user } = useAuth();
@@ -40,7 +43,8 @@ function App() {
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
-              <Route path="/my-shopping" element={<MyShopping />} />
+              <Route path="/details-product/:id" element={<DetailsProducts/>}/>
+              <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
               <Route path="/wallet" element={<Wallet />} />
               <Route path="/shoppingCard" element={<ShoppingCard />} />
