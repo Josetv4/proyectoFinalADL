@@ -17,7 +17,7 @@ const DataProvider = ({ children }) => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get("/api/user");
+      const response = await axios.get(`localhost:4000/api/v1/user`);
       setUser(response.data.user);
     } catch (error) {
       console.error("Error al obtener datos de usuario:", error);
