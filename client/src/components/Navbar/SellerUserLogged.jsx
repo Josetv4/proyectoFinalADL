@@ -86,6 +86,8 @@ const MenuSellerUser = () => {
                     }}
                 >
                     <MenuItem
+                        component={NavLink}
+                        to="/publication"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >

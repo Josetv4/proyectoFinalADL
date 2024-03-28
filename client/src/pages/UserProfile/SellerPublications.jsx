@@ -3,7 +3,7 @@
 const SellerPublications = () => {
   return (
     <div>
-      <h1>Probando ruta</h1>
+      <h1>Probando ruta publicaciones de vendedores</h1>
     </div>
   )
 }
