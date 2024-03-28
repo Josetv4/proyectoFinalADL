@@ -1,82 +1,47 @@
-import axios from "axios";
+import axios from 'axios';
 import { createContext, useEffect, useState } from "react";
+import { getProducts } from '../api/getApi.js'
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
-    fetchUserData();
-    fetchCartItems();
+/*      fetchCartItems(); */
     fetchProducts();
   }, []);
 
-  const fetchUserData = async () => {
+  const fetchProducts = async () => {
     try {
-      const response = await axios.get(`localhost:4000/api/v1/user`);
-      setUser(response.data.user);
+      const { response, error, loading } = await getProducts();
+      setProducts(response);
+      setError(error);
+      setLoading(loading);
     } catch (error) {
-      console.error("Error al obtener datos de usuario:", error);
-      setUser(null);
+      console.error("Error al obtener productos:", error);
+      setError("Error al obtener productos");
+      setLoading(false);
     }
   };
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get("/api/cart/items");
+
+      const response = await axios.get("http://localhost:4000/api/v1/cart/items");
       setCartItems(response.data);
     } catch (error) {
       console.error("Error al obtener elementos del carrito:", error);
     }
   };
 
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get("/api/products");
-      setProducts(response.data);
-    } catch (error) {
-      console.error("Error al obtener productos:", error);
-    }
-  };
-
-  const login = async (credentials) => {
-    try {
-      const response = await axios.post("/api/login", credentials);
-      setUser(response.data.user);
-      sessionStorage.setItem("token", response.data.token);
-    } catch (error) {
-      console.error("Error al iniciar sesión:", error);
-      throw error;
-    }
-  };
-
-  const register = async (userData) => {
-    try {
-      const response = await axios.post("/api/register", userData);
-      setUser(response.data.user);
-    } catch (error) {
-      console.error("Error al registrarse:", error);
-      throw error;
-    }
-  };
-
-  const logout = async () => {
-    try {
-      await axios.post("/api/logout");
-      setUser(null);
-      sessionStorage.removeItem("token");
-    } catch (error) {
-      console.error("Error al cerrar sesión:", error);
-    }
-  };
-
   const addCartItem = async (product) => {
     try {
-      await axios.post("/api/cart/items", product);
+      await axios.post("http://localhost:4000/api/v1/cart/items", product);
       fetchCartItems();
     } catch (error) {
       console.error("Error al agregar producto al carrito:", error);
@@ -85,7 +50,7 @@ const DataProvider = ({ children }) => {
 
   const updateCartItem = async (detailId, updatedProduct) => {
     try {
-      await axios.put(`/api/cart/items/${detailId}`, updatedProduct);
+      await axios.put(`http://localhost:4000/api/v1/cart/items/${detailId}`, updatedProduct);
       fetchCartItems();
     } catch (error) {
       console.error("Error al actualizar producto del carrito:", error);
@@ -99,20 +64,17 @@ const DataProvider = ({ children }) => {
     } catch (error) {
       console.error("Error al eliminar producto del carrito:", error);
     }
-  };
-
+  }; 
   return (
     <DataContext.Provider
       value={{
-        user,
-        cartItems,
         products,
-        login,
-        register,
-        logout,
+        error,
+        loading,
+         cartItems,
         addCartItem,
         updateCartItem,
-        deleteCartItem,
+        deleteCartItem, 
       }}
     >
       {children}
