@@ -25,7 +25,7 @@ import SellerPublications from './pages/UserProfile/SellerPublications';
 
 import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 
-import DetailsProducts from './pages/DetailsProducts';
+import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
 
 
