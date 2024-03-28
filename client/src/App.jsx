@@ -22,6 +22,7 @@ import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import SellerPublications from './pages/UserProfile/SellerPublications';
 import ShoppingCard from './components/ShoppingCard/ShoppingCard';
+import PublishYourProducts from './pages/UserProfile/PublishYourProducts';
 
 import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
@@ -46,6 +47,7 @@ function App() {
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
+              <Route path='/publish-your-Products' element={<PublishYourProducts/>} />
               <Route path="/details-product/:id" element={<DetailsProducts/>}/>
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
