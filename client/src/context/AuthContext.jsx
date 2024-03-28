@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const token = sessionStorage.getItem("token");
+        const token = localStorage.getItem("token");
         if (token) {
             const userFromToken = Object.values(usersData).find(user => user.token === token);
             if (userFromToken) {
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
         );
         if (userToLogin) {
             setUser(userToLogin);
-            sessionStorage.setItem("token", userToLogin.token);
+            localStorage.setItem("token", userToLogin.token);
         } else {
             throw new Error("Credenciales inválidas");
         }
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         setUser(null);
-        sessionStorage.removeItem("token");
+        localStorage.removeItem("token");
     };
 
     return (
