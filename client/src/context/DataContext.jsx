@@ -1,18 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { getProducts } from '../api/getApi.js'
+import { getProducts } from "../api/getApi.js";
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
-/*      fetchCartItems(); */
+    /*      fetchCartItems(); */
     fetchProducts();
   }, []);
 
@@ -31,8 +30,9 @@ const DataProvider = ({ children }) => {
 
   const fetchCartItems = async () => {
     try {
-
-      const response = await axios.get("http://localhost:4000/api/v1/cart/items");
+      const response = await axios.get(
+        "http://localhost:4000/api/v1/cart/items"
+      );
       setCartItems(response.data);
     } catch (error) {
       console.error("Error al obtener elementos del carrito:", error);
@@ -50,7 +50,10 @@ const DataProvider = ({ children }) => {
 
   const updateCartItem = async (detailId, updatedProduct) => {
     try {
-      await axios.put(`http://localhost:4000/api/v1/cart/items/${detailId}`, updatedProduct);
+      await axios.put(
+        `http://localhost:4000/api/v1/cart/items/${detailId}`,
+        updatedProduct
+      );
       fetchCartItems();
     } catch (error) {
       console.error("Error al actualizar producto del carrito:", error);
@@ -64,17 +67,17 @@ const DataProvider = ({ children }) => {
     } catch (error) {
       console.error("Error al eliminar producto del carrito:", error);
     }
-  }; 
+  };
   return (
     <DataContext.Provider
       value={{
         products,
         error,
         loading,
-         cartItems,
+        cartItems,
         addCartItem,
         updateCartItem,
-        deleteCartItem, 
+        deleteCartItem,
       }}
     >
       {children}
