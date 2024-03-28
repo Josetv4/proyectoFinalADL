@@ -22,7 +22,7 @@ import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 
-import DetailsProducts from './pages/DetailsProducts';
+import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 
 function App() {
   const { user } = useAuth();
