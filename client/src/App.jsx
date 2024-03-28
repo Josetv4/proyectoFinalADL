@@ -27,6 +27,7 @@ import SellerPublications from './pages/UserProfile/SellerPublications';
 import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 
 import DetailsProducts from './pages/DetailsProducts';
+import LatestPosts from './pages/UserProfile/LatestPosts';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
               <Route path="/publication" element={<SellerPublications  />} />
+              <Route path="/latest-posts" element={<LatestPosts  />} />
               <Route path="/wallet" element={<Wallet />} />
               <Route path="/shoppingCard" element={<ShoppingCard />} />
               <Route path="*" element={<NotFound />} />
