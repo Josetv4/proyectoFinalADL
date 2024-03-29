@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, path} from 'path';
 
 import { logger } from "logger-express";
 
