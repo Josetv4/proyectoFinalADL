@@ -15,8 +15,7 @@ const ShoppingCard = () => {
 
   const { products, error, loading } = useContext(DataContext);
 
-console.log(products)
-  
+ 
   return (
     <main>
       
@@ -34,7 +33,7 @@ console.log(products)
               <Box>
                 <img
                   className="shopping-card-image"
-                  src={product.imagen_url}
+                  src={product.image_url} 
                   alt={product.description}
                 />
               </Box>
