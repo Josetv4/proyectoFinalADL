@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-// import { logger } from "logger-express";
+import { logger } from "logger-express";
 
 import userRoutes from "./config/routes/userRoutes.js";
 import productRoutes from "./config/routes/productRoutes.js";
