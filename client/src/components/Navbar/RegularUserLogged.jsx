@@ -99,7 +99,7 @@ const MenuRegularUser = () => {
                     </MenuItem>
                     <MenuItem
                         component={NavLink}
-                        to="/shoppingCard"
+                        to="/last-shopping"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
