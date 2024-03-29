@@ -16,7 +16,20 @@ import axios from 'axios'
    }
  };
 
+ const getCartItems = async () => {
+  try {
+    const response = await axios.get('/carts');
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], 
+             error: "Error al obtener carritos", 
+             loading: false };
+  }
+};
 export {
   getProducts,
-
+  getCartItems,
 }

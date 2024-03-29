@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { getProducts } from "../api/getApi.js";
+import { getProducts, getCartItems } from "../api/getApi.js";
 
 export const DataContext = createContext();
 
@@ -11,11 +11,11 @@ const DataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    /*      fetchCartItems(); */
+    fetchCartItems();
     fetchProducts();
   }, []);
 
-  const fetchProducts = async () => {
+const fetchProducts = async ()=> {
     try {
       const { response, error, loading } = await getProducts();
       setProducts(response);
@@ -26,22 +26,24 @@ const DataProvider = ({ children }) => {
       setError("Error al obtener productos");
       setLoading(false);
     }
-  };
+  }
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:4000/api/v1/cart/items"
-      );
-      setCartItems(response.data);
+      const { response, error, loading } = await getCartItems();
+      setCartItems(response);
+      setError(error);
+      setLoading(loading);
     } catch (error) {
-      console.error("Error al obtener elementos del carrito:", error);
+      console.error("Error al obtener carritos:", error);
+      setError("Error al obtener carritos");
+      setLoading(false);
     }
   };
 
   const addCartItem = async (product) => {
     try {
-      await axios.post("http://localhost:4000/api/v1/cart/items", product);
+      await axios.post(product);
       fetchCartItems();
     } catch (error) {
       console.error("Error al agregar producto al carrito:", error);
