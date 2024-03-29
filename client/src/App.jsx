@@ -21,7 +21,6 @@ import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import SellerPublications from './pages/UserProfile/SellerPublications';
-import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 
 import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
