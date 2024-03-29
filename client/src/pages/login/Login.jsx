@@ -1,4 +1,4 @@
-import LoginComponent from "../../components/loginComponet/loginComponet";
+
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import "./style.css";
@@ -24,7 +24,7 @@ const loginPage = () => {
               <div className="login_enter">
                 
                 <h1>Ingresa a tu cuenta</h1>
-                <LoginComponent></LoginComponent>
+
               </div>
             </Grid>
           </Grid>
