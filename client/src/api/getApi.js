@@ -29,7 +29,51 @@ import axios from 'axios'
              loading: false };
   }
 };
+
+const postCartItems = async (products) => {
+  try {
+    const response = await axios.get('/carts', products);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], 
+             error: "Error al obtener carritos", 
+             loading: false };
+  }
+};
+const updateCartItems = async (detailId, cartId, product) => {
+  try {
+    const response = await axios.axios.put(`cart/items/${detailId}`, cartId, product)
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], 
+             error: "Error al obtener carritos", 
+             loading: false };
+  }
+};
+const deleteCartItems = async (detailId, cartId, product) => {
+  try {
+    const response = await axios.axios.delete(`cart/items/${detailId}`, cartId, product)
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], 
+             error: "Error al obtener carritos", 
+             loading: false };
+  }
+};
 export {
   getProducts,
   getCartItems,
+  postCartItems,
+  updateCartItems,
+  deleteCartItems
+
 }

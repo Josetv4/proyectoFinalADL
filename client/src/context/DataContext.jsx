@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { getProducts, getCartItems } from "../api/getApi.js";
+import { getProducts, getCartItems, postCartItems, updateCartItems, deleteCartItems } from "../api/getApi.js";
 
 export const DataContext = createContext();
 
@@ -43,28 +43,40 @@ const fetchProducts = async ()=> {
 
   const addCartItem = async (product) => {
     try {
-      await axios.post(product);
-      fetchCartItems();
+      const { response, error, loading } = await postCartItems(product);
+      setCartItems(response);
+      setError(error);
+      setLoading(loading);
+
+      fetchCartItems()
+
     } catch (error) {
-      console.error("Error al agregar producto al carrito:", error);
+      console.error("Error al obtener carritos:", error);
+      setError("Error al obtener carritos");
+      setLoading(false);
     }
   };
 
-  const updateCartItem = async (detailId, updatedProduct) => {
+  const updateCartItem = async ( detailId, cartId, product) => {
     try {
-      await axios.put(
-        `http://localhost:4000/api/v1/cart/items/${detailId}`,
-        updatedProduct
-      );
+
+      const { response, error, loading } = await updateCartItems( detailId, cartId, product);
+      setCartItems(response);
+      setError(error);
+      setLoading(loading);
+     
       fetchCartItems();
     } catch (error) {
       console.error("Error al actualizar producto del carrito:", error);
     }
   };
 
-  const deleteCartItem = async (detailId) => {
+  const deleteCartItem = async (detailId, cartId) => {
     try {
-      await axios.delete(`/api/cart/items/${detailId}`);
+      const { response, error, loading } = await deleteCartItems( detailId, cartId);
+      setCartItems(response);
+      setError(error);
+      setLoading(loading);
       fetchCartItems();
     } catch (error) {
       console.error("Error al eliminar producto del carrito:", error);
