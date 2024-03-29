@@ -1,10 +1,11 @@
-import axios from "axios";
+
 import { createContext, useEffect, useState } from "react";
 import { getProducts, getCartItems, postCartItems, updateCartItems, deleteCartItems } from "../api/getApi.js";
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
+  const [cartId, setCartId] = useState(0)
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
