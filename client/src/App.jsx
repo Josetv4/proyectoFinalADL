@@ -52,7 +52,6 @@ function App() {
               <Route path="/publication" element={<SellerPublications  />} />
               <Route path="/latest-posts" element={<LatestPosts  />} />
               <Route path="/wallet" element={<Wallet />} />
-              <Route path="/shoppingCard" element={<ShoppingCard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
