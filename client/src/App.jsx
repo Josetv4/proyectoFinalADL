@@ -20,10 +20,11 @@ import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
-import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 import SellerPublications from './pages/UserProfile/SellerPublications';
+import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 import DetailsProducts from './pages/DetailsProducts';
-
+import LatestPosts from './pages/UserProfile/LatestPosts';
+import Publications from './pages/UserProfile/publication/Publications';
 
 function App() {
   const { user } = useAuth();
@@ -47,7 +48,9 @@ function App() {
               <Route path="/details-product/:id" element={<DetailsProducts/>}/>
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
-              <Route path="/publication" element={<SellerPublications  />} />
+              <Route path="/yours-publication" element={<SellerPublications  />} />
+              <Route path="/publication" element={<Publications />} />
+              <Route path="/latest-posts" element={<LatestPosts  />} />
               <Route path="/wallet" element={<Wallet />} />
               <Route path="/shoppingCard" element={<ShoppingCard />} />
               <Route path="*" element={<NotFound />} />
