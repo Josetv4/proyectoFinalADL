@@ -6,8 +6,6 @@ import Joi from "joi";
     export const email = Joi.string().email().max(255).required();
     export const phone = Joi.string().max(25).required();
     export const password = Joi.string().max(12).required();
-    export const shippingAddress = Joi.string().max(255).required();
-    export const paymentMethod = Joi.string().max(255).required();
     export const role = Joi.string().valid("admin", "user").required();
     export const status = Joi.string().valid("A", "I").required();
 //PRODUCTS

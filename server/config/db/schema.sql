@@ -7,8 +7,6 @@ CREATE TABLE Users (
     email VARCHAR(255) UNIQUE NOT NULL,
     phone VARCHAR(25) NOT NULL, 
     password VARCHAR(255) NOT NULL,
-    shipping_address VARCHAR(255),
-    payment_method VARCHAR(100),
     role VARCHAR(15) NOT NULL,
     status varchar(1) NOT NULL
 );
@@ -28,8 +26,8 @@ CREATE TABLE Products (
     quantity INT NOT NULL,
     category_id INT REFERENCES categories(category_id),
     image_url VARCHAR(255),
-    post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    post_status VARCHAR(50) NOT NULL,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(50) NOT NULL,
     user_id INT REFERENCES Users(user_id)
 );
 INSERT INTO Products (name, description, price, quantity, category, image_url, post_status, user_id)
