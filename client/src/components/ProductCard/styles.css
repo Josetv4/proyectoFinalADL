@@ -22,8 +22,7 @@
     border: 1px solid;
     border-color: var(--linea-border-color2);
     border-radius: 25px !important;
-    width: 300px;
-    height: 100%;
+  
   }
 
   .product-card-content{

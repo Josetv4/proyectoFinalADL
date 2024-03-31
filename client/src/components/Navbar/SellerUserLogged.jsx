@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import {
     Box,
@@ -10,7 +10,6 @@ import {
     MenuItem,
     Typography,
 } from "@mui/material";
-import { NavLink } from "react-router-dom";
 import { linkStyles2 } from "../Footer/linkStyles2";
 import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
 import swal from "sweetalert";
@@ -87,6 +86,8 @@ const MenuSellerUser = () => {
                     }}
                 >
                     <MenuItem
+                        component={NavLink}
+                        to="/publication"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
