@@ -23,6 +23,10 @@ import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import SellerPublications from './pages/UserProfile/sellerpublications/SellerPublications';
 import ShoppingCard from './components/ShoppingCard/ShoppingCard';
 import DetailsProducts from './pages/DetailsProducts';
+=======
+
+import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
+>>>>>>> 7ebb256d4705bb2357251eb21eec33c109fca15e
 import LatestPosts from './pages/UserProfile/LatestPosts';
 import Publications from './pages/UserProfile/publication/Publications';
 
@@ -52,7 +56,6 @@ function App() {
               <Route path="/publication" element={<Publications />} />
               <Route path="/latest-posts" element={<LatestPosts  />} />
               <Route path="/wallet" element={<Wallet />} />
-              <Route path="/shoppingCard" element={<ShoppingCard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>

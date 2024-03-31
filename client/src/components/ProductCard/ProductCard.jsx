@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
       <CardContent className='product-card-content'>
         <Box className='block-icon'>
           <CardMedia
-            sx={{ height: 180}}
+            sx={{ height:"150px"}}
             alt={product.name}
             image={product.image}
             title={product.name}
@@ -27,10 +27,10 @@ export default function ProductCard({ product }) {
             <FavoriteIcon />
           </IconButton>
         </Box>
-        <Typography variant="bold" component="h2" color="textSecondary" >
+        <Typography variant="bold" component="h3" color="textSecondary" >
           {product.name}         
         </Typography>
-        <Typography variant="normal" component="h4" color="textSecondary" >
+        <Typography variant="normal" component="h5" color="textSecondary" >
           {product.format}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p" sx={{display:'flex',justifyContent:"space-between"}} >
