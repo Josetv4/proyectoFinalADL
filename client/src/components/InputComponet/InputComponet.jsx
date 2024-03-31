@@ -13,7 +13,7 @@ const InputComponet = ({tipo, valor, placeholder}) => {
         />
         
       </div>
-    );
+    )
   };
   
 export default InputComponet
