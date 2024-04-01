@@ -8,7 +8,6 @@ import Category from './pages/Category/Category';
 import Footer from './components/Footer/Footer';
 import PurchaseThanks from './pages/PurchaseThanks';
 import Wallet from './pages/Wallet';
-import MyShopping from './pages/MyShopping';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 import LastShopping from './pages/LastShopping/LastShopping'
@@ -50,7 +49,6 @@ function App() {
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
-              <Route path="/my-shopping" element={<MyShopping />} />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/payment-methods" element={<PaymentMethods />} />
               <Route path="/details-product/:id" element={<DetailsProducts/>}/>
