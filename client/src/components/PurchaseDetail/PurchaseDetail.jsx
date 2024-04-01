@@ -50,7 +50,7 @@ const PurchaseDetail = () => {
         {shopping.map((item) => (
             <Card key={item.id} className="shopping-card">
                 <CardContent 
-                    sx={{ display: "flex" , flexDirection:"row", columnGap: "2vh"}} 
+                    sx={{ display: "flex" , width: "100%", flexDirection:"row", columnGap: "2vh"}} 
                     className="shopping-box-content">
                 <Box sx={{ width: "15vw" }}>
                     <img
@@ -73,11 +73,11 @@ const PurchaseDetail = () => {
                         }} 
                         className="shopping-card-content"
                 >
-                    <Typography variant="p" style={{ fontSize: "0.8em", marginBottom: "4px" }} >{item.descripcion}</Typography>
-                    <Typography variant="p" style={{ fontSize: "0.5em"}}> <strong><em>vendido por</em></strong> <a href="#">petcos Spa</a></Typography>
+                    <Typography variant="p" style={{ fontSize: "1.2em", marginBottom: "4px" }} >{item.descripcion}</Typography>
+                    <Typography variant="p" style={{ fontSize: "1em"}}> <strong><em>vendido por</em></strong> <a href="#">petcos Spa</a></Typography>
                         
                 </Box>
-                <Box style={{ width: "-moz-available", height: "-moz-available", display:"flex", flexDirection: "column", alignSelf: "center"}}>
+                <Box style={{ height: "-moz-available", display:"flex", flexDirection: "column", alignSelf: "center"}}>
                     <Typography variant="p" style={{ fontSize: "1.2em", color: "var(--font-price-color)" }} className="shopping-card-color">{currencyFormat(item.precio)}</Typography>
                     <Box style={{ display:"flex", marginTop: "4vh", columnGap: "1vh" }}>
                     <AddIcon 
