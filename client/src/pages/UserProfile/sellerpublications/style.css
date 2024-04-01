@@ -1,0 +1,20 @@
+.seller_publications{
+    font-family: var( --font-body);
+    padding: 2%;
+}
+.publication_img{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 28rem;
+}
+.shopping-card-content {
+    height: 3rem;
+    align-items: flex-start;
+    gap: 50%;
+}
+.publication_stock{
+    display: flex;
+    gap: 7%;
+    width: 10rem;
+}

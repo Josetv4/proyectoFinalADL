@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
+
 import {
     Box,
     IconButton,
@@ -7,14 +9,17 @@ import {
     Menu,
     MenuItem,
     Typography,
-} from '@mui/material';
-import { NavLink } from 'react-router-dom';
-import { linkStyles2 } from '../Footer/linkStyles2';
-import { buttonStyles } from './ButtonStyleHoverFocus';
+} from "@mui/material";
+import { linkStyles2 } from "../Footer/linkStyles2";
+import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
+import swal from "sweetalert";
+import { useAuth } from "../../context/AuthContext";
 
 const MenuSellerUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const { logout } = useAuth();
+    const navigate = useNavigate();
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -28,6 +33,23 @@ const MenuSellerUser = () => {
         event.stopPropagation();
     };
 
+    const handleLogout = async () => {
+        try {
+            const confirmLogout = await swal({
+                title: "¿Estás seguro?",
+                text: "¿Quieres cerrar sesión?",
+                icon: "warning",
+                buttons: ["Cancelar", "Sí"],
+                dangerMode: true,
+            });
+            if (confirmLogout) {
+                await logout();
+                navigate("/");
+            }
+        } catch (error) {
+            console.error("Error al cerrar sesión:", error);
+        }
+    };
     return (
         <Box sx={{ display: 'flex', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
             <Box>
@@ -64,6 +86,8 @@ const MenuSellerUser = () => {
                     }}
                 >
                     <MenuItem
+                        component={NavLink}
+                        to="/publication"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
@@ -76,7 +100,7 @@ const MenuSellerUser = () => {
                         Tus Ventas
                     </MenuItem>
                     <MenuItem
-                        onClick={handleItemClick}
+                        onClick={handleLogout}
                         sx={buttonStyles}
                     >
                         Cerrar sesión

@@ -1,0 +1,36 @@
+
+   [
+        {
+          "id": "nombreProducto",
+          "label": "Nombre del Producto",
+          "name": "nombreProducto",
+          "tipo": "text",
+          "placeholder": "Ingrese el nombre del producto",
+          "valor": ""
+        },
+        {
+          "id": "nombreDetalladoProducto",
+          "label": "Nombre Detallado del Producto",
+          "name": "nombreDetalladoProducto",
+          "tipo": "text",
+          "placeholder": "Ingrese el nombre detallado del producto",
+          "value": ""
+        },
+        {
+          "id": "valorUnidad",
+          "label": "Valor por Unidad",
+          "name": "valorUnidad",
+          "tipo": "number",
+          "placeholder": "Ingrese el valor por unidad",
+          "value": ""
+        },
+        {
+          "id": "cantidad",
+          "label": "Cantidad",
+          "name": "cantidad",
+          "tipo": "number",
+          "placeholder": "Ingrese la cantidad disponible",
+          "value": ""
+        }
+      ]
+    

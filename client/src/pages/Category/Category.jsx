@@ -16,7 +16,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,    
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -25,7 +26,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -34,7 +36,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -43,7 +46,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -52,7 +56,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -61,7 +66,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
   {
     name: 'Lozartan',
@@ -70,7 +76,8 @@ const arrayProducts = [
     format: '30 Comprimidos Recubiertos',
     price: 10.990,
     valoration : 3.5,
-    seller : "Petco SPA"
+    seller : "Petco SPA",
+    id : 1
   },
 ];
 
@@ -79,9 +86,11 @@ const Category = () => {
   //const [products,setProducts] = useState(null);
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid item xs={2} sx={{marginTop:"7%"}}>
-          <Typography className="order-by-box">
+      <Grid container spacing={2} sx={{justifyContent:"space-evenly"}}>
+        <Grid 
+        item xs={2}
+        sx={{display:"flex", flexDirection:"column",alignItems:"center"}}>
+          <Typography className="order-by-box" sx={{marginTop:"100px", fontSize:"25px", textAlign:"center"}}>
             Ordenar Por
           </Typography>
           <Box className="box-selects">
@@ -93,9 +102,8 @@ const Category = () => {
                 id="price-order"
                 IconComponent={()=> (<IoIosArrowDown className="arrow-select"/>)}
               >
-                <MenuItem value={'option1'}>Option 1</MenuItem>
-                <MenuItem value={'option2'}>Option 2</MenuItem>
-                <MenuItem value={'option3'}>Option 3</MenuItem>
+                <MenuItem value={'option1'}>Menor a mayor precio</MenuItem>
+                <MenuItem value={'option2'}>Mayor a menor precio</MenuItem>
               </Select>
             </FormControl>
             <FormControl >
@@ -106,22 +114,8 @@ const Category = () => {
                 id="alfabeticamente-order"
                 IconComponent={()=> (<IoIosArrowDown className="arrow-select"/>)}
               >
-                <MenuItem value={'option1'}>Option 1</MenuItem>
-                <MenuItem value={'option2'}>Option 2</MenuItem>
-                <MenuItem value={'option3'}>Option 3</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl>
-              <InputLabel id="third-select-label">Ubicación</InputLabel>
-              <Select
-                className="order-select"
-                labelId="ubication-order-label"
-                id="ubication-order"
-                IconComponent={()=> (<IoIosArrowDown className="arrow-select"/>)}
-              >
-                <MenuItem value={'option1'}>Option 1</MenuItem>
-                <MenuItem value={'option2'}>Option 2</MenuItem>
-                <MenuItem value={'option3'}>Option 3</MenuItem>
+                <MenuItem value={'option1'}>A-Z</MenuItem>
+                <MenuItem value={'option2'}>Z-A</MenuItem>
               </Select>
             </FormControl>
             <ButtonLittle >
@@ -129,7 +123,7 @@ const Category = () => {
             </ButtonLittle>
           </Box>
         </Grid>
-        <Grid item xs={10} sx={{marginTop:"3%"}}>
+        <Grid sx={{marginTop:"3%"}}>
           <Typography variant="h4" color="textSecondary" >
             {name}
           </Typography>
