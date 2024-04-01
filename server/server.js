@@ -23,7 +23,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors());
 
-app.use(logger());
+// app.use(logger());
 
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", productRoutes);
@@ -32,3 +32,5 @@ app.use("/api/v1", favoriteRoutes);
 app.use("/api/v1", reviewRoutes);
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`));
+
+export default app;

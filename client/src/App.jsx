@@ -8,6 +8,9 @@ import Category from './pages/Category/Category';
 import Footer from './components/Footer/Footer';
 import PurchaseThanks from './pages/PurchaseThanks';
 import Wallet from './pages/Wallet';
+import MyShopping from './pages/MyShopping';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 import LastShopping from './pages/LastShopping/LastShopping'
 
 
@@ -26,6 +29,7 @@ import SellerPublications from './pages/UserProfile/sellerpublications/SellerPub
 import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
 import Publications from './pages/UserProfile/publication/Publications';
+
 
 function App() {
   const { user } = useAuth();
@@ -46,6 +50,9 @@ function App() {
               <Route path="/user-profile" element={<RegularUserProfile />} />
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
+              <Route path="/my-shopping" element={<MyShopping />} />
+              <Route path="/shopping-cart" element={<ShoppingCart />} />
+              <Route path="/payment-methods" element={<PaymentMethods />} />
               <Route path="/details-product/:id" element={<DetailsProducts/>}/>
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
