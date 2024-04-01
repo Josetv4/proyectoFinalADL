@@ -91,7 +91,7 @@ const deleteFavorites = async (req, res) => {
     const response = await deleteFavorite(id);
     res
       .status(200)
-      .json({ message: "Favorito eliminado correctamente", user: response });
+      .json({ message: "Favorito eliminado correctamente", favorite: response });
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },

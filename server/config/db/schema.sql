@@ -83,3 +83,24 @@ INSERT INTO Reviews (product_id, user_id, rating, comment)
 VALUES 
     (1, 1, 5, '¡Excelente producto, lo recomiendo totalmente!'),
     (2, 2, 4, 'Buen producto, pero podría mejorar en algunos aspectos.');
+
+    -- Crear la tabla de Cabecera de Carrito de compras
+CREATE TABLE Cart (
+    cart_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES Users(user_id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(50) NOT NULL
+);
+INSERT INTO ShoppingCartHeader (user_id, status)
+ VALUES (2, 'Abierto'),
+ (1, 'Abierto');
+
+-- Crear la tabla de Detalles de Carrito de compras
+CREATE TABLE Cart_Items (
+    detail_id SERIAL PRIMARY KEY,
+    cart_id INT REFERENCES cart(cart_id),
+    product_id INT REFERENCES products(product_id),
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+);
