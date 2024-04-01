@@ -9,6 +9,8 @@ import Footer from './components/Footer/Footer';
 import PurchaseThanks from './pages/PurchaseThanks';
 import Wallet from './pages/Wallet';
 import MyShopping from './pages/MyShopping';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 
 //Context
 import { useAuth } from './context/AuthContext';
@@ -19,6 +21,7 @@ import Register from './pages/register/Register';
 import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
+
 
 function App() {
   const { user } = useAuth();
@@ -40,6 +43,8 @@ function App() {
               <Route path="/admin" element={<AdminUserProfile />} />
               <Route path="/seller" element={<SellerUserProfile />} />
               <Route path="/my-shopping" element={<MyShopping />} />
+              <Route path="/shopping-cart" element={<ShoppingCart />} />
+              <Route path="/payment-methods" element={<PaymentMethods />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
               <Route path="/wallet" element={<Wallet />} />
               <Route path="*" element={<NotFound />} />
