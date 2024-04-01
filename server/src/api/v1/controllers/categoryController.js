@@ -9,8 +9,8 @@ const getCategories = async (req, res) => {
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 
@@ -24,8 +24,8 @@ const getCategoriesId = async (req, res) => {
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 
@@ -37,24 +37,24 @@ const createNewCategory = async (req, res) => {
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 
 const updateCategories = async (req, res) => {
   
   const id = req.params;
-  const user = req.body;
+  const category = req.body;
   try {
     
-    const categoryUpdate = await updateCategory(id, user);
+    const categoryUpdate = await updateCategory(id, category);
     res.status(201).json({ category : categoryUpdate });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 const deleteCategories = async (req, res) => {
@@ -64,12 +64,12 @@ const deleteCategories = async (req, res) => {
   try {
     
     const response = await deleteCategory(id);
-    res.status(200).json({ message: 'Categoria eliminado correctamente', user: response });
+    res.status(200).json({ message: 'Categoria eliminado correctamente', category: response });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
-      .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
   }
 };
 

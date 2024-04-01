@@ -1,41 +1,43 @@
-
-import { useAuth } from "../../context/AuthContext";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import ButtonBig from "../Buttons/buttonBig/buttonBig";
 import ButtonLittle from "../Buttons/buttonLittle/buttonLittle";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import "./style.css";
+import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 
 const LoginComponent = () => {
-  const { user, setUser } = useAuth();
-  const [loginmail, setLoginmail] = useState('');
-  const [loginpassword, setLoginpassword] = useState('');
+  const { login } = useAuth();
+  const [loginmail, setLoginmail] = useState("");
+  const [loginpassword, setLoginpassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = (userType) => {
-    setUser({
-      username: "exampleUser",
-      userType: userType,
-    });
-    swal("¡Has iniciado sesión correctamente!", {
-      icon: "success",
-    });
+  const handleLogin = async () => {
+    try {
+      await login({ email: loginmail, password: loginpassword });
+      swal("¡Has iniciado sesión correctamente!", {
+        icon: "success",
+      });
+      navigate("/");
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      swal(
+        "¡Error al iniciar sesión!",
+        "Por favor, verifica tus credenciales e intenta nuevamente.",
+        "error"
+      );
+    }
   };
 
-  // Si el usuario ya está autenticado, redirigirlo a la página principal
-  if (user) {
-    return <Navigate to="/" replace />;
-  }
-
   return (
-    <div className='login'>
+    <div className="login">
       <form action="" className="login_form">
         <div className="login_input">
           <div>
             <label htmlFor="ingresa tu mail ">Ingresa tu mail</label>
           </div>
           <div className="login_input_input">
-            <input 
+            <input
               type="text"
               placeholder="mail@tumail.com"
               value={loginmail}
@@ -43,17 +45,16 @@ const LoginComponent = () => {
             />
           </div>
         </div>
-       
         <div className="login_input">
           <div>
             <label htmlFor="ingresa tu contraseña">Ingresa tu contraseña</label>
           </div>
           <div className="login_input_input">
-            <input 
+            <input
               type="password"
               placeholder="*******"
               value={loginpassword}
-              onChange={(e) => setLoginpassword(e.target.value)} 
+              onChange={(e) => setLoginpassword(e.target.value)}
             />
           </div>
         </div>
@@ -61,17 +62,8 @@ const LoginComponent = () => {
           <small>¿Se te olvidó la contraseña?</small>
         </div>
         <div>
-          <ButtonBig onClick={() => handleLogin("regular")}>
-            Inicia sesión como Usuario Regular
-          </ButtonBig>
-          <ButtonBig onClick={() => handleLogin("seller")}>
-            Inicia sesión como Vendedor
-          </ButtonBig>
-          <ButtonBig onClick={() => handleLogin("admin")}>
-            Inicia sesión como Administrador
-          </ButtonBig>
+          <ButtonBig onClick={() => handleLogin()}>Inicia sesión</ButtonBig>
         </div>
-
         <div className="register_new">
           <div className="register_new_text">
             <p>No tienes cuenta, regístrate aquí</p>
@@ -83,4 +75,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent ;
+export default LoginComponent;

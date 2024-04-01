@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import{ useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
-import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
 const categories = [
   { nombre: "Belleza", id: 1 },

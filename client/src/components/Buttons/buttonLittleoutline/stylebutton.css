@@ -6,10 +6,12 @@
     color: var(--font-btn4-color);
     width: 166px;
     height: 45px;
-   ;
+    cursor: pointer;
+    font-family: var(--font-body);
 }
 .button_little_outline:hover{
     border: 1px solid var(--linea-border-color2);
     box-shadow: 2px 4px 5px 0px var(--linea-border-navba);
+    font-family: var(--font-body);
 }
 

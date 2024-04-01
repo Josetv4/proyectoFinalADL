@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 const getUser = async () => {
   const SQLquery = {
-    text: `SELECT user_id, username, email, phone, password, shipping_address, payment_method, role, status 
+    text: `SELECT user_id, username, rut, birth_date, email, phone, password, role, status 
           FROM users`,
   };
 
@@ -13,7 +13,7 @@ const getUser = async () => {
 
 const getUserId = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT user_id, username, email, phone, password, shipping_address, payment_method, role, status 
+    text: `SELECT user_id, username, rut, birth_date, email, phone, password, role, status  
            FROM users 
            WHERE user_id = $1`,
     values: [id],
@@ -23,73 +23,34 @@ const getUserId = async ({ id }) => {
   return response.rows[0];
 };
 
-const createUser = async ({
-  username,
-  email,
-  phone,
-  password,
-  shipping_address,
-  payment_method,
-  role,
-  status,
-}) => {
+const createUser = async ({ username, rut,  birth, email, phone, password, role, status }) => {
   const hashedPassword = bcrypt.hashSync(password);
   const SQLquery = {
-    text: `INSERT INTO users (username, email, phone, password, shipping_address, payment_method, role, status) 
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-    values: [
-      username,
-      email,
-      phone,
-      hashedPassword,
-      shipping_address,
-      payment_method,
-      role,
-      status,
-    ],
+    text: `INSERT INTO users (username, rut, birth_date, email, phone, password, role, status)
+          VALUES ($1, $2, $3, $4, $5, $6, $7,$8) RETURNING *`,
+    values: [  username, rut, birth, email, phone, hashedPassword, role, status],
   };
+  console.log(SQLquery);
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };
 
-const updateUser = async (
-  { id },
-  {
-    username,
-    email,
-    phone,
-    password,
-    shipping_address,
-    payment_method,
-    role,
-    status,
-  }
-) => {
+const updateUser = async ({ id }, { username, rut, birth, email, phone, password, role, status }) => {
   const hashedPassword = bcrypt.hashSync(password);
 
   const SQLquery = {
     text: `UPDATE users 
-             SET username = $1, 
-                 email = $2, 
-                 phone = $3, 
-                 password = $4, 
-                 shipping_address = $5, 
-                 payment_method = $6, 
+             SET username = $1,
+                 rut = $2, 
+                 birth_date = $3, 
+                 email = $4, 
+                 phone = $5, 
+                 password = $6, 
                  role = $7, 
-                 status = $8 
+                 status = $8
              WHERE user_id = $9 
              RETURNING *`,
-    values: [
-      username,
-      email,
-      phone,
-      hashedPassword,
-      shipping_address,
-      payment_method,
-      role,
-      status,
-      id,
-    ],
+    values: [username, rut, birth, email, phone, hashedPassword, role, status, id],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];

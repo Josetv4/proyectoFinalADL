@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
-import { buttonStyles } from '../../utils/UtilsNavbar/ButtonStyleHoverFocus';
+import { buttonStyles } from './ButtonStyleHoverFocus';
 
 const categories = [
     { nombre: "Belleza", id: 1 },

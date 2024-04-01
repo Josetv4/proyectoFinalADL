@@ -1,7 +1,27 @@
-.home_carrusel{
-    margin-top: 5%;
-
+.home_carrusel {
+  margin-top: 5%;
 }
-.home_safe{
-    display: flex;
+h2, h1{
+    margin-left: 5%;
+}
+
+.home_safe {
+  display: flex;
+}
+.cart-section {
+  display: flex;
+
+  width: 100%;
+
+  justify-content: center;
+}
+.product-card {
+  width: 300px;
+}
+.card-box {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 2%;
+  justify-content: space-evenly;
 }

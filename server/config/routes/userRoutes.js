@@ -1,6 +1,10 @@
 import express from "express";
 
-import { createNewUser, getUsers, getUsersId, updateUsers, deleteUsers } from "../../src/api/v1/controllers/usersController.js";
+import { createNewUser, 
+        getUsers, 
+        getUsersId, 
+        updateUsers, 
+        deleteUsers } from "../../src/api/v1/controllers/usersController.js";
 
 import { validateParametersUser } from "../../middlewares/validateParametersUser.js";
 
