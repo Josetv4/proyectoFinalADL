@@ -3,8 +3,6 @@ import { name,
           phone,
           email,
           password,
-          shippingAddress,
-          paymentMethod,
           role,
           status } from "../src/api/v1/helpers/validations.js";
 
