@@ -3,20 +3,30 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import "./style.css";
 import { Container } from "@mui/material";
-import InputComponent from "../../components/InputComponet/InputComponet";
+import TextField from "@mui/material";
 import ButtonBig from "../../components/Buttons/buttonBig/buttonBig";
 import ButtonLittle from "../../components/Buttons/buttonLittle/buttonLittle";
 import swal from "sweetalert";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import loginData from "../../components/json/login.json";
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const LoginPage = () => {
   const [loginmail, setLoginMail] = useState(""); // Estado para el valor del email
   const [loginpassword, setLoginPassword] = useState(""); // Estado para el valor de la contraseña
+  const [showPassword, setShowPassword] = useState(false);
 
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   const handleRegister = (e) => {
     e.preventDefault();
     navigate("/register"); 
@@ -64,21 +74,39 @@ const LoginPage = () => {
                 
                 <div className="login_border">
                 <form onSubmit={handleLogin}>
-                  {loginData.map((item) => (
-                    <div className="inputgroup" key={item.id}>
-                      <InputComponent
-                        value={item.name === "email" ? loginmail : loginpassword}
-                        name={item.name}
-                        type={item.tipo}
-                        placeholder={item.placeholder}
-                        onChange={(e) =>
-                          item.name === "email"
-                            ? setLoginMail(e.target.value)
-                            : setLoginPassword(e.target.value)
-                        }
-                      />
-                    </div>
-                  ))}
+                <div className="inputgroup" >
+                <TextField
+              id="outlined-multiline-static"
+              label="Detalles de producto"
+              multiline
+              variant="filled"
+              rows={4}
+              defaultValue="ejemplo, medicamento para personas hipertensas"
+              value={loginmail}
+              onChange={(e) => setLoginMail(e.target.value)}
+            />
+            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+             onChange={(e) => setLoginPassword(e.target.value)}
+             value={loginpassword}
+            type={showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label="Password"
+          />
+
+                  </div>
                   <div>
                     <div className="login_button"> 
                     {/* <p>¿Se te olvido la contraseña?</p> */}
