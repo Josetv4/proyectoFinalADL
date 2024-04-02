@@ -1,4 +1,9 @@
-import { getProduct, getProductId, createProduct, updateProduct, deleteProduct } from "../models/productModel.js";
+import { getProduct, 
+         getProductId,
+         getProductCategoryId, 
+         createProduct, 
+         updateProduct, 
+         deleteProduct } from "../models/productModel.js";
 
 import { handleError } from "../utils/utils.js";
 
@@ -32,7 +37,22 @@ const getProductsId = async (req, res) => {
       .json({ error: errorFound[0]?.message });
   }
 };
-
+const getProductsCategoryId = async (req, res) => {
+  
+  const id = req.params 
+  
+  try {
+    const products = await getProductCategoryId(id);
+    res.status(200).json({ product : products  });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
 const createNewProduct = async (req, res) => {
   try {
     const product = req.body
@@ -74,7 +94,8 @@ const deleteProducts = async (req, res) => {
 };
 
 export {  getProducts, 
-          getProductsId, 
+          getProductsId,
+          getProductsCategoryId, 
           createNewProduct,
           updateProducts,
           deleteProducts }

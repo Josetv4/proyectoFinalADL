@@ -22,6 +22,17 @@ const getProductId = async ({ id }) => {
   return response.rows[0];
 };
 
+const getProductCategoryId = async ({ id }) => {
+  const SQLquery = {
+    text: `SELECT product_id, name, description, price, stock, category_id, create_at, status, user_id, image_url
+           FROM products
+           WHERE category_id = $1`,
+    values: [id],
+  };
+
+  const response = await pool.query(SQLquery);
+  return response.rows[0];
+};
 const createProduct = async ( { name,  description,  price,  stock,  category_id,  status,  user_id } , image) => {
   const SQLquery = {
     text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id, image_url) 
@@ -88,6 +99,7 @@ const deleteProduct = async ( id )  => {
 export {
   getProduct,
   getProductId,
+  getProductCategoryId,
   createProduct,
   updateProduct,
   deleteProduct,
