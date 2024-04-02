@@ -7,38 +7,46 @@ import { Card,
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { currencyFormat } from "../../helpers/currencyFormat.js";
-import { increaseProduct } from "../../hooks/HandleCart.jsx";
+import { increaseProduct, decreaseProduct } from "../../hooks/HandleCart.jsx";
+import { useState } from "react";
 
 const PurchaseDetail = () => {
+    const [ cartItems, setCartItems ] = useState([
+            {
+                id: 1,
+                fecha: "2024-03-25",
+                imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
+                descripcion: "Descripción del producto 1",
+                precio: "10990",
+                quantity: 1
+            },  
+            {   
+                id: 2,
+                fecha: "2024-03-24",
+                imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
+                descripcion: "Descripción del producto 2",
+                precio: "15490",
+                quantity: 3
+            },  
+            {   
+                id: 3,
+                fecha: "2024-03-23",
+                imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
+                descripcion: "Descripción del producto 3",
+                precio: "8250",
+                quantity: 6
+            },
+        ]);
 
-    const shopping = [
-        {
-            id: 1,
-            fecha: "2024-03-25",
-            imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-            descripcion: "Descripción del producto 1",
-            precio: "10990",
-            quantity: 1
-        },  
-        {   
-            id: 2,
-            fecha: "2024-03-24",
-            imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-            descripcion: "Descripción del producto 2",
-            precio: "15490",
-            quantity: 3
-        },  
-        {   
-            id: 3,
-            fecha: "2024-03-23",
-            imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-            descripcion: "Descripción del producto 3",
-            precio: "8250",
-            quantity: 6
-        },
-    ];
+    
+
     const handleIn = (productID) =>{
-        increaseProduct(productID, shopping)
+        console.log(productID);
+        increaseProduct(productID, cartItems, setCartItems)
+    }
+    const handleDec = (productID) => {
+        console.log(productID);
+        decreaseProduct(productID, cartItems, setCartItems)
     }
     return (
         <Container sx={{ maxHeight: "60vh", 
@@ -47,7 +55,7 @@ const PurchaseDetail = () => {
                             scrollbarWidth: "none"
                         }}>
         <h2 style={{textAlign:"center", paddingBottom:"3vh",fontFamily: "var(--font-title)"}}>Detalle de tu compra</h2>
-        {shopping.map((item) => (
+        {cartItems.map((item) => (
             <Card key={item.id} className="shopping-card">
                 <CardContent 
                     sx={{ display: "flex" , width: "100%", flexDirection:"row", columnGap: "2vh"}} 
@@ -87,7 +95,9 @@ const PurchaseDetail = () => {
                         }} >
                     </AddIcon>
                     <span style={{fontSize:"1.5em"}}>{item.quantity}</span>
-                    <RemoveIcon style={{cursor: "pointer"}}></RemoveIcon>
+                    <RemoveIcon 
+                        onClick={() => handleDec(item.id)}
+                        style={{cursor: "pointer"}}></RemoveIcon>
                 </Box>
                 </Box>
                 </CardContent>
