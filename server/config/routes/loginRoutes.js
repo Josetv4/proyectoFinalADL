@@ -7,6 +7,6 @@ import { validateParametersLogin } from "../../middlewares/validateParameterLogi
 
 const router = express.Router();
 
-router.post('/login/', validateParametersLogin, getActivity, loginUser )
+router.post('/login', validateParametersLogin, getActivity, loginUser )
 
 export default router;

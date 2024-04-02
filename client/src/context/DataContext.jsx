@@ -12,7 +12,7 @@ const DataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchCartItems();
+   /*  fetchCartItems(); */
     fetchProducts();
   }, []);
 
