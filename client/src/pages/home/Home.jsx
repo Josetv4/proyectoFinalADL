@@ -1,4 +1,4 @@
-import Carrusel from "../../components/carrusel/Carrusel";
+
 import "./style.css";
 import ButtonBlue from "../../components/Buttons/buttonBlue/buttonBlue";
 import boton_info from "../../components/json/boton_info.json"
@@ -55,7 +55,7 @@ const homePage = () => {
         
             <section className="home_carrusel">
             <h1>Bienvenidos a farmacias independientes SYG</h1>
-            <Carrusel/>
+ 
             </section>
           <section>
           <h2>Disfruta miles de descuentos en nuestras farmacia todas las semanas</h2>
