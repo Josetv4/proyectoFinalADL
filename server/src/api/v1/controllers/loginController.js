@@ -9,16 +9,16 @@ import { handleError } from '../utils/utils.js';
 const loginUser = async (req, res) => {
     
     const { email, password } = req.body;
-    const pass = bcrypt.hashSync(password)
-    // console.log(`body ${email}`);
+ 
     try {
-        const user = await verifyUser(email, password);
-        // console.log(user);
+        const user = await verifyUser(email);
+       
         if(!user){
             const searchErr = handleError("auth01")
             return res.status(400).json({ error: searchErr[0].message });
         }
-        const isEqual = bcrypt.compareSync(user.password, pass);
+        const isEqual = bcrypt.compareSync(password, user.password );
+
         if(!isEqual){
             const searchErr = handleError("auth02")
             return res.status(400).json({  error: searchErr[0].message });
@@ -32,7 +32,7 @@ const loginUser = async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        res.status(500).json({error: err.message})
+        res.status(500).json({erroresestan: err.message})
     }
 }
 
