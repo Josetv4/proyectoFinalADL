@@ -10,7 +10,7 @@ import swal from "sweetalert";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import loginData from "../../components/json/loginData.json";
+import loginData from "../../components/json/login.json";
 
 const LoginPage = () => {
   const [loginmail, setLoginMail] = useState(""); // Estado para el valor del email
