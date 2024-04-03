@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "fecha": "2024-03-25",
+        "imagen": "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
+        "descripcion": "Descripción del producto 1",
+        "precio": "10990",
+        "quantity": 1
+    },  
+    {   
+        "id": 2,
+        "fecha": "2024-03-24",
+        "imagen": "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
+        "descripcion": "Descripción del producto 2",
+        "precio": "15490",
+        "quantity": 3
+    },  
+    {   
+        "id": 3,
+        "fecha": "2024-03-23",
+        "imagen": "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
+        "descripcion": "Descripción del producto 3",
+        "precio": "8250",
+        "quantity": 6
+    }
+]
