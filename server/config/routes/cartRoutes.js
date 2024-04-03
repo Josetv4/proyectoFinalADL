@@ -10,3 +10,5 @@ const router = express.Router();
 
 router.get("/cart/:idUser", getActivity, getCartUser);
 router.post("/cart/:idUser", getActivity, addCartUser)
+
+export default router;
