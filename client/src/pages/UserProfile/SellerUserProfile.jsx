@@ -43,8 +43,8 @@ const SellerUser = () => {
           </List>
         </Box>
         <Box sx={{ display:'flex', flexDirection: "column", gap: '15px' }}>
-          <ButtonBig to="/">Haz una publicación</ButtonBig>
-          <ButtonOutline to="/publication">Tus publicaciones</ButtonOutline>
+          <ButtonBig to="/publication">Haz una publicación</ButtonBig>
+          <ButtonOutline to="/yours-publication">Tus publicaciones</ButtonOutline>
         </Box>
       </Box>
       <UseForm />

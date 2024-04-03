@@ -1,4 +1,10 @@
-import { getProduct, getProductId, createProduct, updateProduct, deleteProduct } from "../models/productModel.js";
+import { getProduct, 
+         getProductId,
+         getProductCategoryId, 
+         getProductByUser,
+         createProduct, 
+         updateProduct, 
+         deleteProduct } from "../models/productModel.js";
 
 import { handleError } from "../utils/utils.js";
 
@@ -22,6 +28,38 @@ const getProductsId = async (req, res) => {
   
   try {
     const products = await getProductId(id);
+    res.status(200).json({ product : products  });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+const getProductsCategoryId = async (req, res) => {
+  
+  const id = req.params 
+  
+  try {
+    const products = await getProductCategoryId(id);
+    res.status(200).json({ product : products  });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+const getProductsByUsers = async (req, res) => {
+  
+  const id = req.params 
+  
+  try {
+    const products = await getProductByUser(id);
     res.status(200).json({ product : products  });
   } catch (error) {
     const errorFound = handleError(error.code) || [
@@ -74,7 +112,9 @@ const deleteProducts = async (req, res) => {
 };
 
 export {  getProducts, 
-          getProductsId, 
+          getProductsId,
+          getProductsCategoryId, 
+          getProductsByUsers,
           createNewProduct,
           updateProducts,
           deleteProducts }

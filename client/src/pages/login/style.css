@@ -1,40 +1,78 @@
 .login_page{
-    margin: 0%;
-
-}
-
-.login_img img{
-    height: 450px;
-    width:550px;
-}
-
-.css-mhc70k-MuiGrid-root>.MuiGrid-item{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.login_img{
+
+    display: flex;
+    align-items: center;
     justify-content: center;
+    height: 100%;
+}
+.login_img img{
+    width: 80%;
+
 }
 .login_enter{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 5%;
-    gap: 10%;
+    align-content: center;
+    justify-content: center;
+    margin: 2% 0%;
 }
-h1{
-    font-family: var(--font-title);
-    padding-left: 13%;
+.inputgroup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60%;
+
 }
-.login_img{
-    display: none;
+
+
+.login_border{
+    display: flex;
+    border: 1px solid var(--linea-border-color2);
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px var(--background-hover-color);
+    background-color: var(--background-btn4);
+    flex-direction: column;
+    justify-content: center;
+width: 80%;
+    align-items: center;
+    height: 23rem;
+    margin: 5% 0%;
+    justify-content: space-between;
 }
-.grid_img{
-    display: none;
+.login_button{
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    align-items: center;
 }
-@media (min-width: 992px) {
-    .login_img{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5%;
-    }
+.register_new{
+    display: flex;
+    justify-content: center;
+}
+.register_new_text{
+    width: 40%;
+    color: var(--background-btn2);
+}
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
+    width: 259px !important;
+}
+.css-1bl45wc-MuiInputBase-root-MuiFilledInput-root{
+    width: 325px !important;
+}
+.login_color{
+    color: var(--background-btn2);
+    background-color: var(--background-btn2);
+    width: 100%;
+    margin: 0%;
+    border-radius: 0px 0px 20px 20px;
+    padding: 0% 0% 7% 0%;
 
 }
