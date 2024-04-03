@@ -88,7 +88,8 @@ const Category = () => {
     <>
       <Grid container spacing={2} sx={{justifyContent:"space-evenly"}}>
         <Grid 
-        item xs={2}
+        item 
+        xs={2}
         sx={{display:"flex", flexDirection:"column",alignItems:"center"}}>
           <Typography className="order-by-box" sx={{marginTop:"100px", fontSize:"25px", textAlign:"center"}}>
             Ordenar Por
@@ -123,7 +124,10 @@ const Category = () => {
             </ButtonLittle>
           </Box>
         </Grid>
-        <Grid sx={{marginTop:"3%"}}>
+        <Grid 
+          item
+          xs={10}
+          sx={{marginTop:"3%"}}>
           <Typography variant="h4" color="textSecondary" >
             {name}
           </Typography>

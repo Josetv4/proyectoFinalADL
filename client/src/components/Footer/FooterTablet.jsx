@@ -4,7 +4,7 @@ import { FaFacebookF, FaXTwitter } from 'react-icons/fa6';
 import { CiInstagram } from 'react-icons/ci';
 import { FaWhatsapp, FaMapMarkedAlt } from 'react-icons/fa';
 import { mostrarUbicacion } from './linkMaps';
-import direcciones from './addressesSyG.json';
+import direcciones from '../json/addressesSyG.json';
 import { linkStyles } from './linkStyles';
 
 
