@@ -12,8 +12,8 @@ import { NavLink } from 'react-router-dom';
 const PurchaseTotal = () => {
   return (
     <Container sx={{ width: "45vw", maxHeight: '-moz-available' }}>
-        <p style={{fontFamily: "var(--font-title)", textAlign: "center", paddingBottom:"3.5vh", fontSize: "1.3em"}}>Total carrito</p>
-        <Card>
+        <p style={{fontFamily: "var(--font-title)", textAlign: "center", fontSize: "1.3em"}}>Total carrito</p>
+        <Card sx={{ padding: "1vh" }}>
             <Box style={{display:"flex", textAlign: "center", justifyContent: "space-around", padding: "1vh"}}>
                 <p>Subtotal</p>
                 

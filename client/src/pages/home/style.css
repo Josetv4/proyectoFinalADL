@@ -1,12 +1,15 @@
-.home_carrusel {
-  margin-top: 5%;
+.home{
+  margin: 2% 0%;
 }
 h2, h1{
-    margin-left: 5%;
+    margin-left: 5% ;
 }
 
 .home_safe {
-  display: flex;
+  
+    display: flex;
+    justify-content: center;
+  
 }
 .cart-section {
   display: flex;

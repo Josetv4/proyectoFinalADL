@@ -97,6 +97,20 @@ const getCategories = async () => {
              loading: false };
   }
 };
+
+const getProductsByCategory = async (id) => {
+  try {
+    const response = await axios.get(`/products/category/${id}`);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos por categoria:", error);
+    return { response: [], 
+             error: "Error al obtener productos por categoria", 
+             loading: false };
+  }
+};
 export {
   getProducts,
   getCartItems,
@@ -104,5 +118,6 @@ export {
   updateCartItems,
   deleteCartItems,
   userRegister,
-  getCategories
+  getCategories,
+  getProductsByCategory
 }

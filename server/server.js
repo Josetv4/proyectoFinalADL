@@ -11,6 +11,7 @@ import categoryRoutes from "./config/routes/categoryRoutes.js";
 import favoriteRoutes from "./config/routes/favoriteRoutes.js";
 import reviewRoutes from "./config/routes/reviewRoutes.js";
 import loginRoutes from "./config/routes/loginRoutes.js";
+import cartRoutes from "./config/routes/cartRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -24,7 +25,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors());
 
- app.use(logger());
+ //app.use(logger());
 
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", productRoutes);
@@ -32,6 +33,7 @@ app.use("/api/v1", categoryRoutes);
 app.use("/api/v1", favoriteRoutes);
 app.use("/api/v1", reviewRoutes);
 app.use("/api/v1", loginRoutes);
+app.use("/api/v1", cartRoutes)
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`));
 

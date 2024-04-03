@@ -8,7 +8,7 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const PurchaseStepper = () => {
+const PurchaseStepper = ({ page }) => {
     const steps = [1,2,3];
         const outerTheme = createTheme({
             palette: {
@@ -31,7 +31,7 @@ const PurchaseStepper = () => {
     return (
         <Container sx={{ padding: 4, textAlign: "center", display: "flex", justifyContent: 'center', height: '15vh' }}>
         <Box sx={{ width: '30%' }}>
-            <Stepper activeStep={1} alternativeLabel>
+            <Stepper activeStep={page} alternativeLabel>
                 {steps.map((label) => (
                     <Step key={label}>
                         <ThemeProvider theme={outerTheme}>
