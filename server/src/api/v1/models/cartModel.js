@@ -62,7 +62,7 @@ const incrementCartItems = async ({ cartid, detailId }) => {
     text: `UPDATE cart 
              SET quantity = quantity + 1
              WHERE cart_id = $1
-             AND  detail_id = $1
+             AND  detail_id = $2
              RETURNING *`,
     values: [cartid, detailId],
   };
@@ -75,7 +75,7 @@ const decrementCartItems = async ({ cartId, detailId }) => {
     text: `UPDATE cart_items 
             SET quantity = quantity - 1
             WHERE cart_id = $1
-            AND  detail_id = $1
+            AND  detail_id = $2
             RETURNING *`,
     values: [cartId, detailId],
   };
