@@ -59,7 +59,7 @@ const createCartItems = async ( cartId, product_id, quantity, price ) => {
   };
 const incrementCartItems = async ({ cartId, detailId, productId }) => {
   const SQLquery = {
-    text: `UPDATE cart 
+    text: `UPDATE cart_items 
              SET quantity = quantity + 1
              WHERE cart_id = $1
              AND  detail_id = $2
