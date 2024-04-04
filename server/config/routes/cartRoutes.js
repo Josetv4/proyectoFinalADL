@@ -1,9 +1,9 @@
 import express from "express";
 
-import { 
+import {
         getCartUser,
         addCartUser
-             } from "../../src/api/v1/controllers/cartController.js";
+} from "../../src/api/v1/controllers/cartController.js";
 import { getActivity } from "../../middlewares/reports.js";
 
 const router = express.Router();
