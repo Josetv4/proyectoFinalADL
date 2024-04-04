@@ -91,7 +91,7 @@ const updateProducts = async (req, res) => {
   try {
     
     const productUpdate = await updateProduct(id, product, image);
-    res.status(201).json({ product: productUpdate });
+    res.status(200).json({ product: productUpdate });
   } catch (error) {
     const errorFound = handleError(error.code) || [{ status: 500, message: 'Error interno del servidor' }];
     return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  

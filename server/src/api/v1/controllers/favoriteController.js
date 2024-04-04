@@ -74,7 +74,7 @@ const updateFavorites = async (req, res) => {
   const favorite = req.body;
   try {
     const favoriteUpdate = await updateFavorite(id, favorite);
-    res.status(201).json({ favorite: favoriteUpdate });
+    res.status(200).json({ favorite: favoriteUpdate });
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
