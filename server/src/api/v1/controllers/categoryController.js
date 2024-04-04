@@ -49,7 +49,7 @@ const updateCategories = async (req, res) => {
   try {
     
     const categoryUpdate = await updateCategory(id, category);
-    res.status(201).json({ category : categoryUpdate });
+    res.status(200).json({ category : categoryUpdate });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
