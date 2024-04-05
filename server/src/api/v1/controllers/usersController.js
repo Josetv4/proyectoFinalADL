@@ -8,9 +8,7 @@ const getUsers = async (req, res) => {
     res.status(200).json({ user : users });
   } catch (error) {
     const errorFound = handleError(error.code);
-    return res
-      .status(errorFound[0]?.status)
-      .json({ error: errorFound[0]?.message });
+    return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });
   }
 };
 

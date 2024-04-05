@@ -1,28 +1,17 @@
-.home_carrusel{
-    display: flex;
-   
-    flex-direction: column;
-    align-content: center;
-    align-items: flex-start;
-    margin-left: 5%;
-}
-.carrusel_img{
-    width: 68rem !important;
-
-}
-.carrusel_img img{
-    width: inherit;
-}
-
-.css-1yf1hp2{
-    padding: 0%;
+.css-1xgsf0v {
+    height: 210px;
+    display: block;
     width: 100% !important;
 }
-.css-1x1xx5k {
-    max-width: 100% !important;}
-    @media (min-width: 1400px) {
-        .carrusel_img{
-            width: 84rem !important;
-        
-        }
-    }
+.css-cuefkz-MuiContainer-root {
+    max-width: fit-content !important;
+}
+.css-ahj2mt-MuiTypography-root {
+    display: none;
+}
+.css-zjf1nq-MuiPaper-root {
+    display: none;
+}
+
+
+

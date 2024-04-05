@@ -91,15 +91,13 @@ const MenuSellerUser = () => {
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Publica tus productos
+                        Tus Publicaciones
                     </MenuItem>
                     <MenuItem
-                        component={NavLink}
-                        to="/yours-publication"
                         onClick={handleItemClick}
                         sx={buttonStyles}
                     >
-                        Tus publicaciones
+                        Tus Ventas
                     </MenuItem>
                     <MenuItem
                         onClick={handleLogout}

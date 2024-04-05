@@ -1,7 +1,7 @@
 import  { useState, useEffect } from 'react';
 import { Box, Typography } from "@mui/material";
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
-import addressesSyG from '../json/addressesSyG.json';
+import addressesSyG from '../Footer/addressesSyG.json';
 
 const displayColumn = {
     display: "flex",

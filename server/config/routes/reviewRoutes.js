@@ -15,7 +15,7 @@ import { getActivity } from "../../middlewares/reports.js";
 
 router.get("/review", getActivity, getReviews);
 router.get("/review/:id", getActivity, getReviewsId);
-router.post("/review", getActivity, createReviews);
+router.post("/review/", getActivity, createReviews);
 router.put("/review/:id", getActivity, updateReviews);
 router.delete("/review/:id", getActivity, deleteReviews);
 

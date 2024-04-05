@@ -63,8 +63,8 @@ const AboutPharmacy = () => {
                         <Typography sx={{ ...textInformation }}>
                             con las expectativas, tanto personales como de la población, en el
                             corto plazo y así poder posicionarnos como la alternativa
-                            preferida por los Calameños que buscan precios accesibles, calidad en
-                            los productos y atención.
+                            preferida por los Calameños que buscan bajos precios y calidad en
+                            los productos y atención
                         </Typography>
                     </Box>
                 </Box>

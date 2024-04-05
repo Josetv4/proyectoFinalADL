@@ -1,12 +1,23 @@
-import{ useEffect, useState } from "react";
+import{ useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
-
 import { buttonStyles } from './ButtonStyleHoverFocus';
-import { getCategories } from "../../api/getApi";
+
+const categories = [
+  { nombre: "Belleza", id: 1 },
+  { nombre: "Anticonceptivos", id: 2 },
+  { nombre: "Antidepresivos", id: 3 },
+  { nombre: "Antipsicóticos", id: 40 },
+  { nombre: "Analgésicos", id: 32 },
+  { nombre: "Antipiréticos", id: 12 },
+  { nombre: "Antidiarreicos", id: 414 },
+  { nombre: "Antihipertensivos", id: 123 },
+  { nombre: "Oftamológico", id: 432 },
+  { nombre: "Diabetes", id: 7 },
+];
 
 const buttonStyles1 = {
   margin: "2px",
@@ -16,13 +27,6 @@ const buttonStyles1 = {
 };
 
 const MenuCategoria = () => {
-
-  const [categories,setCategories] = useState([]);
-
-  useEffect(()=>{
-    asyncGetCategories();
-  },[]);
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -33,15 +37,6 @@ const MenuCategoria = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const asyncGetCategories = async()=>{
-    try {
-      const response = await getCategories();
-      setCategories(response.response.category)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   return (
     <div>
@@ -76,15 +71,15 @@ const MenuCategoria = () => {
           horizontal: "left",
         }}
       >
-        {categories && categories.map((category) => (
+        {categories.map((category) => (
           <MenuItem
-            key={category.category_id}
+            key={category.id}
             onClick={handleClose}
             component={NavLink}
-            to={`/category/${category.category_id}/${category.name}`}
+            to={`/category/${category.id}/${category.nombre}`}
             sx={buttonStyles}
           >
-            {category.name}
+            {category.nombre}
           </MenuItem>
         ))}
       </Menu>

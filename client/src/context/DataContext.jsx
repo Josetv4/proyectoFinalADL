@@ -12,7 +12,7 @@ const DataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   /*  fetchCartItems(); */
+    fetchCartItems();
     fetchProducts();
   }, []);
 
@@ -42,9 +42,9 @@ const fetchProducts = async ()=> {
     }
   };
 
-  const addCartItem = async (cartId, product) => {
+  const addCartItem = async (product) => {
     try {
-      const { response, error, loading } = await postCartItems(cartId, product);
+      const { response, error, loading } = await postCartItems(product);
       setCartItems(response);
       setError(error);
       setLoading(loading);

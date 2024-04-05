@@ -3,7 +3,7 @@ import { linkStyles } from './linkStyles';
 import { FaFacebookF, FaXTwitter } from 'react-icons/fa6';
 import { CiInstagram } from 'react-icons/ci';
 import { FaWhatsapp, FaMapMarkedAlt } from 'react-icons/fa';
-import direcciones from '../json/addressesSyG.json';
+import direcciones from './addressesSyG.json';
 import { mostrarUbicacion } from './linkMaps';
 
 const SocialMediaLinks = () => {
