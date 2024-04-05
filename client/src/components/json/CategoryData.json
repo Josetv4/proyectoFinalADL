@@ -1,0 +1,12 @@
+[
+    { "nombre": "Belleza", "id": 1 },
+    { "nombre": "Anticonceptivos", "id": 2 },
+    { "nombre": "Antidepresivos", "id": 3 },
+    { "nombre": "Antipsicóticos", "id": 40 },
+    { "nombre": "Analgésicos", "id": 32 },
+    { "nombre": "Antipiréticos", "id": 12 },
+    { "nombre": "Antidiarreicos", "id": 414 },
+    { "nombre": "Antihipertensivos", "id": 123 },
+    { "nombre": "Oftamológico", "id": 432 },
+    { "nombre": "Diabetes", "id": 7 }
+]

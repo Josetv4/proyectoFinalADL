@@ -1,0 +1,36 @@
+{
+    "admin": {
+        "id": 1,
+        "name": "Administrador Ejemplo",
+        "email": "admin@example.com",
+        "password": "123",
+        "role": "Administrador",
+        "userType": "admin",
+        "token": "token1",
+        "phone": "+56412936136545",
+        "age": 30
+    },
+    "regular": {
+        "id": 2,
+        "name": "Usuario Regular Ejemplo",
+        "email": "regular@example.com",
+        "password": "123",
+        "role": "Usuario Regular",
+        "userType": "regular",
+        "token": "token2",
+        "phone": "+5695832589336",
+        "age": 32
+    },
+    "seller": {
+        "id": 3,
+        "name": "Vendedor Ejemplo",
+        "email": "seller@example.com",
+        "password": "123",
+        "role": "Vendedor",
+        "userType": "seller",
+        "token": "token3",
+        "phone": "+5687132245892",
+        "age": 33
+    }
+}
+
