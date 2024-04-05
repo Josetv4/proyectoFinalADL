@@ -1,67 +1,31 @@
-
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
+
+import Navbar from './components/Navbar';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
-import Home from './pages/home/Home'
-import Category from './pages/Category/Category';
-import Footer from './components/Footer/Footer';
-import PurchaseThanks from './pages/PurchaseThanks';
-import Wallet from './pages/Wallet';
-import LastShopping from './pages/LastShopping/LastShopping'
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import BeautyCatalog from './pages/BeautyCatalog';
+import MedicantionCatalog from './pages/MedicantionCatalog';
 
-
-//Context
-import { useAuth } from './context/AuthContext';
-
-// Imports related to users/admins/sellers
-import Login from './pages/login/Login';
-import Register from './pages/register/Register';
-import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
-import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
-import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
-import SellerPublications from './pages/UserProfile/sellerpublications/SellerPublications';
-import ShoppingCard from './components/ShoppingCard/ShoppingCard';
-import DetailsProducts from './pages/DetailsProducts';
-=======
-
-import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
->>>>>>> 7ebb256d4705bb2357251eb21eec33c109fca15e
-import LatestPosts from './pages/UserProfile/LatestPosts';
-import Publications from './pages/UserProfile/publication/Publications';
 
 function App() {
-  const { user } = useAuth();
-
   return (
-    <div className='gridApp'>
+    <div>
       <Router>
-        <header>
-          <Navbar userType={user ? user.userType : null} />
-        </header>
-        <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/sobre-nosotros" element={<AboutUs />} />
-              <Route path="/login" element={<Login/>} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/category/:id/:name" element={<Category />} />
-              <Route path="/user-profile" element={<RegularUserProfile />} />
-              <Route path="/admin" element={<AdminUserProfile />} />
-              <Route path="/seller" element={<SellerUserProfile />} />
-              <Route path="/details-product/:id" element={<DetailsProducts/>}/>
-              <Route path="/last-shopping" element={<LastShopping />} />
-              <Route path="/purchase-thanks" element={<PurchaseThanks />} />
-              <Route path="/yours-publication" element={<SellerPublications  />} />
-              <Route path="/publication" element={<Publications />} />
-              <Route path="/latest-posts" element={<LatestPosts  />} />
-              <Route path="/wallet" element={<Wallet />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-        </main>
-        <footer>
-          <Footer />
-        </footer>
+        <Navbar />
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/sobre-nosotros" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/catalog1" element={<BeautyCatalog />} />
+        <Route path="/catalog2" element={<MedicantionCatalog />} />
+        <Route path="*" element={<NotFound />} />
+        </Routes>
       </Router>
     </div>
   );
