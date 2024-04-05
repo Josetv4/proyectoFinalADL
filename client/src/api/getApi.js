@@ -83,11 +83,41 @@ const userRegister = async (userData) => {
              loading: false };
   }
 };
+
+const getCategories = async () => {
+  try {
+    const response = await axios.get('/category');
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener categorias:", error);
+    return { response: [], 
+             error: "Error al obtener categorias", 
+             loading: false };
+  }
+};
+
+const getProductsByCategory = async (id) => {
+  try {
+    const response = await axios.get(`/products/category/${id}`);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos por categoria:", error);
+    return { response: [], 
+             error: "Error al obtener productos por categoria", 
+             loading: false };
+  }
+};
 export {
   getProducts,
   getCartItems,
   postCartItems,
   updateCartItems,
   deleteCartItems,
-  userRegister
+  userRegister,
+  getCategories,
+  getProductsByCategory
 }
