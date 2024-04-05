@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import usersData from "../components/json/userData.json";
-import { userRegister } from "../api/getApi.js";
+import { userRegister, loginUser } from "../api/getApi.js";
 
 const AuthContext = createContext();
 
@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [userId, setUserId] = useState(null);
 
-    useEffect(() => {
+   /*  useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
             const userFromToken = Object.values(usersData).find(user => user.token === token);
@@ -16,15 +16,18 @@ export const AuthProvider = ({ children }) => {
                 setUser(userFromToken);
             }
         }
-    }, []);
+    }, []); */
 
-    const login = async (credentials) => {
-        const userToLogin = Object.values(usersData).find(user =>
+    const login = async (userData) => {
+
+        const userToLogin = await loginUser(userData)
+
+        /* const userToLogin = Object.values(usersData).find(user =>
             user.email === credentials.email && user.password === credentials.password
-        );
+        ); */
         if (userToLogin) {
             setUser(userToLogin);
-            localStorage.setItem("token", userToLogin.token);
+            localStorage.setItem("token", userToLogin.response.token);
         } else {
             throw new Error("Credenciales inválidas");
         }
