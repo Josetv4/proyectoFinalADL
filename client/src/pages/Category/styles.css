@@ -1,30 +1,15 @@
 .order-select{
     width: 100%;
-    height: 80%;
+    height: 40px;
+    border-radius: 10px;
 }
 
-.box-selects{
-    border-radius: 10px;
-    min-width: 120px;
-    display: flex;
-    flex-direction: column;
-    border: solid 1px;
-    margin-top: 50px;
-    width: 90%;
-    height:300px;
-    justify-content: center;
-    align-content: center;
-    gap:15px;
-    border-color: var(--linea-border-color2);
-    background-color: var(--background-btn3);
-    flex-wrap: wrap;
-}
 
 .arrow-select{
     background-color: var(--background-btn2);
     color: var(--font-btn1-color);
     height: 100%;
-    width: 25%;
+    width: 30%;
 }
 
 .order-by-box{

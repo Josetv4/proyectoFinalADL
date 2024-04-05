@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import { Typography, Card, CardMedia, Grid, Box } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
@@ -9,24 +9,26 @@ import ButtonBig from '../../components/Buttons/buttonBig/buttonBig';
 import ButtonLittle from '../../components/Buttons/buttonLittle/buttonLittle';
 
 import "./styles.css";
-
-const product = {
-    name: 'Femelle',
-    image: 'https://d1tjllbjmslitt.cloudfront.net/spree/products/102240/large_webp/2835001.webp?1700488520',
-    description: 'Descripción del medicamento A.',
-    format: '30 Comprimidos Recubiertos',
-    price: 10.990,
-    valoration: 3.5,
-    seller: "Petco SPA",
-    activeIngredient: "Principio Activo: Losartán Potásico / Forma Farmacéutica: Comprimidos / Dosis por Forma Farmacéutica: 50mg.",
-    information: "Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.",
-    comments: []
-
-}
+import { getProductsById } from '../../api/getApi';
 
 const DetailsProducts = () => {
-
+    const { id } = useParams();
     const [isShowInformation, setIsShowInformation] = useState(undefined);
+    const [product,setProduct] = useState([]);
+
+    useEffect(()=>{
+        asyncGetProduct();
+    },[]);
+
+    const asyncGetProduct = async() =>{
+        try {
+            const response = await getProductsById(id);
+            console.log(response)
+            setProduct(response.response)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const handleClickInfo = () =>{
         setIsShowInformation(true);
@@ -43,7 +45,6 @@ const DetailsProducts = () => {
                 <Typography
                     component={NavLink}
                     to="/category/1/Belleza" //volver a pagina anterior, buscar la forma de volver a la categoria anterior
-                    activeClassName="active"
                     sx={{
                         color: 'var(--font-btn3-color)',
                         fontFamily: 'var(--body)',
@@ -66,8 +67,8 @@ const DetailsProducts = () => {
                     <Box>
                         <img
                             style={{ width: "300px" }}
-                            srcSet={product.image}
-                            src={product.image}
+                            srcSet={product.image_url}
+                            src={product.image_url}
                             alt={product.description}
                             loading="lazy"
                         />
@@ -125,7 +126,7 @@ const DetailsProducts = () => {
                     <Box className="section-info-buttons" sx={{display: (isShowInformation===undefined) ? "none" : "block"}}>
                         {isShowInformation === true 
                         ? product.information 
-                        : (product.comments.length === 0) ? "No hay comentarios" : "Aca van los comentarios"}
+                        : (product.comments?.length === 0) ? "No hay comentarios" : "Aca van los comentarios"}
                     </Box>
                 </Box>
 

@@ -1,0 +1,475 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "MarketPlace",
+    "dateExported": "2024-04-03T01:05:29.058Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "448980da-9602-4122-a606-cbcf60850f7f",
+            "name": "Reviews",
+            "containerId": "",
+            "created": "2024-03-23T03:11:38.296Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "acf08fdf-63a9-470b-86df-fabbec57b766",
+            "name": "Favorites",
+            "containerId": "",
+            "created": "2024-03-23T03:12:46.646Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "Products",
+            "containerId": "",
+            "created": "2024-03-23T03:14:28.020Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "495da633-26f3-47f7-8412-aa0330038716",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-03-25T02:24:16.072Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "6b751628-ebf0-4ae4-ad0d-2e8fe6d5a631",
+            "name": "Category",
+            "containerId": "",
+            "created": "2024-04-01T01:50:34.875Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "a877d611-c658-4f78-8e63-032fa9d0eaf4",
+            "name": "Login",
+            "containerId": "",
+            "created": "2024-04-02T01:47:39.213Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "eca21dc1-08d4-4f49-80ba-8104aa1753de",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "448980da-9602-4122-a606-cbcf60850f7f",
+            "name": "getReviews",
+            "url": "localhost:4000/api/v1/review",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-23T01:46:09.249Z",
+            "modified": "2024-03-23T01:52:53.965Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6fbd2754-3183-4b79-bacc-f72445729996",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "448980da-9602-4122-a606-cbcf60850f7f",
+            "name": "getReviewId",
+            "url": "localhost:4000/api/v1/review/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-23T01:58:01.458Z",
+            "modified": "2024-03-23T01:58:22.867Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2db22ba2-466b-4e18-bc81-995873434e28",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "448980da-9602-4122-a606-cbcf60850f7f",
+            "name": "createReview",
+            "url": "localhost:4000/api/v1/review",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-23T02:02:43.201Z",
+            "modified": "2024-03-23T02:17:08.760Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"product\":3,\n  \"user\":1,\n  \"rating\":4,\n  \"comment\":\"No me gusto la fecha de entrega!!!\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b5a82414-6fd4-49ff-9949-f908ce3ea777",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "448980da-9602-4122-a606-cbcf60850f7f",
+            "name": "UpdateReview",
+            "url": "localhost:4000/api/v1/review/5",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-23T02:41:28.070Z",
+            "modified": "2024-03-23T02:55:38.884Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"product\":3,\n  \"user\":1,\n  \"rating\":3,\n  \"comment\":\"No me gusto la fecha de entrega!!! modificado 1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "295b8c7e-0448-4cc0-bb28-13e998f945b7",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "448980da-9602-4122-a606-cbcf60850f7f",
+            "name": "DeleteReview",
+            "url": "localhost:4000/api/v1/review/3",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-03-23T02:46:52.802Z",
+            "modified": "2024-03-23T02:48:22.994Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d69103c1-1046-4ac0-aabb-ff8db69d5259",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "getProducts",
+            "url": "localhost:4000/api/v1/products",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-03-23T03:17:09.024Z",
+            "modified": "2024-03-23T03:17:52.613Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "37966830-89b5-4208-a835-8a7cfdc6565a",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "getProductId",
+            "url": "localhost:4000/api/v1/products/3",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-03-23T03:25:29.267Z",
+            "modified": "2024-03-23T03:25:45.046Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f2e0b5d3-739e-402c-af7a-b4b74a46796c",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "createProduct",
+            "url": "localhost:4000/api/v1/products",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-03-23T03:33:03.388Z",
+            "modified": "2024-03-23T04:10:19.939Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Otro Remedio"
+                    },
+                    {
+                        "name": "description",
+                        "value": "lalalalalalala"
+                    },
+                    {
+                        "name": "price",
+                        "value": "22"
+                    },
+                    {
+                        "name": "stock",
+                        "value": "200"
+                    },
+                    {
+                        "name": "category_id",
+                        "value": "2"
+                    },
+                    {
+                        "name": "status",
+                        "value": "Publicado"
+                    },
+                    {
+                        "name": "user_id",
+                        "value": "1"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/yamilcastilloschmidt/Desktop/fotos/IMG_0529.jpeg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "7221d014-f896-44b6-a93d-f8256b268fdf",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "updateProduct",
+            "url": "localhost:4000/api/v1/products/4",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2024-03-23T03:54:12.154Z",
+            "modified": "2024-03-23T03:55:29.263Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Ibuprofeno"
+                    },
+                    {
+                        "name": "description",
+                        "value": "lalalalalalala"
+                    },
+                    {
+                        "name": "price",
+                        "value": "22"
+                    },
+                    {
+                        "name": "stock",
+                        "value": "200"
+                    },
+                    {
+                        "name": "category_id",
+                        "value": "2"
+                    },
+                    {
+                        "name": "status",
+                        "value": "Publicado"
+                    },
+                    {
+                        "name": "user_id",
+                        "value": "1"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/yamilcastilloschmidt/Desktop/fotos/IMG_0163.jpeg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "2b5fe95b-f604-408d-aa7a-ffc069f1fcb9",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "deleteProduct",
+            "url": "localhost:4000/api/v1/products/4",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-03-23T04:02:09.414Z",
+            "modified": "2024-03-23T04:02:22.460Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "55fd0db8-324b-4738-a3f3-948d8ee54805",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "495da633-26f3-47f7-8412-aa0330038716",
+            "name": "getUsers",
+            "url": "localhost:4000/api/v1/users",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-03-25T02:24:30.270Z",
+            "modified": "2024-03-25T02:25:14.144Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6075409d-bd60-4123-9f28-1212b306a8b3",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "6b751628-ebf0-4ae4-ad0d-2e8fe6d5a631",
+            "name": "getCategories",
+            "url": "localhost:4000/api/v1/category",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-04-01T01:50:34.875Z",
+            "modified": "2024-04-01T01:52:28.124Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f65ffd52-675b-421d-8396-39aef9affa34",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "495da633-26f3-47f7-8412-aa0330038716",
+            "name": "getUserId",
+            "url": "localhost:4000/api/v1/users/1",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-03-25T02:32:36.259Z",
+            "modified": "2024-03-25T02:32:51.984Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "76fa7487-7d38-4e42-baa0-d7e5a7a44904",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "6b751628-ebf0-4ae4-ad0d-2e8fe6d5a631",
+            "name": "getCategoryId",
+            "url": "localhost:4000/api/v1/category/1",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-04-01T01:50:34.876Z",
+            "modified": "2024-04-01T01:52:46.008Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b111df8a-9d08-48c3-8fa2-f173f314f153",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "495da633-26f3-47f7-8412-aa0330038716",
+            "name": "createUser",
+            "url": "localhost:4000/api/v1/users",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-03-25T02:33:30.391Z",
+            "modified": "2024-04-02T02:12:20.149Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"desafioLatam\",\n    \"rut\":\"1-9\",\n    \"birth\": \"09-11-2001\",\n    \"email\":\"desafio@latam.com\",\n    \"phone\": \"+56982288959\",\n    \"password\": \"12345678\",\n    \"role\": \"admin\",\n    \"status\": \"A\"\n  }\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "653f20da-7a98-4808-b9ed-8764d7a8b3b3",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "6b751628-ebf0-4ae4-ad0d-2e8fe6d5a631",
+            "name": "createCategory",
+            "url": "localhost:4000/api/v1/category",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-04-01T01:50:34.877Z",
+            "modified": "2024-04-01T01:54:11.303Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"otraCategoria\"\n  }\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7c7749bc-99f2-4286-805c-4525d0cd78b2",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "495da633-26f3-47f7-8412-aa0330038716",
+            "name": "updateUser",
+            "url": "localhost:4000/api/v1/users/10",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2024-03-25T02:56:53.460Z",
+            "modified": "2024-03-25T02:59:39.054Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"otroUsuarioww\",\n    \"rut\":\"2-9\",\n    \"birth\": \"09-11-2001\",\n    \"email\": \"usuario@example.com\",\n    \"phone\": \"+56982288959\",\n    \"password\": \"1234222222\",\n    \"role\": \"user\",\n    \"status\": \"I\"\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a769a6ed-c7cf-42bf-9c3a-ae73c171c839",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "6b751628-ebf0-4ae4-ad0d-2e8fe6d5a631",
+            "name": "updateCategory",
+            "url": "localhost:4000/api/v1/category/18",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2024-04-01T01:50:34.878Z",
+            "modified": "2024-04-01T01:55:15.861Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"otroCategoria2\"\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9c7c1b21-f82d-4cf4-8171-b429f58432d0",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "6b751628-ebf0-4ae4-ad0d-2e8fe6d5a631",
+            "name": "DeleteCategory",
+            "url": "localhost:4000/api/v1/category/18",
+            "method": "DELETE",
+            "sortNum": 150000,
+            "created": "2024-04-01T01:56:12.588Z",
+            "modified": "2024-04-01T01:56:47.484Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f54bf3b3-e8ee-4952-b5f5-95f91a7c82f4",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "a877d611-c658-4f78-8e63-032fa9d0eaf4",
+            "name": "getLogin",
+            "url": "localhost:4000/api/v1/login",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2024-04-02T01:47:49.584Z",
+            "modified": "2024-04-02T02:13:54.023Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"desafio@latam.com\",\n  \"password\":\"12345678\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "aacfb8ff-cd67-451f-86f6-f86d0a335940",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "getProductCategoryId",
+            "url": "localhost:4000/api/v1/products/category/3",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2024-04-02T02:46:37.785Z",
+            "modified": "2024-04-02T02:55:30.423Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "67020146-c45b-4ec7-866f-d9b3c7de62bb",
+            "colId": "bf0a3069-433d-46d4-8f6c-dc0eb444b1fa",
+            "containerId": "8f5e50ec-9933-4dbf-8032-2205914ec812",
+            "name": "getProductsByUsers",
+            "url": "localhost:4000/api/v1/products/user/1",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2024-04-02T22:41:07.460Z",
+            "modified": "2024-04-02T22:59:41.672Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

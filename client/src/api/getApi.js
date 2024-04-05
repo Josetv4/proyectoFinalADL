@@ -84,6 +84,19 @@ const userRegister = async (userData) => {
   }
 };
 
+const loginUser = async (userData) => {
+  try {
+    const response = await axios.post('/login', userData);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], 
+             error: "Error al obtener carritos", 
+             loading: false };
+  }
+};
 const getCategories = async () => {
   try {
     const response = await axios.get('/category');
@@ -97,6 +110,34 @@ const getCategories = async () => {
              loading: false };
   }
 };
+
+const getProductsByCategory = async (id) => {
+  try {
+    const response = await axios.get(`/products/category/${id}`);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos por categoria:", error);
+    return { response: [], 
+             error: "Error al obtener productos por categoria", 
+             loading: false };
+  }
+};const getProductsById = async (id) => {
+  try {
+    const response = await axios.get(`/products/${id}`);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener producto por id:", error);
+    return { response: [], 
+             error: "Error al obtener producto por id", 
+             loading: false };
+  }
+};
+
+
 export {
   getProducts,
   getCartItems,
@@ -104,5 +145,8 @@ export {
   updateCartItems,
   deleteCartItems,
   userRegister,
-  getCategories
+  loginUser,
+  getCategories,
+  getProductsByCategory,
+  getProductsById
 }

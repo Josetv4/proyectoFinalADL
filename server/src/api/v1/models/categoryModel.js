@@ -52,7 +52,7 @@ const deleteCategory = async (id) => {
   };
   const response = await pool.query(SQLquery);
   if (response.rows.length === 0) {
-    throw new Error("No se encontró ningún usuario con el ID proporcionado");
+    throw new Error("No se encontró ninguna categoria con el ID proporcionado");
   }
   return response.rows[0];
 };
