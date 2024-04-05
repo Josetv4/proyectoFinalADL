@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
           <CardMedia
             sx={{ height:"150px"}}
             alt={product.name}
-            image={product.image}
+            image={product.image_url}
             title={product.name}
           />
           <IconButton className='icon-tag'>
@@ -62,7 +62,7 @@ export default function ProductCard({ product }) {
           <ButtonLittle >
             Añadir al carro
           </ButtonLittle>
-          <ButtonLittleoutline to={`/details-product/${product.id}`}>
+          <ButtonLittleoutline to={`/details-product/${product.product_id}`}>
             Ver detalles
           </ButtonLittleoutline>
         </CardActions>
