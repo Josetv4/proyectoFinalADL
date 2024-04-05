@@ -45,10 +45,10 @@ const createNewCategory = async (req, res) => {
 const updateCategories = async (req, res) => {
   
   const id = req.params;
-  const category = req.body;
+  const user = req.body;
   try {
     
-    const categoryUpdate = await updateCategory(id, category);
+    const categoryUpdate = await updateCategory(id, user);
     res.status(201).json({ category : categoryUpdate });
   } catch (error) {
     const errorFound = handleError(error.code);
@@ -64,7 +64,7 @@ const deleteCategories = async (req, res) => {
   try {
     
     const response = await deleteCategory(id);
-    res.status(200).json({ message: 'Categoria eliminado correctamente', category: response });
+    res.status(200).json({ message: 'Categoria eliminado correctamente', user: response });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res

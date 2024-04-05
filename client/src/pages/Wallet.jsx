@@ -30,13 +30,13 @@ const Wallet = () => {
             sx={{
                 borderBottom: "30px solid var(--font-link-color)",
                 borderTop: "30px solid var(--font-link-color)",
-                height: "50rem",
+                height: "90vh",
             }}
         >
             <Paper
                 elevation={3}
                 sx={{
-                    width: "75%",
+                    width: "60%",
                     borderRadius: 3,
                     bgcolor: "#F5F5F5",
                     height: "90%",

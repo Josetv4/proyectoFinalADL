@@ -1,9 +1,11 @@
 .register_page{
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-
+.register_wave{
+     position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
 .register_wave_svg{
     position: relative;
@@ -15,37 +17,16 @@
 .register_inputs{
     display: flex;
     flex-direction: column;
-
-    margin: 3% 0% 0% 0%;
+    width: 100%;
+    margin: 3% 0% 0% 1%;
     align-items: center;
 
 }
  h1{
     padding: 0%;
-    margin: 0%;
  }
- .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
-    width: 280px;
+ @media (min-width: 992px){
+    .register_wave_svg{
+        display: block;
+    }
  }
- .button_register{
-    display: flex;
-    margin: 5% 0%;
-    justify-content: center;
- }
- .login_border{
-    border: 1px solid var(--linea-border-color2);
-    border-radius: 20px;
-    box-shadow: 10px 10px 5px var(--background-hover-color);
-    width: 27rem;
-    height: 100%;
-}
-.login_color{
-    color: var(--background-btn2);
-    background-color: var(--background-btn2);
-    width: 100%;
-    margin: 0%;
-    border-radius: 0px 0px 20px 20px;
-    padding: 0% 0% 7% 0%;
-
-}
- 

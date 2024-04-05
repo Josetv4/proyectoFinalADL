@@ -51,13 +51,11 @@ const homePage = () => {
   ];
 
     return (
-        <div className="home" >
+        <div >
         
             <section className="home_carrusel">
             <h1>Bienvenidos a farmacias independientes SYG</h1>
-
-
-<Carrusel/>
+            <Carrusel/>
             </section>
           <section>
           <h2>Disfruta miles de descuentos en nuestras farmacia todas las semanas</h2>
