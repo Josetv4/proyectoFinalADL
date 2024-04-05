@@ -84,6 +84,19 @@ const userRegister = async (userData) => {
   }
 };
 
+const loginUser = async (userData) => {
+  try {
+    const response = await axios.post('/login', userData);
+    return { response: response.data, 
+             error: null, 
+             loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], 
+             error: "Error al obtener carritos", 
+             loading: false };
+  }
+};
 const getCategories = async () => {
   try {
     const response = await axios.get('/category');
@@ -132,6 +145,7 @@ export {
   updateCartItems,
   deleteCartItems,
   userRegister,
+  loginUser,
   getCategories,
   getProductsByCategory,
   getProductsById

@@ -34,6 +34,7 @@ const LoginPage = () => {
 
 
   const { login } = useAuth();
+  
   const navigate = useNavigate();
 
   const handleLogin = async () => {
