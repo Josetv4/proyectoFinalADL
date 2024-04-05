@@ -17,7 +17,7 @@ function ResponsiveAppBar() {
 
     const renderNavbar = () => {
         if (user) {
-            switch ( user.response.user.role ) {
+            switch ( user.role ) {
                 case "admin":
                     return <AdminLogged />;
                 case "user":

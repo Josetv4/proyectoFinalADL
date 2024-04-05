@@ -21,15 +21,10 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (userData) => {
 
-        const userToLogin = await loginUser(userData)
-        console.log(userToLogin);
-
-        /* const userToLogin = Object.values(usersData).find(user =>
-            user.email === credentials.email && user.password === credentials.password
-        ); */
-        if (userToLogin) {
-            setUser(userToLogin);
-            localStorage.setItem("token", userToLogin.response.token);
+        const { response } = await loginUser(userData)
+        if (!Array.isArray(response)) {
+            setUser(response.user);
+            localStorage.setItem("token", response.token);
         } else {
             throw new Error("Credenciales inválidas");
         }
