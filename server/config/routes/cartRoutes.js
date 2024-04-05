@@ -8,11 +8,11 @@ import {
         getAllCart
              } from "../../src/api/v1/controllers/cartController.js";
 import { getActivity } from "../../middlewares/reports.js";
-import { isLogin } from "../../middlewares/isLogin.js";
+// import { isLogin } from "../../middlewares/isLogin.js";
 
 const router = express.Router();
 
-router.get("/carts/", isLogin, getActivity, getAllCart) 
+router.get("/carts/", getActivity, getAllCart) 
 router.get("/cart/", getActivity, getCartUser);
 router.post("/cart/", getActivity, addCartUser);
 router.put("/cartIncrease/:id", getActivity, updateCartIncrease);
