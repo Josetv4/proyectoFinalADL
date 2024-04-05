@@ -8,7 +8,7 @@ const ShoppingCart = () =>{
     return (
         <main>
           <PurchaseStepper page={1}/>
-          <Container sx={{ display: "flex", flexDirection: 'row', maxHeight: '54vh', maxWidth: 'moz-available' }}>
+          <Container sx={{ display: "flex", flexDirection: 'row', maxHeight: '50rem', maxWidth: 'moz-available' }}>
               <Grid container spacing={2}>
                 <Grid item xs={8}>
                     <PurchaseDetail />
