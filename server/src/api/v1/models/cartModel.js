@@ -50,8 +50,8 @@ const closeCart = async ({ cartId }) => {
 
 const createCartItems = async ( cartId, product_id, quantity, price ) => {
     const SQLquery = {
-      text: `INSERT INTO cart_items (cartId, product, quantity, price)
-            VALUES ( $1 ) RETURNING *`,
+      text: `INSERT INTO cart_items (cartId, product_id, quantity, price)
+            VALUES ( $1, $2, $3, $4 ) RETURNING *`,
       values: [ cartId, product_id, quantity, price ],
     };
     const response = await pool.query(SQLquery);
