@@ -1,22 +1,9 @@
-> **Advertencia:** Es posible que requira forzar la siguiente dependencia react-swipeable-views
-
-```bash
-npm install react-swipeable-views --force
-```
-
-> **Importante:** Información crucial:
-
-- Requiere de los siguientes usuarios para probar las vistas privadas:
-  email: admin@example.com
-  password: 123
-  email: regular@example.com
-  password: 123
-  email: seller@example.com
-  password: 123
-
 # Proyecto final para la Academia Desafio Latam
 
 ## Descripción del proyecto
+
+
+
 
 ## Colaboradores
 
@@ -24,7 +11,8 @@ npm install react-swipeable-views --force
 - [Ingrid Morales](https://github.com/ingrid-mo)
 - [Yamil Castillo](https://github.com/YACSCH/)
 - [María José Cárdenas](https://github.com/crcote)
-- [José Luque](https://github.com/Josetv4)
+- ([José Luque](https://github.com/Josetv4))
+
 
 ## Requisitos antes de la instalación
 
@@ -83,10 +71,10 @@ Levantar proyecto
 ### Dependencias Backend
 
 - ![javascript](https://img.shields.io/badge/javascript-gray?style=flat&logo=javascript&logoColor=white&color=F7DF1E) - El lenguaje de programación principal para el backend.
-- ![Express](https://img.shields.io/badge/Express-v4.18.3-gray?style=flat&logo=Express&logoColor=white&color=000000) - Framework para Node.js.
+- ![Express](https://img.shields.io/badge/Express-v4.18.3-gray?style=flat&logo=Express&logoColor=white&color=000000) - Framework  para Node.js.
 - ![nodemon](https://img.shields.io/badge/nodemon-v3.2.0-gray?style=flat&logo=nodemon&logoColor=white&color=76D04B) - Herramienta que ayuda a desarrollar aplicaciones basadas en Node.js reiniciando automáticamente la aplicación cuando se detectan cambios de archivo.
 - ![standardjs](https://img.shields.io/badge/standardjs-v17.1.0-gray?style=flat&logo=standardjs&logoColor=white&color=F3DF49) - Herramienta de formato y análisis de código para JavaScript.
-- ![dotenv](https://img.shields.io/badge/dotenv-v17.0.0-gray?style=flat&logo=dotenv&logoColor=white&color=ECD53F) - Carga variables de entorno desde un archivo `.env` en `process.env`.
+- ![dotenv](https://img.shields.io/badge/dotenv-v17.0.0-gray?style=flat&logo=dotenv&logoColor=white&color=ECD53F) -  Carga variables de entorno desde un archivo `.env` en `process.env`.
 - ![postgresql](https://img.shields.io/badge/pg-v9.6.24-gray?style=flat&logo=postgresql&logoColor=white&color=4169E1) - Sistema de gestión de bases de datos..
 - ![cors](https://img.shields.io/badge/cors-v2.8.5-gray?style=flat&color=000000) - Middleware de Express para habilitar el intercambio de recursos de origen cruzado (CORS).
 - ![jsonwebtoken](https://img.shields.io/badge/jsonwebtoken-gray?style=flat&logo=jsonwebtoken&logoColor=white&color=000000) - Biblioteca para generar y verificar tokens de JSON Web.
@@ -94,3 +82,4 @@ Levantar proyecto
 - ![pg](https://img.shields.io/badge/pg-gray?style=flat&logo=postgresql&logoColor=white&color=000000) - Cliente PostgreSQL para Node.js.
 - ![bcryptjs](https://img.shields.io/badge/bcryptjs-gray?style=flat&logo=node.js&logoColor=white&color=000000) - Librería para hashear contraseñas en Node.js.
 - ![jest](https://img.shields.io/badge/jest-gray?style=flat&logo=jest&logoColor=white&color=000000) - Framework de pruebas para JavaScript.
+
