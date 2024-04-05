@@ -7,7 +7,7 @@ import { getCartsByUser,
         } from "../models/cartModel.js";
 import { handleError } from "../utils/utils.js";
 
-const getAllCart = async () =>{
+const getAllCart = async (req, res) =>{
     const idUser = req.body;
     try {
         const carts = await getCarts(idUser);
@@ -21,9 +21,9 @@ const getAllCart = async () =>{
 
 }
 const getCartUser = async (req, res) =>{
-    const idUser = req.body;
+    const userID = req.body;
     try {
-        const cartItems = await getCartsByUser(idUser);
+        const cartItems = await getCartsByUser(userID);
         res.status(200).json({ cart : cartItems });
     } catch (err) {
         const errorFound = handleError(err.code);
@@ -34,22 +34,27 @@ const getCartUser = async (req, res) =>{
 };
 //añado producto al carrito si este no existe lo creo
 const addCartUser = async (req, res) => {
-        const { userID, product, quantity, price } = req.body
+        const { userId, product_id, quantity, price } = req.body
     try {
         //Consulto el carrito del usuario
-        const cartUser = await getCartsByUser(userID)
+        const cartUser = await getCartsByUser(userId)
             //en caso de no tener carrito lo creo
-        if (cartUser !== 0) {
-            const newCart = createCart(userID);
+        if (cartUser === undefined) {
+            console.log(userId);
+            const newCart = await createCart(userId);
+            console.log(newCart);
+            const cart_id = newCart.cart_id;
              //agrego el producto al nuevo carrito
-                const cartDetail = await createCartItems( newCart, product, quantity, price );
-            return res.status(201).json({ cart: cartDetail });
+             console.log(quantity);
+                const cartDetail = await createCartItems( cart_id, product_id, quantity, price );
+                return res.status(201).json({ cart: cartDetail });
+        } else {
+            //agrego el producto al carrito en caso que exista el carro
+            const cartDetailItems = await createCartItems( cartUser, product_id, quantity, price );
+            return res.status(201).json({ cart: cartDetailItems });
         }
-        //agrego el producto al carrito en caso que exista el carro
-        const cartDetail = await createCartItems( cartUser, product, quantity, price );
-        res.status(201).json({ cart: cartDetail });
-
     } catch (err) {
+        console.log(err);
         const errorFound = handleError(err.code) || [{ status: 500, message: 'Error interno del servidor' }];
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
     }
