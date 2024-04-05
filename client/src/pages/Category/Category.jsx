@@ -1,19 +1,18 @@
 import { useLocation, useParams } from "react-router-dom";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
-import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Typography, formControlClasses } from "@mui/material";
+import { Box, FormControl, Grid, MenuItem, Select, Typography } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
 
 
 import "./styles.css";
-import ButtonLittle from "../../components/Buttons/buttonLittle/buttonLittle";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import { getProductsByCategory } from "../../api/getApi";
 
 const Category = () => {
   const { id, name } = useParams();
   const [products,setProducts] = useState([]);
 
-  const {state} = useLocation()
+  const { state } = useLocation();
 
   useEffect(()=>{
     asyncGetProducts();
@@ -23,7 +22,6 @@ const Category = () => {
     try {
       const response = await getProductsByCategory(id);
       console.log(response)
-      //setProducts(arrayProducts);
       setProducts(response.response)
     } catch (error) {
       console.log(error);
@@ -36,10 +34,8 @@ const Category = () => {
     const newOrder = [...products];
     if(order === 1){
       newOrder.sort((a,b) =>a.price - b.price);
-      console.log(newOrder);
     }else if(order === 2){
       newOrder.sort((a,b) =>b.price - a.price);
-      console.log(newOrder);
     }
     else if(order === 3){
       newOrder.sort((a,b) =>{
@@ -51,7 +47,6 @@ const Category = () => {
         }
         return 0;
       });
-      console.log(newOrder);
     }
     else if(order === 4){
       newOrder.sort((a,b) =>{
@@ -63,7 +58,6 @@ const Category = () => {
         }
         return 0;
       });
-      console.log(newOrder);
     }
     
     setProducts(newOrder)
@@ -102,9 +96,16 @@ const Category = () => {
           xs={12}
         >
           <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "10px", gap: "15px" }}>
-            {products && products.map((product, i) =>
+            {products.length > 0 ? 
+            
+            products.map((product, i) =>
               <ProductCard key={i} product={product} />
-            )}
+            )
+          :          
+            <Typography variant="bold" color="textPrimary" sx={{textAlign:"center"}} >
+              No hay productos para la categoría {name}
+            </Typography>
+          }
           </Box>
         </Grid>
       </Grid>

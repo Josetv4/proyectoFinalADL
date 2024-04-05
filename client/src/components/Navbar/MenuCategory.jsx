@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { buttonStyles } from './ButtonStyleHoverFocus';
 import { getCategories } from "../../api/getApi";
@@ -18,6 +18,7 @@ const buttonStyles1 = {
 const MenuCategoria = () => {
 
   const [categories,setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     asyncGetCategories();
@@ -30,7 +31,9 @@ const MenuCategoria = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (category) => (event) => {
+    event.preventDefault();
+    navigate(`/category/${category.category_id}/${category.name}`, { state: Math.random()*10000000 });
     setAnchorEl(null);
   };
 
@@ -79,7 +82,7 @@ const MenuCategoria = () => {
         {categories && categories.map((category) => (
           <MenuItem
             key={category.category_id}
-            onClick={handleClose}
+            onClick={handleClose(category)}
             component={NavLink}
             to={`/category/${category.category_id}/${category.name}`}
             sx={buttonStyles}
