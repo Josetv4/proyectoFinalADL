@@ -7,6 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [userId, setUserId] = useState(null);
+    
 
    /*  useEffect(() => {
         const token = localStorage.getItem("token");
@@ -21,6 +22,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (userData) => {
 
         const userToLogin = await loginUser(userData)
+        console.log(userToLogin);
 
         /* const userToLogin = Object.values(usersData).find(user =>
             user.email === credentials.email && user.password === credentials.password
