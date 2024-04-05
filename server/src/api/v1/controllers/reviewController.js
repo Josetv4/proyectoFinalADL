@@ -56,7 +56,7 @@ const updateReviews = async (req, res) => {
   const review = req.body;
   try {
     const reviewUpdate = await updateReview(id, review);
-    res.status(201).json({ review: reviewUpdate });
+    res.status(200).json({ review: reviewUpdate });
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
