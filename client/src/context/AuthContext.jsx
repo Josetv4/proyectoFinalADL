@@ -4,10 +4,9 @@ import { userRegister, loginUser } from "../api/getApi.js";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+
     const [user, setUser] = useState(null);
     const [userId, setUserId] = useState(null);
-    const login = async (userData) => {
-
     const login = async (userData) => {
 
         const { response } = await loginUser(userData)
