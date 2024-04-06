@@ -13,6 +13,7 @@ import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 import LastShopping from './pages/LastShopping/LastShopping'
 
 
+
 //Context
 import { useAuth } from './context/AuthContext';
 
@@ -23,11 +24,13 @@ import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import SellerPublications from './pages/UserProfile/sellerpublications/SellerPublications';
+import ListUsers from "./pages/UserProfile/ListUsers.jsx"
 
 
 import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
 import Publications from './pages/UserProfile/publication/Publications';
+import ListProducts from './pages/ListProducts.jsx';
 
 
 function App() {
@@ -55,9 +58,11 @@ function App() {
               <Route path="/last-shopping" element={<LastShopping />} />
               <Route path="/purchase-thanks" element={<PurchaseThanks />} />
               <Route path="/yours-publication" element={<SellerPublications  />} />
+              <Route path="/list-users" element={<ListUsers  />} />
               <Route path="/publication" element={<Publications />} />
               <Route path="/latest-posts" element={<LatestPosts  />} />
               <Route path="/wallet" element={<Wallet />} />
+              <Route path="/list-products" element={<ListProducts />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
         </main>

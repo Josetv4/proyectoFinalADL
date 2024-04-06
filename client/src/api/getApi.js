@@ -122,6 +122,23 @@ const getProductsById = async (id) => {
   }
 };
 
+const getUsers = async () => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.get("/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al listar usuarios:", error);
+    return {
+      response: [],
+      error: "Error al listar usuarios",
+      loading: false,
+    };
+  }
+};
+
 export {
   getProducts,
   getCartItems,
@@ -130,6 +147,7 @@ export {
   deleteCartItems,
   userRegister,
   loginUser,
+  getUsers,
   getCategories,
   getProductsByCategory,
   getProductsById,
