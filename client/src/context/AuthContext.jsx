@@ -8,15 +8,17 @@ export const AuthProvider = ({ children }) => {
     const [userId, setUserId] = useState(null);
     const login = async (userData) => {
 
-        const userToLogin = await loginUser(userData)
-        console.log(userToLogin);
-        if (userToLogin) {
-            setUser(userToLogin);
-            localStorage.setItem("token", userToLogin.response.token);
+    const login = async (userData) => {
+
+        const { response } = await loginUser(userData)
+        if (!Array.isArray(response)) {
+            setUser(response.user);
+            localStorage.setItem("token", response.token);
         } else {
             throw new Error("Credenciales inválidas");
         }
     };
+
 
     const logout = async () => {
         setUser(null);
@@ -40,8 +42,6 @@ export const AuthProvider = ({ children }) => {
 };
 
 
-
-// Exporta la función useAuth
 export const useAuth = () => {
     return useContext(AuthContext);
 };
