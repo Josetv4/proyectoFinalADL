@@ -1,4 +1,4 @@
-import { getUser, getUserId, createUser, updateUser, deleteUser } from "../models/userModel.js";
+import { getUser, getUserId, createUser, updateUser, deleteUser, statusUser } from "../models/userModel.js";
 
 import { handleError } from "../utils/utils.js";
 
@@ -70,9 +70,24 @@ const deleteUsers = async (req, res) => {
       .json({ error: errorFound[0]?.message });
   }
 };
+const statusUsers = async (req, res) => {
+  
+  const { id } = req.params;
+  const { status } = req.body
+  try {
+    const response = await statusUser(id, status);
+    res.status(200).json({ message: 'usuario actualizado correctamente', user: response });
+  } catch (error) {
+    const errorFound = handleError(error.code);
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
 
 export {  getUsers, 
           getUsersId, 
           createNewUser,
           updateUsers,
-          deleteUsers }
+          deleteUsers,
+          statusUsers, }

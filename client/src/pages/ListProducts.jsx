@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
 
-import { getProducts } from "../api/getApi";
+import { getProducts, getStatusUser } from "../api/getApi";
 
 const ListProducts = () => {
   const [product, setProducts] = useState([]);
@@ -20,9 +20,18 @@ const ListProducts = () => {
     fetchProducts();
   }, []);
 
-  const handleClick = (id, value) => {
-    console.log(id, value);
-  };
+  const handleClick = async (id, status) => {
+
+
+    switch (status) {
+      case 'X':
+          await getStatusUser(id, status)
+        break;
+      default:
+        await getStatusUser(id, status)
+        break;
+    }
+      };
   
   const fetchProducts = async () => {
     try {
@@ -72,12 +81,12 @@ const ListProducts = () => {
                   <TableCell align="right">{row.rol}</TableCell>
                   <TableCell align="right">{row.status}</TableCell>
                   <TableCell align="right">
-                  <IconButton color="success" onClick={() => handleClick(row.user_id,'ACT')}>
+                  <IconButton color="success" onClick={() => handleClick(row.user_id,'A')}>
                     <CheckIcon />
                   </IconButton>
                   </TableCell>
                   <TableCell align="right">
-                  <IconButton color="error" onClick={() => handleClick(row.user_id,'DES')}>
+                  <IconButton color="error" onClick={() => handleClick(row.user_id,'X')}>
                     <DeleteIcon />
                   </IconButton>
                   </TableCell>

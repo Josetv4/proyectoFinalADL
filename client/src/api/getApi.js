@@ -139,6 +139,23 @@ const getUsers = async () => {
   }
 };
 
+const getStatusUser = async (id, status) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(`/users/status/${id}`, { status },  {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al cambiar status usuarios:", error);
+    return {
+      response: [],
+      error:"Error al cambiar status usuarios",
+      loading: false,
+    };
+  }
+};
+
 export {
   getProducts,
   getCartItems,
@@ -151,4 +168,5 @@ export {
   getCategories,
   getProductsByCategory,
   getProductsById,
+  getStatusUser,
 };

@@ -58,16 +58,21 @@ const updateUser = async ({ id }, { username, rut, birth, email, phone, password
 
 const deleteUser = async (id) => {
   const SQLquery = {
-    text: `DELETE FROM users 
-             WHERE  user_id = $1 
-             RETURNING *`,
+    text: `Update users SET status = 'X' WHERE  user_id = $1 RETURNING *`,
     values: [id],
   };
   const response = await pool.query(SQLquery);
-  if (response.rows.length === 0) {
-    throw new Error("No se encontró ningún usuario con el ID proporcionado");
-  }
+  return response.rows[0];
+};
+const statusUser = async ( id, status) => {
+
+    const SQLquery = {
+    text: `Update users SET status = $1 WHERE  user_id = $2 RETURNING *`,
+    values: [ status , id],
+  };
+  console.log(SQLquery)
+  const response = await pool.query(SQLquery);
   return response.rows[0];
 };
 
-export { getUser, getUserId, createUser, updateUser, deleteUser };
+export { getUser, getUserId, createUser, updateUser, deleteUser, statusUser };

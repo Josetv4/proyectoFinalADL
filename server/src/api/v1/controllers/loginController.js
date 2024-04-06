@@ -24,7 +24,7 @@ const loginUser = async (req, res) => {
             return res.status(400).json({  error: searchErr[0].message });
         }
         
-        const token = jwt.sign({email: user.email}, process.env.JWT_SECRET, { expiresIn: 120 })
+        const token = jwt.sign({email: user.email}, process.env.JWT_SECRET, { expiresIn: 1200 })
         return res.status(200).json({
             message: `Ingreso Exitoso, email: ${email}`,
             code: 200,
