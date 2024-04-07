@@ -6,7 +6,8 @@ import { createNewProduct,
          getProductsCategoryId,
          getProductsByUsers,
          updateProducts, 
-         deleteProducts } from "../../src/api/v1/controllers/productsController.js";
+         deleteProducts,
+         statusProducts } from "../../src/api/v1/controllers/productsController.js";
 
 import { validateParametersProducts } from "../../middlewares/validateParametersProducts.js";
 
@@ -27,6 +28,7 @@ router.get("/products/user/:id", isLogin,  getActivity, getProductsByUsers )
 router.post("/products", isLogin,  validateParametersProducts, getActivity, upload.single('image'), createNewProduct)
 router.put("/products/:id", isLogin, validateParametersProducts, getActivity, upload.single('image'), updateProducts )
 router.delete("/products/:id", isLogin, getActivity, deleteProducts )
+router.put("/product/status/:id", isLogin, getActivity, statusProducts )
 
 
 export default router;

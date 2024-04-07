@@ -4,7 +4,8 @@ import { getProduct,
          getProductByUser,
          createProduct, 
          updateProduct, 
-         deleteProduct } from "../models/productModel.js";
+         deleteProduct,
+        statusProduct } from "../models/productModel.js";
 
 import { handleError } from "../utils/utils.js";
 
@@ -110,6 +111,20 @@ const deleteProducts = async (req, res) => {
     return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
   }
 };
+const statusProducts = async (req, res) => {
+  
+  const { id } = req.params;
+  const { status } = req.body
+  try {
+    const response = await statusProduct(id, status);
+    res.status(200).json({ message: 'producto actualizado correctamente', user: response });
+  } catch (error) {
+    const errorFound = handleError(error.code);
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
 
 export {  getProducts, 
           getProductsId,
@@ -117,4 +132,5 @@ export {  getProducts,
           getProductsByUsers,
           createNewProduct,
           updateProducts,
-          deleteProducts }
+          deleteProducts,
+          statusProducts }

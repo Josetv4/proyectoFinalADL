@@ -107,7 +107,16 @@ const deleteProduct = async ( id )  => {
   const response = await pool.query(SQLquery);
   return response.rowCount;
 };
+const statusProduct = async ( id, status) => {
 
+  const SQLquery = {
+  text: `Update products SET status = $1 WHERE  product_id = $2 RETURNING *`,
+  values: [ status , id],
+};
+console.log(SQLquery)
+const response = await pool.query(SQLquery);
+return response.rows[0];
+};
 export {
   getProduct,
   getProductId,
@@ -116,4 +125,5 @@ export {
   createProduct,
   updateProduct,
   deleteProduct,
+  statusProduct
 };
