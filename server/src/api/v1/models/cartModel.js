@@ -11,24 +11,24 @@ const getCarts = async () => {
   return response.rows;
 };
 
-const getCartsByUser = async ({ userID }) => {
+const getCartsByUser = async (id_user) => {
   const SQLquery = {
     text: `SELECT c.cart_id, c.user_id, ci.detail_id, ci.product_id, ci.quantity, ci.price
             FROM cart c
             INNER JOIN cart_items ci ON c.cart_id = ci.cart_id
            WHERE user_id = $1`,
-    values: [userID],
+    values: [id_user],
   };
 
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };
 
-const createCart = async (userId) => {
+const createCart = async (user_id) => {
   const SQLquery = {
     text: `INSERT INTO cart (user_id, status, created_at)
           VALUES ( $1, 'Ingresada', CURRENT_TIMESTAMP ) RETURNING *`,
-    values: [userId],
+    values: [user_id],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];
@@ -48,12 +48,13 @@ const closeCart = async ({ cartId }) => {
 };
 
 
-const createCartItems = async ( cartId, product_id, quantity, price ) => {
+const createCartItems = async ( cart_id, product_id, quantity, price ) => {
     const SQLquery = {
-      text: `INSERT INTO cart_items (cartId, product_id, quantity, price)
+      text: `INSERT INTO cart_items (cart_id, product_id, quantity, price)
             VALUES ( $1, $2, $3, $4 ) RETURNING *`,
-      values: [ cartId, product_id, quantity, price ],
+      values: [ cart_id, product_id, quantity, price ],
     };
+    console.log(SQLquery);
     const response = await pool.query(SQLquery);
     return response.rows[0];
   };
