@@ -21,9 +21,9 @@ const getAllCart = async (req, res) =>{
 
 }
 const getCartUser = async (req, res) =>{
-    const userID = req.body;
+    const {id_user} = req.params;
     try {
-        const cartItems = await getCartsByUser(userID);
+        const cartItems = await getCartsByUser(id_user);
         res.status(200).json({ cart : cartItems });
     } catch (err) {
         const errorFound = handleError(err.code);
@@ -34,23 +34,24 @@ const getCartUser = async (req, res) =>{
 };
 //añado producto al carrito si este no existe lo creo
 const addCartUser = async (req, res) => {
-        const { userId, product_id, quantity, price } = req.body
+        const { user_id, product_id, quantity, price } = req.body
+        console.log(price);
     try {
         //Consulto el carrito del usuario
-        const cartUser = await getCartsByUser(userId)
+        const cartUser = await getCartsByUser(user_id)
             //en caso de no tener carrito lo creo
         if (cartUser === undefined) {
-            console.log(userId);
-            const newCart = await createCart(userId);
-            console.log(newCart);
+            console.log(user_id);
+            const newCart = await createCart(user_id);
             const cart_id = newCart.cart_id;
+            console.log(cart_id);
              //agrego el producto al nuevo carrito
-             console.log(quantity);
                 const cartDetail = await createCartItems( cart_id, product_id, quantity, price );
                 return res.status(201).json({ cart: cartDetail });
         } else {
             //agrego el producto al carrito en caso que exista el carro
-            const cartDetailItems = await createCartItems( cartUser, product_id, quantity, price );
+            const {cart_id} = cartUser;
+            const cartDetailItems = await createCartItems( cart_id, product_id, quantity, price );
             return res.status(201).json({ cart: cartDetailItems });
         }
     } catch (err) {

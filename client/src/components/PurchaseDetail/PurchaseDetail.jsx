@@ -23,7 +23,7 @@ const PurchaseDetail = ({cartItems, setCartItems}) => {
     }
     return (
         <section style= {{ 
-            maxHeight: "98%",
+            maxHeight: "58vh",
             overflowY: "scroll", 
             msOverflowStyle: "none", 
             scrollbarWidth: "none",
