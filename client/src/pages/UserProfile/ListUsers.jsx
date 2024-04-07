@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Container from "@mui/material/Container";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -15,6 +16,8 @@ import { getUsers, getStatusUser } from "../../api/getApi";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+  
 
   useEffect(() => {
     fetchUsers();
@@ -31,6 +34,7 @@ const ListUsers = () => {
       setUsers(response.user);
     } catch (error) {
       console.error("Error al obtener usuarios:", error);
+      navigate("/login");    
     }
   };
 

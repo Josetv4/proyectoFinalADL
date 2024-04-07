@@ -128,31 +128,27 @@ const getUsers = async () => {
     const response = await axios.get("/users", {
       headers: { Authorization: `Bearer ${token}` },
     });
-    return { response: response.data, error: null, loading: false };
+    return { response: response.data };
   } catch (error) {
     console.error("Error al listar usuarios:", error);
-    return {
-      response: [],
-      error: "Error al listar usuarios",
-      loading: false,
-    };
+    return { error };
   }
 };
 
 const getStatusUser = async (id, status) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.put(`/users/status/${id}`, { status },  {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return { response: response.data, error: null, loading: false };
+    const response = await axios.put(
+      `/users/status/${id}`,
+      { status },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, };
   } catch (error) {
     console.error("Error al cambiar status usuarios:", error);
-    return {
-      response: [],
-      error:"Error al cambiar status usuarios",
-      loading: false,
-    };
+    return { error };
   }
 };
 
