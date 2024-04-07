@@ -47,7 +47,7 @@ const updateUsers = async (req, res) => {
   try {
     
     const userUpdate = await updateUser(id, user);
-    res.status(201).json({ user: userUpdate });
+    res.status(200).json({ user: userUpdate });
   } catch (error) {
     const errorFound = handleError(error.code);
     return res
