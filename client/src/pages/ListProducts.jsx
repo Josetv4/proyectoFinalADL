@@ -45,7 +45,7 @@ const ListProducts = () => {
   return (
     <>
      <main>
-      <h2>Activar-Desactivar usuarios</h2>  
+      <h2>Activar-Desactivar Productos</h2>  
       <Container>
         
         <TableContainer component={Paper}>
@@ -54,12 +54,14 @@ const ListProducts = () => {
               <TableRow>
                 <TableCell>Id</TableCell>
                 <TableCell align="right">Nombre</TableCell>
-                <TableCell align="right">Rut</TableCell>
-                <TableCell align="right">Fecha Nacimiento</TableCell>
-                <TableCell align="right">Email</TableCell>
-                <TableCell align="right">Telefono</TableCell>
-                <TableCell align="right">Rol</TableCell>
-                <TableCell align="right">status</TableCell>
+                <TableCell align="right">Descripcion</TableCell>
+                <TableCell align="right">Precio</TableCell>
+                <TableCell align="right">Stock</TableCell>
+                <TableCell align="right">Categoria</TableCell>
+                <TableCell align="right">Creado</TableCell>
+                <TableCell align="right">Status</TableCell>
+                <TableCell align="right">Usuario</TableCell>
+                
               </TableRow>
             </TableHead>
             <TableBody>
@@ -68,18 +70,15 @@ const ListProducts = () => {
                   key={row.product_id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
-                    {row.product_id}
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    {row.username}
-                  </TableCell>
-                  <TableCell align="right">{row.rut}</TableCell>
-                  <TableCell align="right">{row.birth_date}</TableCell>
-                  <TableCell align="right">{row.email}</TableCell>
-                  <TableCell align="right">{row.phone}</TableCell>
-                  <TableCell align="right">{row.rol}</TableCell>
-                  <TableCell align="right">{row.status}</TableCell>
+                  <TableCell align="right">{ row.product_id }</TableCell>
+                  <TableCell align="right">{ row.name }</TableCell>
+                  <TableCell align="right">{ row.description }</TableCell>
+                  <TableCell align="right">{ row.price }</TableCell>
+                  <TableCell align="right">{ row.stock }</TableCell>
+                  <TableCell align="right">{ row.name_category }</TableCell>
+                  <TableCell align="right">{ row.create_at }</TableCell>
+                  <TableCell align="right">{ row.status === 'A' ? 'Activo' : row.status === 'X' ? 'Borrado' : row.status === 'P' ? 'Pendiente' : 'Desconocido' }</TableCell>
+                  <TableCell align="right">{ row.name_user }</TableCell>
                   <TableCell align="right">
                   <IconButton color="success" onClick={() => handleClick(row.user_id,'A')}>
                     <CheckIcon />
