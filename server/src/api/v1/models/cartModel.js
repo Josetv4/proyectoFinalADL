@@ -58,7 +58,7 @@ const createCartItems = async ( cart_id, product_id, quantity, price ) => {
     const response = await pool.query(SQLquery);
     return response.rows[0];
   };
-const incrementCartItems = async ({ cartId, detailId, productId }) => {
+const incrementCartItems = async (cart_id, detail_id, product_id) => {
   const SQLquery = {
     text: `UPDATE cart_items 
              SET quantity = quantity + 1
@@ -66,13 +66,15 @@ const incrementCartItems = async ({ cartId, detailId, productId }) => {
              AND  detail_id = $2
              AND product_id = $3
              RETURNING *`,
-    values: [cartId, detailId, productId ],
+    values: [cart_id, detail_id, product_id ],
   };
+  console.log(SQLquery);
   const response = await pool.query(SQLquery);
+  console.log(response);
   return response.rows[0];
 };
 
-const decrementCartItems = async ({ cartId, detailId, productId }) => {
+const decrementCartItems = async (cart_id, detail_id, product_id) => {
   const SQLquery = {
     text: `UPDATE cart_items 
             SET quantity = quantity - 1
@@ -80,7 +82,7 @@ const decrementCartItems = async ({ cartId, detailId, productId }) => {
             AND detail_id = $2
             AND product_id = $3
             RETURNING *`,
-    values: [ cartId, detailId, productId ],
+    values: [ cart_id, detail_id, product_id ],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];

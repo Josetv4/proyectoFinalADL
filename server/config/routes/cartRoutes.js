@@ -12,11 +12,11 @@ import { getActivity } from "../../middlewares/reports.js";
 
 const router = express.Router();
 
-router.get("/carts/", getActivity, getAllCart) 
+router.get("/carts", getActivity, getAllCart) 
 router.get("/cart/:id_user", getActivity, getCartUser);
 router.post("/cart/", getActivity, addCartUser);
-router.put("/cartIncrease/:id", getActivity, updateCartIncrease);
-router.put("/cartDecrease/:id", getActivity, updateCartDecrease);
+router.put("/cartIncrease/", getActivity, updateCartIncrease);
+router.put("/cartDecrease/", getActivity, updateCartDecrease);
 
 
 export default router;
