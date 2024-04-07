@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import swal from "sweetalert";
 import Container from "@mui/material/Container";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -24,8 +25,19 @@ const ListUsers = () => {
   }, []);
 
   const handleClick = async (id, status) => {
-    await getStatusUser(id, status);
-    fetchUsers();
+    try {
+      const { response, error } = await getStatusUser(id, status);
+
+      if (error) {
+        alert(error);
+        navigate("/login");
+      } else {
+        swal(response.message, { icon: "success", });
+      }
+      fetchUsers();
+    } catch (error) {
+      console.error("Erro al cambiar status del usuario : ", error);
+    }
   };
 
   const fetchUsers = async () => {
