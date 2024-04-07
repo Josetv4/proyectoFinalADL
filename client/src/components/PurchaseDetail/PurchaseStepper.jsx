@@ -29,19 +29,18 @@ const PurchaseStepper = ({ page }) => {
             },
         });
     return (
-        <Container sx={{ padding: 4, textAlign: "center", display: "flex", justifyContent: 'center', height: '15vh' }}>
-        <Box sx={{ width: '30%' }}>
+        <Box sx={{ display: "flex", padding: "0", textAlign: "center", justifyContent: 'center', alignItems: "center", height: '12vh' }}>
             <Stepper activeStep={page} alternativeLabel>
                 {steps.map((label) => (
                     <Step key={label}>
                         <ThemeProvider theme={outerTheme}>
-                            <StepLabel></StepLabel>
+                            <StepLabel sx={{ padding:"8px"}}></StepLabel>
                         </ThemeProvider>
                     </Step>
                 ))}
             </Stepper>
         </Box>
-        </Container>
+        
     )
 }
 export default PurchaseStepper;
