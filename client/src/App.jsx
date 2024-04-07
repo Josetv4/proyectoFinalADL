@@ -11,6 +11,7 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 import LastShopping from './pages/LastShopping/LastShopping';
 
+
 //Context
 import { useAuth } from './context/AuthContext';
 
@@ -21,9 +22,13 @@ import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import SellerPublications from './pages/UserProfile/sellerpublications/SellerPublications';
+import ListUsers from "./pages/UserProfile/ListUsers.jsx"
+
+
 import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
 import Publications from './pages/UserProfile/publication/Publications';
+import ListProducts from './pages/ListProducts.jsx';
 
 function App() {
   const { user } = useAuth();
@@ -32,6 +37,7 @@ function App() {
 
   return (
     <div className='gridApp'>
+
       <header>
         {!isWalletRoute && <Navbar userType={user ? user.userType : null} />}
       </header>
