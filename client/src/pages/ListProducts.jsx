@@ -32,9 +32,7 @@ const ListProducts = () => {
         alert(error);
         navigate("/login");
       } else {
-        swal(`¡Has iniciado sesión correctamente!" ${response.message}`, {
-          icon: "success",
-        });
+        swal(response.message, { icon: "success", });
       }
       fetchProducts();
     } catch (error) {
