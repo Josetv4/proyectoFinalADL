@@ -33,7 +33,7 @@ export default function ProductCard({ product }) {
         <Typography variant="normal" component="h5" color="textSecondary" >
           {product.format}
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p" sx={{display:'flex',justifyContent:"space-between"}} >
+        <Typography variant="body2" color="textSecondary" component={'span'} sx={{display:'flex',justifyContent:"space-between"}} >
           <Box> 
             Vendido por : <Box className='link-text' >{product.seller}</Box>
           </Box>

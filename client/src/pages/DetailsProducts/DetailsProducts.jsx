@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { Typography, Card, CardMedia, Grid, Box } from '@mui/material';
+import { Typography, Card, CardMedia, Grid, Box , Paper} from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -24,7 +24,25 @@ const DetailsProducts = () => {
         try {
             const response = await getProductsById(id);
             console.log(response)
+            response.response.image_url = 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg';
+            response.response.format = '30 Comprimidos Recubiertos';
+            response.response.valoration = Math.round((Math.random()*5)*10)/10;
+            response.response.seller = 'Petco SPA';
+            response.response.information = 'Este medicamento se usa para tratar la fiebre y los dolores suaves a moderados. Este medicamento provee alivio temporal a los síntomas descritos, pero en ningún caso resuelve el origen de ellos.';
+            response.response.comments = [
+                {
+                    author : "Pepito paga doble",
+                    date : "15/12/2023",
+                    content : "Es bueno el producto"
+                },
+                {
+                    author : "Jorge Valdivia",
+                    date : "11/04/2022",
+                    content : "Malo"
+                }
+            ];
             setProduct(response.response)
+            console.log(product)
         } catch (error) {
             console.log(error);
         }
@@ -124,9 +142,23 @@ const DetailsProducts = () => {
                         </Box>
                     </Box>
                     <Box className="section-info-buttons" sx={{display: (isShowInformation===undefined) ? "none" : "block"}}>
-                        {isShowInformation === true 
-                        ? product.information 
-                        : (product.comments?.length === 0) ? "No hay comentarios" : "Aca van los comentarios"}
+                        {
+                            isShowInformation === true 
+                            ? product.information 
+                            : (product.comments?.length === 0) 
+                                ? "No hay comentarios" 
+                                :  product.comments?.map((commentary,i)=> {
+                                        return (
+                                            <Paper key={i} elevation={3} style={{ padding: '10px', marginBottom: '10px' }}>
+                                                <Box sx={{display:"flex", justifyContent:"space-between"}}>
+                                                    <Typography variant="subtitle1">Autor : {commentary.author}</Typography>
+                                                    <Typography variant="subtitle1">Fecha Publicación : {commentary.date}</Typography>
+                                                </Box>
+                                                <Typography variant="body1">Comentario : {commentary.content}</Typography>
+                                            </Paper>
+                                        )
+                                    })
+                        }
                     </Box>
                 </Box>
 
