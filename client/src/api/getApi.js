@@ -151,7 +151,21 @@ const getStatusUser = async (id, status) => {
     return { error };
   }
 };
-
+const getStatusProduct = async (id, status) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/product/status/${id}`,
+      { status },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
 export {
   getProducts,
   getCartItems,
@@ -165,4 +179,5 @@ export {
   getProductsByCategory,
   getProductsById,
   getStatusUser,
+  getStatusProduct,
 };
