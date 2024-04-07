@@ -7,8 +7,9 @@ export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [userId, setUserId] = useState(null);
-    const login = async (userData) => {
 
+
+    const login = async (userData) => {
         const { response } = await loginUser(userData)
         if (!Array.isArray(response)) {
             setUser(response.user);
@@ -17,7 +18,6 @@ export const AuthProvider = ({ children }) => {
             throw new Error("Credenciales inválidas");
         }
     };
-
 
     const logout = async () => {
         setUser(null);
@@ -39,7 +39,6 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
-
 
 export const useAuth = () => {
     return useContext(AuthContext);
