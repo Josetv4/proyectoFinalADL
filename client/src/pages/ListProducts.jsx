@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../context/AuthContext";
+
 import swal from "sweetalert";
 
 import Container from "@mui/material/Container";
@@ -20,6 +23,7 @@ const ListProducts = () => {
   const [product, setProducts] = useState([]);
 
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   useEffect(() => {
     fetchProducts();
@@ -31,6 +35,7 @@ const ListProducts = () => {
 
       if (error) {
         alert(error);
+        await logout();
         navigate("/login");
       } else {
         swal(response.message, { icon: "success", });

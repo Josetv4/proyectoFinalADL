@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../context/AuthContext";
+
 import swal from "sweetalert";
 import Container from "@mui/material/Container";
 import Table from "@mui/material/Table";
@@ -18,7 +20,7 @@ import { getUsers, getStatusUser } from "../../api/getApi";
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
-  
+  const { logout } = useAuth();
 
   useEffect(() => {
     fetchUsers();
@@ -30,6 +32,7 @@ const ListUsers = () => {
 
       if (error) {
         alert(error);
+        await logout();
         navigate("/login");
       } else {
         swal(response.message, { icon: "success", });

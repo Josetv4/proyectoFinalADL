@@ -59,6 +59,8 @@ function App() {
           <Route path="/yours-publication" element={<SellerPublications />} />
           <Route path="/publication" element={<Publications />} />
           <Route path="/latest-posts" element={<LatestPosts />} />
+          <Route path="/list-products" element={<ListProducts />} />
+          <Route path="/list-users" element={<ListUsers />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
