@@ -19,6 +19,7 @@ import { getUsers, getStatusUser } from "../../api/getApi";
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   useEffect(() => {
     fetchUsers();
