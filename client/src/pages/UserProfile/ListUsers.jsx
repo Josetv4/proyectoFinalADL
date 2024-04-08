@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import { logout } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import swal from "sweetalert";
 import Container from "@mui/material/Container";
 import Table from "@mui/material/Table";
