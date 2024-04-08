@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import { useAuth } from "../../context/AuthContext";
-
 import swal from "sweetalert";
-=======
->>>>>>> be29068 (agregando vistas user de administrador)
 import Container from "@mui/material/Container";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
