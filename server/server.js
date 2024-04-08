@@ -28,7 +28,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors());
 
- //app.use(logger());
+ app.use(logger());
 
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", productRoutes);

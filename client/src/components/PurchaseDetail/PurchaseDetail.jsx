@@ -1,43 +1,16 @@
 import { Card, 
     CardContent,
     Typography, 
-    Container, 
     Box
 } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { currencyFormat } from "../../helpers/currencyFormat.js";
 import { increaseProduct, decreaseProduct } from "../../hooks/HandleCart.jsx";
-import { useState } from "react";
 
-const PurchaseDetail = () => {
-    const [ cartItems, setCartItems ] = useState([
-            {
-                id: 1,
-                fecha: "2024-03-25",
-                imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-                descripcion: "Descripción del producto 1",
-                precio: "10990",
-                quantity: 1
-            },  
-            {   
-                id: 2,
-                fecha: "2024-03-24",
-                imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-                descripcion: "Descripción del producto 2",
-                precio: "15490",
-                quantity: 3
-            },  
-            {   
-                id: 3,
-                fecha: "2024-03-23",
-                imagen: "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-                descripcion: "Descripción del producto 3",
-                precio: "8250",
-                quantity: 6
-            },
-        ]);
 
+const PurchaseDetail = ({cartItems, setCartItems}) => {
+    const cart = cartItems && cartItems.filter((item) => item.quantity)
     
 
     const handleIn = (productID) =>{
@@ -49,13 +22,15 @@ const PurchaseDetail = () => {
         decreaseProduct(productID, cartItems, setCartItems)
     }
     return (
-        <Container sx={{ maxHeight: "60vh", 
-                            overflowY: "scroll", 
-                            msOverflowStyle: "none", 
-                            scrollbarWidth: "none"
-                        }}>
-        <h2 style={{textAlign:"center", paddingBottom:"3vh",fontFamily: "var(--font-title)"}}>Detalle de tu compra</h2>
-        {cartItems.map((item) => (
+        <section style= {{ 
+            maxHeight: "58vh",
+            overflowY: "scroll", 
+            msOverflowStyle: "none", 
+            scrollbarWidth: "none",
+            paddingTop: "0"
+        }}>
+        <h2 style={{ padding: "0", margin: "0", textAlign:"center",fontFamily: "var(--font-title)"}}>Detalle de tu compra</h2>
+        {cart.map((item) => (
             <Card key={item.id} className="shopping-card">
                 <CardContent 
                     sx={{ display: "flex" , width: "100%", flexDirection:"row", columnGap: "2vh"}} 
@@ -86,8 +61,8 @@ const PurchaseDetail = () => {
                         
                 </Box>
                 <Box style={{ height: "-moz-available", display:"flex", flexDirection: "column", alignSelf: "center"}}>
-                    <Typography variant="p" style={{ fontSize: "1.2em", color: "var(--font-price-color)" }} className="shopping-card-color">{currencyFormat(item.precio)}</Typography>
-                    <Box style={{ display:"flex", marginTop: "4vh", columnGap: "1vh" }}>
+                    <Typography variant="p" style={{ fontSize: "1.2em", color: "var(--font-price-color)" }} className="shopping-card-color">{currencyFormat(item.quantity * item.precio)}</Typography>
+                    <Box style={{ display:"flex", marginTop: "32px", columnGap: "8px" }}>
                     <AddIcon 
                         onClick={() => handleIn(item.id)}
                         style={{
@@ -103,7 +78,8 @@ const PurchaseDetail = () => {
                 </CardContent>
             </Card>
         ))}
-        </Container>
+        </section>
+        
     )
 }
 export default PurchaseDetail;

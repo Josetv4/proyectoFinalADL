@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 
 import {
     Box,
@@ -94,13 +94,14 @@ const MenuAdminLogged = () => {
                         horizontal: "left",
                     }}
                 >
-                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
-                        Productos
-                    </MenuItem>
+                   
                     <MenuItem onClick={handleItemClick} sx={buttonStyles}>
                         Publicaciones
+                    </MenuItem> 
+                    <MenuItem component={ Link } to="/list-products"  sx={buttonStyles}>
+                        Productos
                     </MenuItem>
-                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
+                    <MenuItem component={ Link } to="/list-users" sx={buttonStyles}>
                         Usuarios
                     </MenuItem>
                     <MenuItem onClick={handleLogout} sx={buttonStyles}>
