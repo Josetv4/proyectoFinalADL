@@ -18,8 +18,8 @@ const router = express.Router();
 
 router.get("/users", isLogin, getActivity, getUsers )
 router.get("/users/:id", getActivity, getUsersId )
-router.post("/users/", isLogin, validateParametersUser,  getActivity, createNewUser )
-router.put("/users/:id",isLogin, getActivity, updateUsers )
+router.post("/users/", validateParametersUser,  getActivity, createNewUser )
+router.put("/users/:id", isLogin, getActivity, updateUsers )
 router.delete("/users/:id", isLogin, getActivity, deleteUsers )
 router.put("/users/status/:id", isLogin, getActivity, statusUsers )
 

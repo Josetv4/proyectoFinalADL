@@ -59,7 +59,7 @@ const createProduct = async (
       price,
       stock,
       category_id,
-      status,
+      'P',
       user_id,
       image,
     ],
