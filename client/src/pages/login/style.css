@@ -62,7 +62,7 @@ width: 80%;
 }
 
 .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
-    width: 259px !important;
+    width: 326px !important;
 }
 .css-1bl45wc-MuiInputBase-root-MuiFilledInput-root{
     width: 325px !important;
@@ -78,4 +78,16 @@ width: 80%;
 }
 form{
     margin: 5%;
+}
+.css-1yf1hp2 {
+    height: 260px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input,select{
+    height: 28% !important;
+    padding: 5% !important;
+
 }

@@ -122,6 +122,50 @@ const getProductsById = async (id) => {
   }
 };
 
+const getUsers = async () => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.get("/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data };
+  } catch (error) {
+    console.error("Error al listar usuarios:", error);
+    return { error };
+  }
+};
+
+const getStatusUser = async (id, status) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/users/status/${id}`,
+      { status },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, };
+  } catch (error) {
+    console.error("Error al cambiar status usuarios:", error);
+    return { error };
+  }
+};
+const getStatusProduct = async (id, status) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/product/status/${id}`,
+      { status },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
 export {
   getProducts,
   getCartItems,
@@ -130,7 +174,10 @@ export {
   deleteCartItems,
   userRegister,
   loginUser,
+  getUsers,
   getCategories,
   getProductsByCategory,
   getProductsById,
+  getStatusUser,
+  getStatusProduct,
 };
