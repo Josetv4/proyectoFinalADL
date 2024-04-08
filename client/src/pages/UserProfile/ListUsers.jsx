@@ -23,11 +23,6 @@ import { getUsers, getStatusUser } from "../../api/getApi";
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const { logout } = useAuth();
-=======
-  
->>>>>>> be29068 (agregando vistas user de administrador)
 
   useEffect(() => {
     fetchUsers();
