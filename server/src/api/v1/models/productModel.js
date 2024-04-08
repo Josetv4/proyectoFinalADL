@@ -36,8 +36,8 @@ const getProductCategoryId = async ({ id }) => {
 };
 const getProductByUser = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT product_id, name, description, price, stock, category_id, create_at, status, user_id, image_url
-           FROM products
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url
+            FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id
            WHERE user_id = $1`,
     values: [id],
   };
