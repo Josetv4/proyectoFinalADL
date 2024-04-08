@@ -16,73 +16,81 @@ const UseForm = () => {
 
     const styleForms = {
         color: "var(--font-body-color)",
-        width: "400px",
-        margin: "10px",
+        width: "25rem",
+        margin: "5px",
         display: "flex",
         flexDirection: "column",
         gap: '5px',
+        fontSize: "1.1rem",
     };
 
     const inputStyle = {
         backgroundColor: "var(--background-input-color1)",
+        borderColor: "solid 5px var(--background-input-color1)",
+        borderRadius: "15px",
+        cursor: "pointer"
     };
 
     return (
         <Box>
             <Typography
-                sx={{ mt: "10px", fontFamily: "var(--font-title)", fontSize: "25px" }}>
+                sx={{  fontFamily: "var(--font-title)", fontSize: "2.3rem" }}>
                 Editar información de perfil
             </Typography>
-            <form method="post" action="" style={styleForms}>
+            <form method="post" action="" style={ styleForms }>
                 <label htmlFor="name">Nombre Completo</label>
                 <input
-                    style={inputStyle}
+                    style={ inputStyle }
                     type="text"
                     placeholder="juan perez"
-                    value={name}
+                    value={ name }
                     onChange={(e) => setName(e.target.value)}
                 />
-                <label htmlFor="phone">Teléfono</label>
+                <label htmlFor="phone">Número de teléfono</label>
                 <input
-                    style={inputStyle}
+                    style={ inputStyle }
                     type="text"
                     placeholder="+56987694423"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                 />
-                <label htmlFor="preexistences">Teléfono</label>
+                <label htmlFor="preexistences">Preexistencias</label>
                 <input
-                    style={inputStyle}
+                    style={ inputStyle }
                     type="text"
                     placeholder="+56987694423"
-                    value={preexistences}
+                    value={ preexistences }
                     onChange={(e) => setPreexistences(e.target.value)}
                 />
                 <label htmlFor="Mail">Mail</label>
                 <input
-                    style={inputStyle}
+                    style={ inputStyle }
                     type="text"
                     placeholder="tumail@tumail.com"
-                    value={mail}
+                    value={ mail}
                     onChange={(e) => setMail(e.target.value)}
                 />
                 <label htmlFor="password">Contraseña</label>
                 <input
-                    style={inputStyle}
+                    style={ inputStyle }
                     type="password"
                     placeholder="*******"
-                    value={password}
+                    value={ password }
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <label htmlFor="password__repeat">Contraseña</label>
+                <label htmlFor="password__repeat"> Repite la Contraseña</label>
                 <input
-                    style={inputStyle}
+                    style={ inputStyle }
                     type="password"
                     placeholder="******"
-                    value={passwordRepeat}
+                    value={ passwordRepeat }
                     onChange={(e) => setPasswordRepeat(e.target.value)}
                 />
-                <ButtonBig onClick={handleClick}>Enviar</ButtonBig>
+                <Box sx={{ml:'3rem' }}>
+                    <ButtonBig onClick={ handleClick }>
+                        Enviar
+                    </ButtonBig>
+                </Box>
             </form>
         </Box>
     );

@@ -29,12 +29,12 @@ const LoginPage = () => {
   };
   const handleRegister = (e) => {
     e.preventDefault();
-    navigate("/register"); 
+    navigate("/register");
   };
 
 
   const { login } = useAuth();
-  
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -59,7 +59,7 @@ const LoginPage = () => {
       <Container maxWidth="">
         <Box sx={{ flexGrow: 1 }} display="flex">
           <Grid container spacing={2} columns={16}>
-          <Grid item xs={8}  >
+            <Grid item xs={8}  >
               <div className="login_img">
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/farmacias-syg.appspot.com/o/imagenes%2FGroup%201002.png?alt=media&token=6f465b19-a0c9-4324-8e6b-8d765a9ebb6e"
@@ -70,69 +70,69 @@ const LoginPage = () => {
             <Grid item xs={8}>
               <div className="login_enter">
                 <div className="login_title">
-                <h1>Ingresa a tu cuenta</h1>
+                  <h1>Ingresa a tu cuenta</h1>
                 </div>
-                
-                <div className="login_border">
-                <form onSubmit={handleLogin}>
-                <div className="inputgroup" >
-                  <div className="login_input">
-                  <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel> 
-                  <TextField
-              required
-              id="filled"
-      
-              defaultValue="correo@mail.com"
-              variant="filled"
-            
-              value={loginmail}
-              onChange={(e) => setLoginMail(e.target.value)}
-            />
-                  </div>
-                <div className="login_input">
-            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <FilledInput
-          
-            id="outlined-adornment-password"
-             onChange={(e) => setLoginPassword(e.target.value)}
-             value={loginpassword}
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-          </div>
 
-                  </div>
-                  <div>
-                    <div className="login_button"> 
-                    {/* <p>¿Se te olvido la contraseña?</p> */}
-                    <ButtonBig type="submit" onClick={() => handleLogin()}>
-                      iniciar sesión
-                    </ButtonBig>
+                <div className="login_border">
+                  <form onSubmit={handleLogin}>
+                    <div className="inputgroup" >
+                      <div className="login_input">
+                        <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel>
+                        <TextField
+                          required
+                          id="filled"
+
+                          defaultValue="correo@mail.com"
+                          variant="filled"
+
+                          value={loginmail}
+                          onChange={(e) => setLoginMail(e.target.value)}
+                        />
+                      </div>
+                      <div className="login_input">
+                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                        <FilledInput
+
+                          id="outlined-adornment-password"
+                          onChange={(e) => setLoginPassword(e.target.value)}
+                          value={loginpassword}
+                          type={showPassword ? 'text' : 'password'}
+                          endAdornment={
+                            <InputAdornment position="end">
+                              <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
+                              >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                              </IconButton>
+                            </InputAdornment>
+                          }
+                          label="Password"
+                        />
+                      </div>
+
                     </div>
-                    <div className="register_new">
-          <div className="register_new_text">
-            <p>No tienes cuenta, regístrate aquí</p>
-          </div>
-          <ButtonLittle onClick={handleRegister}>Regístrate</ButtonLittle>
-        </div>
-                 
+                    <div>
+                      <div className="login_button">
+                        {/* <p>¿Se te olvido la contraseña?</p> */}
+                        <ButtonBig type="submit" onClick={() => handleLogin()}>
+                          iniciar sesión
+                        </ButtonBig>
+                      </div>
+                      <div className="register_new">
+                        <div className="register_new_text">
+                          <p>No tienes cuenta, regístrate aquí</p>
+                        </div>
+                        <ButtonLittle onClick={handleRegister}>Regístrate</ButtonLittle>
+                      </div>
+
+                    </div>
+                  </form>
+                  <div className="login_color">
+                    hola soy el link-dan
                   </div>
-                </form>
-                <div className="login_color">
-                  hola soy el link-dan
-                </div>
                 </div>
               </div>
             </Grid>

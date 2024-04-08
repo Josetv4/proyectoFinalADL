@@ -141,7 +141,7 @@ const Wallet = () => {
                             />
                         </Box>
                         <Box sx={{ ml: "5.6rem", mt: "1rem" }}>
-                            <ButtonLittle>
+                            <ButtonLittle to="/purchase-thanks">
                                 <Typography
                                     sx={{
                                         fontFamily: "var(--font-body)",
