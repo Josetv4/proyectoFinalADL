@@ -31,7 +31,7 @@ const ListUsers = () => {
       const { response, error } = await getStatusUser(id, status);
 
       if (error) {
-        alert(error);
+        swal(error, { icon: "error", });
         await logout();
         navigate("/login");
       } else {
@@ -89,7 +89,13 @@ const ListUsers = () => {
                     <TableCell align="right">{row.email}</TableCell>
                     <TableCell align="right">{row.phone}</TableCell>
                     <TableCell align="right">{row.rol}</TableCell>
-                    <TableCell align="right">{row.status}</TableCell>
+                    <TableCell align="right">
+                    {row.status === "A"
+                        ? "Activo"
+                        : "Borrado"
+                        }
+                    </TableCell>
+                    
                     <TableCell align="right">
                       <IconButton
                         color="success"
