@@ -149,7 +149,6 @@ const getStatusUser = async (id, status) => {
   } catch (error) {
     console.error("Error al cambiar status usuarios:", error);
     return { error };
-<<<<<<< HEAD
   }
 };
 const getStatusProduct = async (id, status) => {
@@ -165,8 +164,6 @@ const getStatusProduct = async (id, status) => {
     return { response: response.data, error: null };
   } catch (error) {
     return { error : error.message };
-=======
->>>>>>> be29068 (agregando vistas user de administrador)
   }
 };
 export {
