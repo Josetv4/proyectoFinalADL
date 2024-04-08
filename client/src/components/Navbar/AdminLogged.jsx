@@ -1,25 +1,19 @@
+import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
+import { Box, IconButton, Tooltip, Avatar, Menu, MenuItem, Typography } from "@mui/material";
 import { useNavigate, NavLink, Link } from "react-router-dom";
-
-import {
-    Box,
-    IconButton,
-    Tooltip,
-    Avatar,
-    Menu,
-    MenuItem,
-    Typography,
-} from "@mui/material";
 import { linkStyles2 } from "../Footer/linkStyles2";
 import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
 import swal from "sweetalert";
-import { useAuth } from "../../context/AuthContext";
+import logoAdmin from '../../assets/imgs/logoAdmin.png';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const MenuAdminLogged = () => {
+    const { user, logout } = useAuth();
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const { logout } = useAuth();
     const navigate = useNavigate();
+
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -52,10 +46,7 @@ const MenuAdminLogged = () => {
     };
 
     return (
-        <Box
-            sx={{ display: "flex", alignItems: "center" }}
-            onClick={(e) => e.stopPropagation()}
-        >
+        <Box sx={{ display: "flex", alignItems: "center" }} onClick={(e) => e.stopPropagation()}>
             <Box>
                 <Tooltip title="Perfil de Administrador">
                     <IconButton
@@ -73,9 +64,9 @@ const MenuAdminLogged = () => {
                         }}
                     >
                         <Avatar
-                            sx={{ width: 56, height: 56 }}
-                            alt="Remy Sharp"
-                            src="https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg"
+                            sx={{ width: 73, height: 73, mt: "-4px" }}
+                            alt="Logo farmacia s y g"
+                            src={logoAdmin}
                         />
                     </IconButton>
                 </Tooltip>
@@ -94,31 +85,33 @@ const MenuAdminLogged = () => {
                         horizontal: "left",
                     }}
                 >
-                   
                     <MenuItem onClick={handleItemClick} sx={buttonStyles}>
                         Publicaciones
-                    </MenuItem> 
-                    <MenuItem component={ Link } to="/list-products"  sx={buttonStyles}>
+                    </MenuItem>
+                    <MenuItem component={Link} to="/list-products" sx={buttonStyles}>
                         Productos
                     </MenuItem>
-                    <MenuItem component={ Link } to="/list-users" sx={buttonStyles}>
+                    <MenuItem component={Link} to="/list-users" sx={buttonStyles}>
                         Usuarios
                     </MenuItem>
                     <MenuItem onClick={handleLogout} sx={buttonStyles}>
                         Cerrar sesión
+                        <LogoutIcon sx={{ml: '1rem'}} />
                     </MenuItem>
                 </Menu>
             </Box>
             <Tooltip title="Bienvenido de Vuelta">
-                <Typography
-                    sx={{
-                        color: "var(--font-body-color)",
-                        fontFamily: "var(--font-title)",
-                        fontSize: "18px",
-                    }}
-                >
-                    ¡Hola Oriana!
-                </Typography>
+                {user && (
+                    <Typography
+                        sx={{
+                            color: "var(--font-body-color)",
+                            fontFamily: "var(--font-title)",
+                            fontSize: "18px",
+                        }}
+                    >
+                        ¡Hola {user.username}!
+                    </Typography>
+                )}
             </Tooltip>
         </Box>
     );
