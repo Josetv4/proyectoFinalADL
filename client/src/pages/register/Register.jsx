@@ -138,6 +138,7 @@ const RegisterPage = () => {
           <div className="button_register">     
     <ButtonLittle> Registrarse</ButtonLittle>
     </div>
+    
           </form>
           <div className="login_color">
                   hola soy el link-dan
