@@ -2,7 +2,7 @@ import pool from "../../../../config/db/conectionDb.js";
 
 const getProduct = async () => {
   const SQLquery = {
-    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
            FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id order by product_id`,
   };
 
@@ -12,7 +12,7 @@ const getProduct = async () => {
 
 const getProductId = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
             FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id 
             WHERE p.product_id = $1
             ORDER BY product_id`,
@@ -25,8 +25,8 @@ const getProductId = async ({ id }) => {
 
 const getProductCategoryId = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT product_id, name, description, price, stock, category_id, create_at, status, user_id, image_url
-           FROM products
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
+    FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id 
            WHERE category_id = $1`,
     values: [id],
   };
@@ -45,23 +45,37 @@ const getProductByUser = async ({ id }) => {
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };
+const getProductByDescription  = async ( description ) => {
+  const SQLquery = {
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url
+           FROM products p 
+           INNER JOIN categories c ON p.category_id = c.category_id 
+           INNER JOIN users u ON p.user_id = u.user_id
+           WHERE description '%' || $1 || '%'`,
+    values: [description],
+  };
+
+  const response = await pool.query(SQLquery);
+  return response.rows[0];
+};
 
 const createProduct = async (
-  { name, description, price, stock, category_id, status, user_id },
+  { name, description, price, stock, category_id, status, user_id, information },
   image
 ) => {
   const SQLquery = {
-    text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id, image_url) 
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+    text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id, image_url, information) 
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8,$9) RETURNING *`,
     values: [
       name,
       description,
       price,
       stock,
       category_id,
-      'P',
+      status,
       user_id,
       image,
+      information
     ],
   };
   const response = await pool.query(SQLquery);
@@ -70,7 +84,7 @@ const createProduct = async (
 
 const updateProduct = async (
   id,
-  { name, description, price, stock, category_id, status, user_id },
+  { name, description, price, stock, category_id, status, user_id, information },
   image
 ) => {
   const SQLquery = {
@@ -82,8 +96,9 @@ const updateProduct = async (
              category_id = $5,
              status = $6,
              user_id = $7,
-             image_url = $8
-             WHERE product_id = $9 
+             information = $8
+             image_url = $9,
+             WHERE product_id = $10 
              RETURNING *`,
     values: [
       name,
@@ -93,6 +108,7 @@ const updateProduct = async (
       category_id,
       status,
       user_id,
+      information,
       image,
       id,
     ],
