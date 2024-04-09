@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get("/carts", getActivity, getAllCart) 
 router.get("/cart/:id_user", getActivity, getCartUser);
-router.post("/cart/", getActivity, addCartUser);
+router.post("/cart", getActivity, addCartUser);
 router.put("/cartIncrease/", getActivity, updateCartIncrease);
 router.put("/cartDecrease/", getActivity, updateCartDecrease);
 

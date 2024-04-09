@@ -34,7 +34,7 @@ const getCartUser = async (req, res) =>{
 };
 //añado producto al carrito si este no existe lo creo
 const addCartUser = async (req, res) => {
-        const { user_id, product_id, quantity, price } = req.body
+        const { user_id, product_id, quantity, price } = req.body 
         console.log(price);
     try {
         //Consulto el carrito del usuario
