@@ -15,7 +15,8 @@ const homePage = () => {
       price: 10.990,    
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1
+      id : 1,
+      quantity: 0
     },
     {
       name: 'Lozartan',
@@ -25,7 +26,8 @@ const homePage = () => {
       price: 10.990,
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1
+      id : 1,
+      quantity: 4
     },
     {
       name: 'Lozartan',
@@ -35,7 +37,8 @@ const homePage = () => {
       price: 10.990,
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1
+      id : 1,
+      quantity: 6
     },
     {
       name: 'Lozartan',
@@ -45,7 +48,8 @@ const homePage = () => {
       price: 10.990,
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1
+      id : 1,
+      quantity: 3
     },
     
   ];

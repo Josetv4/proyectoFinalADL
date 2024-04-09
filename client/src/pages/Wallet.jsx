@@ -26,16 +26,18 @@ const textStyle = {
 const Wallet = () => {
     return (
         <Container
-            maxWidth="xl"
+            maxWidth="xll"
             sx={{
+                pt:'1.2rem',
                 borderBottom: "30px solid var(--font-link-color)",
                 borderTop: "30px solid var(--font-link-color)",
-                height: "43.4rem",
+                height: "43.1rem",
             }}
         >
             <Paper
                 elevation={3}
                 sx={{
+                    maxWidth:"800px",
                     width: "50%",
                     borderRadius: 3,
                     bgcolor: "#F5F5F5",

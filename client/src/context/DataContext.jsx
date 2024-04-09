@@ -1,19 +1,22 @@
+import { createContext, useContext, useEffect, useState } from "react";
+import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems } from "../api/getApi.js";
+import {AuthContext} from "./AuthContext.jsx";
 
-import { createContext, useEffect, useState } from "react";
-import { getProducts, getCartItems, postCartItems, updateCartItems, deleteCartItems } from "../api/getApi.js";
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [cartId, setCartId] = useState(0)
+  const { userId } = useContext(AuthContext);
+
+  const [cartUser, setCartUser] = useState([])
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   /*  fetchCartItems(); */
-    fetchProducts();
+    userId && fetchCartUser(); 
+    // fetchProducts();
   }, []);
 
 const fetchProducts = async ()=> {
@@ -34,6 +37,18 @@ const fetchProducts = async ()=> {
       const { response, error, loading } = await getCartItems();
       setCartItems(response);
       setError(error);
+      setLoading(loading);
+    } catch (error) {
+      console.error("Error al obtener carritos:", error);
+      setError("Error al obtener carritos");
+      setLoading(false);
+    }
+  };
+  const fetchCartUser = async () => {
+    try {
+      const { response, error, loading } = await getCartUser(userId);
+      setCartUser(response);
+      setError(error);0
       setLoading(loading);
     } catch (error) {
       console.error("Error al obtener carritos:", error);
@@ -90,6 +105,7 @@ const fetchProducts = async ()=> {
         error,
         loading,
         cartItems,
+        cartUser,
         addCartItem,
         updateCartItem,
         deleteCartItem,

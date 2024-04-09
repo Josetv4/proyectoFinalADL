@@ -25,27 +25,34 @@ const getCartItems = async () => {
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-
-const postCartItems = async (products) => {
+const getCartUser = async ({user_id}) => {
   try {
-    const response = await axios.get("/carts", products);
+    const response = await axios.get(`/cart/${user_id}`);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-const updateCartItems = async (detailId, cartId, product) => {
+const postCartItems = async (user_id, product) => {
   try {
-    const response = await axios.axios.put(
-      `cart/items/${detailId}`,
-      cartId,
-      product
-    );
+    const response = await axios.post("/cart", user_id, product);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
+  }
+};
+const updateCartItems = async (product_id, updateCart ) => {
+  try {
+    const response = await axios.put(
+      `cart/${updateCart}/`,
+      product_id,
+    );
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al modificar carrito:", error);
+    return { response: [], error: "Error al modificar carrito", loading: false };
   }
 };
 const deleteCartItems = async (detailId, cartId, product) => {
@@ -108,6 +115,19 @@ const getProductsByCategory = async (id) => {
     };
   }
 };
+const getProductsbySearch = async (text) => {
+  try {
+    const response = await axios.get(`/products/category/${text}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos por categoria:", error);
+    return {
+      response: [],
+      error: "Error al obtener productos por categoria",
+      loading: false,
+    };
+  }
+};
 const getProductsById = async (id) => {
   try {
     const response = await axios.get(`/products/${id}`);
@@ -151,6 +171,25 @@ const getStatusUser = async (id, status) => {
     return { error };
   }
 };
+
+const updateUsers = async (id, userData) => {
+  console.log("Datos del usuario a actualizar:", userData);
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/users/${id}`,
+      userData,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al actualizar usuario:", error);
+    return { response: [], error: "Error al actualizar usuario", loading: false };
+  }
+};
+
 const getStatusProduct = async (id, status) => {
   try {
     const token = window.localStorage.getItem("token");
@@ -166,9 +205,26 @@ const getStatusProduct = async (id, status) => {
     return { error : error.message };
   }
 };
+const getProductDescription = async (description) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.post(
+      `/product/descripton`,
+      { description },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
+
 export {
   getProducts,
   getCartItems,
+  getCartUser,
   postCartItems,
   updateCartItems,
   deleteCartItems,
@@ -177,7 +233,10 @@ export {
   getUsers,
   getCategories,
   getProductsByCategory,
+  getProductDescription,
   getProductsById,
   getStatusUser,
   getStatusProduct,
+  getProductsbySearch,
+  updateUsers,
 };
