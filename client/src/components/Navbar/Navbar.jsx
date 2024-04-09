@@ -38,11 +38,11 @@ function ResponsiveAppBar() {
             position="static"
             sx={{
                 backgroundColor: "var(--background-navba-color)",
-                height: "12.3vh",
-                borderBottom: '3px solid #FDA2B440',
+                height: "4.8rem",
+                borderBottom: '4px solid #FDA2B440',
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="xll">
                 <Toolbar
                     disableGutters
                     sx={{
@@ -62,9 +62,9 @@ function ResponsiveAppBar() {
                     </Box>
                     <Box
                         sx={{
-                            mt: -1.2,
                             flexGrow: 4,
-                            display: { xs: "none", lg: "flex" },
+                            mt: -1.2,
+                            display: { xs: "none", lg:"flex", xl: "flex" },
                             justifyContent: "space-between",
                         }}
                     >
@@ -81,7 +81,7 @@ function ResponsiveAppBar() {
                     </Box>
                     <Box
                         sx={{
-                            flexGrow: 4,
+                            flexGrow: 2,
                             m: -2,
                             display: { xs: "none", md: "flex", lg: "none" },
                             justifyContent: "space-between",
