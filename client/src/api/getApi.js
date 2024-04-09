@@ -25,27 +25,34 @@ const getCartItems = async () => {
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-
-const postCartItems = async (products) => {
+const getCartUser = async ({user_id}) => {
   try {
-    const response = await axios.get("/carts", products);
+    const response = await axios.get(`/cart/${user_id}`);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-const updateCartItems = async (detailId, cartId, product) => {
+const postCartItems = async (user_id, product) => {
   try {
-    const response = await axios.axios.put(
-      `cart/items/${detailId}`,
-      cartId,
-      product
-    );
+    const response = await axios.post("/cart", user_id, product);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
+  }
+};
+const updateCartItems = async (product_id, updateCart ) => {
+  try {
+    const response = await axios.put(
+      `cart/${updateCart}/`,
+      product_id,
+    );
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al modificar carrito:", error);
+    return { response: [], error: "Error al modificar carrito", loading: false };
   }
 };
 const deleteCartItems = async (detailId, cartId, product) => {
@@ -98,6 +105,19 @@ const getCategories = async () => {
 const getProductsByCategory = async (id) => {
   try {
     const response = await axios.get(`/products/category/${id}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos por categoria:", error);
+    return {
+      response: [],
+      error: "Error al obtener productos por categoria",
+      loading: false,
+    };
+  }
+};
+const getProductsbySearch = async (text) => {
+  try {
+    const response = await axios.get(`/products/category/${text}`);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener productos por categoria:", error);
@@ -169,6 +189,7 @@ const getStatusProduct = async (id, status) => {
 export {
   getProducts,
   getCartItems,
+  getCartUser,
   postCartItems,
   updateCartItems,
   deleteCartItems,
@@ -180,4 +201,5 @@ export {
   getProductsById,
   getStatusUser,
   getStatusProduct,
+  getProductsbySearch,
 };
