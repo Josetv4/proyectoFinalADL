@@ -9,7 +9,7 @@ const bgImage = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundColor: "'var(--background-body-color)'",
-    height: "71.8vh",
+    height: "31.5rem"
 };
 
 const textStyle = {
@@ -20,7 +20,7 @@ const textStyle = {
 
 const PurchaseThanks = () => {
     return (
-        <Container maxWidth="xl" sx={{ ...bgImage }}>
+        <Container maxWidth="xll" sx={{ ...bgImage }}>
             <Typography
                 sx={{
                     padding: '70px',
