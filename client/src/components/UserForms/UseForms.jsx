@@ -8,7 +8,6 @@ const UseForm = () => {
     const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordRepeat, setPasswordRepeat] = useState("");
-    const [preexistences, setPreexistences] = useState("");
 
     const handleClick = () => {
         console.log("Botón clickeado");
@@ -53,14 +52,6 @@ const UseForm = () => {
                     placeholder="+56987694423"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                />
-                <label htmlFor="preexistences">Preexistencias</label>
-                <input
-                    style={ inputStyle }
-                    type="text"
-                    placeholder="+56987694423"
-                    value={ preexistences }
-                    onChange={(e) => setPreexistences(e.target.value)}
                 />
                 <label htmlFor="Mail">Mail</label>
                 <input
