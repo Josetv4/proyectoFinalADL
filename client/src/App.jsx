@@ -10,10 +10,11 @@ import Wallet from './pages/Wallet';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 import LastShopping from './pages/LastShopping/LastShopping';
-
+import SearchResult from './pages/Category/SearchResult.jsx';
 
 //Context
 import { useAuth } from './context/AuthContext';
+
 
 // Imports related to users/admins/sellers
 import Login from './pages/login/Login';
@@ -43,11 +44,13 @@ function App() {
       </header>
       <main>
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/sobre-nosotros" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/category/:id/:name" element={<Category />} />
+          <Route path="/resultados/:id/:name" element={<SearchResult />} />
           <Route path="/user-profile" element={<RegularUserProfile />} />
           <Route path="/admin" element={<AdminUserProfile />} />
           <Route path="/seller" element={<SellerUserProfile />} />
@@ -63,6 +66,8 @@ function App() {
           <Route path="/list-users" element={<ListUsers />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="*" element={<NotFound />} />
+     
+
         </Routes>
       </main>
       <footer>
