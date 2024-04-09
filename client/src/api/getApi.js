@@ -186,6 +186,20 @@ const getStatusProduct = async (id, status) => {
     return { error : error.message };
   }
 };
+
+const postReviewProduct = async (rating, coments) => {
+  try {
+      const token = window.localStorage.getItem("token");
+      const response = await axios.post(
+          `/review`,
+          { rating, coments },
+          { headers: { Authorization: `Bearer ${token}` } }
+      );
+      return { response: response.data, error: null };
+  } catch (error) {
+      return { error: error.message };
+  }
+};
 export {
   getProducts,
   getCartItems,
@@ -202,4 +216,5 @@ export {
   getStatusUser,
   getStatusProduct,
   getProductsbySearch,
+  postReviewProduct,
 };
