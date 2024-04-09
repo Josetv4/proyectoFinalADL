@@ -6,14 +6,29 @@ import { Box,  CardActions } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
-
+import { postCartItems } from "../../api/getApi.js";
 import './styles.css';
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext';
 import { useState } from 'react';
 
 
 
+export default function ProductCard({ product }) {
+  const { userId } = useContext(AuthContext)
+  
+  const addProduct = async (productItem) =>{
+    const { product_id, quantity, price } = productItem;
+    console.log(productItem);
+    console.log(product_id);
+    try {
+      await postCartItems(userId, product_id, quantity, price)
+    } catch (err) {
+        console.error("Error al cargar producto al carrito", err);
+    }
+  }
 export default function ProductCard({ product })
  {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -69,7 +84,7 @@ export default function ProductCard({ product })
           </Box>
         </Typography>
         <CardActions className='card-actions'>
-          <ButtonLittle >
+          <ButtonLittle onClick={() => addProduct(product)}>
             Añadir al carro
           </ButtonLittle>
           <ButtonLittleoutline to={`/details-product/${product.product_id}`}>
