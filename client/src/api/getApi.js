@@ -171,6 +171,25 @@ const getStatusUser = async (id, status) => {
     return { error };
   }
 };
+
+const updateUsers = async (id, userData) => {
+  console.log("Datos del usuario a actualizar:", userData);
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/users/${id}`,
+      userData,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al actualizar usuario:", error);
+    return { response: [], error: "Error al actualizar usuario", loading: false };
+  }
+};
+
 const getStatusProduct = async (id, status) => {
   try {
     const token = window.localStorage.getItem("token");
@@ -202,4 +221,5 @@ export {
   getStatusUser,
   getStatusProduct,
   getProductsbySearch,
+  updateUsers,
 };
