@@ -32,5 +32,4 @@ router.put("/products/:id", isLogin, validateParametersProducts, getActivity, up
 router.delete("/products/:id", isLogin, getActivity, deleteProducts )
 router.put("/product/status/:id", isLogin, getActivity, statusProducts )
 
-getProductsByDescription
 export default router;
