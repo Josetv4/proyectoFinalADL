@@ -43,8 +43,8 @@ const AboutUsMaps = () => {
                         <iframe
                             title="ubicacion farmacia S y G"
                             src={mapUrl}
-                            width="380"
-                            height="250"
+                            width="400"
+                            height="270"
                             style={{ border: 0 }}
                             allowfullscreen=""
                             loading="lazy"

@@ -10,13 +10,14 @@ function Footer() {
     <AppBar
       position="static"
       sx={{
+        mt: '3px',
         height: '110px',
         top: "auto",
         bottom: 0,
         backgroundColor: "var(--background-navba-color)",
         borderTop: '3px solid #fe486a',
       }}>
-      <Container maxWidth="xl" >
+      <Container maxWidth="xll" >
         <Toolbar
           disableGutters
           sx={{
@@ -62,7 +63,7 @@ function Footer() {
         </Toolbar>
       </Container>
       <Container
-        maxWidth="xl"
+        maxWidth="xll"
         sx={{
           mt: 0,
           textAlign: 'center',
