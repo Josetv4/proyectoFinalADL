@@ -46,18 +46,15 @@ const getProductByUser = async ({ id }) => {
   return response.rows[0];
 };
 
-const getProductByDescription  = async ( description ) => {
-  const SQLquery = {
-    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url
-           FROM products p 
-           INNER JOIN categories c ON p.category_id = c.category_id 
-           INNER JOIN users u ON p.user_id = u.user_id
-           WHERE description '%' || $1 || '%'`,
-    values: [description],
-  };
+const getProductByDescription  = async ( { description } ) => {
 
+  const SQLquery = {
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id WHERE description LIKE '%' || $1 || '%' `,
+    values: [ description],
+  };
+  console.log(SQLquery)
   const response = await pool.query(SQLquery);
-  return response.rows[0];
+  return response.rows;
 };
 
 const createProduct = async (
