@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { userRegister, loginUser } from "../api/getApi.js";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -9,8 +9,11 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (userData) => {
         const { response } = await loginUser(userData)
+        console.log(response.user);
         if (!Array.isArray(response)) {
             setUser(response.user);
+            const userID = response["user"]["user_id"]
+            setUserId(userID)
             localStorage.setItem("token", response.token);
         } else {
             throw new Error("Credenciales inválidas");
