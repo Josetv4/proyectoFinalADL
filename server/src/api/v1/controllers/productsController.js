@@ -2,6 +2,7 @@ import { getProduct,
          getProductId,
          getProductCategoryId, 
          getProductByUser,
+         getProductByDescription,
          createProduct, 
          updateProduct, 
          deleteProduct,
@@ -72,6 +73,23 @@ const getProductsByUsers = async (req, res) => {
   }
 };
 
+const getProductsByDescription = async (req, res) => {
+  
+  const description = req.body;
+  
+  try {
+    const products = await getProductByDescription(description);
+    res.status(200).json({ product : products  });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+
 const createNewProduct = async (req, res) => {
   try {
     const product = req.body
@@ -130,6 +148,7 @@ export {  getProducts,
           getProductsId,
           getProductsCategoryId, 
           getProductsByUsers,
+          getProductsByDescription,
           createNewProduct,
           updateProducts,
           deleteProducts,

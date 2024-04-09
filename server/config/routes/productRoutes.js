@@ -5,6 +5,7 @@ import { createNewProduct,
          getProductsId,
          getProductsCategoryId,
          getProductsByUsers,
+         getProductsByDescription,
          updateProducts, 
          deleteProducts,
          statusProducts } from "../../src/api/v1/controllers/productsController.js";
@@ -24,11 +25,11 @@ const router = express.Router();
 router.get("/products", getActivity, getProducts )
 router.get("/products/:id", getActivity, getProductsId )
 router.get("/products/category/:id", getActivity, getProductsCategoryId )
+router.get("/products/description", getActivity, getProductsByDescription )
 router.get("/products/user/:id", isLogin,  getActivity, getProductsByUsers )
 router.post("/products", isLogin,  validateParametersProducts, getActivity, upload.single('image'), createNewProduct)
 router.put("/products/:id", isLogin, validateParametersProducts, getActivity, upload.single('image'), updateProducts )
 router.delete("/products/:id", isLogin, getActivity, deleteProducts )
 router.put("/product/status/:id", isLogin, getActivity, statusProducts )
-
 
 export default router;
