@@ -10,6 +10,8 @@
 
 .button_outline:hover {
     border-color: var(--font-footer-color2);
-    color: var(--background-btn1);
+    color: var(--font-footer-color2);
     font-family: var(--font-body);
+    cursor: pointer;
+    border: 5px solid var(--linea-border-color2);
 }

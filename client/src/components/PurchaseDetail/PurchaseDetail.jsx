@@ -6,20 +6,25 @@ import { Card,
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { currencyFormat } from "../../helpers/currencyFormat.js";
-import { increaseProduct, decreaseProduct } from "../../hooks/HandleCart.jsx";
 
 
-const PurchaseDetail = ({cartItems, setCartItems}) => {
+const PurchaseDetail = ({ cartItems, updateCartItem }) => {
     const cart = cartItems && cartItems.filter((item) => item.quantity)
     
-
-    const handleIn = (productID) =>{
-        console.log(productID);
-        increaseProduct(productID, cartItems, setCartItems)
+    const handleIn = async (product_id) => {
+        try {
+            await updateCartItem(product_id, "cartIncrease")
+        } catch (err) {
+            console.error("Error al aumentar cantidad del carrito", err);
+        }
+        
     }
-    const handleDec = (productID) => {
-        console.log(productID);
-        decreaseProduct(productID, cartItems, setCartItems)
+    const handleDec = async (product_id) => {
+        try {
+            await updateCartItem(product_id, "cartDecrease")
+        } catch (err) {
+            console.error("Error al disminuir cantidad del carrito", err);
+        }
     }
     return (
         <section style= {{ 
@@ -29,8 +34,8 @@ const PurchaseDetail = ({cartItems, setCartItems}) => {
             scrollbarWidth: "none",
             paddingTop: "0"
         }}>
-        <h2 style={{ padding: "0", margin: "0", textAlign:"center",fontFamily: "var(--font-title)"}}>Detalle de tu compra</h2>
-        {cart.map((item) => (
+        <h2 style={{ padding: "0", margin: "0", textAlign:"center"}}>Detalle de tu compra</h2>
+        {cart.length > 0 ? cart.map((item) => (
             <Card key={item.id} className="shopping-card">
                 <CardContent 
                     sx={{ display: "flex" , width: "100%", flexDirection:"row", columnGap: "2vh"}} 
@@ -77,7 +82,7 @@ const PurchaseDetail = ({cartItems, setCartItems}) => {
                 </Box>
                 </CardContent>
             </Card>
-        ))}
+        )): <h1 style={{ textAlign: "center", padding: "30px", marginTop: "30px", backgroundColor: "#fe486a" }}>Agrega productos al carrito</h1>}
         </section>
         
     )

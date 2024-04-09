@@ -3,11 +3,11 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function Search() {
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', width: '25%' }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', width: '24%' }}>
             <FormControl
                 sx={{
                     m: 1,
-                    width: '100%',
+                    width: '18rem',
                     borderRadius: '50px',
                     backgroundColor: 'var(--background-navba-color)',
                     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
@@ -19,7 +19,7 @@ export default function Search() {
                         },
                     },
                     '& .MuiOutlinedInput-input': {
-                        padding: '9px',
+                        padding: '8px',
                     },
                     '& .MuiOutlinedInput-notchedOutline': {
                         borderColor: '#91C3E440',
@@ -37,7 +37,7 @@ export default function Search() {
                     textAlign: 'center',
                     fontSize: '13px',
                     fontStyle: 'italic',
-                    m: '-4px 0px 40px 10px',
+                    m: '-4px 0px 35px 8px',
                 }}
                     htmlFor="seacrh-medicine">
                     Busca tu medicamento
