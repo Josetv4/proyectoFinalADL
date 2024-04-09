@@ -12,6 +12,9 @@ import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
+import { useState } from 'react';
+
+
 
 export default function ProductCard({ product }) {
   const { userId } = useContext(AuthContext)
@@ -26,6 +29,15 @@ export default function ProductCard({ product }) {
         console.error("Error al cargar producto al carrito", err);
     }
   }
+export default function ProductCard({ product })
+ {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+
   return (
     <Card className='product-card'>
       <CardContent className='product-card-content'>
@@ -36,8 +48,8 @@ export default function ProductCard({ product }) {
             image={product.image_url}
             title={product.name}
           />
-          <IconButton className='icon-tag'>
-            <FavoriteIcon />
+          <IconButton className='icon-tag' onClick={handleFavoriteClick}>
+            <FavoriteIcon sx={{ color: isFavorite ? 'red' : 'inherit' }} />
           </IconButton>
         </Box>
         <Typography variant="bold" component="h3" color="textSecondary" >
