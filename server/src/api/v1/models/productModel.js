@@ -142,6 +142,7 @@ export {
   getProductId,
   getProductCategoryId,
   getProductByUser,
+  getProductByDescription,
   createProduct,
   updateProduct,
   deleteProduct,
