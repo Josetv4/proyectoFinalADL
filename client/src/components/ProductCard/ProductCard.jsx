@@ -10,8 +10,18 @@ import StarIcon from '@mui/icons-material/Star';
 import './styles.css';
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
+import { useState } from 'react';
 
-export default function ProductCard({ product }) {
+
+
+export default function ProductCard({ product })
+ {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+  };
+
 
   return (
     <Card className='product-card'>
@@ -23,8 +33,8 @@ export default function ProductCard({ product }) {
             image={product.image_url}
             title={product.name}
           />
-          <IconButton className='icon-tag'>
-            <FavoriteIcon />
+          <IconButton className='icon-tag' onClick={handleFavoriteClick}>
+            <FavoriteIcon sx={{ color: isFavorite ? 'red' : 'inherit' }} />
           </IconButton>
         </Box>
         <Typography variant="bold" component="h3" color="textSecondary" >

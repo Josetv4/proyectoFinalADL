@@ -13,4 +13,5 @@
     background-color: var(--font-footer-color2);
     color: var(--background-btn4);
     font-family: var(--font-body);
+    cursor: pointer;
 }
