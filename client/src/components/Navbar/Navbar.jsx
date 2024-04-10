@@ -38,7 +38,7 @@ function ResponsiveAppBar() {
             position="static"
             sx={{
                 backgroundColor: "var(--background-navba-color)",
-                height: "4.8rem",
+                height: "5.2rem",
                 borderBottom: '4px solid #FDA2B440',
             }}
         >
@@ -63,7 +63,7 @@ function ResponsiveAppBar() {
                     <Box
                         sx={{
                             flexGrow: 4,
-                            mt: -1.2,
+                            mt: -2,
                             display: { xs: "none", lg:"flex", xl: "flex" },
                             justifyContent: "space-between",
                         }}
