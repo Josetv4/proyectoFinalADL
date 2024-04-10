@@ -55,7 +55,7 @@ const AdminUser = () => {
         <Box sx={{ display: 'flex', flexDirection: "column", gap: '15px' }}>
           <ButtonBig to="/list-products">Productos</ButtonBig>
           <ButtonOutline to="/list-users">Usuarios</ButtonOutline>
-          <ButtonBig to="/">Publicaciones</ButtonBig>
+          <ButtonBig to="/accept-publication">Publicaciones</ButtonBig>
         </Box>
       </Box>
       <UseForm />

@@ -221,9 +221,7 @@ const postReviewProduct = async (rating, coments) => {
 const getProductDescription = async (description) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(
-      `/product/descripton`,
-      { description },
+    const response = await axios.post(`/product/description`, { description } ,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
