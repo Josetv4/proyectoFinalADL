@@ -3,7 +3,7 @@ import { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 
 import Box from "@mui/material/Box";
@@ -11,9 +11,13 @@ import Typography from "@mui/material/Typography";
 
 import "./style.css";
 import { DataContext } from "../../context/DataContext";
-const ShoppingCard = () => {
 
-  const { products, error, loading } = useContext(DataContext);
+const ShoppingCard = ({children}) => {
+
+  const { products,  } = useContext(DataContext);
+  if (!products || !products.product || !Array.isArray(products.product)) {
+    return <div>No hay productos disponibles</div>;
+  }
 
  
   return (
@@ -45,9 +49,8 @@ const ShoppingCard = () => {
               </Box>
             </CardContent>
             <CardActions sx={{ marginRight:2}}>
-              <Button variant="contained" color="primary">
-                Comenta tus productos
-              </Button>
+              {children}
+       
             </CardActions>
           </Card>
         ))}

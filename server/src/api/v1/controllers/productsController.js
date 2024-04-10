@@ -2,9 +2,11 @@ import { getProduct,
          getProductId,
          getProductCategoryId, 
          getProductByUser,
+         getProductByDescription,
          createProduct, 
          updateProduct, 
-         deleteProduct } from "../models/productModel.js";
+         deleteProduct,
+        statusProduct } from "../models/productModel.js";
 
 import { handleError } from "../utils/utils.js";
 
@@ -71,6 +73,23 @@ const getProductsByUsers = async (req, res) => {
   }
 };
 
+const getProductsByDescription = async (req, res) => {
+  
+  const description = req.body;
+  
+  try {
+    const products = await getProductByDescription(description);
+    res.status(200).json({ product : products  });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+
 const createNewProduct = async (req, res) => {
   try {
     const product = req.body
@@ -110,11 +129,27 @@ const deleteProducts = async (req, res) => {
     return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
   }
 };
+const statusProducts = async (req, res) => {
+  
+  const { id } = req.params;
+  const { status } = req.body
+  try {
+    const response = await statusProduct(id, status);
+    res.status(200).json({ message: 'producto actualizado correctamente', user: response });
+  } catch (error) {
+    const errorFound = handleError(error.code);
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
 
 export {  getProducts, 
           getProductsId,
           getProductsCategoryId, 
           getProductsByUsers,
+          getProductsByDescription,
           createNewProduct,
           updateProducts,
-          deleteProducts }
+          deleteProducts,
+          statusProducts }

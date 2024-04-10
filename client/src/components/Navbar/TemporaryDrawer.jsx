@@ -32,10 +32,10 @@ export default function TemporaryDrawer() {
 
     const renderNavbar = () => {
         if (user) {
-            switch (user.userType) {
+            switch (user.role) {
                 case "admin":
                     return <AdminLogged />;
-                case "regular":
+                case "user":
                     return <RegularUserLogged />;
                 case "seller":
                     return <SellerUserLogged />;

@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Box, FormControl, Grid, MenuItem, Select, Typography, Skeleton } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
@@ -6,25 +6,28 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import "./styles.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { getProductsByCategory } from "../../api/getApi";
+import { getProductsbySearch } from "../../api/getApi";
 
-const Category = () => {
-  const { id, name } = useParams();
+
+const SearchResult = () => {
+    const { name } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { state } = useLocation();
-
   useEffect(() => {
-    asyncGetProducts();
-  }, [state]);
+    asyncGetProducts(name); // Pasamos 'name' como argumento
+  }, [name]);
 
-  const asyncGetProducts = async () => {
+  const asyncGetProducts = async (text) => { // Añadimos 'text' como parámetro
     try {
-      setLoading(true)
-      const response = await getProductsByCategory(id);
+      setLoading(true);
+      const { response, error } = await getProductsbySearch(text); // Llamamos a getProductsbySearch con 'text'
+      if (error) {
+        console.error(error);
+        return;
+      }
       console.log(response);
-      const fullArrayProducts = response.response.map((element) => {
+      const fullArrayProducts = response.map((element) => {
         return {
           ...element,
           image_url: 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg',
@@ -32,56 +35,20 @@ const Category = () => {
           valoration: Math.round((Math.random() * 5) * 10) / 10,
           seller: "Petco SPA"
         }
-      })
-      //setProducts(response.response)
-      console.log("loading:", loading)
-      setProducts(fullArrayProducts)
-      setLoading(false)
-
+      });
+      setProducts(fullArrayProducts);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  const handleChangeOrder = (event) => {
-    //Ordenar
-    const order = event.target.value;
-    const newOrder = [...products];
-    if (order === 1) {
-      newOrder.sort((a, b) => a.price - b.price);
-    } else if (order === 2) {
-      newOrder.sort((a, b) => b.price - a.price);
-    }
-    else if (order === 3) {
-      newOrder.sort((a, b) => {
-        if (a.name > b.name) {
-          return 1;
-        }
-        if (a.name < b.name) {
-          return -1;
-        }
-        return 0;
-      });
-    }
-    else if (order === 4) {
-      newOrder.sort((a, b) => {
-        if (a.name < b.name) {
-          return 1;
-        }
-        if (a.name > b.name) {
-          return -1;
-        }
-        return 0;
-      });
-    }
+  // Resto del código...
 
-    setProducts(newOrder)
-    console.log("products: ", products)
-  }
 
   return (
-    <>
-      <Grid container spacing={1} sx={{ display: "flex", flexDirection: "column", alignContent: "center", marginTop: "10px" }}>
+
+       <Grid container spacing={1} sx={{ display: "flex", flexDirection: "column", alignContent: "center", marginTop: "10px" }}>
         <Grid
           item
           xs={10}
@@ -94,7 +61,7 @@ const Category = () => {
               <Select
                 className="order-select"
                 IconComponent={() => (<IoIosArrowDown className="arrow-select" />)}
-                onChange={handleChangeOrder}
+                // onChange={}
                 defaultValue={0}
               >
                 <MenuItem value={0}>Ordenar por</MenuItem>
@@ -169,7 +136,8 @@ const Category = () => {
 
         </Grid>
       </Grid>
-    </>
-  );
-};
-export default Category;
+  
+  )
+}
+
+export default SearchResult

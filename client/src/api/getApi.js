@@ -71,11 +71,10 @@ const deleteCartItems = async (detailId, cartId, product) => {
 
 const userRegister = async (userData) => {
   try {
-    const response = await axios.post("/register", userData);
-    return { response: response.data, error: null, loading: false };
+    const response = await axios.post("/users", userData);
+    return { statusCode : response.request.status , response: response.data, error: null, loading: false };
   } catch (error) {
-    console.error("Error al obtener carritos:", error);
-    return { response: [], error: "Error al obtener carritos", loading: false };
+    return { statusCode : error.response.request.status, response: [], error: "Error al obtener carritos", loading: false };
   }
 };
 
@@ -115,6 +114,19 @@ const getProductsByCategory = async (id) => {
     };
   }
 };
+const getProductsbySearch = async (text) => {
+  try {
+    const response = await axios.get(`/products/category/${text}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos por categoria:", error);
+    return {
+      response: [],
+      error: "Error al obtener productos por categoria",
+      loading: false,
+    };
+  }
+};
 const getProductsById = async (id) => {
   try {
     const response = await axios.get(`/products/${id}`);
@@ -129,6 +141,99 @@ const getProductsById = async (id) => {
   }
 };
 
+const getUsers = async () => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.get("/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data };
+  } catch (error) {
+    console.error("Error al listar usuarios:", error);
+    return { error };
+  }
+};
+
+const getStatusUser = async (id, status) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/users/status/${id}`,
+      { status },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, };
+  } catch (error) {
+    console.error("Error al cambiar status usuarios:", error);
+    return { error };
+  }
+};
+
+const updateUsers = async (id, userData) => {
+  console.log("Datos del usuario a actualizar:", userData);
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/users/${id}`,
+      userData,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al actualizar usuario:", error);
+    return { response: [], error: "Error al actualizar usuario", loading: false };
+  }
+};
+
+const getStatusProduct = async (id, status) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/product/status/${id}`,
+      { status },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
+
+const postReviewProduct = async (rating, coments) => {
+  try {
+      const token = window.localStorage.getItem("token");
+      const response = await axios.post(
+          `/review`,
+          { rating, coments },
+          { headers: { Authorization: `Bearer ${token}` } }
+      );
+      return { response: response.data, error: null };
+  } catch (error) {
+      return { error: error.message };
+  }
+};
+const getProductDescription = async (description) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.post(
+      `/product/descripton`,
+      { description },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
+
 export {
   getProducts,
   getCartItems,
@@ -138,7 +243,14 @@ export {
   deleteCartItems,
   userRegister,
   loginUser,
+  getUsers,
   getCategories,
   getProductsByCategory,
+  getProductDescription,
   getProductsById,
+  getStatusUser,
+  getStatusProduct,
+  getProductsbySearch,
+  updateUsers,
+  postReviewProduct,
 };

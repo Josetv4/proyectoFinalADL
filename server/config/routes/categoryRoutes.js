@@ -9,16 +9,17 @@ import {  getCategories,
 import { validateParametersCategory } from "../../middlewares/validateParametersCategory.js";
 
 import { getActivity } from "../../middlewares/reports.js"; 
+ import { isLogin } from "../../middlewares/isLogin.js";
 
 
 const router = express.Router();
 
 
-router.get("/category", getActivity, getCategories )
+router.get("/category",  getActivity, getCategories )
 router.get("/category/:id", getActivity, getCategoriesId )
-router.post("/category/", validateParametersCategory,  getActivity, createNewCategory )
-router.put("/category/:id", getActivity, updateCategories )
-router.delete("/category/:id", getActivity, deleteCategories )
+router.post("/category/", isLogin,  validateParametersCategory,  getActivity, createNewCategory )
+router.put("/category/:id", isLogin, getActivity, updateCategories )
+router.delete("/category/:id", isLogin,  getActivity, deleteCategories )
 
 
 export default router;

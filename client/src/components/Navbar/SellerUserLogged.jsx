@@ -10,15 +10,17 @@ import {
     MenuItem,
     Typography,
 } from "@mui/material";
+import LogoutIcon from '@mui/icons-material/Logout';
 import { linkStyles2 } from "../Footer/linkStyles2";
 import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
 import swal from "sweetalert";
 import { useAuth } from "../../context/AuthContext";
+import logoSeller from '../../assets/imgs/seller.png';
 
 const MenuSellerUser = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const { logout } = useAuth();
+    const {  user, logout } = useAuth();
     const navigate = useNavigate();
 
     const handleClick = (event) => {
@@ -67,7 +69,7 @@ const MenuSellerUser = () => {
                             mb: -1,
                         }}
                     >
-                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src="https://www.evopayments.mx/blog/wp-content/uploads/2023/03/Como-ser-una-mujer-exitosa-en-los-negocio-770x513.jpeg" />
+                        <Avatar sx={{ width: 56, height: 56 }} alt="Remy Sharp" src={logoSeller} />
                     </IconButton>
                 </Tooltip>
                 <Menu
@@ -106,19 +108,22 @@ const MenuSellerUser = () => {
                         sx={buttonStyles}
                     >
                         Cerrar sesión
+                        <LogoutIcon sx={{ml: '1rem'}} />
                     </MenuItem>
                 </Menu>
             </Box>
             <Tooltip title="Bienvenido de Vuelta">
-                <Typography
-                    sx={{
-                        color: 'var(--font-body-color)',
-                        fontFamily: 'var(--font-title)',
-                        fontSize: '18px',
-                    }}
-                >
-                    ¡Hola Alondra!
-                </Typography>
+                {user && (
+                    <Typography
+                        sx={{
+                            color: "var(--font-body-color)",
+                            fontFamily: "var(--font-title)",
+                            fontSize: "18px",
+                        }}
+                    >
+                        ¡Hola {user.username}!
+                    </Typography>
+                )}
             </Tooltip>
         </Box>
     );

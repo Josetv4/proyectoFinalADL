@@ -1,24 +1,17 @@
+import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
-import { useNavigate, NavLink  } from "react-router-dom";
-
-import {
-    Box,
-    IconButton,
-    Tooltip,
-    Avatar,
-    Menu,
-    MenuItem,
-    Typography,
-} from "@mui/material";
+import { Box, IconButton, Tooltip, Avatar, Menu, MenuItem, Typography } from "@mui/material";
+import { useNavigate, NavLink } from "react-router-dom";
 import { linkStyles2 } from "../Footer/linkStyles2";
 import { buttonStyles } from "../Navbar/ButtonStyleHoverFocus";
 import swal from "sweetalert";
-import { useAuth } from "../../context/AuthContext";
+import gravatar from 'gravatar';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const MenuRegularUser = () => {
+    const { user, logout } = useAuth();
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const { logout } = useAuth();
     const navigate = useNavigate();
 
     const handleClick = (event) => {
@@ -45,6 +38,7 @@ const MenuRegularUser = () => {
             if (confirmLogout) {
                 await logout();
                 navigate("/");
+                window.location.reload();
             }
         } catch (error) {
             console.error("Error al cerrar sesión:", error);
@@ -71,11 +65,11 @@ const MenuRegularUser = () => {
                             mb: -1,
                         }}
                     >
-                        <Avatar
-                            sx={{ width: 56, height: 56 }}
-                            alt="Remy Sharp"
-                            src="https://tn.com.ar/resizer/jT7boEBw5JfiLkgweUbQ5a0evZI=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/4RGWEM5MSRCWTBSIBAZGQ2QEHU.jpg"
-                        />
+                            <Avatar
+                                sx={{ width: 56, height: 56 }}
+                                alt="Avatar"
+                                src={gravatar.url(user.email, { s: '200', d: 'identicon', r: 'pg' })}
+                            />
                     </IconButton>
                 </Tooltip>
                 <Menu
@@ -106,19 +100,22 @@ const MenuRegularUser = () => {
                     </MenuItem>
                     <MenuItem onClick={handleLogout} sx={buttonStyles}>
                         Cerrar sesión
+                        <LogoutIcon sx={{ml: '1rem'}} />
                     </MenuItem>
                 </Menu>
             </Box>
             <Tooltip title="Bienvenido de Vuelta">
-                <Typography
-                    sx={{
-                        color: "var(--font-body-color)",
-                        fontFamily: "var(--font-title)",
-                        fontSize: "18px",
-                    }}
-                >
-                    ¡Hola Ben!
-                </Typography>
+                {user && (
+                    <Typography
+                        sx={{
+                            color: "var(--font-body-color)",
+                            fontFamily: "var(--font-title)",
+                            fontSize: "18px",
+                        }}
+                    >
+                        ¡Hola {user.username}!
+                    </Typography>
+                )}
             </Tooltip>
         </Box>
     );

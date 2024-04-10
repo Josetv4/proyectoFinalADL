@@ -10,9 +10,11 @@ import Wallet from './pages/Wallet';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import PaymentMethods from "./pages/PaymentMethods/PaymentMethods.jsx";
 import LastShopping from './pages/LastShopping/LastShopping';
+import SearchResult from './pages/Category/SearchResult.jsx';
 
 //Context
 import { useAuth } from './context/AuthContext';
+
 
 // Imports related to users/admins/sellers
 import Login from './pages/login/Login';
@@ -21,9 +23,13 @@ import RegularUserProfile from './pages/UserProfile/RegularUserProfile';
 import AdminUserProfile from './pages/UserProfile/AdminUserProfile';
 import SellerUserProfile from './pages/UserProfile/SellerUserProfile';
 import SellerPublications from './pages/UserProfile/sellerpublications/SellerPublications';
+import ListUsers from "./pages/UserProfile/ListUsers.jsx"
+
+
 import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
 import Publications from './pages/UserProfile/publication/Publications';
+import ListProducts from './pages/ListProducts.jsx';
 
 function App() {
   const { user } = useAuth();
@@ -32,16 +38,19 @@ function App() {
 
   return (
     <div className='gridApp'>
+
       <header>
         {!isWalletRoute && <Navbar userType={user ? user.userType : null} />}
       </header>
       <main>
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/sobre-nosotros" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/category/:id/:name" element={<Category />} />
+          <Route path="/resultados/:name" element={<SearchResult />} />
           <Route path="/user-profile" element={<RegularUserProfile />} />
           <Route path="/admin" element={<AdminUserProfile />} />
           <Route path="/seller" element={<SellerUserProfile />} />
@@ -53,8 +62,12 @@ function App() {
           <Route path="/yours-publication" element={<SellerPublications />} />
           <Route path="/publication" element={<Publications />} />
           <Route path="/latest-posts" element={<LatestPosts />} />
+          <Route path="/list-products" element={<ListProducts />} />
+          <Route path="/list-users" element={<ListUsers />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="*" element={<NotFound />} />
+     
+
         </Routes>
       </main>
       <footer>
