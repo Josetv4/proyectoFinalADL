@@ -1,0 +1,18 @@
+.button_little {
+    border: none;
+    border-radius: 100px;
+    background-color: var(--font-btn4-color);
+    width: 166px;
+    height: 45px;
+    color: var(--background-btn4);
+    cursor: pointer;
+    margin: 2%;
+    font-family: var(--font-body);
+}
+
+.button_little:hover {
+    background-color: var(--font-footer-color2);
+    color: var(--background-btn4);
+    font-family: var(--font-body);
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+
+.text-price{
+    color:black;
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.text-price2{
+    color:red;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.button_details {
+    border: none;
+    background-color:var(--linea-border-color2);
+    width: 166px;
+    height: 45px;
+    color: rgb(46, 41, 41);
+    cursor: pointer;
+    margin: 2%;
+    font-family:sans-serif;
+    border-radius: 5px;
+    box-shadow: var(--sombra);
+}
+
+.button_details:hover {
+    background-color: var(--font-footer-color2);
+    color: var(--background-btn4);
+    font-family: var(--font-body);
+}
+
+.section-info-buttons{
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: var(--input-color);
+    /*display: none;*/
+}

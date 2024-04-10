@@ -1,0 +1,17 @@
+.button_outline{
+    border: 1px solid var(--font-btn4-color);
+    font-family: var(--font-body);
+    color: var( --background-btn1);
+    width: 300px;
+    height: 48px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.button_outline:hover {
+    border-color: var(--font-footer-color2);
+    color: var(--font-footer-color2);
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: 5px solid var(--linea-border-color2);
+}

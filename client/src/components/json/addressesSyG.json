@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nombre": "Av. Granaderos 2205, Local 2. Esquina Felix Hoyos, al frente de PDI",
+        "latitud": "-22.458819243014876",
+        "longitud": "-68.92856193508142"
+    },
+    {
+        "id": 2,
+        "nombre": "Av. Arturo Prat 1597-B Frente al Hospital Carlos Cisternas",
+        "latitud": "-22.446372",
+        "longitud": "-68.919842"
+    },
+    {
+        "id": 3,
+        "nombre": "Av. Grecia 2510, 1392007 Calama, Antofagasta",
+        "latitud": "-22.45594161694076",
+        "longitud": "-68.93384433870295"
+    }
+]
