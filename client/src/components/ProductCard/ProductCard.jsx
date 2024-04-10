@@ -6,28 +6,44 @@ import { Box, Button, CardActionArea, CardActions } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
-import { postCartItems } from "../../api/getApi.js";
 import './styles.css';
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
 import { useContext } from 'react';
-import AuthContext from '../../context/AuthContext';
+import { DataContext } from "../../context/DataContext";
+import { AuthContext } from '../../context/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from "sweetalert";
+
+
 
 export default function ProductCard({ product }) {
+  const { addCartItem } = useContext(DataContext)
   const { userId } = useContext(AuthContext)
   
-  const addProduct = async (productItem) =>{
-    const { product_id, quantity, price } = productItem;
-    console.log(productItem);
-    console.log(product_id);
+  
+  const addProduct = async () =>{
+    const product_id = product.id;
+    const quantity = product.quantity;
+    const price = product.price;
+
     try {
-      await postCartItems(userId, product_id, quantity, price)
+      await addCartItem(userId, product_id, quantity, price)
+      console.log("Se añadio el producto al carrito con exito");
+      toast(' ¡Excelente! su producto fue añadido al carrito',);  
     } catch (err) {
         console.error("Error al cargar producto al carrito", err);
     }
   }
+  const dontProduct = () =>{
+    swal("¡Debes iniciar sesion para añadir productos al carrito!", {
+      icon: "error",
+    });
+  }
   return (
     <Card className='product-card'>
+      <ToastContainer/>
       <CardContent className='product-card-content'>
         <Box className='block-icon'>
           <CardMedia
@@ -72,7 +88,7 @@ export default function ProductCard({ product }) {
           </Box>
         </Typography>
         <CardActions className='card-actions'>
-          <ButtonLittle onClick={() => addProduct(product)}>
+          <ButtonLittle onClick={userId ? () => addProduct(product): () => dontProduct() }>
             Añadir al carro
           </ButtonLittle>
           <ButtonLittleoutline to={`/details-product/${product.product_id}`}>

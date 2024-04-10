@@ -15,7 +15,7 @@ const homePage = () => {
       price: 10.990,    
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1,
+      id : 3,
       quantity: 0
     },
     {
@@ -26,7 +26,7 @@ const homePage = () => {
       price: 10.990,
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1,
+      id : 13,
       quantity: 4
     },
     {
@@ -37,7 +37,7 @@ const homePage = () => {
       price: 10.990,
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1,
+      id : 4,
       quantity: 6
     },
     {
@@ -48,7 +48,7 @@ const homePage = () => {
       price: 10.990,
       valoration : 3.5,
       seller : "Petco SPA",
-      id : 1,
+      id : 12,
       quantity: 3
     },
     
