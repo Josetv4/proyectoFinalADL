@@ -75,10 +75,10 @@ const getProductsByUsers = async (req, res) => {
 
 const getProductsByDescription = async (req, res) => {
   
-  const description = req.body;
+  const name = req.body;
   
   try {
-    const products = await getProductByDescription(description);
+    const products = await getProductByDescription(name);
     res.status(200).json({ product : products  });
   } catch (error) {
     const errorFound = handleError(error.code) || [
