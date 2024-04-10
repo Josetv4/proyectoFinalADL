@@ -205,6 +205,22 @@ const getStatusProduct = async (id, status) => {
     return { error : error.message };
   }
 };
+const getProductDescription = async (description) => {
+  try {
+    const token = window.localStorage.getItem("token");
+    const response = await axios.post(
+      `/product/descripton`,
+      { description },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return { response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
+
 export {
   getProducts,
   getCartItems,
@@ -217,6 +233,7 @@ export {
   getUsers,
   getCategories,
   getProductsByCategory,
+  getProductDescription,
   getProductsById,
   getStatusUser,
   getStatusProduct,
