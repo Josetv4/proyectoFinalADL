@@ -54,7 +54,6 @@ const createCartItems = async ( cart_id, product_id, quantity, price ) => {
             VALUES ( $1, $2, $3, $4 ) RETURNING *`,
       values: [ cart_id, product_id, quantity, price ],
     };
-    console.log(SQLquery);
     const response = await pool.query(SQLquery);
     return response.rows[0];
   };
