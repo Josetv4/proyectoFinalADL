@@ -71,11 +71,10 @@ const deleteCartItems = async (detailId, cartId, product) => {
 
 const userRegister = async (userData) => {
   try {
-    const response = await axios.post("/register", userData);
-    return { response: response.data, error: null, loading: false };
+    const response = await axios.post("/users", userData);
+    return { statusCode : response.request.status , response: response.data, error: null, loading: false };
   } catch (error) {
-    console.error("Error al obtener carritos:", error);
-    return { response: [], error: "Error al obtener carritos", loading: false };
+    return { statusCode : error.response.request.status, response: [], error: "Error al obtener carritos", loading: false };
   }
 };
 

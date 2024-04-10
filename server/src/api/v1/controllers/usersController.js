@@ -33,6 +33,7 @@ const createNewUser = async (req, res) => {
     const newUser = await createUser(user);
     res.status(201).json({ user: newUser });
   } catch (error) {
+    console.log("error createNewUser: ",error)
     const errorFound = handleError(error.code);
     return res
       .status(errorFound[0]?.status)
