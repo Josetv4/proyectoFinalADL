@@ -30,6 +30,7 @@ import DetailsProducts from './pages/DetailsProducts/DetailsProducts';
 import LatestPosts from './pages/UserProfile/LatestPosts';
 import Publications from './pages/UserProfile/publication/Publications';
 import ListProducts from './pages/ListProducts.jsx';
+import AcceptPublications from './pages/UserProfile/publication/AcceptPublications.jsx'
 
 function App() {
   const { user } = useAuth();
@@ -65,6 +66,7 @@ function App() {
           <Route path="/list-products" element={<ListProducts />} />
           <Route path="/list-users" element={<ListUsers />} />
           <Route path="/wallet" element={<Wallet />} />
+          <Route path="/accept-publication" element={<AcceptPublications />} />
           <Route path="*" element={<NotFound />} />
      
 
