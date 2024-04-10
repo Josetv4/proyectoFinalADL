@@ -28,7 +28,7 @@ const DetailsProducts = () => {
             response.response.format = '30 Comprimidos Recubiertos';
             response.response.valoration = Math.round((Math.random()*5)*10)/10;
             response.response.seller = 'Petco SPA';
-            response.response.information = 'Este medicamento se usa para tratar la fiebre y los dolores suaves a moderados. Este medicamento provee alivio temporal a los síntomas descritos, pero en ningún caso resuelve el origen de ellos.';
+            //response.response.information = 'Este medicamento se usa para tratar la fiebre y los dolores suaves a moderados. Este medicamento provee alivio temporal a los síntomas descritos, pero en ningún caso resuelve el origen de ellos.';
             response.response.comments = [
                 {
                     author : "Pepito paga doble",
@@ -132,7 +132,7 @@ const DetailsProducts = () => {
                     <Box sx={{ display: "flex", gap: "20px" }}>
                         <Box>
                             <button className='button_details' onClick={handleClickInfo }>
-                                Información y Requisitos
+                                Información del producto
                             </button>
                         </Box>
                         <Box>
@@ -144,7 +144,7 @@ const DetailsProducts = () => {
                     <Box className="section-info-buttons" sx={{display: (isShowInformation===undefined) ? "none" : "block"}}>
                         {
                             isShowInformation === true 
-                            ? product.information 
+                            ? product.description 
                             : (product.comments?.length === 0) 
                                 ? "No hay comentarios" 
                                 :  product.comments?.map((commentary,i)=> {

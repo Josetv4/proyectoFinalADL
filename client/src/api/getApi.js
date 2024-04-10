@@ -25,7 +25,7 @@ const getCartItems = async () => {
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-const getCartUser = async ({user_id}) => {
+const getCartUser = async (user_id) => {
   try {
     const response = await axios.get(`/cart/${user_id}`);
     return { response: response.data, error: null, loading: false };
@@ -34,9 +34,9 @@ const getCartUser = async ({user_id}) => {
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-const postCartItems = async (user_id, product) => {
+const postCartItems = async (user_id, product_id, quantity, price) => {
   try {
-    const response = await axios.post("/cart", user_id, product);
+    const response = await axios.post("/cart", {user_id, product_id, quantity, price});
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
@@ -57,7 +57,7 @@ const updateCartItems = async (product_id, updateCart ) => {
 };
 const deleteCartItems = async (detailId, cartId, product) => {
   try {
-    const response = await axios.axios.delete(
+    const response = await axios.delete(
       `cart/items/${detailId}`,
       cartId,
       product
@@ -71,11 +71,10 @@ const deleteCartItems = async (detailId, cartId, product) => {
 
 const userRegister = async (userData) => {
   try {
-    const response = await axios.post("/register", userData);
-    return { response: response.data, error: null, loading: false };
+    const response = await axios.post("/users", userData);
+    return { statusCode : response.request.status , response: response.data, error: null, loading: false };
   } catch (error) {
-    console.error("Error al obtener carritos:", error);
-    return { response: [], error: "Error al obtener carritos", loading: false };
+    return { statusCode : error.response.request.status, response: [], error: "Error al obtener carritos", loading: false };
   }
 };
 
@@ -222,9 +221,7 @@ const postReviewProduct = async (rating, coments) => {
 const getProductDescription = async (description) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(
-      `/product/descripton`,
-      { description },
+    const response = await axios.post(`/product/description`, { description } ,
       {
         headers: { Authorization: `Bearer ${token}` },
       }

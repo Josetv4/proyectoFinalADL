@@ -85,7 +85,7 @@ const MenuAdminLogged = () => {
                         horizontal: "left",
                     }}
                 >
-                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
+                    <MenuItem component={Link} to="/accept-publication" sx={buttonStyles}>
                         Publicaciones
                     </MenuItem>
                     <MenuItem component={Link} to="/list-products" sx={buttonStyles}>
