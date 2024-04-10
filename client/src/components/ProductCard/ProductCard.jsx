@@ -10,7 +10,6 @@ import StarIcon from '@mui/icons-material/Star';
 import './styles.css';
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
-import { useContext } from 'react';
 import { DataContext } from "../../context/DataContext";
 import { AuthContext } from '../../context/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
@@ -27,7 +26,7 @@ export default function ProductCard({ product }) {
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
   };
-  const { product_id, quantity, price } = productItem;
+  const { product_id, quantity, price } = product;
 
   const addProduct = async () => {
     try {

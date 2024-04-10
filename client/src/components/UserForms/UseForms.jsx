@@ -176,7 +176,7 @@ const UseForm = () => {
                 <input
                     style={ inputStyle }
                     type="password"
-                    placeholder="******"
+                    placeholder="*******"
                     value={ passwordRepeat }
                     onChange={(e) => {
                         setPasswordRepeat(e.target.value);
