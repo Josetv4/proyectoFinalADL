@@ -6,7 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import "./styles.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { getProductsbySearch } from "../../api/getApi";
+import {getProductDescription } from "../../api/getApi";
 
 
 const SearchResult = () => {
@@ -21,7 +21,7 @@ const SearchResult = () => {
   const asyncGetProducts = async (text) => { // Añadimos 'text' como parámetro
     try {
       setLoading(true);
-      const { response, error } = await getProductsbySearch(text); // Llamamos a getProductsbySearch con 'text'
+      const { response, error } = await getProductDescription(text); // Llamamos a getProductsbySearch con 'text'
       if (error) {
         console.error(error);
         return;

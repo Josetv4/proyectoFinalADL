@@ -223,6 +223,7 @@ const getProductDescription = async (description) => {
     const token = window.localStorage.getItem("token");
     const response = await axios.post(`/product/description`, { description } ,
       {
+        
         headers: { Authorization: `Bearer ${token}` },
       }
     );
