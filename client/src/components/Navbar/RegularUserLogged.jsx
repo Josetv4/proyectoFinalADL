@@ -87,7 +87,12 @@ const MenuRegularUser = () => {
                         horizontal: "left",
                     }}
                 >
-                    <MenuItem onClick={handleItemClick} sx={buttonStyles}>
+                    <MenuItem MenuItem
+                        component={NavLink}
+                        to="/list-favorites"
+                        onClick={handleItemClick}
+                        sx={buttonStyles}
+                    >
                         Tus Favoritos
                     </MenuItem>
                     <MenuItem
