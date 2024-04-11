@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems } from "../api/getApi.js";
+import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems, getFavoritesbyUser } from "../api/getApi.js";
+
 import {AuthContext} from "./AuthContext.jsx";
 
 
@@ -7,18 +8,20 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const { userId } = useContext(AuthContext);
+  
 
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [favorite, setFavorite] = useState([])
 
   useEffect(() => {
     fetchCartItems(); 
-    // fetchProducts();
-  }, [userId]);
+    fetchFavorites();
+  }, []);
 
-const fetchProducts = async ()=> {
+/* const fetchProducts = async ()=> {
     try {
       const { response, error, loading } = await getProducts();
       setProducts(response);
@@ -29,8 +32,19 @@ const fetchProducts = async ()=> {
       setError("Error al obtener productos");
       setLoading(false);
     }
-  }
-
+  } */
+  const fetchFavorites = async () => {
+    try {
+      const { response, error, loading } = await getFavoritesbyUser(userId);
+      setFavorite(response);
+      setError(error);
+      setLoading(loading);
+    } catch (error) {
+      console.error("Error al obtener favoritos:", error);
+      setError("Error al obtener favoritos");
+      setLoading(false);
+    }
+  };
   const fetchCartItems = async () => {
     try {
       const { response, error, loading } = await getCartItems();
@@ -89,6 +103,7 @@ const fetchProducts = async ()=> {
     <DataContext.Provider
       value={{
         products,
+        favorite,
         error,
         loading,
         cartItems,
