@@ -12,13 +12,12 @@ import Typography from "@mui/material/Typography";
 import "../index.css";
 import { DataContext } from "../context/DataContext";
 
-const ShoppingCard = ({ children }) => {
+const ListFavorites = () => {
 
-  const { products, favorite, user_id  } = useContext(DataContext);
+  const {  favorite  } = useContext(DataContext);
 
-  console.log(favorite)
   if (!favorite || !favorite.favorite || !Array.isArray(favorite.favorite)) {
-    return <div>No hay Favoritos disponibles { user_id }</div>;
+    return <div>No hay Favoritos disponibles </div>;
   }
 
  
@@ -27,7 +26,7 @@ const ShoppingCard = ({ children }) => {
       
       <Container>
         <h1>Mis Favoritos</h1>
-        {favorite.favorite.map(product  => (
+        {favorite.favorite.map(favorite  => (
           <Card key={favorite.favorite} className="favorite-card">
             <CardContent className="favorite-card-content">
               <Typography variant="p" className="favorite-card-color">
@@ -51,7 +50,7 @@ const ShoppingCard = ({ children }) => {
               </Box>
             </CardContent>
             <CardActions sx={{ marginRight:2}}>
-              {children}
+            
        
             </CardActions>
           </Card>
@@ -61,4 +60,4 @@ const ShoppingCard = ({ children }) => {
   );
 };
 
-export default ShoppingCard;
+export default ListFavorites;
