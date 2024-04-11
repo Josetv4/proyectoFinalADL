@@ -257,6 +257,19 @@ const getFavoritesbyUser = async (userId) => {
     };
   }
 };
+const getReview = async (id) => {
+  try {
+    const response = await axios.get(`/review/${id}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error review", error);
+    return {
+      response: [],
+      error: "Error al obtener review por id",
+      loading: false,
+    };
+  }
+}
 export {
   getProducts,
   getCartItems,
@@ -276,5 +289,6 @@ export {
   getProductsbySearch,
   updateUsers,
   postReviewProduct,
-  getFavoritesbyUser
+  getFavoritesbyUser,
+  getReview
 };
