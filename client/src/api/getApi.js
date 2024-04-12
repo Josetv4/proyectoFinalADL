@@ -74,7 +74,7 @@ const userRegister = async (userData) => {
     const response = await axios.post("/users", userData);
     return { statusCode : response.request.status , response: response.data, error: null, loading: false };
   } catch (error) {
-    return { statusCode : error.response.request.status, response: [], error: "Error al obtener carritos", loading: false };
+    return { statusCode : error.response.request.status, response: [], error: "Error al obtener registrar usuario", loading: false };
   }
 };
 
@@ -221,14 +221,18 @@ const postReviewProduct = async (rating, coments) => {
 const getProductDescription = async (description) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(`/product/description`, { description } ,
+    const response = await axios.post(
+      `/products/description`,
+      { name: description }, // Aquí ajustamos la carga útil
       {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
     return { response: response.data, error: null };
   } catch (error) {
-    return { error : error.message };
+    return { error: error.message };
   }
 };
 
@@ -245,6 +249,39 @@ const createNewProduct = async (productData) => {
     return { error : error.message };
   }
 };
+
+const getFavoritesbyUser = async (userId) => {
+  
+  try {
+    const token = window.localStorage.getItem("token");
+    
+    const response = await axios.get(`/favorite/user/${userId}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener favorito por id:", error);
+    return {
+      response: [],
+      error,
+      loading: false,
+    };
+  }
+};
+const getReview = async (id) => {
+  try {
+    const response = await axios.get(`/review/${id}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error review", error);
+    return {
+      response: [],
+      error: "Error al obtener review por id",
+      loading: false,
+    };
+  }
+}
 
 export {
   getProducts,
@@ -265,5 +302,10 @@ export {
   getProductsbySearch,
   updateUsers,
   postReviewProduct,
+<<<<<<< HEAD
   createNewProduct
+=======
+  getFavoritesbyUser,
+  getReview
+>>>>>>> 03c8f539628624c33cdc6e1387ab48824ba8cc32
 };
