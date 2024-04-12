@@ -6,7 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import "./styles.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { getProductsbySearch } from "../../api/getApi";
+import {getProductDescription } from "../../api/getApi";
 
 
 const SearchResult = () => {
@@ -15,19 +15,20 @@ const SearchResult = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    asyncGetProducts(name); // Pasamos 'name' como argumento
+    asyncGetProducts(name); 
   }, [name]);
 
-  const asyncGetProducts = async (text) => { // Añadimos 'text' como parámetro
+  const asyncGetProducts = async (text) => { 
     try {
       setLoading(true);
-      const { response, error } = await getProductsbySearch(text); // Llamamos a getProductsbySearch con 'text'
+      const { response, error } = await getProductDescription(text); 
       if (error) {
         console.error(error);
         return;
       }
-      console.log(response);
-      const fullArrayProducts = response.map((element) => {
+      console.log(JSON.stringify(response));
+      
+      const fullArrayProducts = response.product.map((element) => {
         return {
           ...element,
           image_url: 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg',
