@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import TextField from "@mui/material/TextField";
 import ButtonOutline from '../Buttons/buttonBigoutline/buttonOutline';
-import { postReviewProduct } from '../../api/getApi';
+import {  getProductDescription} from '../../api/getApi';
 import "./style.css";
 
 const ReviewComponent = () => {
@@ -16,7 +16,7 @@ const ReviewComponent = () => {
     const postReview = async () => {
         try {
             setLoading(true);
-            const response = await postReviewProduct(value, coments);
+            const response = await  getProductDescription(value, coments);
             console.log(response);
             setLoading(false);
         } catch (error) {
@@ -25,12 +25,12 @@ const ReviewComponent = () => {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        postReview();
-        console.log("hola soy el formulario")
+        await postReview();
+      
     };
-
+    console.log("hola soy el formulario" + JSON.stringify(handleSubmit) );
     useEffect(() => {
         // Se ejecutará al montar el componente
     }, []); // Si deseas ejecutar algo solo al montar, deja el array de dependencias vacío
