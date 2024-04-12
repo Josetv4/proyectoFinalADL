@@ -279,6 +279,25 @@ const getFavoritesbyUser = async (userId) => {
     };
   }
 };
+const getProductsByUser = async (userId) => {
+  
+  try {
+    const token = window.localStorage.getItem("token");
+    
+    const response = await axios.get(`/products/user/${userId}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener prioducto por usuario:", error);
+    return {
+      response: [],
+      error,
+      loading: false,
+    };
+  }
+};
 const getReview = async (id) => {
   try {
     const response = await axios.get(`/review/${id}`);
@@ -315,5 +334,6 @@ export {
   getReviewProductId,
   createNewProduct,
   getFavoritesbyUser,
+  getProductsByUser,
   getReview
 };
