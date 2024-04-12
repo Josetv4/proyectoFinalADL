@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import Box from "@mui/material/Box";
 import ButtonBig from "../../../components/Buttons/buttonBig/buttonBig";
 import Select from "@mui/material/Select";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import Checkbox from "@mui/material/Checkbox";
-import CategoryData from "../../../components/json/CategoryData.json";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import { FaRegImage } from "react-icons/fa6";
@@ -14,16 +12,32 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
 import "./style.css";
 import TextField from "@mui/material/TextField";
+import { getCategories } from "../../../api/getApi";
 
 const Publications = () => {
-  const CategoryDataArray = Object.values(CategoryData);
 
+  const { userId } = useContext(AuthContext);
   const [productname, setProductname] = useState("");
   const [details, setDetails] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [detailname, setDetailname] = "";
   const [category, setCategory] = useState([]);
+
+  const [categories,setCategories] = useState([]);
+
+  useEffect(()=>{
+    asyncGetCategories();
+  },[]);
+
+  const asyncGetCategories = async()=>{
+    try {
+      const response = await getCategories();
+      setCategories(response.response.category)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -37,8 +51,8 @@ const Publications = () => {
     width: 1,
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit =  (e) => {
+    e.preventDefault();   
   };
 
   const handleChange = (event) => {
@@ -51,13 +65,13 @@ const Publications = () => {
     );
   };
 
+
+
   return (
     <div className="publication">
       <h1>Publica tus productos</h1>
       <form onSubmit={handleSubmit}>
-        <Container
-         
-        >
+        <Container>
           <Box
            sx={{
             display: "grid",
@@ -77,7 +91,6 @@ const Publications = () => {
               label="Nombre del producto"
               defaultValue="ejemplo, lozartan"
               variant="filled"
-            
               value={productname}
               onChange={(e) => setProductname(e.target.value)}
             />
@@ -137,22 +150,18 @@ const Publications = () => {
         
             <div className="publication_category">
               <label htmlFor="category">
-                Seleciona una o más categorías a las que pertenece tu producto
+                Seleciona una categoría para tu producto
               </label>
               <Select
-                labelId="demo-multiple-checkbox-label"
-                id="demo-multiple-checkbox"
-                multiple
                 variant="filled"
                 value={category}
                 onChange={handleChange}
                 input={<OutlinedInput label="Tag" />}
                 renderValue={(selected) => selected.join(", ")}
               >
-                {CategoryDataArray.map((item) => (
-                  <MenuItem key={item.id} value={item.nombre}>
-                    <Checkbox checked={category.indexOf(item.nombre) > -1} />
-                    <ListItemText primary={item.nombre} />
+                {categories?.map((item) => (
+                  <MenuItem key={item.category_id} value={item.category_id}>
+                    <ListItemText primary={item.name} />
                   </MenuItem>
                 ))}
               </Select>

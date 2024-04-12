@@ -74,9 +74,6 @@ export default function ProductCard({ product }) {
             ({product.valoration})
           </Box>
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {product.description}
-        </Typography>
         <Typography
           className='price-content'
           variant="body5"
@@ -97,6 +94,8 @@ export default function ProductCard({ product }) {
           </ButtonLittleoutline>
         </CardActions>
       </CardContent>
+      <div className="margin_color">
+          </div>
     </Card>
   );
 }
