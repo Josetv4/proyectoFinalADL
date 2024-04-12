@@ -244,7 +244,7 @@ const createNewProduct = async (productData) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    return { response: response.data, error: null };
+    return { statusCode : response.request.status , response: response.data, error: null };
   } catch (error) {
     return { error : error.message };
   }

@@ -58,19 +58,19 @@ const getProductByDescription  = async ( { name } ) => {
 };
 
 const createProduct = async (
-  { name, description, price, stock, category_id, status, user_id, information },
+  { nameProducts, description, price, stock, category_id, statusProduct, user_id, information },
   image
 ) => {
   const SQLquery = {
     text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id, image_url, information) 
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8,$9) RETURNING *`,
     values: [
-      name,
+      nameProducts,
       description,
       price,
       stock,
       category_id,
-      status,
+      statusProduct,
       user_id,
       image,
       information
