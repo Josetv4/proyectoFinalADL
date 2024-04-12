@@ -15,7 +15,7 @@ const ReviewComponent = () => {
     const postReview = async () => {
         try {
             setLoading(true);
-            const response = await postReviewProduct(value, coments);
+            const response = await postReviewProduct(raiting, coments);
             console.log(response);
             setLoading(false);
         } catch (error) {
@@ -30,8 +30,8 @@ const ReviewComponent = () => {
     };
 
     useEffect(() => {
-        // Se ejecutará al montar el componente
-    }, []); // Si deseas ejecutar algo solo al montar, deja el array de dependencias vacío
+       
+    }, []); 
 
     return (
         <Box
