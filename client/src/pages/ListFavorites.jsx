@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -10,53 +10,74 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import "../index.css";
-import { DataContext } from "../context/DataContext";
+
+import { AuthContext } from "../context/AuthContext.jsx";
+import { getFavoritesbyUser } from "../api/getApi.js";
 
 const ListFavorites = () => {
+  const { userId } = useContext(AuthContext);
 
-  const {  favorite  } = useContext(DataContext);
+  console.log(userId)
 
-  if (!favorite || !favorite.favorite || !Array.isArray(favorite.favorite)) {
-    return <div>No hay Favoritos disponibles </div>;
-  }
+  const [error, setError] = useState("");
+  const [favorites, setFavorites] = useState([]);
 
- 
+  useEffect(() => {
+    
+      fetchFavorites();
+    
+  }, []);
+
+  const fetchFavorites = async () => {
+
+    try {
+      const { response, error } = await getFavoritesbyUser(userId);
+      setFavorites(response.favorites);
+      setError(error);
+      console.log(response.favorites)
+    } catch (error) {
+      console.error("Error al obtener favoritos:", error);
+      setError("Error al obtener favoritos");
+    }
+  };
+
   return (
     <main>
-      
       <Container>
         <h1>Mis Favoritos</h1>
-        {favorite.favorite.map(favorite  => (
-          <Card key={favorite.favorite} className="favorite-card">
+        { favorites.map((favorite) => (
+          <Card key={favorite.favorite_id} className="favorite-card">
             <CardContent className="favorite-card-content">
               <Typography variant="p" className="favorite-card-color">
                 Fecha de Compra
               </Typography>
-              <Typography variant="p">Publicado el {new Date(favorite.create_at).getDate()} de {new Date(product.create_at).toLocaleString('es', { month: 'long' })} del  {new Date(product.create_at).getFullYear()}</Typography>
+              <Typography variant="p">
+               
+              </Typography>
             </CardContent>
             <CardContent className="favorite-box-content">
               <Box>
                 <img
                   className="favorite-card-image"
-                  src={favorite.image_url} 
-                  alt={favorite.description}
+                  src={"favorite.image_url"}
+                  alt={"favorite.description"}
                 />
               </Box>
               <Box className="favorite-card-content">
-                <Typography variant="p">{product.name}</Typography>
-                <Typography variant="p" className="favorite-card-color">{favorite.price}</Typography>
-                <Typography variant="p">Vendido por <a href="#">{favorite.user_id}</a></Typography>
-
+                <Typography variant="p">{"favorite.name"}</Typography>
+                <Typography variant="p" className="favorite-card-color">
+                  {"favorite.price"}
+                </Typography>
+                <Typography variant="p">
+                  Vendido por <a href="#">{favorite.user_id}</a>
+                </Typography>
               </Box>
             </CardContent>
-            <CardActions sx={{ marginRight:2}}>
-            
-       
-            </CardActions>
+            <CardActions sx={{ marginRight: 2 }}></CardActions>
           </Card>
         ))}
       </Container>
-    </main>
+    </main> 
   );
 };
 

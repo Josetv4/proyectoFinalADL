@@ -6,7 +6,7 @@ import {
   postCartItems,
   updateCartItems,
   deleteCartItems,
-  getFavoritesbyUser,
+  
 } from "../api/getApi.js";
 
 import { AuthContext } from "./AuthContext.jsx";
@@ -21,11 +21,10 @@ const DataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [favorite, setFavorite] = useState([]);
+  
 
   useEffect(() => {
     fetchCartItems();
-    fetchFavorites();
     fetchProducts();
   }, []);
 
@@ -41,18 +40,7 @@ const DataProvider = ({ children }) => {
       setLoading(false);
     }
   } 
-  const fetchFavorites = async (userId) => {
-    try {
-      const { response, error, loading } = await getFavoritesbyUser(userId);
-      setFavorite(response);
-      setError(error);
-      setLoading(loading);
-    } catch (error) {
-      console.error("Error al obtener favoritos:", error);
-      setError("Error al obtener favoritos");
-      setLoading(false);
-    }
-  };
+  
   const fetchCartItems = async () => {
     try {
       const { response, error, loading } = await getCartItems();
@@ -121,7 +109,6 @@ const DataProvider = ({ children }) => {
     <DataContext.Provider
       value={{
         products,
-        favorite,
         userId,
         error,
         loading,

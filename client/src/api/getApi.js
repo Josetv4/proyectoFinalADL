@@ -240,7 +240,6 @@ const getFavoritesbyUser = async (userId) => {
     {
       headers: { Authorization: `Bearer ${token}` },
     });
-    
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener favorito por id:", error);
