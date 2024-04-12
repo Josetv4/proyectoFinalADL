@@ -1,10 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 
+import swal from "sweetalert";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 // import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -23,13 +27,15 @@ const ListFavorites = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    
       fetchFavorites();
-    
   }, []);
 
-  const fetchFavorites = async () => {
+  const handleClick = async ( favoriteId ) => {
+    await swal("id : " + favoriteId, { icon: "success", });
+  }
 
+
+  const fetchFavorites = async () => {
     try {
       const { response, error } = await getFavoritesbyUser(userId);
       setFavorites(response.favorites);
@@ -71,6 +77,14 @@ const ListFavorites = () => {
                 <Typography variant="p">
                   Vendido por <a href="#">{favorite.user_id}</a>
                 </Typography>
+              </Box>
+              <Box>
+                      <IconButton
+                        color="error"
+                        onClick={() => handleClick(favorite.favorite_id)}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
               </Box>
             </CardContent>
             <CardActions sx={{ marginRight: 2 }}></CardActions>
