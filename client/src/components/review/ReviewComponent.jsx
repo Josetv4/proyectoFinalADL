@@ -10,6 +10,7 @@ import "./style.css";
 const ReviewComponent = () => {
     const [value, setValue] = useState(2);
     const [coments, setComents] = useState("");
+ 
     const [loading, setLoading] = useState(false);
 
     const postReview = async () => {
@@ -27,6 +28,7 @@ const ReviewComponent = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         postReview();
+        console.log("hola soy el formulario")
     };
 
     useEffect(() => {
