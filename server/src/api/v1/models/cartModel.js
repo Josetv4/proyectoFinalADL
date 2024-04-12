@@ -16,7 +16,7 @@ const getCartsByUser = async (id_user) => {
     text: `SELECT c.cart_id, c.user_id, ci.detail_id, ci.product_id, ci.quantity, ci.price
             FROM cart c
             INNER JOIN cart_items ci ON c.cart_id = ci.cart_id
-           WHERE user_id = $1`,
+           WHERE user_id = $1 AND status='Ingresada'`,
     values: [id_user],
   };
 
@@ -67,9 +67,7 @@ const incrementCartItems = async (cart_id, detail_id, product_id) => {
              RETURNING *`,
     values: [cart_id, detail_id, product_id ],
   };
-  console.log(SQLquery);
   const response = await pool.query(SQLquery);
-  console.log(response);
   return response.rows[0];
 };
 
