@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (userData) => {
         const { response } = await loginUser(userData)
-        console.log(response.user);
+       
         if (!Array.isArray(response)) {
             setUser(response.user);
             const userID = response["user"]["user_id"]

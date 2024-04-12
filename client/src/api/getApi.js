@@ -232,16 +232,10 @@ const getProductDescription = async (description) => {
   }
 };
 const getFavoritesbyUser = async (userId) => {
-  if (userId === null) {
-   
-    return {
-      response: [],
-      error: "El usuario es null",
-      loading: false,
-    };
-  }
+  
   try {
     const token = window.localStorage.getItem("token");
+    
     const response = await axios.get(`/favorite/user/${userId}`,
     {
       headers: { Authorization: `Bearer ${token}` },
@@ -251,11 +245,12 @@ const getFavoritesbyUser = async (userId) => {
     console.error("Error al obtener favorito por id:", error);
     return {
       response: [],
-      error: "Error al obtener favorito por id",
+      error,
       loading: false,
     };
   }
 };
+
 export {
   getProducts,
   getCartItems,
