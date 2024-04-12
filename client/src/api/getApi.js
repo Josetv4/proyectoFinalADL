@@ -251,7 +251,6 @@ const getFavoritesbyUser = async (userId) => {
     };
   }
 };
-<<<<<<< HEAD
 const getReview = async (id) => {
   try {
     const response = await axios.get(`/review/${id}`);
@@ -265,9 +264,7 @@ const getReview = async (id) => {
     };
   }
 }
-=======
 
->>>>>>> 3e99601a33e46cc213e65d73857053b18fe38251
 export {
   getProducts,
   getCartItems,
