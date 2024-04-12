@@ -205,12 +205,12 @@ const getStatusProduct = async (id, status) => {
   }
 };
 
-const postReviewProduct = async (rating, coments) => {
+const postReviewProduct = async (product, user, rating, coments) => {
   try {
       const token = window.localStorage.getItem("token");
       const response = await axios.post(
           `/review`,
-          { rating, coments },
+          { product, user, rating, coments },
           { headers: { Authorization: `Bearer ${token}` } }
       );
       return { response: response.data, error: null };
