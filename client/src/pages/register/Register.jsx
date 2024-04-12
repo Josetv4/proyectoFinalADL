@@ -5,14 +5,15 @@ import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import Alert from '@mui/material/Alert';
 import { Box } from '@mui/material';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
 import { userRegister } from "../../api/getApi";
-import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
@@ -28,17 +29,15 @@ const RegisterPage = () => {
   const [registerSuccefull, setRegisterSuccefull] = useState("");
   const [validPassword, setValidPassword] = useState(true);
 
-  const navigate = useNavigate();
-
   const registerUser = async () => {
     setShowInfo(false);
-    if (!validateFields()) {
+    if (!validateFields()){
       setShowInfo(true);
       return;
-    }
+    };
     const fullDate = new Date(date);
     let day = fullDate.getDate();
-    let month = fullDate.getMonth() + 1;
+    let month = fullDate.getMonth()+ 1;
     let year = fullDate.getFullYear();
 
     if (day < 10) {
@@ -47,7 +46,7 @@ const RegisterPage = () => {
     if (month < 10) {
       month = '0' + month;
     }
-    const userData = {
+    const userData = {      
       username: name,
       rut,
       birth: `${day}/${month}/${year}`,
@@ -59,31 +58,26 @@ const RegisterPage = () => {
     }
     try {
       const response = await userRegister(userData);
-      console.log("response front: ", response);
+      console.log("response front: " , response);
       if (response.statusCode === 201) {
         setRegisterSuccefull(true);
-        swal("¡Registro exitoso!", "Ingresa con tus datos", "success");
-        setTimeout(() => {
-          navigate('/login');
-        }, 3000);
-      } else {
+      }else{
+        
         setRegisterSuccefull(false);
-        swal("¡Error!", "Ha ocurrido un error al registrar el usuario", "error");
-      }
+      }            
     } catch (error) {
       setRegisterSuccefull(false);
-      swal("¡Error!", "Ha ocurrido un error al registrar el usuario", "error");
     }
   }
 
   const validateFields = () => {
     let valid = false;
-    if (name !== "" && rut !== "" && date !== "" && mail !== "" && phone !== "" && password !== "" && rol) {
+    if (name != "" && rut != "" && date != "" && mail != "" && phone != "" && password != "" && rol) {
       if (password === passwordrepeat) {
         setValidPassword(true);
         valid = true;
-      } else {
-        setValidPassword(false);
+      }else{
+        setValidPassword(false);        
       }
     }
     return valid;
@@ -93,11 +87,11 @@ const RegisterPage = () => {
   return (
     <div className="register_page">
       <div className="register_inputs">
-        <h1>Regístrate</h1>
+        <h1>Registrate</h1>
         <div className="login_border">
           <form action="">
             {
-              showInfo ? <div style={{ color: 'red' }}>{validPassword ? "Todos los campos son obligatorios" : "Las contraseñas no coinciden"}</div> : ""
+               showInfo ? <Alert severity="error">{validPassword ? "Todos los campos son obligatorios" : "Las contraseñas no coinciden"}</Alert> : ""
             }
             <div className="login_input">
               <InputLabel htmlFor="outlined-adornment-password">
@@ -113,16 +107,16 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div className="login_input" style={{ marginTop: "20px" }}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <div className="login_input" style={{marginTop:"20px"}}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>             
                 <DatePicker
                   label="Fecha de Nacimiento"
-                  value={date}
+                  value={date} 
                   onChange={(newValue) => setDate(newValue)}
-                  sx={{ width: "80%" }}
+                  sx={{width:"80%"}}
                 />
               </LocalizationProvider>
-
+              
             </div>
 
             <div className="login_input">
@@ -185,7 +179,6 @@ const RegisterPage = () => {
                 Password
               </InputLabel>
               <TextField
-              type="password"
                 required
                 id="filled"
                 defaultValue="correo@mail.com"
@@ -200,7 +193,6 @@ const RegisterPage = () => {
                 Repetir Password
               </InputLabel>
               <TextField
-              type="password"
                 required
                 id="filled"
                 defaultValue="correo@mail.com"
@@ -213,12 +205,12 @@ const RegisterPage = () => {
               <ButtonLittle onClick={registerUser}> Registrarse</ButtonLittle>
             </div>
             <Box>
-              {registerSuccefull === ""
-                ?
+            { registerSuccefull === ""
+              ?
                 ""
-                :
-                registerSuccefull ? <div>Registro exitoso.</div> : <div>Ha ocurrido un error al registrar el usuario.</div>
-              }
+              : 
+              registerSuccefull ? <Alert severity="success">Registro exitoso.</Alert> : <Alert severity="error">Ha ocurrido un error al registrar el usuario.</Alert>
+            }
             </Box>
 
 

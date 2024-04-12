@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
             const response = await userRegister(userData);
             setUserId(response.id);
         } catch (error) {
-            console.error("Error al registrar el usuario", error);
+            console.error("Error al obtener carritos:", error);
         }
     };
 
