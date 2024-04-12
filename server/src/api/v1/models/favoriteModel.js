@@ -26,7 +26,7 @@ const getFavoriteId = async ({ id }) => {
   
   return response.rows[0];
 };
-const getFavoriteUser = async ( id ) => {
+const getFavoriteUser = async ( { id } ) => {
   const SQLquery = {
     text: `SELECT f.favorites_id, f.product_id, f.user_id 
             FROM favorites f 
@@ -34,7 +34,7 @@ const getFavoriteUser = async ( id ) => {
             INNER JOIN users s ON f.user_id = s.user_id
            WHERE f.user_id = $1`,
            
-    values: [id],
+    values: [ id ],
   };
 
   const response = await pool.query(SQLquery);

@@ -17,7 +17,7 @@ import { isLogin } from "../../middlewares/isLogin.js";
 
 router.get("/favorite", getActivity, getFavorites);
 router.get("/favorite/:id", getActivity, getFavoritesId);
-router.get("/favorite/user/:id", isLogin, getActivity, getFavoritesUser);
+router.get("/favorite/user/:id",  getActivity, getFavoritesUser);
 router.post("/favorite/", isLogin, getActivity, createFavorites);
 router.put("/favorite/:id", isLogin,  getActivity, updateFavorites);
 router.delete("/favorite/:id", isLogin, getActivity, deleteFavorites);
