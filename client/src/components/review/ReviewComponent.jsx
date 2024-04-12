@@ -10,12 +10,13 @@ import "./style.css";
 const ReviewComponent = () => {
     const [value, setValue] = useState(2);
     const [coments, setComents] = useState("");
+ 
     const [loading, setLoading] = useState(false);
 
     const postReview = async () => {
         try {
             setLoading(true);
-            const response = await postReviewProduct(raiting, coments);
+            const response = await postReviewProduct(value, coments);
             console.log(response);
             setLoading(false);
         } catch (error) {
@@ -27,11 +28,12 @@ const ReviewComponent = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         postReview();
+        console.log("hola soy el formulario")
     };
 
     useEffect(() => {
-       
-    }, []); 
+        // Se ejecutará al montar el componente
+    }, []); // Si deseas ejecutar algo solo al montar, deja el array de dependencias vacío
 
     return (
         <Box
