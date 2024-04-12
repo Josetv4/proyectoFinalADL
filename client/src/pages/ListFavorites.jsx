@@ -81,7 +81,7 @@ const ListFavorites = () => {
               <Box>
                       <IconButton
                         color="error"
-                        onClick={() => handleClick(favorite.favorite_id)}
+                        onClick={() => handleClick(favorite.favorites_id)}
                       >
                         <DeleteIcon />
                       </IconButton>

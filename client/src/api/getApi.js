@@ -218,6 +218,16 @@ const postReviewProduct = async (rating, coments) => {
       return { error: error.message };
   }
 };
+const getReviewProductId = async (id) => {
+  try {
+    
+      const response = await axios.get(`/review/${id}`)
+      return { response: response.data, error: null };
+  } catch (error) {
+      return { error: error.message };
+  }
+};
+
 const getProductDescription = async (description) => {
   try {
     const token = window.localStorage.getItem("token");
@@ -302,6 +312,7 @@ export {
   getProductsbySearch,
   updateUsers,
   postReviewProduct,
+  getReviewProductId,
   createNewProduct,
   getFavoritesbyUser,
   getReview
