@@ -302,10 +302,7 @@ export {
   getProductsbySearch,
   updateUsers,
   postReviewProduct,
-<<<<<<< HEAD
-  createNewProduct
-=======
+  createNewProduct,
   getFavoritesbyUser,
   getReview
->>>>>>> 03c8f539628624c33cdc6e1387ab48824ba8cc32
 };
