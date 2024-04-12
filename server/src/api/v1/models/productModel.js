@@ -49,7 +49,7 @@ const getProductByUser = async ({ id }) => {
 const getProductByDescription  = async ( { name } ) => {
 
   const SQLquery = {
-    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id WHERE p.name LIKE '%' || $1 || '%' `,
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id WHERE UPPER(p.name) LIKE UPPER('%' || $1 || '%') `,
     values: [ name ],
   };
   console.log(SQLquery)
