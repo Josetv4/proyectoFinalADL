@@ -61,11 +61,11 @@ export default function ProductCard({ product }) {
           {product.name}
         </Typography>
         <Typography variant="normal" component="h5" color="textSecondary" >
-          {product.format}
+          {product.description}
         </Typography>
         <Typography variant="body2" color="textSecondary" component={'span'} sx={{ display: 'flex', justifyContent: "space-between" }} >
           <Box>
-            Vendido por : <Box className='link-text' >{product.seller}</Box>
+            Vendido por : <Box className='link-text' >{product.name_user}</Box>
           </Box>
           <Box>
             <IconButton>
