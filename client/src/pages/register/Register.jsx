@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { userRegister } from "../../api/getApi";
 import ButtonLittle from "../../components/Buttons/buttonLittle/buttonLittle";
-
+import "./style.css";
 const RegisterPage = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState(dayjs(new Date()));
@@ -103,8 +103,8 @@ const RegisterPage = () => {
   return (
     <div className="register_page">
       <div className="register_inputs">
-        <h1>Regístrate</h1>
-        <div className="login_border">
+        <h1 className="register_h1">Regístrate</h1>
+        <div className="register_border">
           <form className="register_form">
             {showInfo ? (
               <div style={{ color: "red" }}>
