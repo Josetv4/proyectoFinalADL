@@ -1,5 +1,5 @@
 .publication {
-  margin: 5%;
+  margin: 3%;
 }
 .publication_category {
   display: flex;
@@ -21,4 +21,15 @@
 }
 .css-phksla-MuiInputBase-root-MuiFilledInput-root {
   width: 327px !important;
+}
+.input_publication{
+    width: 325px !important;
+  height: 60px !important;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+  width: inherit;
+height: inherit;
+}
+.css-batk84-MuiInputBase-root-MuiFilledInput-root{
+  height: 58px !important;
 }

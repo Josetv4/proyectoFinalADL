@@ -29,14 +29,13 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
             const formattedDateTime = now.toISOString();
             setCreatedAt(formattedDateTime);        
             
-            console.log('mira weon: ' + selectedProductId)
+          
             const response = await postReviewProduct( selectedProductId,selectuserId, value, coment, createdAt );
         
 
             if (response.statusCode === 201) {
                 setReviewSuccess(true);
                 toast(' ¡Gracias, por tu comentario!',)
-                
                 console.log("Cantidad de estrellas y texto ingresado correctamente:", { value, coment });
                 setTimeout(() => {
                     // Hacer algo después de que la alerta desaparezca

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import ButtonBig from "../../../components/Buttons/buttonBig/buttonBig";
 import Select from "@mui/material/Select";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import Checkbox from "@mui/material/Checkbox";
+
 import CategoryData from "../../../components/json/CategoryData.json";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -15,6 +15,10 @@ import { styled } from "@mui/material/styles";
 import "./style.css";
 import TextField from "@mui/material/TextField";
 
+import CircularProgress from '@mui/material/CircularProgress';
+
+
+
 const Publications = () => {
   const CategoryDataArray = Object.values(CategoryData);
 
@@ -24,6 +28,9 @@ const Publications = () => {
   const [stock, setStock] = useState("");
   const [detailname, setDetailname] = "";
   const [category, setCategory] = useState([]);
+  const [image, setImage] = useState(null);
+  const [imageName, setImageName] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -50,6 +57,18 @@ const Publications = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setLoading(true);
+      // Simular una carga de imagen (aquí puedes llamar a tu función de carga real de imagen)
+      setTimeout(() => {
+        setImage(file);
+        setImageName(file.name);
+        setLoading(false);
+      }, 2000); // Simulación de tiempo de carga
+    }
+  };
 
   return (
     <div className="publication">
@@ -62,14 +81,14 @@ const Publications = () => {
            sx={{
             display: "grid",
             columnGap: 4,
-            rowGap: 3,
+            rowGap: 6,
             gridTemplateColumns: "repeat(3, 2fr)",
             justifyItems: "center",
             height: "100%",
             margin: "2%",
             alignItems: "center",
           }}>
-          <div>
+          <div className="input_publication">
 
             <TextField
               required
@@ -83,7 +102,7 @@ const Publications = () => {
             />
           </div>
 
-          <div>
+          <div  className="input_publication">
             <TextField
               required
               id="filled"
@@ -95,7 +114,7 @@ const Publications = () => {
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div>
+          <div className="input_publication">
             <TextField
               required
               id="filled-required"
@@ -108,7 +127,7 @@ const Publications = () => {
             />
           </div>
 
-          <div>
+          <div className="input_publication">
             <TextField
               id="outlined-multiline-static"
               label="Nombre detallado"
@@ -121,7 +140,7 @@ const Publications = () => {
             />
           </div>
 
-          <div>
+          <div className="input_publication">
             <TextField
               id="outlined-multiline-static"
               label="Detalles de producto"
@@ -132,7 +151,7 @@ const Publications = () => {
               value={details}
               onChange={(e) => setDetails(e.target.value)}
             />
-          </div>
+          </div >
 
         
             <div className="publication_category">
@@ -142,7 +161,7 @@ const Publications = () => {
               <Select
                 labelId="demo-multiple-checkbox-label"
                 id="demo-multiple-checkbox"
-                multiple
+         
                 variant="filled"
                 value={category}
                 onChange={handleChange}
@@ -150,11 +169,11 @@ const Publications = () => {
                 renderValue={(selected) => selected.join(", ")}
               >
                 {CategoryDataArray.map((item) => (
-                  <MenuItem key={item.id} value={item.nombre}>
-                    <Checkbox checked={category.indexOf(item.nombre) > -1} />
-                    <ListItemText primary={item.nombre} />
-                  </MenuItem>
-                ))}
+  <MenuItem key={item.id} value={item.nombre}>
+    <ListItemText primary={item.nombre} />
+  </MenuItem>
+))}
+
               </Select>
             </div>
             <div className="publication_button">
@@ -165,11 +184,26 @@ const Publications = () => {
                 tabIndex={-1}
                 startIcon={<CloudUploadIcon />}
               >
+
                 Sube la imagen de tu producto aquí <FaRegImage />
-                <VisuallyHiddenInput type="file" />
+                 <VisuallyHiddenInput
+                id="upload-button"
+                type="file"
+                onChange={handleImageChange}
+              />
               </Button>
             </div>
-          
+            {loading && (
+              <div className="publication_button">
+                <CircularProgress />
+              </div>
+            )}
+            {/* Mostrar el nombre de la imagen cuando se haya cargado */}
+            {imageName && !loading && (
+              <div className="publication_button">
+                <p>{imageName}</p>
+              </div>
+            )}
           </Box>
           <Box
           sx={{
