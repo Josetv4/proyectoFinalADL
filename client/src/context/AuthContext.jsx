@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (userData) => {
         const { response } = await loginUser(userData)
-        console.log(response.user);
+       
         if (!Array.isArray(response)) {
             setUser(response.user);
             const userID = response["user"]["user_id"]
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
             const response = await userRegister(userData);
             setUserId(response.id);
         } catch (error) {
-            console.error("Error al obtener carritos:", error);
+            console.error("Error al registrar el usuario", error);
         }
     };
 
