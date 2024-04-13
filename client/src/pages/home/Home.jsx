@@ -6,53 +6,6 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import { Box } from "@mui/material";
 
 const homePage = () => {
-  const arrayProducts = [
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,    
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 3,
-      quantity: 0
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 13,
-      quantity: 4
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 4,
-      quantity: 6
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 12,
-      quantity: 3
-    },
-    
-  ];
 
     return (
         <div className="home" >
@@ -79,10 +32,7 @@ const homePage = () => {
    <section className="cart-section">
    
    <Box className= "card-box">
-   {arrayProducts.map((product, i ) => (
-          <ProductCard key={i}  product={product}>
-          </ProductCard>
-        ))}
+  <ProductCard/>
         </Box>
         </section>
         </div>

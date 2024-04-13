@@ -20,7 +20,7 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
     const [loading, setLoading] = useState(false); 
     const [createdAt, setCreatedAt] = useState('');
  
-    console.log("hola"+  selectuserId)
+ 
     const postReview = async () => {
          try {
             setLoading(true); // Iniciar carga
@@ -29,25 +29,32 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
             const formattedDateTime = now.toISOString();
             setCreatedAt(formattedDateTime);        
             
+            console.log('mira weon: ' + selectedProductId)
             const response = await postReviewProduct( selectedProductId,selectuserId, value, coment, createdAt );
-             console.log("Cantidad de estrellas:", value);         
-             console.log("Texto ingresado:", coment);
+        
+
             if (response.statusCode === 201) {
                 setReviewSuccess(true);
                 toast(' ¡Gracias, por tu comentario!',)
-                console.log("Cantidad de estrellas y texto ingresado:", { value, coment });
+                
+                console.log("Cantidad de estrellas y texto ingresado correctamente:", { value, coment });
                 setTimeout(() => {
                     // Hacer algo después de que la alerta desaparezca
                 }, 3000);
             } else {
                 setReviewSuccess(false);
+                console.log("Cantidad de estrellas:", value);         
+                console.log("Texto ingresado:", coment);
+                console.log("product id:", selectedProductId);
+                console.log(" user id:", selectuserId);
+                console.log("fecha:", createdAt);
                 toast(' ¡Gracias, por tu comentario! usp',)
-                console.log("Cantidad de estrellas y texto ingresado:", { value, coment });
+                console.log("Cantidad de estrellas y texto ingresado fallidamente:", { value, coment });
             }
         } catch (error) {
             setReviewSuccess(false);
             toast(' tu producto no fue reseñado ',)
-            console.log("Cantidad de estrellas y texto ingresado:", { value, coment });
+            console.log("Cantidad de estrellas y texto ingresado (catch):", { value, coment });
         } finally {
             setLoading(false); // Detener carga independientemente del resultado
         }

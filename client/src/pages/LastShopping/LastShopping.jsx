@@ -6,8 +6,9 @@ import { useState } from "react";
 
 const LastShopping = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [selectedProductId, setSelectedProductId] = useState(null);
-  const [selectuserId, setSelectuserid] = useState(null)
+  const [selectedProductId, setSelectedProductId] = useState("");
+  const [selectuserId, setSelectuserid] = useState("")
+
   const toggleDrawer = (productId, userid) => {
     setSelectedProductId(productId);
     setSelectuserid(userid)

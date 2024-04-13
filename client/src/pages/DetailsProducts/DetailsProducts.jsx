@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { Typography, Card, CardMedia, Grid, Box , Paper} from '@mui/material';
+import { Typography,  Box , Paper} from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
 import StarIcon from '@mui/icons-material/Star';
 import ButtonBig from '../../components/Buttons/buttonBig/buttonBig';
-import ButtonLittle from '../../components/Buttons/buttonLittle/buttonLittle';
+
 
 import "./styles.css";
 import { getProductsById } from '../../api/getApi';
