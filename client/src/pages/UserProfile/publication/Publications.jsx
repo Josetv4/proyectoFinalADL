@@ -12,15 +12,10 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
 import "./style.css";
 import TextField from "@mui/material/TextField";
-
-import CircularProgress from '@mui/material/CircularProgress';
-
-
 import { createNewProduct, getCategories } from "../../../api/getApi";
 import { AuthContext } from "../../../context/AuthContext";
 import swal from 'sweetalert';
-
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Publications = () => {
 
@@ -30,13 +25,11 @@ const Publications = () => {
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [detailname, setDetailname] = useState("");
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState("");
+  const [categories,setCategories] = useState([]);
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState("");
   const [loading, setLoading] = useState(false);
-
-
-  const [categories,setCategories] = useState([]);
 
   useEffect(()=>{
     asyncGetCategories();
@@ -101,7 +94,7 @@ const Publications = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
-  const handleImageChange = (e) => {
+const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setLoading(true);
@@ -134,44 +127,44 @@ const Publications = () => {
            sx={{
             display: "grid",
             columnGap: 4,
-            rowGap: 6,
+            rowGap: 3,
             gridTemplateColumns: "repeat(3, 2fr)",
             justifyItems: "center",
             height: "100%",
             margin: "2%",
             alignItems: "center",
           }}>
-          <div className="input_publication">
+          <div>
 
             <TextField
               required
               id="filled"
               label="Nombre del producto"
-              pplaceholder="ejemplo, lozartan"
+              defaultValue="ejemplo, lozartan"
               variant="filled"
               value={productname}
               onChange={(e) => setProductname(e.target.value)}
             />
           </div>
 
-          <div  className="input_publication">
+          <div>
             <TextField
               required
               id="filled"
               label="Valor por unidad"
-              pplaceholder="Valor por unidad"
+              defaultValue="Valor por unidad"
               variant="filled"
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div className="input_publication">
+          <div>
             <TextField
               required
               id="filled-required"
               label="Cantidad en sctock"
-              pplaceholder="Cantidad en stock"
+              defaultValue="Cantidad en stock"
               variant="filled"
               type="number"
               value={stock}
@@ -179,31 +172,31 @@ const Publications = () => {
             />
           </div>
 
-          <div className="input_publication">
-          <TextField
+          <div>
+            <TextField
               id="outlined-multiline-static"
               label="Nombre detallado"
               multiline
               variant="filled"
               rows={4}
-              placeholder="ejemplo, Losartan (B) 50mg 30 Comprimidos Recubiertos"
+              defaultValue="ejemplo, Losartan (B) 50mg 30 Comprimidos Recubiertos"
               onChange={(e) => setDetailname(e.target.value)}
               value={detailname}
             />
           </div>
 
-          <div className="input_publication">
+          <div>
             <TextField
               id="outlined-multiline-static"
               label="Detalles de producto"
               multiline
               variant="filled"
               rows={4}
-              pplaceholder="ejemplo, medicamento para personas hipertensas"
+              defaultValue="ejemplo, medicamento para personas hipertensas"
               value={details}
               onChange={(e) => setDetails(e.target.value)}
             />
-          </div >
+          </div>
 
         
             <div className="publication_category">
@@ -215,9 +208,9 @@ const Publications = () => {
                 value={category}
                 onChange={handleChange}
                 input={<OutlinedInput label="Tag" />}
-                pplaceholder={""}
+                defaultValue={""}
               >
-    {categories?.map((item) => (
+                {categories?.map((item) => (
                   <MenuItem key={item.category_id} value={item.category_id}>
                     <ListItemText primary={item.name} />
                   </MenuItem>
@@ -225,11 +218,12 @@ const Publications = () => {
               </Select>
             </div>
             <div className="publication_button">
-              <Button
+            <Button
                 component="label"
                 role={undefined}
                 variant="contained"
                 tabIndex={-1}
+                value= {image}
                 startIcon={<CloudUploadIcon />}
               >
 
