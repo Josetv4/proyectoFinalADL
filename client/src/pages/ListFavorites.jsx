@@ -75,11 +75,16 @@ const ListFavorites = () => {
               />
             </Box>
           </CardContent>
-          <CardContent className="favorite-box-content">
-            <Box className="favorite-card-content">
-              <Typography variant="p" className="favorite-name">
+          <CardContent className="favorite-card-content">
+            <Box>
+            <Typography variant="p" className="favorite-name">
                 {favorite.name}
               </Typography>
+            </Box>
+          </CardContent>
+          <CardContent className="favorite-box-content">
+            <Box className="favorite-card-content">
+             
               <Typography variant="p" className="favorite-card-color">
                 <span>Precio :</span> {favorite.price}
               </Typography>
@@ -89,7 +94,7 @@ const ListFavorites = () => {
             </Box>
             <Box>
               <ButtonLittle
-                onClick={userId ? () => addProduct() : () => dontProduct()}
+                onClick={ userId ? () => addProduct() : () => dontProduct()}
               >
                 Añadir al carro
               </ButtonLittle>

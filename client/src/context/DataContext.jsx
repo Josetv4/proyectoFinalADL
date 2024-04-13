@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems, getProductsByUser } from "../api/getApi.js";
+import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems, getProductsByUser, getallCartUser } from "../api/getApi.js";
 import {AuthContext} from "./AuthContext.jsx";
 
 
@@ -14,6 +14,7 @@ const DataProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [productSeller, setProductSeller] = useState([]);
+  const [cartsAllbyUser, setcartsAllbyUser] = useState([]);
 
   useEffect(() => {
     fetchProducts();
@@ -22,6 +23,7 @@ const DataProvider = ({ children }) => {
   useEffect(() => {
     if (userId) {
       fetchProductsByUser(userId);
+      fetchCartsAllbyUser(userId)
     }
   }, [userId])
   
@@ -41,7 +43,18 @@ const DataProvider = ({ children }) => {
       setLoading(false);
     }
   }
-
+  const fetchCartsAllbyUser = async (userId)=> {
+    try {
+      const { response, error, loading } = await getallCartUser(userId);
+      setcartsAllbyUser(response.data);
+      setError(error);
+      setLoading(loading);
+    } catch (error) {
+      console.error("Error al obtener todos los carritos:", error);
+      setError("Error al obtener todos los carritos ");
+      setLoading(false);
+    }
+  }
 const fetchProducts = async ()=> {
     try {
       const { response, error, loading } = await getProducts();
@@ -133,6 +146,7 @@ const fetchProducts = async ()=> {
         addCartItem,
         updateCartItem,
         deleteCartItem,
+        cartsAllbyUser
       }}
     >
       {children}

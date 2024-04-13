@@ -3,7 +3,8 @@ import { getCartsByUser,
             createCartItems,
             incrementCartItems,
             decrementCartItems,
-            getCarts
+            getCarts, 
+            getAllCartsByUser
         } from "../models/cartModel.js";
 import { handleError } from "../utils/utils.js";
 
@@ -86,11 +87,26 @@ const updateCartDecrease = async (req, res) => {
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });   
     }
 }
+const getAllCartbyUser = async (req, res) =>{
+    
+    const userId = req.params;
 
+    try {
+        const carts = await getAllCartsByUser(userId);
+        res.status(200).json({  carts });
+    } catch (err) {
+        const errorFound = handleError(err.code);
+        return res
+            .status(errorFound[0]?.status)
+            .json({ error: errorFound[0]?.message });
+    }
+
+}
 export {
     getCartUser,
     addCartUser,
     updateCartIncrease,
     updateCartDecrease,
-    getAllCart
+    getAllCart,
+    getAllCartbyUser
 }
