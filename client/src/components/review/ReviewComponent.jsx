@@ -17,6 +17,7 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
     const [value, setValue] = useState(2);
     const [coment, setcoment] = useState("");
     const [reviewSuccess, setReviewSuccess] = useState("");
+ 
     const [loading, setLoading] = useState(false); 
     const [createdAt, setCreatedAt] = useState('');
  

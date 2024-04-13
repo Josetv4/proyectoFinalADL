@@ -11,7 +11,7 @@ import './styles.css';
 import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
 import { DataContext } from "../../context/DataContext";
-import { AuthContext } from '../../context/AuthContext';
+import {AuthContext} from '../../context/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import swal from "sweetalert";
@@ -61,11 +61,11 @@ export default function ProductCard({ product }) {
           {product.name}
         </Typography>
         <Typography variant="normal" component="h5" color="textSecondary" >
-          {product.format}
+          {product.description}
         </Typography>
         <Typography variant="body2" color="textSecondary" component={'span'} sx={{ display: 'flex', justifyContent: "space-between" }} >
           <Box>
-            Vendido por : <Box className='link-text' >{product.seller}</Box>
+            Vendido por : <Box className='link-text' >{product.name_user}</Box>
           </Box>
           <Box>
             <IconButton>
@@ -73,9 +73,6 @@ export default function ProductCard({ product }) {
             </IconButton>
             ({product.valoration})
           </Box>
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {product.description}
         </Typography>
         <Typography
           className='price-content'
@@ -89,7 +86,7 @@ export default function ProductCard({ product }) {
           </Box>
         </Typography>
         <CardActions className='card-actions'>
-          <ButtonLittle onClick={userId ? () => addProduct(product): () => dontProduct() }>
+          <ButtonLittle onClick={userId ? () => addProduct(): () => dontProduct() }>
             Añadir al carro
           </ButtonLittle>
           <ButtonLittleoutline to={`/details-product/${product.product_id}`}>
@@ -97,6 +94,8 @@ export default function ProductCard({ product }) {
           </ButtonLittleoutline>
         </CardActions>
       </CardContent>
+      <div className="margin_color">
+          </div>
     </Card>
   );
 }

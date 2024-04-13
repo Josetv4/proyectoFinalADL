@@ -6,6 +6,7 @@ import {
   postCartItems,
   updateCartItems,
   deleteCartItems,
+  getProductsByUser,
   
 } from "../api/getApi.js";
 
@@ -15,19 +16,35 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const { userId } = useContext(AuthContext);
- 
+ console.log(userId)
 
+  const [cartUser, setCartUser] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  
 
+  const [productUser, setProductsUser] = useState([])
+  
   useEffect(() => {
-    fetchCartItems();
     fetchProducts();
   }, []);
+  useEffect(() =>{
+    userId || userId !== null ? fetchCartUser(): "";
+    if (userId) {
+      fetchProductsByUser(userId);
+    }
+  }, [userId]);
+ 
 
+  const fetchProductsByUser = async (userId) => {
+    try {
+      const products = await getProductsByUser(userId);
+      setProductsUser(products);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
    const fetchProducts = async ()=> {
     try {
       const { response, error, loading } = await getProducts();
@@ -45,6 +62,18 @@ const DataProvider = ({ children }) => {
     try {
       const { response, error, loading } = await getCartItems();
       setCartItems(response);
+      setError(error);
+      setLoading(loading);
+    } catch (error) {
+      console.error("Error al obtener carritos:", error);
+      setError("Error al obtener carritos");
+      setLoading(false);
+    }
+  };
+  const fetchCartUser = async () => {
+    try {
+      const { response, error, loading } = await getCartUser(userId);
+      setCartUser(response);
       setError(error);
       setLoading(loading);
     } catch (error) {
@@ -74,18 +103,14 @@ const DataProvider = ({ children }) => {
     }
   };
 
-  const updateCartItem = async (product_id, cartUpdate) => {
+
+  const updateCartItem = async ( product_id, detail_id, cart_id, cartUpdate) => {
     try {
       console.log(cartUpdate);
-      const { response, error, loading } = await updateCartItems(
-        product_id,
-        cartUpdate
-      );
+      const { response, error, loading } = await updateCartItems(product_id, detail_id, cart_id, cartUpdate);
       setCartItems(response);
       setError(error);
       setLoading(loading);
-
-      fetchCartItems();
     } catch (error) {
       console.error("Error al actualizar producto del carrito:", error);
     }
@@ -113,9 +138,11 @@ const DataProvider = ({ children }) => {
         error,
         loading,
         cartItems,
+        cartUser,
         addCartItem,
         updateCartItem,
         deleteCartItem,
+        productUser
       }}
     >
       {children}
