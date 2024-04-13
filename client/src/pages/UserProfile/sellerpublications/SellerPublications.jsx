@@ -7,55 +7,61 @@ import { Box } from "@mui/material";
 import "./style.css";
 
 import { DataContext } from "../../../context/DataContext";
+import { formatDate } from '../../../utils/DateFormat';
 
 const SellerPublications = () => {
-  
   const { productSeller } = useContext(DataContext);
-  
+
   const products = [productSeller];
 
-  console.log(productSeller)
-
   return (
-     <div className="seller_publications">
+    <div className="seller-publications">
       <h1>Tus ultimas publicaciones</h1>
-      <Container maxWidth="sm">
-        { products.map(( product, index ) => (
-
-          <Card key={`${product.product_id}-${index}`} className="shopping-card">
-            <CardContent className="shopping-card-content">
-              <Typography variant="p" className="shopping-card-color">
-                Fecha de Publicacion
-              </Typography>
-              <Typography variant="p">{"product.fecha"}</Typography>
-            </CardContent>
-            <CardContent className="shopping-box-content">
-              <Box className="publication_img">
+      <Container>
+        {products.map((product, index) => (
+          <Card
+            key={`${product.product_id}-${index}`}
+            className="publication-card"
+          >
+            <CardContent className="publication-card-content">
+              <Box>
                 <img
-                  className="shopping-card-image"
-                  src={product.image_url}
-                  alt={product.description}
+                  className="publication-card-image"
+                  src={`http://localhost:4000/uploads/${product.products.image_url}`}
+                  alt={product.products.description}
                 />
-                <div>
-                  <Typography variant="p">{"item.descripcion"}</Typography>
-                </div>
-              </Box>
-              <Box className="shopping-card-content">
-                <Typography variant="p" className="shopping-card-color">
-                  {"item.precio"}
-                </Typography>
-                <div className="publication_stock">
-                  <Typography variant="p">Stock</Typography>
-                  <Typography variant="p" className="shopping-card-color">
-                    {"item.stock"} uni
-                  </Typography>
-                </div>
               </Box>
             </CardContent>
-          </Card> 
-        ))} 
+            <CardContent className="publication-card-content">
+              <Box className="publication-card-content">
+                <Typography variant="p" className="publication-name">
+                  {product.products.name}
+                </Typography>
+                <Typography variant="p" className="color-description">
+                  {product.products.description}
+                </Typography>
+              </Box>
+            </CardContent>
+            <CardContent className="publication-box-content">
+              <Box className="publication-card-content">
+                <Typography variant="p" className="publication-card-color">
+                  <span>Precio :</span> $ {product.products.price}
+                </Typography>
+                <Typography variant="p">
+                  <span>Stock :</span> {product.products.stock}
+                </Typography>
+                <Typography variant="p">
+                  <span>Categoria :</span> {product.products.name_category}
+                </Typography>
+                <Typography variant="p">
+                  <span>Fecha Creacion :</span> {formatDate(product.products.create_at)}
+                </Typography>
+              </Box>
+            </CardContent>
+          </Card>
+        ))}
       </Container>
-    </div> 
+    </div>
   );
 };
 
