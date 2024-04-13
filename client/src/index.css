@@ -86,9 +86,9 @@ body {
   }
   .favorite-box-content{
     display: flex;
-    align-items: center;
+    align-items: start;
     margin: 10px; 
-    
+    gap:15px;
   }
   .favorite-card-image {
     width: 150px; 
@@ -96,4 +96,10 @@ body {
   }
   .favorite-card-color {
     color: red;
+  }
+  .favorite-card-color span {
+    color: black; /* Cambia el color del texto "Precio" a negro */
+  }
+  .favorite-name {
+    font-size: 1.2em; /* Cambia el tamaño del texto a 1.2 veces el tamaño normal */
   }
