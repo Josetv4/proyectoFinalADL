@@ -1,22 +1,24 @@
+import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import "./style.css";
+
 import { Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import ButtonBig from "../../components/Buttons/buttonBig/buttonBig";
 import ButtonLittle from "../../components/Buttons/buttonLittle/buttonLittle";
 import swal from "sweetalert";
-import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+
+
 import FilledInput from '@mui/material/FilledInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
+import "./style.css";
 const LoginPage = () => {
   const [loginmail, setLoginMail] = useState(""); // Estado para el valor del email
   const [loginpassword, setLoginPassword] = useState(""); // Estado para el valor de la contraseña
@@ -37,7 +39,8 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       await login({ email: loginmail, password: loginpassword });
       swal("¡Has iniciado sesión correctamente!", {
@@ -56,7 +59,7 @@ const LoginPage = () => {
 
   return (
     <div className="login_page">
-      <Container maxWidth="">
+      <Container>
         <Box sx={{ flexGrow: 1 }} display="flex">
           <Grid container spacing={2} columns={16}>
             <Grid item xs={8}  >
@@ -117,7 +120,7 @@ const LoginPage = () => {
                     <div>
                       <div className="login_button">
                         {/* <p>¿Se te olvido la contraseña?</p> */}
-                        <ButtonBig type="submit" onClick={() => handleLogin()}>
+                        <ButtonBig type="submit">
                           iniciar sesión
                         </ButtonBig>
                       </div>
