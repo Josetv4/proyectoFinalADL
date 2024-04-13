@@ -6,6 +6,7 @@ import {
   postCartItems,
   updateCartItems,
   deleteCartItems,
+  getProductsByUser,
   
 } from "../api/getApi.js";
 
@@ -15,12 +16,14 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const { userId } = useContext(AuthContext);
- 
+ console.log(userId)
 
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+
+  const [productUser, setProductsUser] = useState([])
   
 
   useEffect(() => {
@@ -28,6 +31,21 @@ const DataProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
+  
+  useEffect(() => {
+    if (userId) {
+      fetchProductsByUser(userId);
+    }
+  }, [userId]);
+
+  const fetchProductsByUser = async (userId) => {
+    try {
+      const products = await getProductsByUser(userId);
+      setProductsUser(products);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
    const fetchProducts = async ()=> {
     try {
       const { response, error, loading } = await getProducts();
@@ -116,6 +134,7 @@ const DataProvider = ({ children }) => {
         addCartItem,
         updateCartItem,
         deleteCartItem,
+        productUser
       }}
     >
       {children}

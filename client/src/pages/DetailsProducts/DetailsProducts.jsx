@@ -25,10 +25,7 @@ const DetailsProducts = () => {
             const response = await getProductsById(id);
             console.log(response)
             response.response.image_url = 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg';
-            response.response.format = '30 Comprimidos Recubiertos';
             response.response.valoration = Math.round((Math.random()*5)*10)/10;
-            response.response.seller = 'Petco SPA';
-            //response.response.information = 'Este medicamento se usa para tratar la fiebre y los dolores suaves a moderados. Este medicamento provee alivio temporal a los síntomas descritos, pero en ningún caso resuelve el origen de ellos.';
             response.response.comments = [
                 {
                     author : "Pepito paga doble",
@@ -107,13 +104,10 @@ const DetailsProducts = () => {
                             {product.name}
                         </Typography>
                         <Typography variant="bold" component="h3" sx={{ display: "flex" }}>
-                            Vendido por : <Box className='link-text' >{product.seller}</Box>
+                            Vendido por : <Box className='link-text' >{product.name_user}</Box>
                         </Typography>
                         <Typography variant="bold" color="textSecondary" component="h3">
-                            {product.format}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            {product.activeIngredient}
+                            {product.description}
                         </Typography>
                     </Box>
 
@@ -144,7 +138,7 @@ const DetailsProducts = () => {
                     <Box className="section-info-buttons" sx={{display: (isShowInformation===undefined) ? "none" : "block"}}>
                         {
                             isShowInformation === true 
-                            ? product.description 
+                            ? (product.information ?  product.information : "Sin información")
                             : (product.comments?.length === 0) 
                                 ? "No hay comentarios" 
                                 :  product.comments?.map((commentary,i)=> {

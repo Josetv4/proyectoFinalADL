@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Box from "@mui/material/Box";
 import ButtonBig from "../../../components/Buttons/buttonBig/buttonBig";
@@ -12,7 +12,9 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
 import "./style.css";
 import TextField from "@mui/material/TextField";
-import { getCategories } from "../../../api/getApi";
+import { createNewProduct, getCategories } from "../../../api/getApi";
+import { AuthContext } from "../../../context/AuthContext";
+import swal from 'sweetalert';
 
 const Publications = () => {
 
@@ -21,8 +23,8 @@ const Publications = () => {
   const [details, setDetails] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
-  const [detailname, setDetailname] = "";
-  const [category, setCategory] = useState([]);
+  const [detailname, setDetailname] = useState("");
+  const [category, setCategory] = useState("");
 
   const [categories,setCategories] = useState([]);
 
@@ -51,8 +53,33 @@ const Publications = () => {
     width: 1,
   });
 
-  const handleSubmit =  (e) => {
-    e.preventDefault();   
+  const handleSubmit =  async(e) => {
+    e.preventDefault();
+    const data = {
+      nameProducts : productname,
+      description : details,
+      price,
+      stock,
+      category_id : category,
+      statusProduct : "A",
+      user_id : userId,
+      information : detailname
+    }
+    try {
+      const response = await createNewProduct(data);
+      console.log(response);
+      if (response.statusCode === 201) {
+        swal("¡Registro exitoso!", "Tu producto se ha publicado correctamente.", "success");
+        cleanFields();
+      } else {
+        swal("¡Error!", "Ha ocurrido un error al publicar tu producto", "error");
+      }
+    } catch (error) {
+      console.log(error);
+      swal("¡Error!", "Ha ocurrido un error al publicar tu producto", "error");
+    }
+    
+    
   };
 
   const handleChange = (event) => {
@@ -64,6 +91,15 @@ const Publications = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
+
+  const cleanFields = () => {
+    setProductname("");
+    setDetails("");
+    setPrice("");
+    setStock("");
+    setDetailname("");
+    setCategory("");
+  }
 
 
 
@@ -157,7 +193,7 @@ const Publications = () => {
                 value={category}
                 onChange={handleChange}
                 input={<OutlinedInput label="Tag" />}
-                renderValue={(selected) => selected.join(", ")}
+                defaultValue={""}
               >
                 {categories?.map((item) => (
                   <MenuItem key={item.category_id} value={item.category_id}>

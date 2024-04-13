@@ -254,7 +254,7 @@ const createNewProduct = async (productData) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    return { response: response.data, error: null };
+    return { statusCode : response.request.status , response: response.data, error: null };
   } catch (error) {
     return { error : error.message };
   }
@@ -272,6 +272,25 @@ const getFavoritesbyUser = async (userId) => {
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener favorito por id:", error);
+    return {
+      response: [],
+      error,
+      loading: false,
+    };
+  }
+};
+const getProductsByUser = async (userId) => {
+  
+  try {
+    const token = window.localStorage.getItem("token");
+    
+    const response = await axios.get(`/products/user/${userId}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener prioducto por usuario:", error);
     return {
       response: [],
       error,
@@ -315,5 +334,6 @@ export {
   getReviewProductId,
   createNewProduct,
   getFavoritesbyUser,
+  getProductsByUser,
   getReview
 };

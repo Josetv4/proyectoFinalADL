@@ -28,9 +28,7 @@ const Category = () => {
         return {
           ...element,
           image_url: 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg',
-          format: '30 Comprimidos Recubiertos',
           valoration: Math.round((Math.random() * 5) * 10) / 10,
-          seller: "Petco SPA"
         }
       })
       //setProducts(response.response)
