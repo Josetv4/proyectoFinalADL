@@ -28,7 +28,7 @@ const getFavoriteId = async ({ id }) => {
 };
 const getFavoriteUser = async ( { id } ) => {
   const SQLquery = {
-    text: `SELECT f.favorites_id, f.product_id, f.user_id 
+    text: `SELECT f.favorites_id, f.product_id, f.user_id, p.price, p.stock, p.category_id, s.username as name_user, p.image_url, p.name 
             FROM favorites f 
             INNER JOIN products p ON f.product_id = p.product_id
             INNER JOIN users s ON f.user_id = s.user_id
