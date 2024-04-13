@@ -223,7 +223,7 @@ const handleImageChange = (e) => {
                 role={undefined}
                 variant="contained"
                 tabIndex={-1}
-                value= {image}
+               
                 startIcon={<CloudUploadIcon />}
               >
 
@@ -231,6 +231,7 @@ const handleImageChange = (e) => {
                  <VisuallyHiddenInput
                 id="upload-button"
                 type="file"
+                value= {image}
                 onChange={handleImageChange}
               />
               </Button>
