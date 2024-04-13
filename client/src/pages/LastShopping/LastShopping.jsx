@@ -2,26 +2,22 @@ import ShoppingCard from "../../components/ShoppingCard/ShoppingCard.jsx"
 import Drawer from "@mui/material/Drawer";
 import ReviewComponent from "../../components/review/ReviewComponent.jsx";
 import { useState } from "react";
-import Button from "@mui/material/Button";
+
 
 const LastShopping = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const toggleDrawer = () => {
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [selectuserId, setSelectuserid] = useState(null)
+  const toggleDrawer = (productId, userid) => {
+    setSelectedProductId(productId);
+    setSelectuserid(userid)
     setIsDrawerOpen(!isDrawerOpen);
   };
 
   return (
     <>
       <main>
-        <ShoppingCard>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={toggleDrawer}>
-            Comenta tus productos
-          </Button>
-        </ShoppingCard>
+      <ShoppingCard toggleDrawer={toggleDrawer} />
         <Drawer
           anchor="right"
           open={isDrawerOpen}
@@ -29,7 +25,8 @@ const LastShopping = () => {
           sx={{ width: 250 }}
         >
           {/* Aquí incluimos el ReviewComponent dentro del Drawer */}
-          <ReviewComponent />
+          <ReviewComponent selectedProductId={selectedProductId}
+          selectuserId={selectuserId} />
         </Drawer>
      
       </main>

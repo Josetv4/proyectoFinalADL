@@ -5,14 +5,14 @@ import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { Box } from '@mui/material';
-import dayjs from 'dayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { Box } from "@mui/material";
+import dayjs from "dayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { userRegister } from "../../api/getApi";
-import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
@@ -24,7 +24,7 @@ const RegisterPage = () => {
 
   const [password, setPassword] = useState("");
   const [passwordrepeat, setPasswordrepeat] = useState("");
-  const [showInfo, setShowInfo] = useState(false)
+  const [showInfo, setShowInfo] = useState(false);
   const [registerSuccefull, setRegisterSuccefull] = useState("");
   const [validPassword, setValidPassword] = useState(true);
 
@@ -42,10 +42,10 @@ const RegisterPage = () => {
     let year = fullDate.getFullYear();
 
     if (day < 10) {
-      day = '0' + day;
+      day = "0" + day;
     }
     if (month < 10) {
-      month = '0' + month;
+      month = "0" + month;
     }
     const userData = {
       username: name,
@@ -55,8 +55,8 @@ const RegisterPage = () => {
       phone,
       password,
       role: rol,
-      status: 'A'
-    }
+      status: "A",
+    };
     try {
       const response = await userRegister(userData);
       console.log("response front: ", response);
@@ -64,21 +64,33 @@ const RegisterPage = () => {
         setRegisterSuccefull(true);
         swal("¡Registro exitoso!", "Ingresa con tus datos", "success");
         setTimeout(() => {
-          navigate('/login');
+          navigate("/login");
         }, 3000);
       } else {
         setRegisterSuccefull(false);
-        swal("¡Error!", "Ha ocurrido un error al registrar el usuario", "error");
+        swal(
+          "¡Error!",
+          "Ha ocurrido un error al registrar el usuario",
+          "error"
+        );
       }
     } catch (error) {
       setRegisterSuccefull(false);
       swal("¡Error!", "Ha ocurrido un error al registrar el usuario", "error");
     }
-  }
+  };
 
   const validateFields = () => {
     let valid = false;
-    if (name !== "" && rut !== "" && date !== "" && mail !== "" && phone !== "" && password !== "" && rol) {
+    if (
+      name !== "" &&
+      rut !== "" &&
+      date !== "" &&
+      mail !== "" &&
+      phone !== "" &&
+      password !== "" &&
+      rol
+    ) {
       if (password === passwordrepeat) {
         setValidPassword(true);
         valid = true;
@@ -87,8 +99,7 @@ const RegisterPage = () => {
       }
     }
     return valid;
-  }
-
+  };
 
   return (
     <div className="register_page">
@@ -96,9 +107,15 @@ const RegisterPage = () => {
         <h1>Regístrate</h1>
         <div className="login_border">
           <form className="register_form">
-            {
-              showInfo ? <div style={{ color: 'red' }}>{validPassword ? "Todos los campos son obligatorios" : "Las contraseñas no coinciden"}</div> : ""
-            }
+            {showInfo ? (
+              <div style={{ color: "red" }}>
+                {validPassword
+                  ? "Todos los campos son obligatorios"
+                  : "Las contraseñas no coinciden"}
+              </div>
+            ) : (
+              ""
+            )}
             <div className="login_input">
               <InputLabel htmlFor="outlined-adornment-password">
                 Nombre Completo
@@ -113,8 +130,11 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div className="login_input_datepicker" style={{ marginTop: "20px" }}>
-              <LocalizationProvider   dateAdapter={AdapterDayjs}>
+            <div
+              className="login_input_datepicker"
+              style={{ marginTop: "20px" }}
+            >
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="Fecha de Nacimiento"
                   value={date}
@@ -122,7 +142,6 @@ const RegisterPage = () => {
                   sx={{ width: "80%" }}
                 />
               </LocalizationProvider>
-
             </div>
 
             <div className="login_input">
@@ -139,7 +158,7 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div className="login_input_select">
+            <div className="login_input_">
               <InputLabel id="demo-select-small-label">
                 ¿Eres vendedor?
               </InputLabel>
@@ -150,15 +169,15 @@ const RegisterPage = () => {
                 label="Age"
                 onChange={(e) => setRol(e.target.value)}
               >
-
                 <MenuItem value={"seller"}>Si</MenuItem>
                 <MenuItem value={"user"}>No</MenuItem>
-
               </Select>
             </div>
 
             <div className="login_input">
-              <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel>
+              <InputLabel htmlFor="outlined-adornment-password">
+                Email
+              </InputLabel>
               <TextField
                 required
                 id="filled"
@@ -185,7 +204,7 @@ const RegisterPage = () => {
                 Password
               </InputLabel>
               <TextField
-              type="password"
+                type="password"
                 required
                 id="filled"
                 defaultValue="correo@mail.com"
@@ -200,7 +219,7 @@ const RegisterPage = () => {
                 Repetir Password
               </InputLabel>
               <TextField
-              type="password"
+                type="password"
                 required
                 id="filled"
                 defaultValue="correo@mail.com"
@@ -213,23 +232,18 @@ const RegisterPage = () => {
               <ButtonLittle onClick={registerUser}> Registrarse</ButtonLittle>
             </div>
             <Box>
-              {registerSuccefull === ""
-                ?
+              {registerSuccefull === "" ? (
                 ""
-                :
-                registerSuccefull ? <div>Registro exitoso.</div> : <div>Ha ocurrido un error al registrar el usuario.</div>
-              }
+              ) : registerSuccefull ? (
+                <div>Registro exitoso.</div>
+              ) : (
+                <div>Ha ocurrido un error al registrar el usuario.</div>
+              )}
             </Box>
-
-
           </form>
-          <div className="login_color">
-          </div>
+          <div className="login_color"></div>
         </div>
-
       </div>
-
-
     </div>
   );
 };

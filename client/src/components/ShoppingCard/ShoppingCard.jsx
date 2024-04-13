@@ -8,13 +8,13 @@ import Container from "@mui/material/Container";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-
+import Button from "@mui/material/Button";
 import "./style.css";
 import { DataContext } from "../../context/DataContext";
 
-const ShoppingCard = ({children}) => {
+const ShoppingCard = ({toggleDrawer}) => {
 
-  const { products,  } = useContext(DataContext);
+  const { products,  userId  } = useContext(DataContext);
   if (!products || !products.product || !Array.isArray(products.product)) {
     return <div>No hay productos disponibles</div>;
   }
@@ -49,8 +49,13 @@ const ShoppingCard = ({children}) => {
               </Box>
             </CardContent>
             <CardActions sx={{ marginRight:2}}>
-              {children}
-       
+            <Button
+  variant="contained"
+  color="primary"
+  onClick={() => toggleDrawer(product.product_id, userId)}
+>
+  Comenta tus productos
+</Button>
             </CardActions>
           </Card>
         ))}
