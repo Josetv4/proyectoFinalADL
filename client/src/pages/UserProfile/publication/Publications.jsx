@@ -15,6 +15,7 @@ import TextField from "@mui/material/TextField";
 import { createNewProduct, getCategories } from "../../../api/getApi";
 import { AuthContext } from "../../../context/AuthContext";
 import swal from 'sweetalert';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Publications = () => {
 
@@ -25,8 +26,10 @@ const Publications = () => {
   const [stock, setStock] = useState("");
   const [detailname, setDetailname] = useState("");
   const [category, setCategory] = useState("");
-
   const [categories,setCategories] = useState([]);
+  const [image, setImage] = useState(null);
+  const [imageName, setImageName] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(()=>{
     asyncGetCategories();
@@ -90,6 +93,18 @@ const Publications = () => {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+  };
+const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setLoading(true);
+      // Simular una carga de imagen (aquí puedes llamar a tu función de carga real de imagen)
+      setTimeout(() => {
+        setImage(file);
+        setImageName(file.name);
+        setLoading(false);
+      }, 2000); // Simulación de tiempo de carga
+    }
   };
 
   const cleanFields = () => {
@@ -203,18 +218,35 @@ const Publications = () => {
               </Select>
             </div>
             <div className="publication_button">
-              <Button
+            <Button
                 component="label"
                 role={undefined}
                 variant="contained"
                 tabIndex={-1}
+               
                 startIcon={<CloudUploadIcon />}
               >
+
                 Sube la imagen de tu producto aquí <FaRegImage />
-                <VisuallyHiddenInput type="file" />
+                 <VisuallyHiddenInput
+                id="upload-button"
+                type="file"
+       
+                onChange={handleImageChange}
+              />
               </Button>
             </div>
-          
+            {loading && (
+              <div className="publication_button">
+                <CircularProgress />
+              </div>
+            )}
+            {/* Mostrar el nombre de la imagen cuando se haya cargado */}
+            {imageName && !loading && (
+              <div className="publication_button">
+                <p>{imageName}</p>
+              </div>
+            )}
           </Box>
           <Box
           sx={{

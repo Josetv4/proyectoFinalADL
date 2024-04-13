@@ -246,18 +246,15 @@ const getReviewProductId = async (id) => {
 const getProductDescription = async (description) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(
-      `/products/description`,
-      { name: description }, // Aquí ajustamos la carga útil
+    const response = await axios.post(`/product/description`, { description } ,
       {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        
+        headers: { Authorization: `Bearer ${token}` },
       }
     );
     return { response: response.data, error: null };
   } catch (error) {
-    return { error: error.message };
+    return { error : error.message };
   }
 };
 

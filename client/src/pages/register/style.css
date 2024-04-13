@@ -49,3 +49,21 @@
 
 }
  
+.register_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login_input_datepicker{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.login_input_select select{
+    width: 280px !important;
+}
+.login_input_select{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
