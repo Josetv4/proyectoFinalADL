@@ -4,13 +4,11 @@ import PurchaseStepper from "../../components/PurchaseDetail/PurchaseStepper.jsx
 import PurchaseTotal from '../../components/PurchaseDetail/PurchaseTotal.jsx'
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext.jsx";
-import AuthContext from "../../context/AuthContext.jsx";
 
 const ShoppingCart = () =>{   
-    const { userId } = useContext(AuthContext);
-    const { cartItems, updateCartItem } = useContext(DataContext);
-    const { cart } = cartItems;
-    const cartUser = cart && cart.filter(item => item.user_id === userId)
+
+    const { cartUser, updateCartItem } = useContext(DataContext);
+
     return (
         <main>
             <PurchaseStepper page={1}/>
