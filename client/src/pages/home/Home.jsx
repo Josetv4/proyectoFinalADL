@@ -4,55 +4,16 @@ import ButtonBlue from "../../components/Buttons/buttonBlue/buttonBlue";
 import boton_info from "../../components/json/boton_info.json"
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { Box } from "@mui/material";
+import { useContext } from "react";
+import { DataContext } from "../../context/DataContext";
 
 const homePage = () => {
-  const arrayProducts = [
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,    
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 3,
-      quantity: 0
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 13,
-      quantity: 4
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 4,
-      quantity: 6
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 12,
-      quantity: 3
-    },
-    
-  ];
+
+  const { products,  } = useContext(DataContext);
+  if (!products || !products.product || !Array.isArray(products.product)) {
+    return <div>No hay productos disponibles</div>;
+  }
+
 
     return (
         <div className="home" >
@@ -79,8 +40,8 @@ const homePage = () => {
    <section className="cart-section">
    
    <Box className= "card-box">
-   {arrayProducts.map((product, i ) => (
-          <ProductCard key={i}  product={product}>
+   {products.product.map((item, i ) => (
+          <ProductCard key={i}  product={item}>
           </ProductCard>
         ))}
         </Box>
