@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems } from "../api/getApi.js";
+import { getProducts, getCartItems, getCartUser, postCartItems, updateCartItems, deleteCartItems, getProductsByUser } from "../api/getApi.js";
 import {AuthContext} from "./AuthContext.jsx";
 
 
@@ -18,11 +18,28 @@ const DataProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    if (userId) {
+      fetchProductsByUser(userId);
+    }
+  }, [userId])
   
   useEffect(() =>{
     userId || userId !== null ? fetchCartUser(): "";
   }, [userId]);
  
+  const fetchProductsByUser = async (userId)=> {
+    try {
+      const { response, error, loading } = await getProductsByUser(userId);
+      setProducts(response);
+      setError(error);
+      setLoading(loading);
+    } catch (error) {
+      console.error("Error al obtener productos:", error);
+      setError("Error al obtener productos");
+      setLoading(false);
+    }
+  }
 
 const fetchProducts = async ()=> {
     try {
