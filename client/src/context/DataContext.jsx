@@ -26,15 +26,18 @@ const DataProvider = ({ children }) => {
 
   const [productUser, setProductsUser] = useState([])
   
-
   useEffect(() => {
-    fetchCartItems();
     fetchProducts();
   }, []);
+<<<<<<< HEAD
 
   
   useEffect(() => {
 <<<<<<< HEAD
+=======
+  useEffect(() =>{
+    userId || userId !== null ? fetchCartUser(): "";
+>>>>>>> 3d40370ca68e1253e52bef942b964e5094f0e832
     if (userId) {
       fetchProductsByUser(userId);
     }
@@ -114,16 +117,19 @@ const DataProvider = ({ children }) => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const updateCartItem = async (product_id, cartUpdate) => {
+=======
+
+  const updateCartItem = async ( product_id, detail_id, cart_id, cartUpdate) => {
+>>>>>>> 3d40370ca68e1253e52bef942b964e5094f0e832
     try {
       console.log(cartUpdate);
-      const { response, error, loading } = await updateCartItems(
-        product_id,
-        cartUpdate
-      );
+      const { response, error, loading } = await updateCartItems(product_id, detail_id, cart_id, cartUpdate);
       setCartItems(response);
       setError(error);
       setLoading(loading);
+<<<<<<< HEAD
 
       fetchCartItems();
 =======
@@ -137,6 +143,8 @@ const DataProvider = ({ children }) => {
      
 
 >>>>>>> 79dc3e4 (Subiendo cambios del carrito y conectando productos del home al backend)
+=======
+>>>>>>> 3d40370ca68e1253e52bef942b964e5094f0e832
     } catch (error) {
       console.error("Error al actualizar producto del carrito:", error);
     }
