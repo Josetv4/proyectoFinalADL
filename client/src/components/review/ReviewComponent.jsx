@@ -31,7 +31,7 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
             setCreatedAt(formattedDateTime);        
             
           
-            const response = await postReviewProduct( selectedProductId,selectuserId, value, coment, createdAt );
+            const response = await postReviewProduct( selectedProductId,selectuserId, value, coment );
         
 
             if (response.statusCode === 201) {

@@ -9,7 +9,7 @@ import CardActions from "@mui/material/CardActions";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import ButtonLittle from '../components/Buttons/buttonLittle/buttonLittle';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -77,6 +77,11 @@ const ListFavorites = () => {
                 <Typography variant="p">
                   Vendido por <a href="#">{favorite.user_id}</a>
                 </Typography>
+              </Box>
+              <Box>
+              <ButtonLittle onClick={userId ? () => addProduct(): () => dontProduct() }>
+            Añadir al carro
+          </ButtonLittle>
               </Box>
               <Box>
                       <IconButton
