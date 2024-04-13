@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
+
 // import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
@@ -19,6 +19,7 @@ import { AuthContext } from "../context/AuthContext.jsx";
 import { getFavoritesbyUser, deleteFavoriteId } from "../api/getApi.js";
 
 const ListFavorites = () => {
+  const navigate = useNavigate();
   const { userId } = useContext(AuthContext);
 
   console.log(userId);
@@ -31,17 +32,22 @@ const ListFavorites = () => {
   }, []);
 
   const handleClickDelete = async (id) => {
-    
     try {
-      const { response, error } = await deleteFavoriteId(id);
-      await swal("id eliminado : " + id + "-->" + response ,  { icon: "success" });
-      setError(error);
+     await deleteFavoriteId(id);
+      
+      if (error) {
+        alert(error);
+        setError(error);
+        navigate("/login");
+        
+      } else {
+        swal("id eliminado : " + id , { icon: "success" });
+      }
       fetchFavorites();
     } catch (error) {
       console.error("Error al obtener favoritos:", error);
       setError("Error al obtener favoritos");
     }
-
   };
 
   const fetchFavorites = async () => {
@@ -71,7 +77,9 @@ const ListFavorites = () => {
           </CardContent>
           <CardContent className="favorite-box-content">
             <Box className="favorite-card-content">
-              <Typography variant="p" className="favorite-name">{favorite.name}</Typography>
+              <Typography variant="p" className="favorite-name">
+                {favorite.name}
+              </Typography>
               <Typography variant="p" className="favorite-card-color">
                 <span>Precio :</span> {favorite.price}
               </Typography>
@@ -95,7 +103,6 @@ const ListFavorites = () => {
               </IconButton>
             </Box>
           </CardContent>
-          
         </Card>
       ))}
     </Container>

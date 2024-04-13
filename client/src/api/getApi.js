@@ -323,7 +323,7 @@ const getReview = async (id) => {
     };
   }
 }
-const   deleteFavoriteId = async (id) => {
+const   deleteFavoriteId = async ( id ) => {
   const token = window.localStorage.getItem("token");
   try {
       const response = await axios.delete(`/favorite/${id}`,
@@ -331,7 +331,7 @@ const   deleteFavoriteId = async (id) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     )
-      return { response: response.data, error: null };
+      return { response, error: null };
   } catch (error) {
       return { error: error.message };
   }

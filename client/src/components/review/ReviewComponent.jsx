@@ -32,9 +32,9 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
             
           
             const response = await postReviewProduct( selectedProductId,selectuserId, value, coment );
-        
+            console.log(response)
 
-            if (response.statusCode === 201) {
+            /* if (response.statusCode === 201) {
                 setReviewSuccess(true);
                 toast(' ¡Gracias, por tu comentario!',)
                 console.log("Cantidad de estrellas y texto ingresado correctamente:", { value, coment });
@@ -50,7 +50,7 @@ const ReviewComponent = ({ selectedProductId,selectuserId }) => {
                 console.log("fecha:", createdAt);
                 toast(' ¡Gracias, por tu comentario! usp',)
                 console.log("Cantidad de estrellas y texto ingresado fallidamente:", { value, coment });
-            }
+            } */
         } catch (error) {
             setReviewSuccess(false);
             toast(' tu producto no fue reseñado ',)

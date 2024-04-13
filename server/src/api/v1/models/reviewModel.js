@@ -34,10 +34,10 @@ const getReviewId = async (id) => {
   return response.rows;
 };
 
-const createReview = async ({product, user, rating, comment}) => {
+const createReview = async ({product, user, rating, coments}) => {
   const SQLquery = {
     text: `INSERT INTO reviews(product_id, user_id, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *`,
-    values: [product, user, rating, comment],
+    values: [product, user, rating, coments],
   };
   console.log(SQLquery)
   const response = await pool.query(SQLquery);

@@ -1,5 +1,6 @@
 import { useContext } from "react";
-
+import { DataContext } from "../../context/DataContext";
+import { AuthContext } from "../../context/AuthContext";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -10,11 +11,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "./style.css";
-import { DataContext } from "../../context/DataContext";
+
 
 const ShoppingCard = ({toggleDrawer}) => {
 
-  const { products,  userId  } = useContext(DataContext);
+  const { products  } = useContext(DataContext);
+  const { userId } = useContext(AuthContext);
+
   if (!products || !products.product || !Array.isArray(products.product)) {
     return <div>No hay productos disponibles</div>;
   }

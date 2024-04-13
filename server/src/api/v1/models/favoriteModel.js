@@ -69,15 +69,13 @@ const updateFavorite = async ({ id }, { product, user }) => {
 const deleteFavorite = async (id) => {
   const SQLquery = {
     text: `DELETE FROM favorites 
-             WHERE  favorites = $1 
+             WHERE  favorites_id = $1 
              RETURNING *`,
     values: [id],
   };
   const response = await pool.query(SQLquery);
-  if (response.rows.length === 0) {
-    throw new Error("No se encontró ningún usuario con el ID proporcionado");
-  }
-  return response.rows[0];
+  return response.rowCount;
+
 };
 
 export {
