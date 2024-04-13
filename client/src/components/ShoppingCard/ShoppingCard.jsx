@@ -18,7 +18,7 @@ const ShoppingCard = ({toggleDrawer}) => {
   const { products, cartsAllbyUser  } = useContext(DataContext);
   const { userId } = useContext(AuthContext);
 
- console.log("mensaje enviad: ", cartsAllbyUser)
+ console.log("mensaje enviado: ",cartsAllbyUser)
 
 
   if (!products || !products.product || !Array.isArray(products.product)) {
