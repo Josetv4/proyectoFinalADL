@@ -13,6 +13,7 @@ const DataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [productSeller, setProductSeller] = useState([]);
 
   useEffect(() => {
     fetchProducts();
@@ -31,7 +32,7 @@ const DataProvider = ({ children }) => {
   const fetchProductsByUser = async (userId)=> {
     try {
       const { response, error, loading } = await getProductsByUser(userId);
-      setProducts(response);
+      setProductSeller(response.data);
       setError(error);
       setLoading(loading);
     } catch (error) {
@@ -124,6 +125,7 @@ const fetchProducts = async ()=> {
     <DataContext.Provider
       value={{
         products,
+        productSeller,
         error,
         loading,
         cartItems,

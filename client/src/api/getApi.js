@@ -303,9 +303,9 @@ const getProductsByUser = async (userId) => {
     {
       headers: { Authorization: `Bearer ${token}` },
     });
-    return { response: response.data, error: null, loading: false };
+    return { response , error: null, loading: false };
   } catch (error) {
-    console.error("Error al obtener prioducto por usuario:", error);
+    console.error("Error al obtener producto por usuario:", error);
     return {
       response: [],
       error,
