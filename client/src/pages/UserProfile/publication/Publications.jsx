@@ -231,7 +231,7 @@ const handleImageChange = (e) => {
                  <VisuallyHiddenInput
                 id="upload-button"
                 type="file"
-                value= {image}
+       
                 onChange={handleImageChange}
               />
               </Button>
