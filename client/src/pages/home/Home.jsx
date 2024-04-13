@@ -9,7 +9,7 @@ import { DataContext } from "../../context/DataContext";
 
 const homePage = () => {
 
-  const { products,  } = useContext(DataContext);
+  const { products } = useContext(DataContext);
   if (!products || !products.product || !Array.isArray(products.product)) {
     return <div>No hay productos disponibles</div>;
   }
@@ -39,11 +39,10 @@ const homePage = () => {
    <h2>Productos destacados</h2>
    <section className="cart-section">
    
-   <Box className= "card-box">
-   {products.product.map((item, i ) => (
-          <ProductCard key={i}  product={item}>
-          </ProductCard>
-        ))}
+   <Box className="card-box">
+          {products.product.slice(0, 4).map((item, i) => (
+            <ProductCard key={i} product={item} />
+          ))}
         </Box>
         </section>
         </div>
