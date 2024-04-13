@@ -17,8 +17,11 @@ const getProducts = async () => {
 };
 
 const getCartItems = async () => {
+  const token = window.localStorage.getItem("token");
   try {
-    const response = await axios.get("/carts");
+    const response = await axios.get("/carts", 
+      {headers: { Authorization: `Bearer ${token}`}}
+    );
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
@@ -26,8 +29,11 @@ const getCartItems = async () => {
   }
 };
 const getCartUser = async (user_id) => {
+  const token = window.localStorage.getItem("token")
   try {
-    const response = await axios.get(`/cart/${user_id}`);
+    const response = await axios.get(`/cart/${user_id}`, {
+      headers: { Authorization: `Bearer ${token}`},
+    });
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
@@ -35,20 +41,29 @@ const getCartUser = async (user_id) => {
   }
 };
 const postCartItems = async (user_id, product_id, quantity, price) => {
+  const token = window.localStorage.getItem("token");
   try {
-    const response = await axios.post("/cart", {user_id, product_id, quantity, price});
+    const response = await axios.post("/cart", 
+      {user_id, product_id, quantity, price}, 
+      {headers: { Authorization: `Bearer ${token}`}}
+    );
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-const updateCartItems = async (product_id, updateCart ) => {
+const updateCartItems = async (product_id, detail_id, cart_id, updateCart ) => {
+  const token = window.localStorage.getItem("token")
+  console.log(product_id, {detail_id, cart_id}, updateCart);
   try {
     const response = await axios.put(
-      `cart/${updateCart}/`,
-      product_id,
+      `cart/${updateCart}/${product_id}`, 
+      detail_id,
+      cart_id,
+      { headers: {Authorization: `Bearer ${token}`}}
     );
+    console.log(response);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al modificar carrito:", error);
