@@ -96,6 +96,7 @@ const Publications = () => {
   };
 const handleImageChange = (e) => {
     const file = e.target.files[0];
+      console.log(file);
     if (file) {
       setLoading(true);
       // Simular una carga de imagen (aquí puedes llamar a tu función de carga real de imagen)
@@ -231,7 +232,6 @@ const handleImageChange = (e) => {
                  <VisuallyHiddenInput
                 id="upload-button"
                 type="file"
-       
                 onChange={handleImageChange}
               />
               </Button>

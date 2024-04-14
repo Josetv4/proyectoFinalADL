@@ -93,7 +93,7 @@ const getProductsByDescription = async (req, res) => {
 const createNewProduct = async (req, res) => {
   try {
     const product = req.body
-    const image = "https://acdn.mitiendanube.com/stores/672/615/products/ain_tapsin_flu1-f570d312a750c9d11d16618881790247-640-0.jpg";//req.file.filename;
+    const image = req.file.filename;
     const newProduct = await createProduct( product, image );
     res.status(201).json({ product: newProduct });
   } catch (error) {
