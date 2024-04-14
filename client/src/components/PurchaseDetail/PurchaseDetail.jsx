@@ -8,23 +8,42 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { currencyFormat } from "../../helpers/currencyFormat.js";
 
 
-const PurchaseDetail = ({ cartUser, updateCartItem }) => {
-const { cart } = cartUser;
-
+const PurchaseDetail = ({ updateCartItem, cartItems }) => {
+    console.log(cartItems);
+    const carts = cartItems && cartItems.filter((item) => item.quantity>0)
+    console.log(carts);
     const handleIn = async (product) => {
         const { product_id, detail_id, cart_id } = product;
-        console.log(product_id, detail_id, cart_id);
         try {
             await updateCartItem(product_id, detail_id, cart_id, "increase")
+            // const addQuantity = carts.map(item => {
+            //     if (item.product_id === product_id){
+            //         return { ...item, 
+            //                     quantity: ((item.quantity || 0)) + 1
+            //         }
+            //     }
+            //     return item
+            // });
+            // setCart(addQuantity)
 
         } catch (err) {
             console.error("Error al aumentar cantidad del carrito", err);
         }
         
     }
-    const handleDec = async (product_id) => {
+    const handleDec = async (product) => {
+        const { product_id, detail_id, cart_id } = product;
         try {
-            await updateCartItem(product_id, "Decrease")
+            await updateCartItem(product_id, detail_id, cart_id, "decrease")
+            // const addQuantity = cartItem.map(item => {
+            //     if (item.product_id === product_id){
+            //         return { ...item, 
+            //                     quantity: ((item.quantity || 0)) - 1
+            //         }
+            //     }
+            //     return item
+            // });
+
         } catch (err) {
             console.error("Error al disminuir cantidad del carrito", err);
         }
@@ -38,9 +57,10 @@ const { cart } = cartUser;
             paddingTop: "0"
         }}>
         <h2 style={{ padding: "0", margin: "0", textAlign:"center"}}>Detalle de tu compra</h2>
-        {!cart || cart.quantity === 0 ? 
+        {!carts || carts.length === 0 ? 
         (<h1 style={{ borderRadius: "20px 0px 20px 0px", textAlign: "center", padding: "30px", marginTop: "30px", backgroundColor: "#fe486a" }}>Agrega productos al carrito</h1>)
-            : (<Card key={cart.product_id} className="shopping-card">
+            : (carts && carts.map((cart) =>(
+                <Card key={cart.product_id} className="shopping-card">
                     <CardContent 
                         sx={{ display: "flex" , width: "100%", flexDirection:"row", columnGap: "2vh"}} 
                         className="shopping-box-content">
@@ -80,12 +100,13 @@ const { cart } = cartUser;
                         </AddIcon>
                         <span style={{fontSize:"1.5em"}}>{cart.quantity}</span>
                         <RemoveIcon 
-                            onClick={() => handleDec(cart.id)}
+                            onClick={() => handleDec(cart)}
                             style={{cursor: "pointer"}}></RemoveIcon>
                     </Box>
                     </Box>
                     </CardContent>
                 </Card>
+            ))
             )
         }
         </section> 
