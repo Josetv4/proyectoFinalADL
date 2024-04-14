@@ -279,14 +279,16 @@ const getProductDescription = async (description) => {
   }
 };
 
-const createNewProduct = async (productData) => {
+const createNewProduct = async (formData) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(`/products`, productData ,
-      {
-        headers: { Authorization: `Bearer ${token}` },
+
+    const response = await axios.post(`/products`, formData, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data' // Importante para enviar archivos
       }
-    );
+    });
     return { statusCode : response.request.status , response: response.data, error: null };
   } catch (error) {
     return { error : error.message };

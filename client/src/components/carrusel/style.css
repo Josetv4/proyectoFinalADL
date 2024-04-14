@@ -20,7 +20,8 @@
     .css-1yf1hp2 {
         height: 255px;
         padding: 16px;
-        width: 75rem !important;
+        width: 100% !important;
+        height: 30% !important;
         border-radius: 5px;
         background-image: url("https://firebasestorage.googleapis.com/v0/b/farmacias-syg.appspot.com/o/imagenes%2FGroup%201137%20(2).png?alt=media&token=8a9d97a6-d944-47f9-865d-358f3af39d07");
     }
