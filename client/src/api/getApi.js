@@ -79,13 +79,13 @@ const updateCartItems = async (product_id, detail_id, cart_id, updateCart ) => {
     return { response: [], error: "Error al modificar carrito", loading: false };
   }
 };
-const deleteCartItems = async (detailId, cartId, product) => {
+const deleteCartItems = async (id_user) => {
+  const token = window.localStorage.getItem("token")
   try {
+    console.log(id_user);
     const response = await axios.delete(
-      `cart/items/${detailId}`,
-      cartId,
-      product
-    );
+      `cart/closeCart/${id_user}`,  
+      { headers: {Authorization: `Bearer ${token}`}});
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
