@@ -14,8 +14,9 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 
-const PurchaseTotal = ({cartUser}) => {
-    const { cart } = cartUser;
+const PurchaseTotal = ({cartItem}) => {
+    console.log(cartItem);
+    const carts = cartItem && cartItem.filter((item) => item.quantity>0)
     const send = [
         {id: "starken", sendT: 5500},
         {id: "express", sendT: 3800},
@@ -27,11 +28,7 @@ const PurchaseTotal = ({cartUser}) => {
         setSelected(event.target.value);
     };
     
-
-    let subTotal = 0; 
-    if(cart){
-                subTotal += cart.quantity * cart.price; 
-    }
+    const subTotal = carts && carts.reduce((a, item) => a + (item.quantity * item.price),0)
 
     
     const sendT = send.find(item => item.id === selected)?.sendT || 0;

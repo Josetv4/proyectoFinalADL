@@ -26,11 +26,11 @@ export default function ProductCard({ product }) {
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
   };
-  const { product_id, quantity, price } = product;
+  const { product_id, price } = product;
 
   const addProduct = async () => {
     try {
-      await addCartItem(userId, product_id, quantity, price)
+      await addCartItem(userId, product_id, 1, price);
       console.log("Se añadio el producto al carrito con exito");
       toast(' ¡Excelente! su producto fue añadido al carrito',);
       } catch (err) {

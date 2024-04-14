@@ -37,26 +37,31 @@ const getCartUser = async (req, res) =>{
 const addCartUser = async (req, res) => {
         const { user_id, product_id, quantity, price } = req.body
         console.log(price);
+        console.log(quantity);
     try {
         //Consulto el carrito del usuario
         const cartUser = await getCartsByUser(user_id)
+        console.log(cartUser);
             //en caso de no tener carrito lo creo
-        if (cartUser === undefined) {
-            console.log(user_id);
+        if (cartUser === undefined || cartUser.length === 0) {
             const newCart = await createCart(user_id);
+            console.log(newCart);
             const cart_id = newCart.cart_id;
-            console.log(cart_id);
+            console.log(newCart);
              //agrego el producto al nuevo carrito
                 const cartDetail = await createCartItems( cart_id, product_id, quantity, price );
+                console.log(cartDetail);
                 return res.status(201).json({ cart: cartDetail });
         } else {
             //agrego el producto al carrito en caso que exista el carro
-            const {cart_id} = cartUser;
+            const cart_id = cartUser[0]['cart_id'];
+            console.log(cart_id);
             const cartDetailItems = await createCartItems( cart_id, product_id, quantity, price );
+            console.log(cartDetailItems);
             return res.status(201).json({ cart: cartDetailItems });
         }
     } catch (err) {
-        console.log(err);
+        console.log(err)
         const errorFound = handleError(err.code) || [{ status: 500, message: 'Error interno del servidor' }];
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
     }
@@ -68,8 +73,9 @@ const updateCartIncrease = async (req, res) => {
     try {
         console.log(cart_id, detail_id, product_id);
         //incremento el producto en la base de datos
-        const inCart = await incrementCartItems({cart_id, detail_id}, product_id);
-        return res.status(201).json({ incrementCart: inCart })
+        const inCart = await incrementCartItems(cart_id, detail_id, product_id);
+        console.log(inCart);
+        return res.status(201).json({ cart: inCart })
     } catch (err) {
         const errorFound = handleError(err.code) || [{ status: 500, message: 'Error interno del servidor' }];
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });   
@@ -77,11 +83,12 @@ const updateCartIncrease = async (req, res) => {
 }
 // disminuyo el producto en el carrito ya existente
 const updateCartDecrease = async (req, res) => {
-    const { cart_id, detail_id, product_id } = req.body;
+    const { product_id } = req.params;
+    const { detail_id, cart_id } = req.body;
     try {
         //disminuyo el producto en la base de datos
         const deCart = await decrementCartItems(cart_id, detail_id, product_id);
-        return res.status(201).json({ decrementCart: deCart })
+        return res.status(201).json({ cart: deCart })
     } catch (err) {
         const errorFound = handleError(err.code) || [{ status: 500, message: 'Error interno del servidor' }];
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });   

@@ -16,4 +16,7 @@
     cursor: pointer;
     color: var(--font-footer-color2);
 }
+.button_little_outline:active{
+    background-color: var( --font-btn2-color);
+}
 
