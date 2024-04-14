@@ -3,13 +3,21 @@ import pool from "../../../../config/db/conectionDb.js";
 const getProduct = async () => {
   const SQLquery = {
     text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
-           FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id order by product_id`,
+           FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id WHERE p.status = 'A' order by product_id `,
   };
 
   const response = await pool.query(SQLquery);
   return response.rows;
 };
+const getAllProduct = async () => {
+  const SQLquery = {
+    text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
+           FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id  order by product_id `,
+  };
 
+  const response = await pool.query(SQLquery);
+  return response.rows;
+};
 const getProductId = async ({ id }) => {
   const SQLquery = {
     text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
@@ -27,7 +35,8 @@ const getProductCategoryId = async ({ id }) => {
   const SQLquery = {
     text: `SELECT p.product_id, p.name, p.description, p.price, p.stock, p.category_id, c.name as name_category, p.create_at, p.status, p.user_id, u.username as name_user, p.image_url, p.information
     FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN users u ON p.user_id = u.user_id 
-           WHERE c.category_id = $1`,
+           WHERE c.category_id = $1
+           AND p.status = 'A'`,
     values: [id],
   };
 
@@ -62,7 +71,7 @@ const createProduct = async (
   image
 ) => {
   const SQLquery = {
-    text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id, image_url, information) 
+    text: `INSERT INTO Products (name, description, price, stock, category_id, status, user_id,  image_url, information) 
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8,$9) RETURNING *`,
     values: [
       nameProducts,
@@ -137,6 +146,7 @@ const statusProduct = async (id, status) => {
 };
 export {
   getProduct,
+  getAllProduct,
   getProductId,
   getProductCategoryId,
   getProductByUser,

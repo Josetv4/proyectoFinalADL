@@ -15,7 +15,7 @@ const router = express.Router();
 
 router.get("/carts/", isLogin, getActivity, getAllCart) 
 router.get("/cart/:id_user", isLogin, getActivity, getCartUser);
-router.get("/cart/all/:id", isLogin, getActivity, getAllCartbyUser);
+router.get("/cart/all/:userId", isLogin, getActivity, getAllCartbyUser);
 router.post("/cart/", isLogin, getActivity, addCartUser);
 router.put("/cart/increase/:product_id", isLogin, getActivity, updateCartIncrease);
 router.put("/cart/decrease/:product_id", isLogin, getActivity, updateCartDecrease);

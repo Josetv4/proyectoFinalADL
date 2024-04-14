@@ -1,4 +1,5 @@
 import { getProduct, 
+         getAllProduct,
          getProductId,
          getProductCategoryId, 
          getProductByUser,
@@ -13,6 +14,19 @@ import { handleError } from "../utils/utils.js";
 const getProducts = async (req, res) => {
   try {
     const products = await getProduct();
+    res.status(200).json({ product : products });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+const getAllProducts = async (req, res) => {
+  try {
+    const products = await getAllProduct();
     res.status(200).json({ product : products });
   } catch (error) {
     const errorFound = handleError(error.code) || [
@@ -145,6 +159,7 @@ const statusProducts = async (req, res) => {
 };
 
 export {  getProducts, 
+          getAllProducts,
           getProductsId,
           getProductsCategoryId, 
           getProductsByUsers,

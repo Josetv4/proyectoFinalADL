@@ -17,7 +17,7 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import { getProducts, getStatusProduct } from "../api/getApi";
+import { getAllProducts, getStatusProduct } from "../api/getApi";
 
 import { formatDate } from '../utils/DateFormat';
 
@@ -50,7 +50,7 @@ const ListProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const { response } = await getProducts();
+      const { response } = await getAllProducts();
       setProducts(response.product);
     } catch (error) {
       console.error("Error al obtener usuarios:", error);
