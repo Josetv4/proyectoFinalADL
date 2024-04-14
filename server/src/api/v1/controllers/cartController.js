@@ -40,23 +40,27 @@ const addCartUser = async (req, res) => {
     try {
         //Consulto el carrito del usuario
         const cartUser = await getCartsByUser(user_id)
+        console.log(cartUser);
             //en caso de no tener carrito lo creo
-        if (cartUser === undefined) {
-            console.log(user_id);
+        if (cartUser === undefined || cartUser.length === 0) {
             const newCart = await createCart(user_id);
+            console.log(newCart);
             const cart_id = newCart.cart_id;
-            console.log(cart_id);
+            console.log(newCart);
              //agrego el producto al nuevo carrito
                 const cartDetail = await createCartItems( cart_id, product_id, quantity, price );
+                console.log(cartDetail);
                 return res.status(201).json({ cart: cartDetail });
         } else {
             //agrego el producto al carrito en caso que exista el carro
-            const cart_id = cartUser[0]["cart_id"];
+            const cart_id = cartUser[0]['cart_id'];
+            console.log(cart_id);
             const cartDetailItems = await createCartItems( cart_id, product_id, quantity, price );
+            console.log(cartDetailItems);
             return res.status(201).json({ cart: cartDetailItems });
         }
     } catch (err) {
-        console.log(err);
+        console.log(err)
         const errorFound = handleError(err.code) || [{ status: 500, message: 'Error interno del servidor' }];
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });  
     }
