@@ -35,13 +35,13 @@ const createCart = async (user_id) => {
 };
 
 
-const closeCart = async ({ cartId }) => {
+const closeCartId = async ( cart_id ) => {
   const SQLquery = {
     text: `UPDATE cart 
            SET status = 'Cerrada'
            WHERE cart_id = $1
            RETURNING *`,
-    values: [userId],
+    values: [cart_id],
   };
   const response = await pool.query(SQLquery);
   return response.rows[0];
@@ -107,7 +107,7 @@ export {
   getCartsByUser,
   getAllCartsByUser,
   createCart,
-  closeCart,
+  closeCartId,
   createCartItems,
   incrementCartItems,
   decrementCartItems,
