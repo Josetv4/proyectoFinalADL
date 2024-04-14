@@ -357,6 +357,19 @@ const   deleteFavoriteId = async ( id ) => {
       return { error: error.message };
   }
 };
+const getReviewsByProduct = async (id) => {
+  try {
+    const response = await axios.get(`/review/product/${id}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener comentarios:", error);
+    return {
+      response: [],
+      error: "Error al obtener comentarios",
+      loading: false,
+    };
+  }
+};
 export {
   getProducts,
   getAllProducts,
@@ -384,4 +397,5 @@ export {
   getReview,
   deleteFavoriteId,
   getallCartUser,
+  getReviewsByProduct
 };

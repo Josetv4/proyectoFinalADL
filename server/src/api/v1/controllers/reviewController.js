@@ -41,7 +41,7 @@ const getReviewsProductId = async (req, res) => {
   const { productId } = req.params;
   try {
     const reviews = await getReviewProductId(productId);
-    res.status(200).json({ review: reviews });
+    res.status(200).json(reviews);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
