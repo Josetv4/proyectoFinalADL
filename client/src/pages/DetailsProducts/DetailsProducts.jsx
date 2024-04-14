@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams,useNavigate } from 'react-router-dom';
 import { Typography,  Box , Paper} from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
@@ -14,7 +14,9 @@ const DetailsProducts = () => {
     const { id } = useParams();
     const [isShowInformation, setIsShowInformation] = useState(undefined);
     const [product,setProduct] = useState([]);
+    const navigate = useNavigate();
 
+    
     useEffect(()=>{
         asyncGetProduct();
     },[]);
@@ -66,13 +68,18 @@ const DetailsProducts = () => {
     const handleClickCommentary = () =>{
         setIsShowInformation(false);
     }
+      
+    const goBack = () => {
+          navigate(-1)
+        }
+      
 
     return (
         <>
             <Box sx={{ marginTop: "3%", marginLeft: "3%" }}>
                 <Typography
                     component={NavLink}
-                    to="/category/1/Belleza" //volver a pagina anterior, buscar la forma de volver a la categoria anterior
+                    onClick={goBack}
                     sx={{
                         color: 'var(--font-btn3-color)',
                         fontFamily: 'var(--body)',

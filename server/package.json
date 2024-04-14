@@ -25,7 +25,8 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.0",
     "pg": "^8.11.3",
-    "standardjs": "^1.0.0-alpha"
+    "standardjs": "^1.0.0-alpha",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",

@@ -93,9 +93,12 @@ const Publications = () => {
   return (
     <div className="publication">
       <h1>Publica tus productos</h1>
-      <form onSubmit={handleSubmit}>
-        <Box
-          sx={{
+
+      <form onSubmit={handleSubmit } encType ="multipart/form-data">
+
+
+          <Box
+           sx={{
             display: "grid",
             columnGap: 4,
             rowGap: 3,

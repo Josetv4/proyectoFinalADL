@@ -15,7 +15,19 @@ const getProducts = async () => {
     };
   }
 };
-
+const getAllProducts = async () => {
+  try {
+    const response = await axios.get("/products/all");
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos:", error);
+    return {
+      response: [],
+      error: "Error al obtener productos",
+      loading: false,
+    };
+  }
+};
 const getCartItems = async () => {
   const token = window.localStorage.getItem("token");
   try {
@@ -46,7 +58,7 @@ const getallCartUser = async (user_id) => {
     const response = await axios.get(`/cart/all/${user_id}`, {
       headers: { Authorization: `Bearer ${token}`},
     });
-    return { response, error: null, loading: false };
+    return { response : response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
@@ -349,6 +361,7 @@ const   deleteFavoriteId = async ( id ) => {
 };
 export {
   getProducts,
+  getAllProducts,
   getCartItems,
   getCartUser,
   postCartItems,
