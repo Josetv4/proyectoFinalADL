@@ -19,12 +19,14 @@ const homePage = () => {
         <div className="home" >
         
             <section className="home_carrusel">
+            <small>*Esta página no está autorizada para la venta de medicamentos con receta médica</small>
             <h1>Bienvenidos a farmacias independientes SYG</h1>
+           
 
 
 <Carrusel/>
             </section>
-          <section>
+          <section className="home_h2">
           <h2>Disfruta miles de descuentos en nuestras farmacia todas las semanas</h2>
           <section className="home_safe">
            
