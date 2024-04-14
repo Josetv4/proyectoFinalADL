@@ -1,4 +1,5 @@
 import { getProduct, 
+         getAllProduct,
          getProductId,
          getProductCategoryId, 
          getProductByUser,
@@ -13,6 +14,19 @@ import { handleError } from "../utils/utils.js";
 const getProducts = async (req, res) => {
   try {
     const products = await getProduct();
+    res.status(200).json({ product : products });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+const getAllProducts = async (req, res) => {
+  try {
+    const products = await getAllProduct();
     res.status(200).json({ product : products });
   } catch (error) {
     const errorFound = handleError(error.code) || [
@@ -93,7 +107,7 @@ const getProductsByDescription = async (req, res) => {
 const createNewProduct = async (req, res) => {
   try {
     const product = req.body
-    const image = "https://acdn.mitiendanube.com/stores/672/615/products/ain_tapsin_flu1-f570d312a750c9d11d16618881790247-640-0.jpg";//req.file.filename;
+    const image = req.file.filename;
     const newProduct = await createProduct( product, image );
     res.status(201).json({ product: newProduct });
   } catch (error) {
@@ -145,6 +159,7 @@ const statusProducts = async (req, res) => {
 };
 
 export {  getProducts, 
+          getAllProducts,
           getProductsId,
           getProductsCategoryId, 
           getProductsByUsers,

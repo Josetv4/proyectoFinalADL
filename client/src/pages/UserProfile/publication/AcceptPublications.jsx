@@ -16,7 +16,7 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import { getProducts, getStatusProduct } from "../../../api/getApi";
+import { getAllProducts, getStatusProduct } from "../../../api/getApi";
 
 const AcceptPublications = () => {
     const [product, setProducts] = useState([]);
@@ -47,7 +47,7 @@ const AcceptPublications = () => {
   
     const fetchProducts = async () => {
       try {
-        const { response } = await getProducts();
+        const { response } = await getAllProducts();
         setProducts(response.product);
       } catch (error) {
         console.error("Error al obtener usuarios:", error);
