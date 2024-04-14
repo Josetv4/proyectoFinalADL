@@ -15,3 +15,6 @@
     cursor: pointer;
     border: 5px solid var(--linea-border-color2);
 }
+.button_outline:active{
+    background-color: var(--font-btn2-color);
+}

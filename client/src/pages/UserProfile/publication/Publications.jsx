@@ -64,7 +64,7 @@ const Publications = () => {
       price,
       stock,
       category_id : category,
-      statusProduct : "A",
+      statusProduct : "P",
       user_id : userId,
       information : detailname
     }
