@@ -6,7 +6,8 @@ import {
         updateCartIncrease,
         updateCartDecrease,
         getAllCart,
-        getAllCartbyUser
+        getAllCartbyUser,
+        closeCart
              } from "../../src/api/v1/controllers/cartController.js";
 import { getActivity } from "../../middlewares/reports.js";
 import { isLogin } from "../../middlewares/isLogin.js";
@@ -19,6 +20,7 @@ router.get("/cart/all/:userId", isLogin, getActivity, getAllCartbyUser);
 router.post("/cart/", isLogin, getActivity, addCartUser);
 router.put("/cart/increase/:product_id", isLogin, getActivity, updateCartIncrease);
 router.put("/cart/decrease/:product_id", isLogin, getActivity, updateCartDecrease);
+router.delete("/cart/closeCart/:id_user", isLogin, getActivity, closeCart);
 
 
 

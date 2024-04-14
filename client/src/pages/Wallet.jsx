@@ -10,6 +10,9 @@ import {
 import { CiCreditCard1 } from "react-icons/ci";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import ButtonLittle from "../components/Buttons/buttonLittle/buttonLittle";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
+import { DataContext } from "../context/DataContext";
 
 const displayFlexC = {
     display: "flex",
@@ -24,6 +27,16 @@ const textStyle = {
 };
 
 const Wallet = () => {
+    const {userId} = useContext(AuthContext);
+    const {deleteCartItem} = useContext(DataContext)
+    const closeCart = async () => {
+        try {
+            console.log(userId);
+            await deleteCartItem(userId)
+        } catch (err) {
+            console.error("No fue posible cerrar el carrito", err)
+        }
+    }
     return (
         <Container
             maxWidth="xll"
@@ -143,7 +156,7 @@ const Wallet = () => {
                             />
                         </Box>
                         <Box sx={{ ml: "5.6rem", mt: "1rem" }}>
-                            <ButtonLittle to="/purchase-thanks">
+                            <ButtonLittle to="/purchase-thanks" onClick={() => closeCart()}>
                                 <Typography
                                     sx={{
                                         fontFamily: "var(--font-body)",
