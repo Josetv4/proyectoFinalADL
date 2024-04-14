@@ -15,8 +15,11 @@ import "./style.css";
 
 const ShoppingCard = ({toggleDrawer}) => {
 
-  const { products  } = useContext(DataContext);
+  const { products, cartsAllbyUser  } = useContext(DataContext);
   const { userId } = useContext(AuthContext);
+
+ console.log("mensaje enviad: ", cartsAllbyUser)
+
 
   if (!products || !products.product || !Array.isArray(products.product)) {
     return <div>No hay productos disponibles</div>;

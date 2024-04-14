@@ -19,6 +19,8 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import { getProducts, getStatusProduct } from "../api/getApi";
 
+import { formatDate } from '../utils/DateFormat';
+
 const ListProducts = () => {
   const [product, setProducts] = useState([]);
 
@@ -65,27 +67,27 @@ const ListProducts = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>Id</TableCell>
-                  <TableCell align="right">Nombre</TableCell>
-                  <TableCell align="right">Descripcion</TableCell>
-                  <TableCell align="right">Precio</TableCell>
-                  <TableCell align="right">Stock</TableCell>
-                  <TableCell align="right">Categoria</TableCell>
-                  <TableCell align="right">Creado</TableCell>
-                  <TableCell align="right">Status</TableCell>
-                  <TableCell align="right">Usuario</TableCell>
+                  <TableCell align="left">Nombre</TableCell>
+                  <TableCell align="left">Descripcion</TableCell>
+                  <TableCell align="left">Precio</TableCell>
+                  <TableCell align="left">Stock</TableCell>
+                  <TableCell align="left">Categoria</TableCell>
+                  <TableCell align="left">Creado</TableCell>
+                  <TableCell align="left">Status</TableCell>
+                  <TableCell align="left">Usuario</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {product.map((row) => (
                   <TableRow key={row.product_id}>
                     <TableCell align="right">{row.product_id}</TableCell>
-                    <TableCell align="right">{row.name}</TableCell>
-                    <TableCell align="right">{row.description}</TableCell>
-                    <TableCell align="right">{row.price}</TableCell>
-                    <TableCell align="right">{row.stock}</TableCell>
-                    <TableCell align="right">{row.name_category}</TableCell>
-                    <TableCell align="right">{row.create_at}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="left">{row.name}</TableCell>
+                    <TableCell align="left">{row.description}</TableCell>
+                    <TableCell align="left">{row.price}</TableCell>
+                    <TableCell align="left">{row.stock}</TableCell>
+                    <TableCell align="left">{row.name_category}</TableCell>
+                    <TableCell align="left">{formatDate(row.create_at)}</TableCell>
+                    <TableCell align="left">
                       {row.status === "A"
                         ? "Activo"
                         : row.status === "X"
@@ -94,8 +96,8 @@ const ListProducts = () => {
                         ? "Pendiente"
                         : "Desconocido"}
                     </TableCell>
-                    <TableCell align="right">{row.name_user}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="left">{row.name_user}</TableCell>
+                    <TableCell align="left">
                       <IconButton
                         color="success"
                         onClick={() => handleClick(row.product_id, "A")}

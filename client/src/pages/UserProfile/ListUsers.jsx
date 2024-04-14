@@ -15,6 +15,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CheckIcon from "@mui/icons-material/Check";
 
 import { getUsers, getStatusUser } from "../../api/getApi";
+import { formatDate } from "../../utils/DateFormat"
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
@@ -62,13 +63,13 @@ const ListUsers = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>Id</TableCell>
-                  <TableCell align="right">Nombre</TableCell>
-                  <TableCell align="right">Rut</TableCell>
-                  <TableCell align="right">Fecha Nacimiento</TableCell>
-                  <TableCell align="right">Email</TableCell>
-                  <TableCell align="right">Telefono</TableCell>
-                  <TableCell align="right">Rol</TableCell>
-                  <TableCell align="right">status</TableCell>
+                  <TableCell align="left">Nombre</TableCell>
+                  <TableCell align="left">Rut</TableCell>
+                  <TableCell align="left">Fecha Nacimiento</TableCell>
+                  <TableCell align="left">Email</TableCell>
+                  <TableCell align="left">Telefono</TableCell>
+                  <TableCell align="left">Rol</TableCell>
+                  <TableCell align="left">status</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -83,12 +84,12 @@ const ListUsers = () => {
                     <TableCell component="th" scope="row">
                       {row.username}
                     </TableCell>
-                    <TableCell align="right">{row.rut}</TableCell>
-                    <TableCell align="right">{row.birth_date}</TableCell>
-                    <TableCell align="right">{row.email}</TableCell>
-                    <TableCell align="right">{row.phone}</TableCell>
-                    <TableCell align="right">{row.rol}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="left">{row.rut}</TableCell>
+                    <TableCell align="left">{formatDate(row.birth_date)}</TableCell>
+                    <TableCell align="left">{row.email}</TableCell>
+                    <TableCell align="left">{row.phone}</TableCell>
+                    <TableCell align="left">{row.rol}</TableCell>
+                    <TableCell align="left">
                     {row.status === "A"
                         ? "Activo"
                         : "Borrado"

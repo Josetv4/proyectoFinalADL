@@ -52,7 +52,7 @@ const RegularUserProfile = () => {
           </List>
         </Box>
         <Box sx={{ display:'flex', flexDirection: "column", gap: '15px' }}>
-          <ButtonBig>Ver tus Favoritos</ButtonBig>
+          <ButtonBig to="/list-favorites">Ver tus Favoritos</ButtonBig>
           <ButtonOutline to="/last-shopping">Tus últimas compras</ButtonOutline>
         </Box>
       </Box>
