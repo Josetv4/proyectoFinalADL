@@ -61,6 +61,12 @@ const ListFavorites = () => {
     }
   };
 
+  if (!favorites  || !Array.isArray(favorites) || (favorites.length === 0)  )  {
+    return <div>No hay productos disponibles</div>;
+  }
+
+  console.log(favorites)
+
   return (
     <Container>
       <h1>Mis Favoritos</h1>
@@ -94,7 +100,7 @@ const ListFavorites = () => {
             </Box>
             <Box>
               <ButtonLittle
-                onClick={ userId ? () => addProduct() : () => dontProduct()}
+               /*  onClick={ userId ? () => addProduct() : () => dontProduct()} */
               >
                 Añadir al carro
               </ButtonLittle>
