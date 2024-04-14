@@ -85,15 +85,17 @@ const decrementCartItems = async (cart_id, detail_id, product_id) => {
   return response.rows[0];
 };
 
-const getAllCartsByUser = async (userId) => {
+const getAllCartsByUser = async ({userId}) => {
   const SQLquery = {
-    text: `SELECT c.cart_id, c.status, c.user_id, u.username, ci.detail_id, ci.product_id, p.name, ci.quantity, ci.price
-            FROM cart c
-            INNER JOIN cart_items ci ON c.cart_id = ci.cart_id
-            INNER JOIN users u ON c.user_id = u.user_id
-            INNER JOIN products p ON ci.product_id = p.product_id
-            WHERE c.user_id = $1
-            ORDER BY c.cart_id DESC, ci.detail_id`,
+    text: `SELECT c.cart_id, c.status, 
+              ci.detail_id, ci.product_id, p.name, ci.quantity, ci.price, 
+              c.created_at, p.image_url,  pu.username 
+          FROM cart c
+          INNER JOIN cart_items ci ON c.cart_id = ci.cart_id
+          INNER JOIN products p ON ci.product_id = p.product_id
+          INNER JOIN users pu ON p.user_id = pu.user_id
+          WHERE c.user_id = $1
+          ORDER BY c.cart_id DESC, ci.detail_id`,
     values: [userId],
   };
 

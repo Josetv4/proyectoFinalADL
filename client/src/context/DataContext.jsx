@@ -46,7 +46,7 @@ const DataProvider = ({ children }) => {
   const fetchCartsAllbyUser = async (userId)=> {
     try {
       const { response, error, loading } = await getallCartUser(userId);
-      setcartsAllbyUser(response.data);
+      setcartsAllbyUser(response);
       setError(error);
       setLoading(loading);
     } catch (error) {
