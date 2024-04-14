@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-
 import Box from "@mui/material/Box";
 import ButtonBig from "../../../components/Buttons/buttonBig/buttonBig";
 import Select from "@mui/material/Select";
@@ -7,9 +6,9 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import { FaRegImage } from "react-icons/fa6";
-import { Button, Container } from "@mui/material";
+import { Button } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
+
 import "./style.css";
 import TextField from "@mui/material/TextField";
 import { createNewProduct, getCategories } from "../../../api/getApi";
@@ -44,18 +43,6 @@ const Publications = () => {
     }
   }
 
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
-
   const handleSubmit =  async(e) => {
     e.preventDefault();
     const data = {
@@ -66,6 +53,7 @@ const Publications = () => {
       category_id : category,
       statusProduct : "P",
       user_id : userId,
+      image_url:image,
       information : detailname
     }
     try {
@@ -81,8 +69,6 @@ const Publications = () => {
       console.log(error);
       swal("¡Error!", "Ha ocurrido un error al publicar tu producto", "error");
     }
-    
-    
   };
 
   const handleChange = (event) => {
@@ -94,18 +80,6 @@ const Publications = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
-const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setLoading(true);
-      // Simular una carga de imagen (aquí puedes llamar a tu función de carga real de imagen)
-      setTimeout(() => {
-        setImage(file);
-        setImageName(file.name);
-        setLoading(false);
-      }, 2000); // Simulación de tiempo de carga
-    }
-  };
 
   const cleanFields = () => {
     setProductname("");
@@ -116,15 +90,12 @@ const handleImageChange = (e) => {
     setCategory("");
   }
 
-
-
   return (
     <div className="publication">
       <h1>Publica tus productos</h1>
-      <form onSubmit={handleSubmit } encType ="multipart/form-data">
-        <Container>
-          <Box
-           sx={{
+      <form onSubmit={handleSubmit}>
+        <Box
+          sx={{
             display: "grid",
             columnGap: 4,
             rowGap: 3,
@@ -135,7 +106,6 @@ const handleImageChange = (e) => {
             alignItems: "center",
           }}>
           <div>
-
             <TextField
               required
               id="filled"
@@ -146,7 +116,6 @@ const handleImageChange = (e) => {
               onChange={(e) => setProductname(e.target.value)}
             />
           </div>
-
           <div>
             <TextField
               required
@@ -171,7 +140,6 @@ const handleImageChange = (e) => {
               onChange={(e) => setStock(e.target.value)}
             />
           </div>
-
           <div>
             <TextField
               id="outlined-multiline-static"
@@ -184,7 +152,6 @@ const handleImageChange = (e) => {
               value={detailname}
             />
           </div>
-
           <div>
             <TextField
               id="outlined-multiline-static"
@@ -197,58 +164,55 @@ const handleImageChange = (e) => {
               onChange={(e) => setDetails(e.target.value)}
             />
           </div>
-
-        
-            <div className="publication_category">
-              <label htmlFor="category">
-                Seleciona una categoría para tu producto
-              </label>
-              <Select
-                variant="filled"
-                value={category}
-                onChange={handleChange}
-                input={<OutlinedInput label="Tag" />}
-                defaultValue={""}
-              >
-                {categories?.map((item) => (
-                  <MenuItem key={item.category_id} value={item.category_id}>
-                    <ListItemText primary={item.name} />
-                  </MenuItem>
-                ))}
-              </Select>
-            </div>
-            <div className="publication_button">
+          <div className="publication_category">
+            <label htmlFor="category">
+              Seleciona una categoría para tu producto
+            </label>
+            <Select
+              variant="filled"
+              value={category}
+              onChange={handleChange}
+              input={<OutlinedInput label="Tag" />}
+              defaultValue={""}
+            >
+              {categories?.map((item) => (
+                <MenuItem key={item.category_id} value={item.category_id}>
+                  <ListItemText primary={item.name} />
+                </MenuItem>
+              ))}
+            </Select>
+          </div>
+          <div className="publication_button">
             <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-               
-                startIcon={<CloudUploadIcon />}
-              >
-
-                Sube la imagen de tu producto aquí <FaRegImage />
-                 <VisuallyHiddenInput
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUploadIcon />}
+            >
+              Sube la imagen de tu producto aquí <FaRegImage />
+              <input
                 id="upload-button"
                 type="file"
                 value={image}
-                onChange={handleImageChange}
+                onChange={(e) => setImage(e.target.value)}
+                style={{ display: "none" }}
               />
-              </Button>
+            </Button>
+          </div>
+          {loading && (
+            <div className="publication_button">
+              <CircularProgress />
             </div>
-            {loading && (
-              <div className="publication_button">
-                <CircularProgress />
-              </div>
-            )}
-            {/* Mostrar el nombre de la imagen cuando se haya cargado */}
-            {imageName && !loading && (
-              <div className="publication_button">
-                <p>{imageName}</p>
-              </div>
-            )}
-          </Box>
-          <Box
+          )}
+          {/* Mostrar el nombre de la imagen cuando se haya cargado */}
+          {imageName && !loading && (
+            <div className="publication_button">
+              <p>{imageName}</p>
+            </div>
+          )}
+        </Box>
+        <Box
           sx={{
             display: "grid",
             columnGap: 4,
@@ -259,10 +223,8 @@ const handleImageChange = (e) => {
             margin: "2%",
             alignItems: "center",
           }}>
-             <ButtonBig type="submit" variant="outlined">Publicar</ButtonBig>
-             </Box>
-         
-        </Container>
+          <ButtonBig type="submit" variant="outlined">Publicar</ButtonBig>
+        </Box>
       </form>
     </div>
   );
