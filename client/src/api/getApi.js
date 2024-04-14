@@ -279,14 +279,16 @@ const getProductDescription = async (description) => {
   }
 };
 
-const createNewProduct = async (productData) => {
+const createNewProduct = async (formData) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(`/products`, productData ,
-      {
-        headers: { Authorization: `Bearer ${token}` },
+
+    const response = await axios.post(`/products`, formData, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data' // Importante para enviar archivos
       }
-    );
+    });
     return { statusCode : response.request.status , response: response.data, error: null };
   } catch (error) {
     return { error : error.message };
@@ -357,6 +359,19 @@ const   deleteFavoriteId = async ( id ) => {
       return { error: error.message };
   }
 };
+const getReviewsByProduct = async (id) => {
+  try {
+    const response = await axios.get(`/review/product/${id}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener comentarios:", error);
+    return {
+      response: [],
+      error: "Error al obtener comentarios",
+      loading: false,
+    };
+  }
+};
 export {
   getProducts,
   getAllProducts,
@@ -384,4 +399,5 @@ export {
   getReview,
   deleteFavoriteId,
   getallCartUser,
+  getReviewsByProduct
 };

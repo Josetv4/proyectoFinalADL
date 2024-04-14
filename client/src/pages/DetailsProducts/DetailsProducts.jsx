@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams,useNavigate } from 'react-router-dom';
-import { Typography,  Box , Paper} from '@mui/material';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
+import { Typography, Box, Paper } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 import StarIcon from '@mui/icons-material/Star';
@@ -8,71 +8,82 @@ import ButtonBig from '../../components/Buttons/buttonBig/buttonBig';
 
 
 import "./styles.css";
-import { getProductsById } from '../../api/getApi';
+import { getProductsById, getReviewsByProduct } from '../../api/getApi';
 
 const DetailsProducts = () => {
     const { id } = useParams();
     const [isShowInformation, setIsShowInformation] = useState(undefined);
-    const [product,setProduct] = useState([]);
+    const [product, setProduct] = useState([]);
+    const [reviews, setReviews] = useState([]);
     const navigate = useNavigate();
 
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         asyncGetProduct();
-    },[]);
+        asyncGetReviews();
+    }, []);
 
     const addProduct = async () => {
         try {
             await addCartItem(userId, product_id, 1, price);
             console.log("Se añadio el producto al carrito con exito");
             toast(' ¡Excelente! su producto fue añadido al carrito',);
-            } catch (err) {
+        } catch (err) {
             console.error("Error al cargar producto al carrito", err);
-            }   
         }
-        const dontProduct = () =>{
-            swal("¡Debes iniciar sesion para añadir productos al carrito!", {
-              icon: "error",
-            });
-        };
-    const asyncGetProduct = async() =>{
+    }
+    const dontProduct = () => {
+        swal("¡Debes iniciar sesion para añadir productos al carrito!", {
+            icon: "error",
+        });
+    };
+    const asyncGetProduct = async () => {
         try {
             const response = await getProductsById(id);
-            console.log(response)
-            response.response.image_url = 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg';
-            response.response.valoration = Math.round((Math.random()*5)*10)/10;
-            response.response.comments = [
-                {
-                    author : "Pepito paga doble",
-                    date : "15/12/2023",
-                    content : "Es bueno el producto"
-                },
-                {
-                    author : "Jorge Valdivia",
-                    date : "11/04/2022",
-                    content : "Malo"
-                }
-            ];
+            console.log(response)        
             setProduct(response.response)
-            console.log(product)
         } catch (error) {
             console.log(error);
         }
     }
 
-    const handleClickInfo = () =>{
+    const asyncGetReviews = async () => {
+        try {
+            const response = await getReviewsByProduct(id);
+            console.log(response)
+            setReviews(response.response)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleClickInfo = () => {
         setIsShowInformation(true);
         console.log(isShowInformation)
     }
 
-    const handleClickCommentary = () =>{
+    const handleClickCommentary = () => {
         setIsShowInformation(false);
     }
-      
+
     const goBack = () => {
-          navigate(-1)
-        }
-      
+        navigate(-1)
+    }
+
+   
+const convertirFechaZ = (fechaZulu) =>{
+ 
+    const fecha = new Date(fechaZulu);
+    const offset = fecha.getTimezoneOffset();
+    const GmtMenos4 = offset - (4 * 60);
+  
+    fecha.setMinutes(fecha.getMinutes() + GmtMenos4);
+  
+    const fechaGMTmenos4 = fecha.toISOString().split("T")[0];
+    
+    return fechaGMTmenos4;
+  }
+
 
     return (
         <>
@@ -145,7 +156,7 @@ const DetailsProducts = () => {
 
                     <Box sx={{ display: "flex", gap: "20px" }}>
                         <Box>
-                            <button className='button_details' onClick={handleClickInfo }>
+                            <button className='button_details' onClick={handleClickInfo}>
                                 Información del producto
                             </button>
                         </Box>
@@ -155,20 +166,20 @@ const DetailsProducts = () => {
                             </button>
                         </Box>
                     </Box>
-                    <Box className="section-info-buttons" sx={{display: (isShowInformation===undefined) ? "none" : "block"}}>
+                    <Box className="section-info-buttons" sx={{ display: (isShowInformation === undefined) ? "none" : "block" }}>
                         {
-                            isShowInformation === true 
-                            ? (product.information ?  product.information : "Sin información")
-                            : (product.comments?.length === 0) 
-                                ? "No hay comentarios" 
-                                :  product.comments?.map((commentary,i)=> {
+                            isShowInformation === true
+                                ? (product.information ? product.information : "Sin información")
+                                : (reviews?.length === 0)
+                                    ? "No hay comentarios"
+                                    : reviews?.map((commentary, i) => {
                                         return (
                                             <Paper key={i} elevation={3} style={{ padding: '10px', marginBottom: '10px' }}>
-                                                <Box sx={{display:"flex", justifyContent:"space-between"}}>
-                                                    <Typography variant="subtitle1">Autor : {commentary.author}</Typography>
-                                                    <Typography variant="subtitle1">Fecha Publicación : {commentary.date}</Typography>
+                                                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                                                    <Typography variant="subtitle1">Autor : </Typography>
+                                                    <Typography variant="subtitle1">Fecha Publicación : {convertirFechaZ(commentary.create_at)}</Typography>
                                                 </Box>
-                                                <Typography variant="body1">Comentario : {commentary.content}</Typography>
+                                                <Typography variant="body1">Comentario : {commentary.comment}</Typography>
                                             </Paper>
                                         )
                                     })
