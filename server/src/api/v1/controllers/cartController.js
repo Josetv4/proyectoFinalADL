@@ -3,7 +3,8 @@ import { getCartsByUser,
             createCartItems,
             incrementCartItems,
             decrementCartItems,
-            getCarts, 
+            getCarts,
+            closeCartId, 
             getAllCartsByUser
         } from "../models/cartModel.js";
 import { handleError } from "../utils/utils.js";
@@ -94,6 +95,25 @@ const updateCartDecrease = async (req, res) => {
         return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });   
     }
 }
+const closeCart = async (req, res) => {
+    const { id_user } = req.params;
+    try {
+        //Obtengo el carrito del usuario que esta activo
+        const cartUser = await getCartsByUser(id_user)
+        console.log(cartUser);
+        //Obtengo el id del carrito 
+        const cart_id = cartUser[0].cart_id;
+        console.log(cart_id);
+        //cierro el carrito
+        const deleteCart = await closeCartId(cart_id)
+        console.log(deleteCart);
+        return res.status(201).json({ cart: deleteCart })
+    } catch (err) {
+        const errorFound = handleError(err.code) || [{ status: 500, message: 'Error interno del servidor' }];
+        return res.status(errorFound[0]?.status).json({ error: errorFound[0]?.message });   
+    }
+}
+
 const getAllCartbyUser = async (req, res) =>{
     
     const userId = req.params;
@@ -115,5 +135,6 @@ export {
     updateCartIncrease,
     updateCartDecrease,
     getAllCart,
-    getAllCartbyUser
+    getAllCartbyUser,
+    closeCart
 }

@@ -135,9 +135,9 @@ const fetchProducts = async ()=> {
     }
   };
 
-  const deleteCartItem = async (detailId, cartId) => {
+  const deleteCartItem = async (userId) => {
     try {
-      const { response, error, loading } = await deleteCartItems( detailId, cartId);
+      const { response, error, loading } = await deleteCartItems(userId);
       console.log(response);
       setError(error);
       setLoading(loading);
