@@ -121,7 +121,11 @@ const handleImageChange = (e) => {
   return (
     <div className="publication">
       <h1>Publica tus productos</h1>
+<<<<<<< HEAD
       <form onSubmit={handleSubmit } encType ="multipart/form-data">
+=======
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+>>>>>>> 84d52b6709225d3bfecfca2e0fb5bf548bcb375e
         <Container>
           <Box
            sx={{
