@@ -32,7 +32,7 @@ export default function ProductCard({ product }) {
     try {
       await addCartItem(userId, product_id, 1, price);
       console.log("Se añadio el producto al carrito con exito");
-      // toast(' ¡Excelente! su producto fue añadido al carrito',);
+      toast(' ¡Excelente! su producto fue añadido al carrito',);
       } catch (err) {
       console.error("Error al cargar producto al carrito", err);
     }   

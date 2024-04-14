@@ -12,20 +12,11 @@ const PurchaseDetail = ({ updateCartItem, cartItems }) => {
     console.log(cartItems);
     const carts = cartItems && cartItems.filter((item) => item.quantity>0)
     console.log(carts);
+    
     const handleIn = async (product) => {
         const { product_id, detail_id, cart_id } = product;
         try {
             await updateCartItem(product_id, detail_id, cart_id, "increase")
-            // const addQuantity = carts.map(item => {
-            //     if (item.product_id === product_id){
-            //         return { ...item, 
-            //                     quantity: ((item.quantity || 0)) + 1
-            //         }
-            //     }
-            //     return item
-            // });
-            // setCart(addQuantity)
-
         } catch (err) {
             console.error("Error al aumentar cantidad del carrito", err);
         }
@@ -35,15 +26,6 @@ const PurchaseDetail = ({ updateCartItem, cartItems }) => {
         const { product_id, detail_id, cart_id } = product;
         try {
             await updateCartItem(product_id, detail_id, cart_id, "decrease")
-            // const addQuantity = cartItem.map(item => {
-            //     if (item.product_id === product_id){
-            //         return { ...item, 
-            //                     quantity: ((item.quantity || 0)) - 1
-            //         }
-            //     }
-            //     return item
-            // });
-
         } catch (err) {
             console.error("Error al disminuir cantidad del carrito", err);
         }
