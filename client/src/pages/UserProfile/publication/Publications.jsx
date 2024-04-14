@@ -5,9 +5,9 @@ import Select from "@mui/material/Select";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
-import { FaRegImage } from "react-icons/fa6";
-import { Button } from "@mui/material";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+// import { FaRegImage } from "react-icons/fa6";
+// import { Button } from "@mui/material";
+// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 import "./style.css";
 import TextField from "@mui/material/TextField";
@@ -94,7 +94,7 @@ const Publications = () => {
     <div className="publication">
       <h1>Publica tus productos</h1>
 
-      <form onSubmit={handleSubmit } encType ="multipart/form-data">
+      <form onSubmit={handleSubmit} >
 
 
           <Box
@@ -186,7 +186,7 @@ const Publications = () => {
             </Select>
           </div>
           <div className="publication_button">
-            <Button
+            {/* <Button
               component="label"
               role={undefined}
               variant="contained"
@@ -194,14 +194,13 @@ const Publications = () => {
               startIcon={<CloudUploadIcon />}
             >
               Sube la imagen de tu producto aquí <FaRegImage />
-              <input
-                id="upload-button"
+            </Button> */}
+      
+            <input
                 type="file"
                 value={image}
-                onChange={(e) => setImage(e.target.value)}
-                style={{ display: "none" }}
+                onChange={(e) => setImage(e.target.files)}
               />
-            </Button>
           </div>
           {loading && (
             <div className="publication_button">
