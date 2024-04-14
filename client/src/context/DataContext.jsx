@@ -10,10 +10,12 @@ const DataProvider = ({ children }) => {
 
   const [cartUser, setCartUser] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [quantityCart, setQuantityCart] = useState(0)
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [productSeller, setProductSeller] = useState([]);
+
 
   useEffect(() => {
     fetchProducts();
@@ -26,7 +28,10 @@ const DataProvider = ({ children }) => {
   }, [userId])
   
   useEffect(() =>{
-    userId || userId !== null ? fetchCartUser(): "";
+    console.log(userId);
+    if(userId || userId !== null){
+      fetchCartUser();
+    }
   }, [userId]);
  
   const fetchProductsByUser = async (userId)=> {
@@ -58,7 +63,7 @@ const fetchProducts = async ()=> {
   const fetchCartItems = async () => {
     try {
       const { response, error, loading } = await getCartItems();
-      setCartItems(response);
+      setCartItems(response.cart);
       setError(error);
       setLoading(loading);
     } catch (error) {
@@ -73,6 +78,12 @@ const fetchProducts = async ()=> {
       setCartUser(response);
       setError(error);
       setLoading(loading);
+      setCartItems(response.cart);
+      const carts = response.cart;
+      const quantity = carts.filter((item) => item.quantity>0)
+      setQuantityCart(quantity.length)
+
+
     } catch (error) {
       console.error("Error al obtener carritos:", error);
       setError("Error al obtener carritos");
@@ -83,11 +94,13 @@ const fetchProducts = async ()=> {
   const addCartItem = async ( userId, product_id, quantity, price ) => {
     try {
       const { response, error, loading } = await postCartItems(userId, product_id, quantity, price);
-      setCartItems(response);
+      // setCartUser(response);
+      // setCartItems(response.cart)
+      console.log(response);
       setError(error);
       setLoading(loading);
 
-      fetchCartItems()
+      fetchCartUser();
 
     } catch (error) {
       console.error("Error al obtener carritos:", error);
@@ -98,13 +111,12 @@ const fetchProducts = async ()=> {
 
   const updateCartItem = async ( product_id, detail_id, cart_id, cartUpdate) => {
     try {
-      console.log(cartUpdate);
       const { response, error, loading } = await updateCartItems(product_id, detail_id, cart_id, cartUpdate);
-      setCartItems(response);
+      console.log(response);
       setError(error);
       setLoading(loading);
+      fetchCartUser()
      
-
     } catch (error) {
       console.error("Error al actualizar producto del carrito:", error);
     }
@@ -113,10 +125,10 @@ const fetchProducts = async ()=> {
   const deleteCartItem = async (detailId, cartId) => {
     try {
       const { response, error, loading } = await deleteCartItems( detailId, cartId);
-      setCartItems(response);
+      console.log(response);
       setError(error);
       setLoading(loading);
-      fetchCartItems();
+      fetchCartUser();
     } catch (error) {
       console.error("Error al eliminar producto del carrito:", error);
     }
@@ -129,7 +141,12 @@ const fetchProducts = async ()=> {
         error,
         loading,
         cartItems,
+        quantityCart,
         cartUser,
+        userId,
+        fetchProductsByUser,
+        setCartItems,
+        setQuantityCart,
         addCartItem,
         updateCartItem,
         deleteCartItem,
