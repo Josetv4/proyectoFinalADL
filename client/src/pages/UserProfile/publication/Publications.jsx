@@ -121,7 +121,7 @@ const handleImageChange = (e) => {
   return (
     <div className="publication">
       <h1>Publica tus productos</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <Container>
           <Box
            sx={{
