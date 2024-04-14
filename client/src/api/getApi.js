@@ -67,15 +67,12 @@ const postCartItems = async (user_id, product_id, quantity, price) => {
 };
 const updateCartItems = async (product_id, detail_id, cart_id, updateCart ) => {
   const token = window.localStorage.getItem("token")
-  console.log(product_id, {detail_id, cart_id}, updateCart);
   try {
     const response = await axios.put(
       `cart/${updateCart}/${product_id}`, 
-      detail_id,
-      cart_id,
+      {detail_id, cart_id},
       { headers: {Authorization: `Bearer ${token}`}}
     );
-    console.log(response);
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al modificar carrito:", error);

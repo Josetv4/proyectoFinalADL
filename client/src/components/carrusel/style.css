@@ -1,17 +1,13 @@
-.home_carrusel{
-    display: flex;
-   
-    flex-direction: column;
-    align-content: center;
-    align-items: flex-start;
-    margin-left: 5%;
-}
+
 .carrusel_img{
     width: 68rem !important;
 
 }
 .carrusel_img img{
     width: inherit;
+    border-radius: 8px;
+    border: 8px solid white;
+
 }
 
 .css-1yf1hp2{
@@ -20,6 +16,19 @@
 }
 .css-1x1xx5k {
     max-width: 100% !important;}
+
+    .css-1yf1hp2 {
+        height: 255px;
+        padding: 16px;
+        width: 75rem !important;
+        border-radius: 5px;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/farmacias-syg.appspot.com/o/imagenes%2FGroup%201137%20(2).png?alt=media&token=8a9d97a6-d944-47f9-865d-358f3af39d07");
+    }
+        
+
+
+
+    
     @media (min-width: 1400px) {
         .carrusel_img{
             width: 84rem !important;

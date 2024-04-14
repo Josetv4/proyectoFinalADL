@@ -21,7 +21,7 @@ const getCartsByUser = async (id_user) => {
   };
 
   const response = await pool.query(SQLquery);
-  return response.rows[0];
+  return response.rows;
 };
 
 const createCart = async (user_id) => {
@@ -67,6 +67,7 @@ const incrementCartItems = async (cart_id, detail_id, product_id) => {
              RETURNING *`,
     values: [cart_id, detail_id, product_id ],
   };
+  console.log(SQLquery);
   const response = await pool.query(SQLquery);
   return response.rows[0];
 };

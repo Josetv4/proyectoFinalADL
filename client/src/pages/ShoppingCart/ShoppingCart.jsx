@@ -7,7 +7,7 @@ import { DataContext } from "../../context/DataContext.jsx";
 
 const ShoppingCart = () =>{   
 
-    const { cartUser, updateCartItem } = useContext(DataContext);
+    const { cartItems, updateCartItem } = useContext(DataContext);
 
     return (
         <main>
@@ -15,10 +15,15 @@ const ShoppingCart = () =>{
             <Container sx={{ display: "flex", flexDirection: 'row', maxHeight: '58vh', maxWidth: '-moz-available', justifyContent: "center", alignItems: "center" }}>
                 <Grid container spacing={2} style={{ width: "100%" }}>
                     <Grid item xs={8} style={{ height: "100%" }}>
-                        <PurchaseDetail cartUser={cartUser} updateCartItem={updateCartItem} />
+                        <PurchaseDetail 
+                            updateCartItem={updateCartItem}
+                            cartItems={cartItems}
+                        />
                     </Grid>
                     <Grid item xs={4} style={{padding: "0", paddingLeft:"8px"}}>
-                        <PurchaseTotal cartUser={cartUser} />
+                        <PurchaseTotal 
+                            cartItem={cartItems}
+                        />
                     </Grid>
                 </Grid>
             </Container>

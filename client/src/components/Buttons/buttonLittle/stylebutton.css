@@ -16,3 +16,6 @@
     font-family: var(--font-body);
     cursor: pointer;
 }
+.button_little:active{
+    background-color: var(--font-btn5-color);
+}

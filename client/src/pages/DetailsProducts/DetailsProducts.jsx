@@ -21,6 +21,20 @@ const DetailsProducts = () => {
         asyncGetProduct();
     },[]);
 
+    const addProduct = async () => {
+        try {
+            await addCartItem(userId, product_id, 1, price);
+            console.log("Se añadio el producto al carrito con exito");
+            toast(' ¡Excelente! su producto fue añadido al carrito',);
+            } catch (err) {
+            console.error("Error al cargar producto al carrito", err);
+            }   
+        }
+        const dontProduct = () =>{
+            swal("¡Debes iniciar sesion para añadir productos al carrito!", {
+              icon: "error",
+            });
+        };
     const asyncGetProduct = async() =>{
         try {
             const response = await getProductsById(id);
