@@ -1,44 +1,76 @@
-import { useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import ButtonBig from "../../../components/Buttons/buttonBig/buttonBig";
 import Select from "@mui/material/Select";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import Checkbox from "@mui/material/Checkbox";
-import CategoryData from "../../../components/json/CategoryData.json";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
-import { FaRegImage } from "react-icons/fa6";
-import { Button, Container } from "@mui/material";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
+// import { FaRegImage } from "react-icons/fa6";
+// import { Button } from "@mui/material";
+// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+
 import "./style.css";
 import TextField from "@mui/material/TextField";
+import { createNewProduct, getCategories } from "../../../api/getApi";
+import { AuthContext } from "../../../context/AuthContext";
+import swal from 'sweetalert';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Publications = () => {
-  const CategoryDataArray = Object.values(CategoryData);
 
+  const { userId } = useContext(AuthContext);
   const [productname, setProductname] = useState("");
   const [details, setDetails] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
-  const [detailname, setDetailname] = "";
-  const [category, setCategory] = useState([]);
+  const [detailname, setDetailname] = useState("");
+  const [category, setCategory] = useState("");
+  const [categories,setCategories] = useState([]);
+  const [image, setImage] = useState(null);
+  const [imageName, setImageName] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
+  useEffect(()=>{
+    asyncGetCategories();
+  },[]);
 
-  const handleSubmit = (e) => {
+  const asyncGetCategories = async()=>{
+    try {
+      const response = await getCategories();
+      setCategories(response.response.category)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleSubmit =  async(e) => {
     e.preventDefault();
+    const data = {
+      nameProducts : productname,
+      description : details,
+      price,
+      stock,
+      category_id : category,
+      statusProduct : "P",
+      user_id : userId,
+      image,
+      information : detailname
+    }
+
+    console.log(data)
+    try {
+      const response = await createNewProduct(data);
+      console.log(response);
+      if (response.statusCode === 201) {
+        swal("¡Registro exitoso!", "Tu producto se ha publicado correctamente.", "success");
+        cleanFields();
+      } else {
+        swal("¡Error!", "Ha ocurrido un error al publicar tu producto", "error");
+      }
+    } catch (error) {
+      console.log(error);
+      swal("¡Error!", "Ha ocurrido un error al publicar tu producto", "error");
+    }
   };
 
   const handleChange = (event) => {
@@ -51,13 +83,22 @@ const Publications = () => {
     );
   };
 
+  const cleanFields = () => {
+    setProductname("");
+    setDetails("");
+    setPrice("");
+    setStock("");
+    setDetailname("");
+    setCategory("");
+  }
+
   return (
     <div className="publication">
       <h1>Publica tus productos</h1>
-      <form onSubmit={handleSubmit}>
-        <Container
-         
-        >
+
+      <form onSubmit={handleSubmit} >
+
+
           <Box
            sx={{
             display: "grid",
@@ -70,19 +111,16 @@ const Publications = () => {
             alignItems: "center",
           }}>
           <div>
-
             <TextField
               required
               id="filled"
               label="Nombre del producto"
               defaultValue="ejemplo, lozartan"
               variant="filled"
-            
               value={productname}
               onChange={(e) => setProductname(e.target.value)}
             />
           </div>
-
           <div>
             <TextField
               required
@@ -107,7 +145,6 @@ const Publications = () => {
               onChange={(e) => setStock(e.target.value)}
             />
           </div>
-
           <div>
             <TextField
               id="outlined-multiline-static"
@@ -120,7 +157,6 @@ const Publications = () => {
               value={detailname}
             />
           </div>
-
           <div>
             <TextField
               id="outlined-multiline-static"
@@ -133,45 +169,55 @@ const Publications = () => {
               onChange={(e) => setDetails(e.target.value)}
             />
           </div>
-
-        
-            <div className="publication_category">
-              <label htmlFor="category">
-                Seleciona una o más categorías a las que pertenece tu producto
-              </label>
-              <Select
-                labelId="demo-multiple-checkbox-label"
-                id="demo-multiple-checkbox"
-                multiple
-                variant="filled"
-                value={category}
-                onChange={handleChange}
-                input={<OutlinedInput label="Tag" />}
-                renderValue={(selected) => selected.join(", ")}
-              >
-                {CategoryDataArray.map((item) => (
-                  <MenuItem key={item.id} value={item.nombre}>
-                    <Checkbox checked={category.indexOf(item.nombre) > -1} />
-                    <ListItemText primary={item.nombre} />
-                  </MenuItem>
-                ))}
-              </Select>
-            </div>
+          <div className="publication_category">
+            <label htmlFor="category">
+              Seleciona una categoría para tu producto
+            </label>
+            <Select
+              variant="filled"
+              value={category}
+              onChange={handleChange}
+              input={<OutlinedInput label="Tag" />}
+              defaultValue={""}
+            >
+              {categories?.map((item) => (
+                <MenuItem key={item.category_id} value={item.category_id}>
+                  <ListItemText primary={item.name} />
+                </MenuItem>
+              ))}
+            </Select>
+          </div>
+          <div className="publication_button">
+            {/* <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUploadIcon />}
+            >
+              Sube la imagen de tu producto aquí <FaRegImage />
+            </Button> */}
+      
+            <input
+                
+                type="file"
+                id="image"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+          </div>
+          {loading && (
             <div className="publication_button">
-              <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-              >
-                Sube la imagen de tu producto aquí <FaRegImage />
-                <VisuallyHiddenInput type="file" />
-              </Button>
+              <CircularProgress />
             </div>
-          
-          </Box>
-          <Box
+          )}
+          {/* Mostrar el nombre de la imagen cuando se haya cargado */}
+          {imageName && !loading && (
+            <div className="publication_button">
+              <p>{imageName}</p>
+            </div>
+          )}
+        </Box>
+        <Box
           sx={{
             display: "grid",
             columnGap: 4,
@@ -182,10 +228,8 @@ const Publications = () => {
             margin: "2%",
             alignItems: "center",
           }}>
-             <ButtonBig type="submit" variant="outlined">Publicar</ButtonBig>
-             </Box>
-         
-        </Container>
+          <ButtonBig type="submit" variant="outlined">Publicar</ButtonBig>
+        </Box>
       </form>
     </div>
   );

@@ -1,22 +1,25 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Box, FormControl, Grid, MenuItem, Select, Typography, Skeleton } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
 
 
 import "./styles.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { getProductsByCategory } from "../../api/getApi";
+import { getProductsByCategory, getFavoritesbyUser } from "../../api/getApi";
+import { AuthContext } from '../../context/AuthContext';
 
 const Category = () => {
   const { id, name } = useParams();
   const [products, setProducts] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const { userId } = useContext(AuthContext)
   const { state } = useLocation();
 
   useEffect(() => {
     asyncGetProducts();
+    asyncGetFavoritesUser();
   }, [state]);
 
   const asyncGetProducts = async () => {
@@ -28,9 +31,7 @@ const Category = () => {
         return {
           ...element,
           image_url: 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg',
-          format: '30 Comprimidos Recubiertos',
           valoration: Math.round((Math.random() * 5) * 10) / 10,
-          seller: "Petco SPA"
         }
       })
       //setProducts(response.response)
@@ -41,6 +42,27 @@ const Category = () => {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  const asyncGetFavoritesUser = async () => {
+    if (userId) {
+      try {
+        setLoading(true)
+        const response = await getFavoritesbyUser(userId);
+        console.log(response);
+        setFavorites(response.response)
+        setLoading(false)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+  const searchFavoritebyProduct = (productId) =>{
+    return {
+      isFavorite : userId ? favorites.some(element => element.product_id === productId) : false,
+      favorite_id : userId ? favorites.find(element =>element.product_id === productId)?.favorites_id : null
+    };
   }
 
   const handleChangeOrder = (event) => {
@@ -155,7 +177,7 @@ const Category = () => {
               ?
               <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "10px", gap: "15px" }}>
                 {products.map((product, i) =>
-                  <ProductCard key={i} product={product} />
+                  <ProductCard key={i} product={product} favorite={searchFavoritebyProduct(product.product_id)} />
                 )}
               </Box>
               :

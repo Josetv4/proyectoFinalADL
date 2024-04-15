@@ -2,8 +2,10 @@ import pool from "../../../../config/db/conectionDb.js";
 
 const getFavorite = async () => {
   const SQLquery = {
-    text: `SELECT favorites_id, product_id, user_id
-          FROM favorites`,
+    text: `SELECT f.favorites_id, f.product_id, f.user_id 
+           FROM favorites f 
+           INNER JOIN products p ON f.product_id = p.product_id
+           INNER JOIN users s ON f.user_id = s.user_id `,
   };
 
   const response = await pool.query(SQLquery);
@@ -12,9 +14,11 @@ const getFavorite = async () => {
 
 const getFavoriteId = async ({ id }) => {
   const SQLquery = {
-    text: `SELECT favorites_id, product_id, user_id
-           FROM favorites
-           WHERE favorites_id = $1`,
+    text: `SELECT f.favorites_id, f.product_id, f.user_id
+            FROM favorites f
+            INNER JOIN products p ON f.product_id = p.product_id
+            INNER JOIN users s ON f.user_id = s.user_id
+            WHERE f.favorites_id = $1`,
     values: [id],
   };
 
@@ -22,12 +26,15 @@ const getFavoriteId = async ({ id }) => {
   
   return response.rows[0];
 };
-const getFavoriteUser = async ( id ) => {
+const getFavoriteUser = async ( { id } ) => {
   const SQLquery = {
-    text: `SELECT favorites_id, product_id, user_id
-           FROM favorites
-           WHERE user_id = $1`,
-    values: [id],
+    text: `SELECT f.favorites_id, f.product_id, f.user_id, p.price, p.stock, p.category_id, s.username as name_user, p.image_url, p.name 
+            FROM favorites f 
+            INNER JOIN products p ON f.product_id = p.product_id
+            INNER JOIN users s ON f.user_id = s.user_id
+           WHERE f.user_id = $1`,
+           
+    values: [ id ],
   };
 
   const response = await pool.query(SQLquery);
@@ -62,15 +69,13 @@ const updateFavorite = async ({ id }, { product, user }) => {
 const deleteFavorite = async (id) => {
   const SQLquery = {
     text: `DELETE FROM favorites 
-             WHERE  favorites = $1 
+             WHERE  favorites_id = $1 
              RETURNING *`,
     values: [id],
   };
   const response = await pool.query(SQLquery);
-  if (response.rows.length === 0) {
-    throw new Error("No se encontró ningún usuario con el ID proporcionado");
-  }
-  return response.rows[0];
+  return response.rowCount;
+
 };
 
 export {

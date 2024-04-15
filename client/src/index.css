@@ -11,9 +11,12 @@
     --font-link-color: #9747ff;
     --font-description-color: #6b6c6c;
     --font-btn1-color: #ffffff;
-    --font-btn2-color: #ffffff;
+    --font-btn2-color: #cacaca;
     --font-btn3-color: #91c3e4;
     --font-btn4-color: #fe486a;
+    --font-btn5-color: #a82e45;
+    --font-btn6-color: #5f7f94;
+    
     --font-navbar-color: #1c1c1c;
     --font-navbar-color2: #91c3e4;
     --font-navbar-color3: #3c5257;
@@ -72,3 +75,34 @@ body {
     text-align: center;
     font-weight: 400;
 }
+.favorite-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px; 
+  }
+  
+  .favorite-card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .favorite-box-content{
+    display: flex;
+    align-items: start;
+    margin: 10px; 
+    gap:15px;
+  }
+  .favorite-card-image {
+    width: 150px; 
+    margin-right: 20px; 
+  }
+  .favorite-card-color {
+    color: red;
+  }
+  .favorite-card-color span {
+    color: black; /* Cambia el color del texto "Precio" a negro */
+  }
+  .favorite-name {
+    font-size: 1.2em; /* Cambia el tamaño del texto a 1.2 veces el tamaño normal */
+  }

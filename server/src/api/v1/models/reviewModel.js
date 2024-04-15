@@ -33,11 +33,30 @@ const getReviewId = async (id) => {
   const response = await pool.query(SQLquery);
   return response.rows;
 };
+const getReviewProductId = async (productId) => {
 
-const createReview = async ({product, user, rating, comment}) => {
+  const SQLquery = {
+    text: `SELECT r.review_id ,
+                  r.product_id,
+                  r.user_id,
+                  u.username,
+                  r.rating,
+                  r.comment,
+                  r.create_at
+                FROM reviews r, users u
+                WHERE r.user_id = u.user_id
+                AND product_id = $1`,
+    values: [ productId ],
+  };
+
+  const response = await pool.query(SQLquery);
+  return response.rows;
+};
+
+const createReview = async ({product, user, rating, coments}) => {
   const SQLquery = {
     text: `INSERT INTO reviews(product_id, user_id, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *`,
-    values: [product, user, rating, comment],
+    values: [product, user, rating, coments],
   };
   console.log(SQLquery)
   const response = await pool.query(SQLquery);
@@ -70,4 +89,4 @@ const updateReview = async ( { id }, { product, user, rating, comment }) => {
     const response = await pool.query(SQLquery);
     return response.rows;
   };
-export { getReview, getReviewId, createReview, updateReview, deleteReview };
+export { getReview, getReviewId, getReviewProductId,  createReview, updateReview, deleteReview };

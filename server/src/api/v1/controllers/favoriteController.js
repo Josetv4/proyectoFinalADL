@@ -24,7 +24,7 @@ const getFavorites = async (req, res) => {
 };
 
 const getFavoritesId = async (req, res) => {
-  const id = req.params;
+  const { id } = req.params;
 
   try {
     const favorites = await getFavoriteId(id);
@@ -38,12 +38,13 @@ const getFavoritesId = async (req, res) => {
       .json({ error: errorFound[0]?.message });
   }
 };
-const getFavoritesUser= async (req, res) => {
-  const { id }  = req.params;
-
+const getFavoritesUser = async (req, res) => {
+  
+  const  id  = req.params;
+  
   try {
     const favorites = await getFavoriteUser(id);
-    res.status(200).json({ favorite: favorites });
+    res.status(200).json(favorites);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
@@ -58,7 +59,7 @@ const createFavorites = async (req, res) => {
   try {
     const favorite = req.body;
     const newFavorites = await createFavorite(favorite);
-    res.status(201).json({ favorite: favorites });
+    res.status(201).json(newFavorites);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
