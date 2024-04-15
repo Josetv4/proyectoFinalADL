@@ -1,5 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../context/AuthContext.jsx";
+import { DataContext } from "../context/DataContext.jsx";
+import { getFavoritesbyUser, deleteFavoriteId } from "../api/getApi.js";
+
 import swal from "sweetalert";
 
 import Card from "@mui/material/Card";
@@ -15,18 +20,18 @@ import Typography from "@mui/material/Typography";
 
 import "../index.css";
 
-import { AuthContext } from "../context/AuthContext.jsx";
-import { getFavoritesbyUser, deleteFavoriteId } from "../api/getApi.js";
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ListFavorites = () => {
   const navigate = useNavigate();
   const { userId } = useContext(AuthContext);
-
-  console.log(userId);
-
+  const {  addCartItem } = useContext(DataContext);
   const [error, setError] = useState("");
   const [favorites, setFavorites] = useState([]);
-
+  console.log(userId);
+  
   useEffect(() => {
     fetchFavorites();
   }, []);
@@ -49,7 +54,20 @@ const ListFavorites = () => {
       setError("Error al obtener favoritos");
     }
   };
-
+  const addProduct = async (product_id, price) => {
+    try {
+      await addCartItem(userId, product_id, 1, price);
+      console.log("Se añadio el producto al carrito con exito");
+      toast(' ¡Excelente! su producto fue añadido al carrito',);
+      } catch (err) {
+      console.error("Error al cargar producto al carrito", err);
+      }   
+    }
+    const dontProduct = () =>{
+      swal("¡Debes iniciar sesion para añadir productos al carrito!", {
+        icon: "error",
+      });
+    };
   const fetchFavorites = async () => {
     try {
       const { response, error } = await getFavoritesbyUser(userId);
@@ -100,7 +118,7 @@ const ListFavorites = () => {
             </Box>
             <Box>
               <ButtonLittle
-               /*  onClick={ userId ? () => addProduct() : () => dontProduct()} */
+                onClick={ userId ? () => addProduct(favorite.product_id, favorite.price) : () => dontProduct()} 
               >
                 Añadir al carro
               </ButtonLittle>

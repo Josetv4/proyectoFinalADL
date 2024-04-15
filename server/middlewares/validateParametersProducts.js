@@ -4,7 +4,6 @@ import {  nameProducts,
           price,
           stock,
           category_id,
-          imageProduct,
           statusProduct,
           user_id,
           information
@@ -12,14 +11,13 @@ import {  nameProducts,
                     
 
 const productSchema = Joi.object({
-    //nameProducts,
+    nameProducts,
     description,
-    //price,
-    //stock,
-    //category_id,
-    //imageProduct,
-    //statusProduct,
-    //user_id,
+    price,
+    stock,
+    category_id,
+    statusProduct,
+    user_id,
     information
   });
 

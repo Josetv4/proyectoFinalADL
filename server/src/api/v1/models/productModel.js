@@ -52,7 +52,7 @@ const getProductByUser = async ({ id }) => {
   };
 
   const response = await pool.query(SQLquery);
-  return response.rows[0];
+  return response.rows;
 };
 
 const getProductByDescription  = async ( { name } ) => {

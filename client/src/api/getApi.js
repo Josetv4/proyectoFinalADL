@@ -280,13 +280,15 @@ const getProductDescription = async (description) => {
 };
 
 const createNewProduct = async (formData) => {
+  
+  console.log(formData)
   try {
     const token = window.localStorage.getItem("token");
 
     const response = await axios.post(`/products`, formData, {
       headers: {
         'Authorization': `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data' // Importante para enviar archivos
+        'Content-Type': 'multipart/form-data' 
       }
     });
     return { statusCode : response.request.status , response: response.data, error: null };

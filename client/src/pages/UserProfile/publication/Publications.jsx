@@ -53,9 +53,11 @@ const Publications = () => {
       category_id : category,
       statusProduct : "P",
       user_id : userId,
-      image_url:image,
+      image,
       information : detailname
     }
+
+    console.log(data)
     try {
       const response = await createNewProduct(data);
       console.log(response);
@@ -197,9 +199,10 @@ const Publications = () => {
             </Button> */}
       
             <input
+                
                 type="file"
-                value={image}
-                onChange={(e) => setImage(e.target.files)}
+                id="image"
+                onChange={(e) => setImage(e.target.files[0])}
               />
           </div>
           {loading && (
