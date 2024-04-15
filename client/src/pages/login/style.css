@@ -61,12 +61,6 @@ width: 80%;
     color: var(--background-btn2);
 }
 
-.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
-    width: 326px !important;
-}
-.css-1bl45wc-MuiInputBase-root-MuiFilledInput-root{
-    width: 300px !important;
-}
 .login_color{
     color: var(--background-btn2);
     background-color: var(--background-btn2);
@@ -85,9 +79,4 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-input,select{
-    height: 28% !important;
-    padding: 5% !important;
-
 }

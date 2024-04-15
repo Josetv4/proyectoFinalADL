@@ -18,10 +18,10 @@ const SearchResult = () => {
     asyncGetProducts(name); 
   }, [name]);
 
-  const asyncGetProducts = async (text) => { 
+  const asyncGetProducts = async (name) => { 
     try {
       setLoading(true);
-      const { response, error } = await getProductDescription(text); 
+      const { response, error } = await getProductDescription(name); 
       if (error) {
         console.error(error);
         return;

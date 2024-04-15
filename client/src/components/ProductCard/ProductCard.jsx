@@ -12,9 +12,9 @@ import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
 import { DataContext } from "../../context/DataContext";
 import { AuthContext } from '../../context/AuthContext';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
-import * as React from 'react';
+
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 

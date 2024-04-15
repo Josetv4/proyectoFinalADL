@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:4000/api/v1";
+axios.defaults.baseURL = "https://backproyectofinal-cndr.onrender.com/api/v1";
 
 const getProducts = async () => {
   try {
@@ -264,10 +264,10 @@ const getReviewProductId = async (id) => {
   }
 };
 
-const getProductDescription = async (description) => {
+const getProductDescription = async (name) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(`/product/description`, { description } ,
+    const response = await axios.post(`/products/description`, { name } ,
       {
         
         headers: { Authorization: `Bearer ${token}` },
