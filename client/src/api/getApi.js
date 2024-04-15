@@ -374,6 +374,25 @@ const getReviewsByProduct = async (id) => {
     };
   }
 };
+const createFavorite = async (dataFavorite) => {
+  
+  try {
+    const token = window.localStorage.getItem("token");
+    
+    const response = await axios.post('/favorite/', dataFavorite,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response , error: null, loading: false };
+  } catch (error) {
+    console.error("Error al crear favorite:", error);
+    return {
+      response: [],
+      error,
+      loading: false,
+    };
+  }
+};
 export {
   getProducts,
   getAllProducts,
@@ -401,5 +420,6 @@ export {
   getReview,
   deleteFavoriteId,
   getallCartUser,
-  getReviewsByProduct
+  getReviewsByProduct,
+  createFavorite
 };
