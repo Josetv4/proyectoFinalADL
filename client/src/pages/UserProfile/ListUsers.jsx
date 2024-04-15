@@ -88,7 +88,7 @@ const ListUsers = () => {
                     <TableCell align="left">{formatDate(row.birth_date)}</TableCell>
                     <TableCell align="left">{row.email}</TableCell>
                     <TableCell align="left">{row.phone}</TableCell>
-                    <TableCell align="left">{row.rol}</TableCell>
+                    <TableCell align="left">{row.role}</TableCell>
                     <TableCell align="left">
                     {row.status === "A"
                         ? "Activo"
