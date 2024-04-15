@@ -44,7 +44,7 @@ const getFavoritesUser = async (req, res) => {
   
   try {
     const favorites = await getFavoriteUser(id);
-    res.status(200).json({ favorites });
+    res.status(200).json(favorites);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
@@ -59,7 +59,7 @@ const createFavorites = async (req, res) => {
   try {
     const favorite = req.body;
     const newFavorites = await createFavorite(favorite);
-    res.status(201).json({ favorite: favorites });
+    res.status(201).json(newFavorites);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },

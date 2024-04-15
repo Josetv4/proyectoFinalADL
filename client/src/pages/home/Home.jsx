@@ -4,88 +4,77 @@ import ButtonBlue from "../../components/Buttons/buttonBlue/buttonBlue";
 import boton_info from "../../components/json/boton_info.json"
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { Box } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../../context/DataContext";
+import AuthContext from "../../context/AuthContext";
+import { getFavoritesbyUser } from "../../api/getApi";
 
 const homePage = () => {
-  const arrayProducts = [
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,    
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 3,
-      quantity: 0
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 13,
-      quantity: 4
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 4,
-      quantity: 6
-    },
-    {
-      name: 'Lozartan',
-      image: 'https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg',
-      description: 'Descripción del medicamento A.',
-      format: '30 Comprimidos Recubiertos',
-      price: 10.990,
-      valoration : 3.5,
-      seller : "Petco SPA",
-      id : 12,
-      quantity: 3
-    },
-    
-  ];
 
-    return (
-        <div className="home" >
-        
-            <section className="home_carrusel">
-            <h1>Bienvenidos a farmacias independientes SYG</h1>
+  const {userId} = useContext(AuthContext);
+  const { products } = useContext(DataContext);
+  const [favorites, setFavorites] = useState([]);
 
+  const asyncGetFavoritesUser = async () => {
+    if (userId) {
+      try {
+        const response = await getFavoritesbyUser(userId);
+        console.log(response);
+        setFavorites(response.response)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 
-<Carrusel/>
-            </section>
-          <section>
-          <h2>Disfruta miles de descuentos en nuestras farmacia todas las semanas</h2>
-          <section className="home_safe">
-           
-        {boton_info.map(item => (
-          <ButtonBlue key={item.id} descuento={item.descuento} texto={item.texto}>
-          </ButtonBlue>
-        ))}
-          
-          
-      </section>
-   </section>
-   <h2>Productos destacados</h2>
-   <section className="cart-section">
-   
-   <Box className= "card-box">
-   {arrayProducts.map((product, i ) => (
-          <ProductCard key={i}  product={product}>
-          </ProductCard>
-        ))}
-        </Box>
-        </section>
-        </div>
-    );
+  useEffect(() => {
+    asyncGetFavoritesUser();
+  }, []);
+
+  if (!products || !products.product || !Array.isArray(products.product)) {
+    return <div>No hay productos disponibles</div>;
+  }
+
+  const searchFavoritebyProduct = (productId) => {
+    return {
+      isFavorite: userId ? favorites.some(element => element.product_id === productId) : false,
+      favorite_id: userId ? favorites.find(element => element.product_id === productId)?.favorites_id : null
     };
-    export default homePage;
+  }
+
+  return (
+    <div className="home" >
+
+      <section className="home_carrusel">
+        <small>*Esta página no está autorizada para la venta de medicamentos con receta médica</small>
+        <h1>Bienvenidos a farmacias independientes SYG</h1>
+
+
+
+        <Carrusel />
+      </section>
+      <section className="home_h2">
+        <h2>Disfruta miles de descuentos en nuestras farmacia todas las semanas</h2>
+        <section className="home_safe">
+
+          {boton_info.map(item => (
+            <ButtonBlue key={item.id} descuento={item.descuento} texto={item.texto}>
+            </ButtonBlue>
+          ))}
+
+
+        </section>
+      </section>
+      <h2>Productos destacados</h2>
+      <section className="cart-section">
+
+        <Box className="card-box">
+          {products.product.slice(0, 4).map((item, i) => (
+            <ProductCard key={i} product={item} favorite={searchFavoritebyProduct(item.product_id)}/>
+          ))}
+        </Box>
+      </section>
+    </div>
+  );
+};
+export default homePage;

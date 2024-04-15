@@ -47,3 +47,12 @@
     justify-content: center;
     gap: 10px;
   }
+
+  .margin_color{
+    color: var(--background-btn2);
+    background-color: var(--background-btn2);
+    width: 100%;
+    margin: 0%;
+    border-radius: 0px 0px 20px 20px;
+    padding: 0% 0% 7% 0%;
+  }

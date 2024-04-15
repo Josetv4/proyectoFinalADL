@@ -20,6 +20,9 @@
     color: var(--background-btn4);
     font-family: var(--font-body);
 }
+.button_blue:active{
+    background-color: var(--font-btn6-color);
+}
 .text_safe{
     
     text-align: justify;

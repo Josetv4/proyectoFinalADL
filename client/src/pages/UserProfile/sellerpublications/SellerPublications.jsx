@@ -1,87 +1,69 @@
+import { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Box } from "@mui/material"
+import { Box } from "@mui/material";
 import "./style.css";
+
+import { DataContext } from "../../../context/DataContext";
+import { formatDate } from "../../../utils/DateFormat";
+
 const SellerPublications = () => {
-  const lastShopping = [
-    {
-      id: 1,
-      fecha: "2024-03-25",
-      imagen:
-        "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-      descripcion: "Descripción del producto 1",
-      stock: "10",
-      precio: "$10.99"
-    },
-    {
-      id: 2,
-      fecha: "2024-03-24",
-      imagen:
-        "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-      descripcion: "Descripción del producto 2",
-      stock: "15",
-      precio: "$15.49",
-    },
-    {
-      id: 3,
-      fecha: "2024-03-23",
-      imagen:
-        "https://www.ecofarmacias.cl/wp-content/uploads/2020/03/losartan-1-1.jpg",
-      descripcion: "Descripción del producto 3",
-      stock: "900",
-      precio: "$8.25",
-    },
-  ];
+  const { productSeller } = useContext(DataContext);
 
+  //const products = [productSeller];
+  console.log(productSeller);
   return (
-
-    <div className="seller_publications">
-       <h1>Tus ultimas publicaciones</h1>
-         <Container maxWidth="sm">
-    
-
-
-   {lastShopping.map((item) => (
-          <Card key={item.id} className="shopping-card">
-            <CardContent className="shopping-card-content">
-              <Typography variant="p" className="shopping-card-color">
-                Fecha de Publicacion
-              </Typography>
-              <Typography variant="p">{item.fecha}</Typography>
-            </CardContent>
-            <CardContent className="shopping-box-content">
-              <Box className="publication_img">
+    <div className="seller-publications">
+      <h1>Tus ultimas publicaciones</h1>
+      <Container>
+        {productSeller.product.map((product, index) => (
+          <Card
+            key={`${product.product_id}-${index}`}
+            className="publication-card"
+          >
+            <CardContent className="publication-card-content">
+              <Box>
                 <img
-                  className="shopping-card-image"
-                  src={item.imagen}
-                  alt={item.descripcion}
+                  className="publication-card-image"
+                  src={`http://localhost:4000/uploads/${product.image_url}`}
+                  alt={product.description}
                 />
-                <div>   
-                    <Typography variant="p">{item.descripcion}</Typography>
-                    </div>
-            
-              </Box>
-              <Box className="shopping-card-content">
-              <Typography variant="p" className="shopping-card-color">{item.precio}</Typography>
-                  <div className="publication_stock"> 
-                <Typography variant="p">Stock</Typography>
-                <Typography variant="p" className="shopping-card-color">{item.stock} uni</Typography>
-                </div>
               </Box>
             </CardContent>
-          
+            <CardContent className="publication-card-content">
+              <Box className="publication-card-content">
+                <Typography variant="p" className="publication-name">
+                  {product.name}
+                </Typography>
+                <Typography variant="p" className="color-description">
+                  {product.description}
+                </Typography>
+              </Box>
+            </CardContent>
+            <CardContent className="publication-box-content">
+              <Box className="publication-card-content">
+                <Typography variant="p" className="publication-card-color">
+                  <span>Precio :</span> $ {product.price}
+                </Typography>
+                <Typography variant="p">
+                  <span>Stock :</span> {product.stock}
+                </Typography>
+                <Typography variant="p">
+                  <span>Categoria :</span> {product.name_category}
+                </Typography>
+                <Typography variant="p">
+                  <span>Fecha Creacion :</span>{" "}
+                  {formatDate(product.create_at)}
+                </Typography>
+              </Box>
+            </CardContent>
           </Card>
-          
         ))}
-      
-
-   </Container>
-    
-       
+      </Container>
     </div>
-  )
-}
+  );
+};
 
-export default SellerPublications
+export default SellerPublications;

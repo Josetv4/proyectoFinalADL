@@ -4,6 +4,7 @@ const router = express.Router();
 import {
   getReviews,
   getReviewsId,
+  getReviewsProductId,
   createReviews,
   updateReviews,
   deleteReviews,
@@ -15,6 +16,7 @@ import { isLogin } from "../../middlewares/isLogin.js"
 
 router.get("/review", getActivity, getReviews);
 router.get("/review/:id", getActivity, getReviewsId);
+router.get("/review/product/:productId", getActivity, getReviewsProductId);
 router.post("/review",isLogin,  getActivity, createReviews);
 router.put("/review/:id", isLogin, getActivity, updateReviews);
 router.delete("/review/:id", isLogin, getActivity, deleteReviews);

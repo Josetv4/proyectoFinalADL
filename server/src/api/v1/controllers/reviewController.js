@@ -1,6 +1,7 @@
 import {
   getReview,
   getReviewId,
+  getReviewProductId,
   createReview,
   updateReview,
   deleteReview,
@@ -27,6 +28,20 @@ const getReviewsId = async (req, res) => {
   try {
     const reviews = await getReviewId(id);
     res.status(200).json({ review: reviews });
+  } catch (error) {
+    const errorFound = handleError(error.code) || [
+      { status: 500, message: "Error interno del servidor" },
+    ];
+    return res
+      .status(errorFound[0]?.status)
+      .json({ error: errorFound[0]?.message });
+  }
+};
+const getReviewsProductId = async (req, res) => {
+  const { productId } = req.params;
+  try {
+    const reviews = await getReviewProductId(productId);
+    res.status(200).json(reviews);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },
@@ -88,6 +103,7 @@ const deleteReviews = async (req, res) => {
 export {
   getReviews,
   getReviewsId,
+  getReviewsProductId,
   createReviews,
   updateReviews,
   deleteReviews,

@@ -15,10 +15,25 @@ const getProducts = async () => {
     };
   }
 };
-
-const getCartItems = async () => {
+const getAllProducts = async () => {
   try {
-    const response = await axios.get("/carts");
+    const response = await axios.get("/products/all");
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener productos:", error);
+    return {
+      response: [],
+      error: "Error al obtener productos",
+      loading: false,
+    };
+  }
+};
+const getCartItems = async () => {
+  const token = window.localStorage.getItem("token");
+  try {
+    const response = await axios.get("/carts", 
+      {headers: { Authorization: `Bearer ${token}`}}
+    );
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
@@ -26,28 +41,49 @@ const getCartItems = async () => {
   }
 };
 const getCartUser = async (user_id) => {
+  const token = window.localStorage.getItem("token")
   try {
-    const response = await axios.get(`/cart/${user_id}`);
+    const response = await axios.get(`/cart/${user_id}`, {
+      headers: { Authorization: `Bearer ${token}`},
+    });
     return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener carritos:", error);
+    return { response: [], error: "Error al obtener carritos", loading: false };
+  }
+};
+const getallCartUser = async (user_id) => {
+  const token = window.localStorage.getItem("token")
+  try {
+    const response = await axios.get(`/cart/all/${user_id}`, {
+      headers: { Authorization: `Bearer ${token}`},
+    });
+    return { response : response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
 const postCartItems = async (user_id, product_id, quantity, price) => {
+  const token = window.localStorage.getItem("token");
   try {
-    const response = await axios.post("/cart", {user_id, product_id, quantity, price});
+    const response = await axios.post("/cart", 
+      {user_id, product_id, quantity, price}, 
+      {headers: { Authorization: `Bearer ${token}`}}
+    );
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
     return { response: [], error: "Error al obtener carritos", loading: false };
   }
 };
-const updateCartItems = async (product_id, updateCart ) => {
+const updateCartItems = async (product_id, detail_id, cart_id, updateCart ) => {
+  const token = window.localStorage.getItem("token")
   try {
     const response = await axios.put(
-      `cart/${updateCart}/`,
-      product_id,
+      `cart/${updateCart}/${product_id}`, 
+      {detail_id, cart_id},
+      { headers: {Authorization: `Bearer ${token}`}}
     );
     return { response: response.data, error: null, loading: false };
   } catch (error) {
@@ -55,13 +91,13 @@ const updateCartItems = async (product_id, updateCart ) => {
     return { response: [], error: "Error al modificar carrito", loading: false };
   }
 };
-const deleteCartItems = async (detailId, cartId, product) => {
+const deleteCartItems = async (id_user) => {
+  const token = window.localStorage.getItem("token")
   try {
+    console.log(id_user);
     const response = await axios.delete(
-      `cart/items/${detailId}`,
-      cartId,
-      product
-    );
+      `cart/closeCart/${id_user}`,  
+      { headers: {Authorization: `Bearer ${token}`}});
     return { response: response.data, error: null, loading: false };
   } catch (error) {
     console.error("Error al obtener carritos:", error);
@@ -205,37 +241,61 @@ const getStatusProduct = async (id, status) => {
   }
 };
 
-const postReviewProduct = async (rating, coments) => {
+const postReviewProduct = async (product, user, rating, coments) => {
   try {
       const token = window.localStorage.getItem("token");
       const response = await axios.post(
           `/review`,
-          { rating, coments },
+          { product, user, rating, coments },
           { headers: { Authorization: `Bearer ${token}` } }
       );
+      return { statusCode : response.request.status , response: response.data, error: null };
+  } catch (error) {
+      return { error: error.message };
+  }
+};
+const getReviewProductId = async (id) => {
+  try {
+    
+      const response = await axios.get(`/review/${id}`)
       return { response: response.data, error: null };
   } catch (error) {
       return { error: error.message };
   }
 };
+
 const getProductDescription = async (description) => {
   try {
     const token = window.localStorage.getItem("token");
-    const response = await axios.post(
-      `/products/description`,
-      { name: description }, // Aquí ajustamos la carga útil
+    const response = await axios.post(`/product/description`, { description } ,
       {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        
+        headers: { Authorization: `Bearer ${token}` },
       }
     );
     return { response: response.data, error: null };
   } catch (error) {
-    return { error: error.message };
+    return { error : error.message };
   }
 };
 
+const createNewProduct = async (formData) => {
+  
+  console.log(formData)
+  try {
+    const token = window.localStorage.getItem("token");
+
+    const response = await axios.post(`/products`, formData, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data' 
+      }
+    });
+    return { statusCode : response.request.status , response: response.data, error: null };
+  } catch (error) {
+    return { error : error.message };
+  }
+};
 
 const getFavoritesbyUser = async (userId) => {
   
@@ -256,6 +316,25 @@ const getFavoritesbyUser = async (userId) => {
     };
   }
 };
+const getProductsByUser = async (userId) => {
+  
+  try {
+    const token = window.localStorage.getItem("token");
+    
+    const response = await axios.get(`/products/user/${userId}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response , error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener producto por usuario:", error);
+    return {
+      response: [],
+      error,
+      loading: false,
+    };
+  }
+};
 const getReview = async (id) => {
   try {
     const response = await axios.get(`/review/${id}`);
@@ -269,9 +348,54 @@ const getReview = async (id) => {
     };
   }
 }
-
+const   deleteFavoriteId = async ( id ) => {
+  const token = window.localStorage.getItem("token");
+  try {
+      const response = await axios.delete(`/favorite/${id}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      return { response, error: null };
+  } catch (error) {
+      return { error: error.message };
+  }
+};
+const getReviewsByProduct = async (id) => {
+  try {
+    const response = await axios.get(`/review/product/${id}`);
+    return { response: response.data, error: null, loading: false };
+  } catch (error) {
+    console.error("Error al obtener comentarios:", error);
+    return {
+      response: [],
+      error: "Error al obtener comentarios",
+      loading: false,
+    };
+  }
+};
+const createFavorite = async (dataFavorite) => {
+  
+  try {
+    const token = window.localStorage.getItem("token");
+    
+    const response = await axios.post('/favorite/', dataFavorite,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { response , error: null, loading: false };
+  } catch (error) {
+    console.error("Error al crear favorite:", error);
+    return {
+      response: [],
+      error,
+      loading: false,
+    };
+  }
+};
 export {
   getProducts,
+  getAllProducts,
   getCartItems,
   getCartUser,
   postCartItems,
@@ -289,6 +413,13 @@ export {
   getProductsbySearch,
   updateUsers,
   postReviewProduct,
+  getReviewProductId,
+  createNewProduct,
   getFavoritesbyUser,
-  getReview
+  getProductsByUser,
+  getReview,
+  deleteFavoriteId,
+  getallCartUser,
+  getReviewsByProduct,
+  createFavorite
 };
