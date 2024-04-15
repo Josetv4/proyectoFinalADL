@@ -76,7 +76,7 @@ const getProductsByUsers = async (req, res) => {
   
   try {
     const products = await getProductByUser(id);
-    res.status(200).json({  products  });
+    res.status(200).json({  product : products  });
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },

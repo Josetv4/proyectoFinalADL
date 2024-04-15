@@ -36,14 +36,16 @@ const getReviewId = async (id) => {
 const getReviewProductId = async (productId) => {
 
   const SQLquery = {
-    text: `SELECT review_id ,
-                  product_id,
-                  user_id,
-                  rating,
-                  comment,
-                  create_at
-                FROM reviews
-                WHERE product_id = $1`,
+    text: `SELECT r.review_id ,
+                  r.product_id,
+                  r.user_id,
+                  u.username,
+                  r.rating,
+                  r.comment,
+                  r.create_at
+                FROM reviews r, users u
+                WHERE r.user_id = u.user_id
+                AND product_id = $1`,
     values: [ productId ],
   };
 
