@@ -14,7 +14,7 @@ import { DataContext } from "../../context/DataContext";
 import { AuthContext } from '../../context/AuthContext';
 
 import 'react-toastify/dist/ReactToastify.css';
-import * as React from 'react';
+
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
