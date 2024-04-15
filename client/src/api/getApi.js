@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://backproyectofinal-cndr.onrender.com/api/v1";
+axios.defaults.baseURL = import.meta.env.VITE_URL_BACK;
 
 const getProducts = async () => {
   try {
