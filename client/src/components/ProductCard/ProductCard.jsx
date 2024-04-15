@@ -14,6 +14,11 @@ import { DataContext } from "../../context/DataContext";
 import { AuthContext } from '../../context/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import * as React from 'react';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+
+
 import swal from "sweetalert";
 
 import { createFavorite, deleteFavoriteId } from '../../api/getApi';
@@ -23,7 +28,7 @@ export default function ProductCard({ product, favorite }) {
   const { userId } = useContext(AuthContext)
   const [isFavorite, setIsFavorite] = useState();
   const [favoriteId, setFavoriteId] = useState();
-  
+   const [openSnack, setOpenSnack] = useState(false)
 
   useEffect(()=>{
     setIsFavorite(favorite.isFavorite);
@@ -83,24 +88,42 @@ export default function ProductCard({ product, favorite }) {
     }
   };
   const { product_id, price } = product;
+  
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
 
+    setOpenSnack(false);
+  };
   const addProduct = async () => {
     try {
       await addCartItem(userId, product_id, 1, price);
       console.log("Se añadio el producto al carrito con exito");
-      toast(' ¡Excelente! su producto fue añadido al carrito',);
-    } catch (err) {
-      console.error("Error al cargar producto al carrito", err);
+      setOpenSnack(true);
+      } catch (err) {
+        console.error("Error al cargar producto al carrito", err);
+      }   
     }
-  }
-  const dontProduct = () => {
-    swal("¡Debes iniciar sesion para añadir productos al carrito!", {
-      icon: "error",
-    });
-  };
+    const dontProduct = () =>{
+      swal("¡Debes iniciar sesión para añadir productos al carrito!", {
+        icon: "error",
+      });
+    };
+
   return (
     <Card className='product-card'>
-      <ToastContainer />
+      <Snackbar open={openSnack} autoHideDuration={3000} onClose={handleClose} >
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          style={{ backgroundColor: 'var(--background-btn1)' }}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          ¡Excelente! el producto fue añadido al carrito
+        </Alert>
+      </Snackbar>
       <CardContent className='product-card-content'>
         <Box className='block-icon'>
           <CardMedia
