@@ -16,7 +16,6 @@ export const description = Joi.string().allow("").max(65535);
 export const price = Joi.number().required();
 export const stock = Joi.number().integer().required();
 export const category_id = Joi.number().integer().positive().required();
-export const imageProduct = Joi.string().max(255);
 export const statusProduct = Joi.string().max(50).required();
 export const user_id = Joi.number().required();
 export const information = Joi.string().allow("").max(65535);
