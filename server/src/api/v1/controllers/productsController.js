@@ -93,7 +93,7 @@ const getProductsByDescription = async (req, res) => {
   
   try {
     const products = await getProductByDescription(name);
-    res.status(200).json({ product : products  });
+    res.status(200).json(products);
   } catch (error) {
     const errorFound = handleError(error.code) || [
       { status: 500, message: "Error interno del servidor" },

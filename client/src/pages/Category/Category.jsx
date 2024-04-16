@@ -27,16 +27,8 @@ const Category = () => {
       setLoading(true)
       const response = await getProductsByCategory(id);
       console.log(response);
-      const fullArrayProducts = response.response.map((element) => {
-        return {
-          ...element,
-          image_url: 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg',
-          valoration: Math.round((Math.random() * 5) * 10) / 10,
-        }
-      })
-      //setProducts(response.response)
+      setProducts(response.response)
       console.log("loading:", loading)
-      setProducts(fullArrayProducts)
       setLoading(false)
 
     } catch (error) {

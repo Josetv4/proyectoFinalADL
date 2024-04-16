@@ -28,7 +28,8 @@ export default function ProductCard({ product, favorite }) {
   const { userId } = useContext(AuthContext)
   const [isFavorite, setIsFavorite] = useState();
   const [favoriteId, setFavoriteId] = useState();
-   const [openSnack, setOpenSnack] = useState(false)
+  const [openSnack, setOpenSnack] = useState(false)
+  const image_url = import.meta.env.VITE_URL_BASE
 
   useEffect(()=>{
     setIsFavorite(favorite.isFavorite);
@@ -129,7 +130,7 @@ export default function ProductCard({ product, favorite }) {
           <CardMedia
             sx={{ height: "150px" }}
             alt={product.name}
-            image={product.image_url}
+            image={`${image_url}${product.image_url}`}
             title={product.name}
           />
           <IconButton className='icon-tag' onClick={handleFavoriteClick}>

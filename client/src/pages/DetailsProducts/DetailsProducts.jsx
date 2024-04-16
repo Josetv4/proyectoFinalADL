@@ -16,6 +16,7 @@ const DetailsProducts = () => {
     const [product, setProduct] = useState([]);
     const [reviews, setReviews] = useState([]);
     const navigate = useNavigate();
+    const image_url = import.meta.env.VITE_URL_BASE
 
 
     useEffect(() => {
@@ -113,8 +114,8 @@ const convertirFechaZ = (fechaZulu) =>{
                     <Box>
                         <img
                             style={{ width: "300px" }}
-                            srcSet={product.image_url}
-                            src={product.image_url}
+                            srcSet={`${image_url}${product.image_url}`}
+                            src={`${image_url}${product.image_url}`}
                             alt={product.description}
                             loading="lazy"
                         />

@@ -1,22 +1,26 @@
 import {  useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Box, FormControl, Grid, MenuItem, Select, Typography, Skeleton } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
 
 
 import "./styles.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import {getProductDescription } from "../../api/getApi";
+import {getProductDescription, getFavoritesbyUser } from "../../api/getApi";
+import AuthContext from "../../context/AuthContext";
 
 
 const SearchResult = () => {
     const { name } = useParams();
   const [products, setProducts] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { userId } = useContext(AuthContext);
 
   useEffect(() => {
     asyncGetProducts(name); 
-  }, [name]);
+    asyncGetFavoritesUser();
+  }, []);
 
   const asyncGetProducts = async (name) => { 
     try {
@@ -27,24 +31,69 @@ const SearchResult = () => {
         return;
       }
       console.log(JSON.stringify(response));
-      
-      const fullArrayProducts = response.product.map((element) => {
-        return {
-          ...element,
-          image_url: 'https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg',
-          format: '30 Comprimidos Recubiertos',
-          valoration: Math.round((Math.random() * 5) * 10) / 10,
-          seller: "Petco SPA"
-        }
-      });
-      setProducts(fullArrayProducts);
+      setProducts(response);
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Resto del código...
+  const asyncGetFavoritesUser = async () => {
+    if (userId) {
+      try {
+        setLoading(true)
+        const response = await getFavoritesbyUser(userId);
+        console.log(response);
+        setFavorites(response.response)
+        setLoading(false)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+  const searchFavoritebyProduct = (productId) =>{
+    return {
+      isFavorite : userId ? favorites.some(element => element.product_id === productId) : false,
+      favorite_id : userId ? favorites.find(element =>element.product_id === productId)?.favorites_id : null
+    };
+  }
+
+  const handleChangeOrder = (event) => {
+    //Ordenar
+    const order = event.target.value;
+    const newOrder = [...products];
+    if (order === 1) {
+      newOrder.sort((a, b) => a.price - b.price);
+    } else if (order === 2) {
+      newOrder.sort((a, b) => b.price - a.price);
+    }
+    else if (order === 3) {
+      newOrder.sort((a, b) => {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    else if (order === 4) {
+      newOrder.sort((a, b) => {
+        if (a.name < b.name) {
+          return 1;
+        }
+        if (a.name > b.name) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+
+    setProducts(newOrder)
+    console.log("products: ", products)
+  }
 
 
   return (
@@ -62,7 +111,7 @@ const SearchResult = () => {
               <Select
                 className="order-select"
                 IconComponent={() => (<IoIosArrowDown className="arrow-select" />)}
-                // onChange={}
+                onChange={handleChangeOrder}
                 defaultValue={0}
               >
                 <MenuItem value={0}>Ordenar por</MenuItem>
@@ -119,11 +168,11 @@ const SearchResult = () => {
                 </Box>
               </Box>
             ) :
-            (products.length > 0
+            (products?.length > 0
               ?
               <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "10px", gap: "15px" }}>
                 {products.map((product, i) =>
-                  <ProductCard key={i} product={product} />
+                  <ProductCard key={i} product={product} favorite={searchFavoritebyProduct(product.product_id)} />
                 )}
               </Box>
               :
