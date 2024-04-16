@@ -123,7 +123,7 @@ const LoginPage = () => {
                       <div className="login_button">
                         {/* <p>¿Se te olvido la contraseña?</p> */}
                         <ButtonBig type="submit" onClick={handleLogin}>
-                          iniciar sesión
+                          Iniciar sesión
                         </ButtonBig>
                       </div>
                       <div className="register_new">
