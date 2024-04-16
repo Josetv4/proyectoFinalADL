@@ -72,7 +72,7 @@ const ListFavorites = () => {
   const fetchFavorites = async () => {
     try {
       const { response, error } = await getFavoritesbyUser(userId);
-      setFavorites(response.favorites);
+      setFavorites(response);
       setError(error);
     } catch (error) {
       console.error("Error al obtener favoritos:", error);
@@ -90,7 +90,7 @@ const ListFavorites = () => {
     <Container>
       <h1>Mis Favoritos</h1>
       {favorites.map((favorite, index) => (
-        <Card key={`${favorite.favorite}-${index}`} className="favorite-card">
+        <Card key={`${favorite.favorite_id}-${index}`} className="favorite-card">
           <CardContent className="favorite-card-content">
             <Box>
               <img
