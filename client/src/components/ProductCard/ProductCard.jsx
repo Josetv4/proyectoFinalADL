@@ -147,12 +147,6 @@ export default function ProductCard({ product, favorite }) {
           <Box>
             Vendido por : <Box className='link-text' >{product.name_user}</Box>
           </Box>
-          <Box>
-            <IconButton>
-              <StarIcon fontSize='large' sx={{ color: "#efe648" }} />
-            </IconButton>
-            ({product.valoration})
-          </Box>
         </Typography>
         <Typography
           className='price-content'

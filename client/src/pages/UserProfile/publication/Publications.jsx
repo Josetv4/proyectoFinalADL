@@ -148,7 +148,7 @@ const Publications = () => {
           <div>
             <TextField
               id="outlined-multiline-static"
-              label="Nombre detallado"
+              label="Detalle del producto (Composición, dosis, vía de administración.)"
               multiline
               variant="filled"
               rows={4}
@@ -160,7 +160,7 @@ const Publications = () => {
           <div>
             <TextField
               id="outlined-multiline-static"
-              label="Detalles de producto"
+              label="Información del producto (Acción terapéutica, posología, momento de toma)"
               multiline
               variant="filled"
               rows={4}
