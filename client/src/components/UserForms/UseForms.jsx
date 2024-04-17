@@ -24,7 +24,8 @@ const UseForm = () => {
     const [phoneError, setPhoneError] = useState(false);
     const [mailError, setMailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
-    const [showPassword, setShowPassword] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
+    const [emailDisabled, setEmailDisabled] = useState(true)
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -97,6 +98,7 @@ const UseForm = () => {
                     });
                     logout();
                     navigate("/login");
+                    setEmailDisabled(true);
                 }
             });
         } catch (error) {
@@ -159,6 +161,7 @@ const UseForm = () => {
                                 setMail(e.target.value);
                                 setMailError(false);
                             }}
+                            disabled={emailDisabled} 
                         />
                     </FormControl>
                     {mailError && <Typography style={{ color: 'red' }}>*El correo electrónico no tiene un formato válido</Typography>}
