@@ -18,6 +18,8 @@ const ShoppingCard = ({toggleDrawer}) => {
   const { cartsAllbyUser  } = useContext(DataContext);
   const { userId } = useContext(AuthContext);
 
+  const image_url = import.meta.env.VITE_URL_BASE
+
   if (!cartsAllbyUser || !cartsAllbyUser.carts || !Array.isArray(cartsAllbyUser.carts)) {
     return <div>No hay productos disponibles</div>;
   }
@@ -42,7 +44,7 @@ const ShoppingCard = ({toggleDrawer}) => {
               <Box>
                 <img
                   className="shopping-card-image"
-                  src={cart.image_url} 
+                  src={`${image_url}${cart.image_url}`} 
                   alt={cart.name}
                 />
               </Box>

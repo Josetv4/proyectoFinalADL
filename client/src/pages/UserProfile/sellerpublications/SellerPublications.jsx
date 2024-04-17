@@ -11,7 +11,7 @@ import { formatDate } from "../../../utils/DateFormat";
 
 const SellerPublications = () => {
   const { productSeller } = useContext(DataContext);
-
+  const image_url = import.meta.env.VITE_URL_BASE
   //const products = [productSeller];
   console.log(productSeller);
   return (
@@ -27,7 +27,7 @@ const SellerPublications = () => {
               <Box>
                 <img
                   className="publication-card-image"
-                  src={`http://localhost:4000/uploads/${product.image_url}`}
+                  src={`${image_url}${product.image_url}`}
                   alt={product.description}
                 />
               </Box>

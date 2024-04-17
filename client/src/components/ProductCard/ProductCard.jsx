@@ -12,9 +12,9 @@ import ButtonLittle from '../Buttons/buttonLittle/buttonLittle';
 import ButtonLittleoutline from '../Buttons/buttonLittleoutline/buttonLittleoutline';
 import { DataContext } from "../../context/DataContext";
 import { AuthContext } from '../../context/AuthContext';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
-import * as React from 'react';
+
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
@@ -28,7 +28,8 @@ export default function ProductCard({ product, favorite }) {
   const { userId } = useContext(AuthContext)
   const [isFavorite, setIsFavorite] = useState();
   const [favoriteId, setFavoriteId] = useState();
-   const [openSnack, setOpenSnack] = useState(false)
+  const [openSnack, setOpenSnack] = useState(false)
+  const image_url = import.meta.env.VITE_URL_BASE
 
   useEffect(()=>{
     setIsFavorite(favorite.isFavorite);
@@ -129,7 +130,7 @@ export default function ProductCard({ product, favorite }) {
           <CardMedia
             sx={{ height: "150px" }}
             alt={product.name}
-            image={product.image_url}
+            image={`${image_url}${product.image_url}`}
             title={product.name}
           />
           <IconButton className='icon-tag' onClick={handleFavoriteClick}>
@@ -145,12 +146,6 @@ export default function ProductCard({ product, favorite }) {
         <Typography variant="body2" color="textSecondary" component={'span'} sx={{ display: 'flex', justifyContent: "space-between" }} >
           <Box>
             Vendido por : <Box className='link-text' >{product.name_user}</Box>
-          </Box>
-          <Box>
-            <IconButton>
-              <StarIcon fontSize='large' sx={{ color: "#efe648" }} />
-            </IconButton>
-            ({product.valoration})
           </Box>
         </Typography>
         <Typography
