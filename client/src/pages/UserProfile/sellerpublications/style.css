@@ -1,39 +1,47 @@
-.seller-publications{
-    font-family: var( --font-body);
-    padding: 2%;
+.seller-publications {
+  font-family: var(--font-body);
+  padding: 2%;
 }
 
 .publication-card {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 5px; 
-  }
-  
-  .publication-card-content{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-  .publication-box-content{
-    display: flex;
-    align-items: start;
-    margin: 10px; 
-    gap:25px;
-  }
-  .publication-card-image {
-    width: 150px; 
-    margin-right: 20px; 
-  }
-  .publication-card-color {
-    color: red;
-  }
-  .publication-card-color span {
-    color: black; /* Cambia el color del texto "Precio" a negro */
-  }
-  .publication-name {
-    font-size: 1.4em; /* Cambia el tamaño del texto a 1.2 veces el tamaño normal */
-  }
-  .color-description {
-    color: --font-description-color;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+}
+
+.publication-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.publication-box-content {
+  display: flex;
+  align-items: start;
+  margin: 10px;
+  gap: 25px;
+}
+
+.publication-card-image {
+  width: 150px;
+  margin-right: 20px;
+}
+
+.publication-card-color {
+  color: red;
+}
+
+.publication-card-color span {
+  color: black;
+  /* Cambia el color del texto "Precio" a negro */
+}
+
+.publication-name {
+  font-size: 1.4em;
+  /* Cambia el tamaño del texto a 1.2 veces el tamaño normal */
+}
+
+.color-description {
+  color: --font-description-color;
+}

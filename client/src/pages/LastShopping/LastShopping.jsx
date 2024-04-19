@@ -29,7 +29,6 @@ const LastShopping = () => {
           <ReviewComponent selectedProductId={selectedProductId}
           selectuserId={selectuserId} />
         </Drawer>
-     
       </main>
     </>
   );

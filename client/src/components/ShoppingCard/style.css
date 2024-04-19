@@ -1,26 +1,34 @@
 .shopping-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+@media (max-width: 900px) {
+  .shopping-card {
+    flex-direction: column; /* Para dispositivos móviles, los campos de entrada se apilan verticalmente */
   }
-  
-  .shopping-card-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .shopping-box-content{
-    display: flex;
-    align-items: center;
-    margin: 10px; 
-    
-  }
-  .shopping-card-image {
-    width: 150px; 
-    margin-right: 20px; 
-  }
-  .shopping-card-color {
-    color: red;
-  }
-  
+}
+
+
+.shopping-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shopping-box-content {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+
+}
+
+.shopping-card-image {
+  width: 150px;
+  margin-right: 20px;
+}
+
+.shopping-card-color {
+  color: red;
+}
