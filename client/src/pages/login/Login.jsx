@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
-import { Container } from "@mui/material";
+import { Container, FormControl } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import ButtonBig from "../../components/Buttons/buttonBig/buttonBig";
 import ButtonLittle from "../../components/Buttons/buttonLittle/buttonLittle";
@@ -19,6 +19,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import "./style.css";
+
 const LoginPage = () => {
   const [loginmail, setLoginMail] = useState(""); // Estado para el valor del email
   const [loginpassword, setLoginPassword] = useState(""); // Estado para el valor de la contraseña
@@ -77,22 +78,21 @@ const LoginPage = () => {
                 </div>
 
                 <div className="login_border">
-                  <form onSubmit={handleLogin}>
+                  <form >
                     <div className="inputgroup" >
                       <div className="login_input">
-                        <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel>
+                    <FormControl sx={{ width: '30ch' }}>
+                        
                         <TextField
-                          required
-                          id="filled"
-
-                          defaultValue="correo@mail.com"
-                          variant="filled"
+                       id="filled-basic" label="Email" variant="filled"
 
                           value={loginmail}
                           onChange={(e) => setLoginMail(e.target.value)}
                         />
+                        </FormControl>
                       </div>
                       <div className="login_input">
+                        <FormControl sx={{ width: '30ch' }}>
                         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                         <FilledInput
 
@@ -114,14 +114,16 @@ const LoginPage = () => {
                           }
                           label="Password"
                         />
+                        </FormControl>
+                       
                       </div>
 
                     </div>
                     <div>
                       <div className="login_button">
                         {/* <p>¿Se te olvido la contraseña?</p> */}
-                        <ButtonBig type="submit">
-                          iniciar sesión
+                        <ButtonBig type="submit" onClick={handleLogin}>
+                          Iniciar sesión
                         </ButtonBig>
                       </div>
                       <div className="register_new">

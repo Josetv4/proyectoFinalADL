@@ -1,0 +1,7 @@
+.form_perfil{
+    display: flex;
+    flex-direction: column;
+    height: 26rem;
+    align-items: center;
+    justify-content: space-around;
+}

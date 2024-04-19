@@ -16,6 +16,7 @@ const DetailsProducts = () => {
     const [product, setProduct] = useState([]);
     const [reviews, setReviews] = useState([]);
     const navigate = useNavigate();
+    const image_url = import.meta.env.VITE_URL_BASE
 
 
     useEffect(() => {
@@ -40,7 +41,7 @@ const DetailsProducts = () => {
     const asyncGetProduct = async () => {
         try {
             const response = await getProductsById(id);
-            console.log(response)        
+            console.log(response)
             setProduct(response.response)
         } catch (error) {
             console.log(error);
@@ -70,19 +71,19 @@ const DetailsProducts = () => {
         navigate(-1)
     }
 
-   
-const convertirFechaZ = (fechaZulu) =>{
- 
-    const fecha = new Date(fechaZulu);
-    const offset = fecha.getTimezoneOffset();
-    const GmtMenos4 = offset - (4 * 60);
-  
-    fecha.setMinutes(fecha.getMinutes() + GmtMenos4);
-  
-    const fechaGMTmenos4 = fecha.toISOString().split("T")[0];
-    
-    return fechaGMTmenos4;
-  }
+
+    const convertirFechaZ = (fechaZulu) => {
+
+        const fecha = new Date(fechaZulu);
+        const offset = fecha.getTimezoneOffset();
+        const GmtMenos4 = offset - (4 * 60);
+
+        fecha.setMinutes(fecha.getMinutes() + GmtMenos4);
+
+        const fechaGMTmenos4 = fecha.toISOString().split("T")[0];
+
+        return fechaGMTmenos4;
+    }
 
 
     return (
@@ -113,19 +114,11 @@ const convertirFechaZ = (fechaZulu) =>{
                     <Box>
                         <img
                             style={{ width: "300px" }}
-                            srcSet={product.image_url}
-                            src={product.image_url}
+                            srcSet={`${image_url}${product.image_url}`}
+                            src={`${image_url}${product.image_url}`}
                             alt={product.description}
                             loading="lazy"
                         />
-                        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <Box>
-                                <StarIcon fontSize='large' sx={{ color: "#efe648" }} />
-                            </Box>
-                            <Box sx={{ fontSize: 'medium' }}>
-                                ({product.valoration})
-                            </Box>
-                        </Box>
                     </Box>
                 </Box>
 
@@ -176,7 +169,15 @@ const convertirFechaZ = (fechaZulu) =>{
                                         return (
                                             <Paper key={i} elevation={3} style={{ padding: '10px', marginBottom: '10px' }}>
                                                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                                                    <Typography variant="subtitle1">Autor : </Typography>
+
+                                                    <Typography variant="subtitle1" sx={{display:"flex"}}>
+                                                        <Box sx={{marginTop:"5px"}}>
+                                                            {commentary.rating}
+                                                        </Box>
+                                                        <Box>
+                                                            <StarIcon fontSize='large' sx={{ color: "#efe648" }} />
+                                                        </Box> 
+                                                    </Typography>
                                                     <Typography variant="subtitle1">Fecha Publicación : {convertirFechaZ(commentary.create_at)}</Typography>
                                                 </Box>
                                                 <Typography variant="body1">Comentario : {commentary.comment}</Typography>

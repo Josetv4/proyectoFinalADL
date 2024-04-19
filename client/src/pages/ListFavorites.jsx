@@ -30,7 +30,8 @@ const ListFavorites = () => {
   const {  addCartItem } = useContext(DataContext);
   const [error, setError] = useState("");
   const [favorites, setFavorites] = useState([]);
-  console.log(userId);
+
+  const image_url = import.meta.env.VITE_URL_BASE
   
   useEffect(() => {
     fetchFavorites();
@@ -46,7 +47,7 @@ const ListFavorites = () => {
         navigate("/login");
         
       } else {
-        swal("id eliminado : " + id , { icon: "success" });
+        swal("Registro eliminado" , { icon: "success" });
       }
       fetchFavorites();
     } catch (error) {
@@ -71,7 +72,7 @@ const ListFavorites = () => {
   const fetchFavorites = async () => {
     try {
       const { response, error } = await getFavoritesbyUser(userId);
-      setFavorites(response.favorites);
+      setFavorites(response);
       setError(error);
     } catch (error) {
       console.error("Error al obtener favoritos:", error);
@@ -80,21 +81,21 @@ const ListFavorites = () => {
   };
 
   if (!favorites  || !Array.isArray(favorites) || (favorites.length === 0)  )  {
-    return <div>No hay productos disponibles</div>;
+    return <div>No hay Favoritos disponibles</div>;
   }
 
-  console.log(favorites)
+ 
 
   return (
     <Container>
       <h1>Mis Favoritos</h1>
       {favorites.map((favorite, index) => (
-        <Card key={`${favorite.favorite}-${index}`} className="favorite-card">
+        <Card key={`${favorite.favorite_id}-${index}`} className="favorite-card">
           <CardContent className="favorite-card-content">
             <Box>
               <img
                 className="favorite-card-image"
-                src={`http://localhost:4000/uploads/$favorite.image_url`}
+                src={`${image_url}${favorite.image_url}`}
                 alt={favorite.name}
               />
             </Box>
