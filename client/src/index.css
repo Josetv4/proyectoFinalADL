@@ -79,9 +79,31 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 10px; 
+    margin: 10px;
   }
-  
+
+  @media (max-width: 800px) {
+    .favorite-card {
+      flex-direction: column;
+    }
+  }
+
+  .favorite-text {
+    text-align: center;
+    color: var(--font-footer-color1);
+    margin-top: 5rem;
+  }
+
+  @keyframes fade-in-out {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .favorite-text {
+    animation: fade-in-out 5s infinite;
+  }
+
   .favorite-card-content{
     display: flex;
     flex-direction: column;

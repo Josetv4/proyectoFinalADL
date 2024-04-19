@@ -20,34 +20,32 @@ import Typography from "@mui/material/Typography";
 
 import "../index.css";
 
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ListFavorites = () => {
   const navigate = useNavigate();
   const { userId } = useContext(AuthContext);
-  const {  addCartItem } = useContext(DataContext);
+  const { addCartItem } = useContext(DataContext);
   const [error, setError] = useState("");
   const [favorites, setFavorites] = useState([]);
 
-  const image_url = import.meta.env.VITE_URL_BASE
-  
+  const image_url = import.meta.env.VITE_URL_BASE;
+
   useEffect(() => {
     fetchFavorites();
   }, []);
 
   const handleClickDelete = async (id) => {
     try {
-     await deleteFavoriteId(id);
-      
+      await deleteFavoriteId(id);
+
       if (error) {
         alert(error);
         setError(error);
         navigate("/login");
-        
       } else {
-        swal("Registro eliminado" , { icon: "success" });
+        swal("Registro eliminado", { icon: "success" });
       }
       fetchFavorites();
     } catch (error) {
@@ -59,16 +57,16 @@ const ListFavorites = () => {
     try {
       await addCartItem(userId, product_id, 1, price);
       console.log("Se añadio el producto al carrito con exito");
-      toast(' ¡Excelente! su producto fue añadido al carrito',);
-      } catch (err) {
+      toast(" ¡Excelente! su producto fue añadido al carrito");
+    } catch (err) {
       console.error("Error al cargar producto al carrito", err);
-      }   
     }
-    const dontProduct = () =>{
-      swal("¡Debes iniciar sesion para añadir productos al carrito!", {
-        icon: "error",
-      });
-    };
+  };
+  const dontProduct = () => {
+    swal("¡Debes iniciar sesion para añadir productos al carrito!", {
+      icon: "error",
+    });
+  };
   const fetchFavorites = async () => {
     try {
       const { response, error } = await getFavoritesbyUser(userId);
@@ -80,17 +78,25 @@ const ListFavorites = () => {
     }
   };
 
-  if (!favorites  || !Array.isArray(favorites) || (favorites.length === 0)  )  {
-    return <div>No hay Favoritos disponibles</div>;
+  if (!favorites || !Array.isArray(favorites) || favorites.length === 0) {
+    return (
+    <div>
+      <h1 >No has agregado productos a favoritos</h1>
+      <div>
+        <h3 className="favorite-text"> ¡Explora nuestra amplia varidad de productos! </h3>
+      </div>
+    </div>
+      )
   }
-
- 
 
   return (
     <Container>
       <h1>Mis Favoritos</h1>
       {favorites.map((favorite, index) => (
-        <Card key={`${favorite.favorite_id}-${index}`} className="favorite-card">
+        <Card
+          key={`${favorite.favorite_id}-${index}`}
+          className="favorite-card"
+        >
           <CardContent className="favorite-card-content">
             <Box>
               <img
@@ -102,14 +108,13 @@ const ListFavorites = () => {
           </CardContent>
           <CardContent className="favorite-card-content">
             <Box>
-            <Typography variant="p" className="favorite-name">
+              <Typography variant="p" className="favorite-name">
                 {favorite.name}
               </Typography>
             </Box>
           </CardContent>
           <CardContent className="favorite-box-content">
             <Box className="favorite-card-content">
-             
               <Typography variant="p" className="favorite-card-color">
                 <span>Precio :</span> {favorite.price}
               </Typography>
@@ -119,7 +124,11 @@ const ListFavorites = () => {
             </Box>
             <Box>
               <ButtonLittle
-                onClick={ userId ? () => addProduct(favorite.product_id, favorite.price) : () => dontProduct()} 
+                onClick={
+                  userId
+                    ? () => addProduct(favorite.product_id, favorite.price)
+                    : () => dontProduct()
+                }
               >
                 Añadir al carro
               </ButtonLittle>

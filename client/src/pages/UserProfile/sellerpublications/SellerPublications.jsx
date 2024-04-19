@@ -11,11 +11,11 @@ import { formatDate } from "../../../utils/DateFormat";
 
 const SellerPublications = () => {
   const { productSeller } = useContext(DataContext);
-  const image_url = import.meta.env.VITE_URL_BASE
+  const image_url = import.meta.env.VITE_URL_BASE;
   //const products = [productSeller];
   console.log(productSeller);
   return (
-    <div className="seller-publications">
+    <Box className="seller-publications">
       <h1>Tus ultimas publicaciones</h1>
       <Container>
         {productSeller.product.map((product, index) => (
@@ -54,15 +54,14 @@ const SellerPublications = () => {
                   <span>Categoria :</span> {product.name_category}
                 </Typography>
                 <Typography variant="p">
-                  <span>Fecha Creacion :</span>{" "}
-                  {formatDate(product.create_at)}
+                  <span>Fecha Creacion :</span> {formatDate(product.create_at)}
                 </Typography>
               </Box>
             </CardContent>
           </Card>
         ))}
       </Container>
-    </div>
+    </Box>
   );
 };
 

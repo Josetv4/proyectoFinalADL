@@ -13,11 +13,10 @@ import "./style.css";
 import TextField from "@mui/material/TextField";
 import { createNewProduct, getCategories } from "../../../api/getApi";
 import { AuthContext } from "../../../context/AuthContext";
-import swal from 'sweetalert';
-import CircularProgress from '@mui/material/CircularProgress';
+import swal from "sweetalert";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Publications = () => {
-
   const { userId } = useContext(AuthContext);
   const [productname, setProductname] = useState("");
   const [details, setDetails] = useState("");
@@ -25,47 +24,55 @@ const Publications = () => {
   const [stock, setStock] = useState("");
   const [detailname, setDetailname] = useState("");
   const [category, setCategory] = useState("");
-  const [categories,setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     asyncGetCategories();
-  },[]);
+  }, []);
 
-  const asyncGetCategories = async()=>{
+  const asyncGetCategories = async () => {
     try {
       const response = await getCategories();
-      setCategories(response.response.category)
+      setCategories(response.response.category);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-  const handleSubmit =  async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      nameProducts : productname,
-      description : details,
+      nameProducts: productname,
+      description: details,
       price,
       stock,
-      category_id : category,
-      statusProduct : "P",
-      user_id : userId,
+      category_id: category,
+      statusProduct: "P",
+      user_id: userId,
       image,
-      information : detailname
-    }
+      information: detailname,
+    };
 
-    console.log(data)
+    console.log(data);
     try {
       const response = await createNewProduct(data);
       console.log(response);
       if (response.statusCode === 201) {
-        swal("¡Registro exitoso!", "Tu producto se ha publicado correctamente.", "success");
+        swal(
+          "¡Registro exitoso!",
+          "Tu producto se ha publicado correctamente.",
+          "success"
+        );
         cleanFields();
       } else {
-        swal("¡Error!", "Ha ocurrido un error al publicar tu producto", "error");
+        swal(
+          "¡Error!",
+          "Ha ocurrido un error al publicar tu producto",
+          "error"
+        );
       }
     } catch (error) {
       console.log(error);
@@ -90,26 +97,37 @@ const Publications = () => {
     setStock("");
     setDetailname("");
     setCategory("");
-  }
+  };
 
   return (
-    <div className="publication">
+    <Box className="publication" >
       <h1>Publica tus productos</h1>
 
-      <form onSubmit={handleSubmit} >
-
-
-          <Box
-           sx={{
+      <form onSubmit={handleSubmit}>
+        <Box
+          sx={{
             display: "grid",
             columnGap: 4,
             rowGap: 3,
             gridTemplateColumns: "repeat(3, 2fr)",
             justifyItems: "center",
-            height: "100%",
             margin: "2%",
             alignItems: "center",
-          }}>
+            "@media (max-width: 900px)": {
+              display: 'flex',
+              flexDirection: 'column',
+            },
+            "@media (min-width: 900px) and (max-width: 1100px)": {
+              display: "grid",
+              columnGap: 2,
+              rowGap: 2,
+              gridTemplateColumns: "repeat(2, 3fr)",
+              justifyItems: "center",
+              margin: "2%",
+              alignItems: "center",
+            },
+          }}
+        >
           <div>
             <TextField
               required
@@ -197,13 +215,12 @@ const Publications = () => {
             >
               Sube la imagen de tu producto aquí <FaRegImage />
             </Button> */}
-      
+
             <input
-                
-                type="file"
-                id="image"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
+              type="file"
+              id="image"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
           </div>
           {loading && (
             <div className="publication_button">
@@ -227,11 +244,17 @@ const Publications = () => {
             height: "100%",
             margin: "2%",
             alignItems: "center",
-          }}>
-          <ButtonBig type="submit" variant="outlined">Publicar</ButtonBig>
+            "@media (max-width: 900px)": {
+              justifyItems: "center",
+            },
+          }}
+        >
+          <ButtonBig type="submit" variant="outlined">
+            Publicar
+          </ButtonBig>
         </Box>
       </form>
-    </div>
+    </Box>
   );
 };
 

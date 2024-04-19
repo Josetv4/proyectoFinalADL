@@ -1,5 +1,5 @@
 .publication {
-  margin: 3%;
+  margin: 2rem auto;
 }
 .publication_category {
   display: flex;
@@ -33,3 +33,4 @@ height: inherit;
 .css-batk84-MuiInputBase-root-MuiFilledInput-root{
   height: 58px !important;
 }
+

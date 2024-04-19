@@ -4,20 +4,32 @@ import UseForm from "../../components/UserForms/UseForms";
 import ButtonBig from "../../components/Buttons/buttonBig/buttonBig";
 import ButtonOutline from "../../components/Buttons/buttonBigoutline/buttonOutline";
 import Birthday from "../../utils/Birthday";
-import logoSeller from '../../assets/imgs/seller.png';
+import logoSeller from "../../assets/imgs/seller.png";
 
 const containerFlex = {
   display: "flex",
-  gap: "220px",
+  gap: "2rem",
   flexWrap: "wrap",
 };
 
 const SellerUser = () => {
   const { user } = useAuth();
   return (
-    <Box sx={{ ...containerFlex, justifyContent: 'center', mt: '5px', mb: '5px', alignItems: 'center' }}>
+    <Box
+      sx={{
+        ...containerFlex,
+        justifyContent: "space-around",
+        maxWidth: "60rem",
+        alignItems: "center",
+        margin: "1rem auto",
+        padding: "1rem",
+        "@media (min-width: 1700px)": {
+          minHeight: "50rem",
+        },
+      }}
+    >
       <Box>
-        <Box sx={{ ...containerFlex, gap: '15px' }}>
+        <Box sx={{ ...containerFlex, gap: "15px" }}>
           <Box>
             <Avatar
               sx={{ width: 100, height: 100 }}
@@ -51,9 +63,11 @@ const SellerUser = () => {
             )}
           </List>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: "column", gap: '15px' }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "15px" }}>
           <ButtonBig to="/publication">Haz una publicación</ButtonBig>
-          <ButtonOutline to="/yours-publication">Tus publicaciones</ButtonOutline>
+          <ButtonOutline to="/yours-publication">
+            Tus publicaciones
+          </ButtonOutline>
         </Box>
       </Box>
       <UseForm />
